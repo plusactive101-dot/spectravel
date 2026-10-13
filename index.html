@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPECTRAVEL | Global Exploration, Destination Intelligence & Nomad Lab</title>
+  <title>China Trip 2026 | Spectravel Interactive Global Flowchart & Master Itinerary</title>
+  
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -11,313 +13,2325 @@
       theme: {
         extend: {
           colors: {
-            travel: {
-              50: '#f0fdfa',
-              400: '#2dd4bf',
-              500: '#14b8a6',
-              600: '#0d9488',
+            brand: {
+              teal: '#06b6d4',
+              cyan: '#0ea5e9',
               orange: '#f97316',
-              cyan: '#06b6d4',
-              gold: '#f59e0b'
-            },
-            dark: {
-              950: '#070a0f',
-              900: '#0c111a',
-              850: '#131b28',
-              800: '#1c2738',
-              700: '#28374d'
+              amber: '#f59e0b',
+              purple: '#8b5cf6',
+              pink: '#ec4899',
+              emerald: '#10b981',
+              rose: '#f43f5e',
+              indigo: '#6366f1'
             }
           }
         }
       }
     }
   </script>
+
+  <!-- Google Fonts & FontAwesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+    
+    :root {
+      --bg-page: #0b0f19;
+      --card-bg: rgba(18, 24, 38, 0.85);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --grid-line: rgba(255, 255, 255, 0.03);
+    }
+
+    html.light {
+      --bg-page: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-border: rgba(226, 232, 240, 0.9);
+      --text-main: #0f172a;
+      --text-sub: #475569;
+      --grid-line: rgba(0, 0, 0, 0.04);
+    }
+    
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     .mono {
       font-family: 'JetBrains Mono', monospace;
     }
-    .glass-card {
-      background: rgba(19, 27, 40, 0.75);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    /* Dynamic Mesh Background */
+    .mesh-gradient-dark {
+      background-image: 
+        radial-gradient(at 10% 15%, rgba(14, 165, 233, 0.18) 0px, transparent 50%),
+        radial-gradient(at 85% 10%, rgba(249, 115, 22, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.14) 0px, transparent 50%),
+        radial-gradient(at 15% 85%, rgba(16, 185, 129, 0.14) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
     }
-    .glow-teal {
-      box-shadow: 0 0 30px -5px rgba(20, 184, 166, 0.18);
+
+    .mesh-gradient-light {
+      background-image: 
+        radial-gradient(at 10% 15%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
+        radial-gradient(at 85% 10%, rgba(249, 115, 22, 0.10) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.09) 0px, transparent 50%),
+        radial-gradient(at 15% 85%, rgba(16, 185, 129, 0.10) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(236, 72, 153, 0.10) 0px, transparent 50%);
+    }
+
+    /* Modern Glass Cards */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Vibrant Glows */
+    .glow-cyan:hover { border-color: #06b6d4; box-shadow: 0 10px 30px -5px rgba(6, 182, 212, 0.35); }
+    .glow-orange:hover { border-color: #f97316; box-shadow: 0 10px 30px -5px rgba(249, 115, 22, 0.35); }
+    .glow-emerald:hover { border-color: #10b981; box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.35); }
+    .glow-purple:hover { border-color: #8b5cf6; box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.35); }
+    .glow-pink:hover { border-color: #ec4899; box-shadow: 0 10px 30px -5px rgba(236, 72, 153, 0.35); }
+    .glow-gold:hover { border-color: #f59e0b; box-shadow: 0 10px 30px -5px rgba(245, 158, 11, 0.35); }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-page); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+
+    /* Flowchart connector line styling */
+    .flow-step-line {
+      position: relative;
+    }
+    .flow-step-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      width: 20px;
+      height: 3px;
+      background: linear-gradient(90deg, #06b6d4, #f97316);
+      transform: translateY(-50%);
+    }
+
+    /* Active Tab */
+    .active-tab {
+      background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+      color: #ffffff !important;
+      border-color: transparent !important;
+      box-shadow: 0 4px 20px -3px rgba(14, 165, 233, 0.45);
+    }
+
+    /* Pulsing Dot */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.9); opacity: 0.9; }
+      50% { transform: scale(1.25); opacity: 0.3; }
+      100% { transform: scale(0.9); opacity: 0.9; }
+    }
+    .pulse-glow {
+      animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
   </style>
 </head>
-<body class="bg-dark-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-travel-500 selection:text-white">
+<body class="mesh-gradient-dark min-h-screen flex flex-col antialiased selection:bg-brand-cyan selection:text-white">
 
-  <!-- TOP TRAVEL TICKER BAR -->
-  <div class="border-b border-dark-800 bg-black/40 text-xs py-2 px-4 overflow-x-auto whitespace-nowrap mono text-slate-400 flex items-center justify-between">
-    <div class="flex items-center space-x-6">
-      <span class="text-travel-400 font-bold flex items-center gap-1.5">
-        <i class="fa-solid fa-plane-departure text-[11px]"></i> GLOBAL DISCOVERY
+  <!-- ========================================== -->
+  <!-- 1. COLORFUL LIVE TICKER & THEME SWITCHER   -->
+  <!-- ========================================== -->
+  <div class="border-b border-white/10 bg-black/40 text-xs py-2 px-4 sm:px-8 overflow-x-auto whitespace-nowrap mono text-slate-300 flex items-center justify-between z-40 backdrop-blur-md">
+    <div class="flex items-center space-x-4 sm:space-x-6">
+      <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold text-[11px] shadow-sm">
+        <i class="fa-solid fa-plane-departure text-[10px]"></i> SPECTRAVEL
       </span>
-      <span>• Tokyo: 21°C • ¥152/USD</span>
-      <span>• Zurich: 14°C • CHF 0.86/USD</span>
-      <span>• Bali: 29°C • Rp15,800/USD</span>
-      <span>• Lisbon: 22°C • €0.92/USD</span>
-      <span>• Cape Town: 19°C • R17.8/USD</span>
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 font-semibold">
+        <i class="fa-solid fa-calendar text-[10px]"></i> 29 Nov – 12 Dec 2026 (14 Days)
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 font-semibold">
+        <i class="fa-solid fa-users text-[10px]"></i> 2 Adults + 2 Kids Family Expedition
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-semibold">
+        <i class="fa-solid fa-shield-check text-[10px]"></i> Strict Privacy Mode (Zero Booking IDs)
+      </span>
     </div>
-    <div class="hidden sm:flex items-center space-x-2 text-slate-500 text-[11px]">
-      <i class="fa-solid fa-wifi text-emerald-400"></i>
-      <span>Live Nomad Telemetry</span>
+
+    <!-- THEME TOGGLE BUTTON -->
+    <div class="flex items-center space-x-2 pl-4 shrink-0">
+      <button onclick="toggleTheme()" class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-semibold mono flex items-center gap-2 transition" id="themeToggleBtn">
+        <i class="fa-solid fa-sun text-yellow-400" id="themeIcon"></i>
+        <span id="themeText">Daylight</span>
+      </button>
     </div>
   </div>
 
-  <!-- NAVIGATION HEADER -->
-  <header class="border-b border-dark-800 bg-dark-900/85 sticky top-0 z-50 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- ========================================== -->
+  <!-- 2. MODERN & COLORFUL NAVIGATION HEADER     -->
+  <!-- ========================================== -->
+  <header class="border-b border-white/10 bg-slate-950/70 sticky top-0 z-40 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row items-center justify-between gap-4">
       
-      <!-- LOGO -->
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 via-cyan-600 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/20">
-          <i class="fa-solid fa-compass text-lg"></i>
+      <!-- LOGO & BRAND -->
+      <div class="flex items-center space-x-3.5">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-cyan-400 via-purple-500 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-purple-500/30">
+          <i class="fa-solid fa-compass text-2xl"></i>
         </div>
         <div>
           <div class="flex items-center space-x-2">
-            <span class="font-extrabold text-xl tracking-wider text-white mono">SPEC</span>
-            <span class="font-bold text-xl tracking-wide text-travel-400 mono">TRAVEL</span>
-            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-teal-500/15 text-teal-300 border border-teal-500/30 mono uppercase">
-              Global Hub
+            <span class="font-black text-2xl tracking-wider text-white mono">SPEC</span>
+            <span class="font-extrabold text-2xl tracking-wide bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent mono">TRAVEL</span>
+            <span class="px-2.5 py-0.5 text-[10px] font-black rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-sm mono uppercase">
+              China 2026
             </span>
           </div>
-          <p class="text-[11px] text-slate-400 hidden sm:block">Curated Destinations • Travel Budget Physics • Nomad Itineraries</p>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Guangzhou Panyu • Chimelong Safari • Canton Heritage • Qingyuan • Shenzhen • Hong Kong</p>
         </div>
       </div>
 
-      <!-- NAV LINKS -->
-      <div class="flex items-center space-x-3 text-xs font-medium">
-        <a href="#destinations" class="text-slate-400 hover:text-travel-400 transition hidden sm:inline">Destinations</a>
-        <a href="#budget-calculator" class="text-slate-400 hover:text-travel-400 transition hidden md:inline">Budget Estimator</a>
-        <a href="#itinerary" class="text-slate-400 hover:text-travel-400 transition hidden md:inline">Itinerary Planner</a>
-        <a href="china-2026.html" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-teal-500/20 to-cyan-500/20 hover:from-teal-500/30 hover:to-cyan-500/30 text-teal-300 border border-teal-500/40 transition flex items-center gap-1.5 mono font-semibold shadow-sm shadow-teal-500/10">
-          <i class="fa-solid fa-route text-travel-400"></i>
-          <span>China 2026 Itinerary</span>
-        </a>
-        <div class="flex items-center space-x-2 bg-dark-850 px-3 py-1.5 rounded-full border border-dark-700 mono">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-slate-300 text-[11px]">8 Curated Hubs</span>
-        </div>
-      </div>
+      <!-- VIEW NAVIGATION TABS -->
+      <nav class="flex items-center space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs font-bold mono">
+        <button onclick="switchView('flowchart')" id="btn-flowchart" class="nav-tab active-tab px-4 py-2.5 rounded-xl border border-white/10 transition flex items-center gap-2 shrink-0">
+          <i class="fa-solid fa-route"></i>
+          <span>Global Flowchart</span>
+        </button>
+        <button onclick="switchView('mindmap')" id="btn-mindmap" class="nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+          <i class="fa-solid fa-diagram-project text-purple-400"></i>
+          <span>Mindmap</span>
+        </button>
+        <button onclick="switchView('schedule')" id="btn-schedule" class="nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+          <i class="fa-solid fa-calendar-days text-orange-400"></i>
+          <span>14-Day Schedule</span>
+        </button>
+        <button onclick="switchView('hotels')" id="btn-hotels" class="nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+          <i class="fa-solid fa-hotel text-emerald-400"></i>
+          <span>Hotels & Photos</span>
+        </button>
+        <button onclick="switchView('dining')" id="btn-dining" class="nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+          <i class="fa-solid fa-utensils text-yellow-400"></i>
+          <span>Dining & Food</span>
+        </button>
+      </nav>
 
     </div>
   </header>
 
+  <!-- ========================================== -->
+  <!-- MAIN APP CONTAINER                         -->
+  <!-- ========================================== -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 flex-1 w-full">
 
-    <!-- HERO BANNER -->
-    <div class="glass-card rounded-2xl p-6 sm:p-10 relative overflow-hidden glow-teal border border-dark-800">
-      <div class="absolute -right-16 -top-16 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -left-16 -bottom-16 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- HERO TRIP BANNER (VIBRANT & COLORFUL) -->
+    <section class="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden border border-white/10">
+      <div class="absolute -right-20 -top-20 w-96 h-96 bg-gradient-to-br from-cyan-500/25 via-purple-500/20 to-pink-500/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-gradient-to-tr from-orange-500/20 via-amber-500/20 to-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="relative z-10 max-w-3xl space-y-3">
-        <div class="flex flex-wrap items-center gap-2">
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs bg-dark-850 text-travel-300 border border-dark-700 mono">
-            <i class="fa-solid fa-earth-americas text-travel-400"></i>
-            <span>Explore Across The Entire Spectrum of the Earth</span>
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <div class="space-y-4 max-w-2xl">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-orange-500/20 border border-white/15 mono text-cyan-300">
+            <i class="fa-solid fa-sparkles text-amber-400"></i>
+            <span>Interactive Family Travel Navigator • 29 Nov – 12 Dec 2026</span>
           </div>
-          <a href="china-2026.html" class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs bg-orange-500/15 text-orange-300 border border-orange-500/30 mono hover:bg-orange-500/25 transition">
-            <i class="fa-solid fa-compass-drafting text-orange-400"></i>
-            <span>Featured: 14-Day China 2026 Flowchart & Itinerary →</span>
-          </a>
-        </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Global Destination Intelligence & Remote Exploration
-        </h1>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-          From neon cyberpunk skylines to high-altitude alpine passes and serene tropical archipelagos. Filter destinations by vibe, estimate real daily living budgets, and project customized 7-day roadmaps.
-        </p>
+          <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            China Greater Bay Area <span class="bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Family Journey</span>
+          </h1>
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Experience 14 days of vibrant discovery: high-speed bullet trains, world-class wildlife safari, alpine canyon glass skywalks, historic red-brick mansions, and 5 hand-picked luxury hotels.
+          </p>
 
-        <!-- CATEGORY FILTER CHIPS -->
-        <div class="pt-2 flex flex-wrap gap-2 text-xs mono">
-          <button onclick="filterDestinations('all')" class="cat-btn px-3 py-1.5 rounded-lg bg-travel-500 text-dark-950 font-bold transition" data-cat="all">All Hubs (8)</button>
-          <button onclick="filterDestinations('Alpine')" class="cat-btn px-3 py-1.5 rounded-lg bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition" data-cat="Alpine">Alpine & Mountains</button>
-          <button onclick="filterDestinations('Coastal')" class="cat-btn px-3 py-1.5 rounded-lg bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition" data-cat="Coastal">Coastal & Tropical</button>
-          <button onclick="filterDestinations('Urban')" class="cat-btn px-3 py-1.5 rounded-lg bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition" data-cat="Urban">Cyberpunk / Metropolis</button>
-          <button onclick="filterDestinations('Heritage')" class="cat-btn px-3 py-1.5 rounded-lg bg-dark-850 hover:bg-dark-800 text-slate-300 border border-dark-700 transition" data-cat="Heritage">Historic & Culture</button>
-          <a href="china-2026.html" class="px-3 py-1.5 rounded-lg bg-orange-500/20 hover:bg-orange-500/30 text-orange-300 border border-orange-500/40 transition font-bold flex items-center gap-1.5">
-            <i class="fa-solid fa-plane text-orange-400"></i> China 2026 Map
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODULE 1: DESTINATIONS SPECTRUM GRID -->
-    <section id="destinations" class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <div>
-          <h2 class="text-xl font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-map-location-dot text-travel-400"></i> Destination Spectrum
-          </h2>
-          <p class="text-xs text-slate-400 mt-1">Select a destination card to inspect its detailed breakdown, cost index, and daily itinerary</p>
-        </div>
-        <div class="text-xs text-slate-400 mono">Click any card to inspect</div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="destinationsGrid">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-    </section>
-
-    <!-- MODULE 2: INTERACTIVE TRAVEL BUDGET & LIVING CALCULATOR -->
-    <section id="budget-calculator" class="glass-card rounded-2xl p-6 sm:p-8 border border-dark-800 space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-dark-800 gap-2">
-        <div>
-          <h2 class="text-xl font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-calculator text-travel-400"></i> Trip Cost & Living Budget Estimator
-          </h2>
-          <p class="text-xs text-slate-400 mt-1">Model total trip expenditures based on destination tier, stay duration, and style of travel</p>
-        </div>
-        <div class="text-xs text-emerald-400 mono flex items-center gap-1.5 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-          <i class="fa-solid fa-coins"></i> Live Cost Engine
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
-        <!-- INPUT CONTROLS (6 COLS) -->
-        <div class="lg:col-span-6 space-y-5">
-          
-          <div class="space-y-2">
-            <label class="text-xs font-semibold text-slate-300 mono">TARGET DESTINATION</label>
-            <select id="budgetDestSelect" onchange="calculateBudget()" class="w-full bg-dark-850 border border-dark-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 mono focus:border-travel-400 outline-none">
-              <option value="tokyo">Tokyo, Japan (Metropolis Tier • Moderate/High)</option>
-              <option value="bali">Bali, Indonesia (Nomad Archipelago • Budget/Moderate)</option>
-              <option value="swiss">Zermatt, Switzerland (Alpine Luxury • Premium)</option>
-              <option value="lisbon">Lisbon, Portugal (Coastal European • Moderate)</option>
-              <option value="capetown">Cape Town, South Africa (Adventure Coast • Moderate)</option>
-            </select>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-xs mono text-slate-400">
-                <label>TRIP LENGTH</label>
-                <span id="tripDaysVal" class="text-white font-bold">14 Days</span>
-              </div>
-              <input type="range" id="tripDays" min="3" max="60" value="14" oninput="calculateBudget()" class="w-full h-1.5 bg-dark-800 rounded cursor-pointer accent-teal-500">
-            </div>
-
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-xs mono text-slate-400">
-                <label>TRAVELERS</label>
-                <span id="travelersVal" class="text-white font-bold">2 Persons</span>
-              </div>
-              <input type="range" id="travelersCount" min="1" max="6" value="2" oninput="calculateBudget()" class="w-full h-1.5 bg-dark-800 rounded cursor-pointer accent-teal-500">
-            </div>
-          </div>
-
-          <div class="space-y-2">
-            <label class="text-xs font-semibold text-slate-300 mono">TRAVEL TIER / STYLE</label>
-            <div class="grid grid-cols-3 gap-2">
-              <button onclick="setTravelTier('backpacker')" class="tier-btn p-2.5 rounded-xl border border-dark-700 bg-dark-850 text-xs font-medium text-slate-300 mono transition" data-tier="backpacker">
-                <div class="font-bold">Backpacker</div>
-                <div class="text-[10px] text-slate-500 mt-0.5">Hostels & Transit</div>
-              </button>
-              <button onclick="setTravelTier('nomad')" class="tier-btn p-2.5 rounded-xl border border-teal-500/50 bg-teal-500/15 text-xs font-bold text-teal-300 mono transition" data-tier="nomad">
-                <div class="font-bold">Nomad / Comfort</div>
-                <div class="text-[10px] text-teal-400/70 mt-0.5">Airbnbs & Cafes</div>
-              </button>
-              <button onclick="setTravelTier('luxury')" class="tier-btn p-2.5 rounded-xl border border-dark-700 bg-dark-850 text-xs font-medium text-slate-300 mono transition" data-tier="luxury">
-                <div class="font-bold">Luxury</div>
-                <div class="text-[10px] text-slate-500 mt-0.5">5★ Hotels & Dining</div>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- BREAKDOWN TILE & SUMMARY (6 COLS) -->
-        <div class="lg:col-span-6 bg-dark-900 rounded-xl p-6 border border-dark-800 flex flex-col justify-between space-y-6">
-          
-          <div>
-            <div class="flex justify-between items-baseline">
-              <span class="text-xs text-slate-400 mono">ESTIMATED TOTAL TRIP COST</span>
-              <span class="text-xs text-travel-400 mono">USD Equivalent</span>
-            </div>
-            <div class="text-4xl font-extrabold text-white mono mt-1 flex items-baseline gap-2">
-              <span id="totalCostDisplay">$2,840</span>
-              <span class="text-xs font-normal text-slate-400" id="perPersonDisplay">($1,420 / person)</span>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-3 gap-3 text-xs mono pt-4 border-t border-dark-800">
-            <div class="bg-dark-850 p-3 rounded-lg border border-dark-700">
-              <div class="text-[10px] text-slate-400">STAY / LODGING</div>
-              <div class="text-sm font-bold text-white mt-1" id="lodgingCostDisplay">$1,400</div>
-            </div>
-            <div class="bg-dark-850 p-3 rounded-lg border border-dark-700">
-              <div class="text-[10px] text-slate-400">FOOD & CAFE</div>
-              <div class="text-sm font-bold text-white mt-1" id="foodCostDisplay">$840</div>
-            </div>
-            <div class="bg-dark-850 p-3 rounded-lg border border-dark-700">
-              <div class="text-[10px] text-slate-400">TRANSIT & FUN</div>
-              <div class="text-sm font-bold text-white mt-1" id="activityCostDisplay">$600</div>
-            </div>
-          </div>
-
-          <div class="text-xs text-slate-400 leading-relaxed bg-dark-850/60 p-3 rounded-lg border border-dark-800 flex items-start gap-2">
-            <i class="fa-solid fa-lightbulb text-travel-gold mt-0.5"></i>
-            <span id="budgetTip">
-              Tokyo tip: Opt for a 72-hour Tokyo Metro Tourist Pass (~$10) to cut transit costs by 65%.
+          <!-- COLORFUL REGION TAGS -->
+          <div class="flex flex-wrap gap-2 pt-2 text-xs mono">
+            <span class="px-3 py-1 rounded-xl bg-orange-500/15 border border-orange-500/30 text-orange-300 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-orange-400"></span> Guangzhou Panyu
+            </span>
+            <span class="px-3 py-1 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Chimelong Safari & Circus
+            </span>
+            <span class="px-3 py-1 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-300 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-purple-400"></span> Canton Heritage (Dongshankou)
+            </span>
+            <span class="px-3 py-1 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-300 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-blue-400"></span> Qingyuan Gulong Gorge
+            </span>
+            <span class="px-3 py-1 rounded-xl bg-pink-500/15 border border-pink-500/30 text-pink-300 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-pink-400"></span> Shenzhen Nanshan Tech
+            </span>
+            <span class="px-3 py-1 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span> Hong Kong Mong Kok & Harbour
             </span>
           </div>
+        </div>
 
+        <!-- 4 COLORFUL METRIC BADGES -->
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 shrink-0 mono text-xs">
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-500/10 border border-orange-500/30">
+            <div class="text-orange-300 text-[11px] font-bold">TOTAL TRIP</div>
+            <div class="text-3xl font-black text-white mt-1">14 Days</div>
+            <div class="text-[10px] text-orange-400/80">13 Total Nights</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/30">
+            <div class="text-emerald-300 text-[11px] font-bold">HOTELS BOOKED</div>
+            <div class="text-3xl font-black text-white mt-1">5 Bases</div>
+            <div class="text-[10px] text-emerald-400/80">Photos & Perks Verified</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10 border border-cyan-500/30">
+            <div class="text-cyan-300 text-[11px] font-bold">AVIATION</div>
+            <div class="text-lg font-black text-white mt-1">Cathay Pacific</div>
+            <div class="text-[10px] text-cyan-400/80">A330-300 & B777 Fleet</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/30">
+            <div class="text-purple-300 text-[11px] font-bold">RAIL TRANSIT</div>
+            <div class="text-lg font-black text-white mt-1">Bullet Rail</div>
+            <div class="text-[10px] text-purple-400/80">14-min Cross Border</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: GLOBAL FLOWCHART (TRUE MAP CANVAS) -->
+    <!-- ========================================== -->
+    <section id="view-flowchart" class="view-panel space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <h2 class="text-2xl font-black text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-route text-cyan-400"></i> Global Journey Flowchart
+          </h2>
+          <p class="text-xs text-slate-300 mt-1">Interactive roadmap connecting all 10 journey milestones. Click any card to slide open full specifications!</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs mono">
+          <span class="w-3 h-3 rounded-full bg-cyan-400 pulse-glow"></span>
+          <span class="text-cyan-300 font-bold">10 Interactive Nodes Active</span>
+        </div>
+      </div>
+
+      <!-- VISUAL FLOWCHART GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- NODE 1: FLIGHT INGRESS (ELECTRIC CYAN) -->
+        <div onclick="openDrawer('node-flight-outbound')" class="glass-card glow-cyan rounded-3xl overflow-hidden cursor-pointer border border-cyan-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-sky-400 via-cyan-500 to-teal-400"></div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-xl text-[10px] font-black bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 mono uppercase">
+                Phase 01 • Flight
+              </span>
+              <span class="text-xs text-cyan-400 font-bold mono">Sun, 29 Nov</span>
+            </div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl shrink-0 shadow-lg shadow-cyan-500/30">
+                <i class="fa-solid fa-plane-departure"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white group-hover:text-cyan-300 transition">Singapore → Hong Kong → Guangzhou</h3>
+                <p class="text-xs text-slate-300 mt-0.5">Cathay Pacific CX714 & CX982</p>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-slate-300 space-y-1">
+              <div><strong>SIN (01:25) → HKG (05:20):</strong> A330-300</div>
+              <div><strong>Layover:</strong> 2h 30m HKG T1 Airside</div>
+              <div><strong>HKG (07:50) → CAN (08:55):</strong> Morning Ingress</div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-cyan-300"><i class="fa-solid fa-fingerprint mr-1"></i> Tap to Inspect</span>
+              <span class="px-2.5 py-1 rounded-lg bg-cyan-500/20 text-cyan-200 text-[10px]">A330 Widebody</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 2: HOTEL 1 MEHOOD PANYU (WARM SUNSET ORANGE) -->
+        <div onclick="openDrawer('node-hotel-mehood')" class="glass-card glow-orange rounded-3xl overflow-hidden cursor-pointer border border-orange-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500"></div>
+          <div class="relative h-44 overflow-hidden">
+            <img src="media/hotels/hotel_1_mehood_panyu_photo.jpg" onerror="this.src='../media/hotels/hotel_1_mehood_panyu_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Mehood Lestie Hotel">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 bg-orange-500 text-white font-black px-2.5 py-1 rounded-lg text-[10px] mono">
+              HOTEL 01 • 1 NIGHT
+            </div>
+            <div class="absolute bottom-3 left-4 right-4">
+              <span class="text-xs text-orange-300 font-bold mono">29 Nov – 30 Nov 2026</span>
+              <h3 class="text-lg font-black text-white group-hover:text-orange-300 transition">Mehood Lestie Hotel Panyu</h3>
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-slate-300">Warm Parent-Child Room • Smart Controls • Bubble Bathtub • Shawan Ancient Town Buffalo Milk Curd</p>
+            <div class="flex flex-wrap gap-1.5 text-[11px] mono">
+              <span class="bg-orange-500/20 text-orange-300 px-2.5 py-0.5 rounded-md border border-orange-500/30">Late Checkout 14:00</span>
+              <span class="bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30">Afternoon Tea Buffet</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-orange-300"><i class="fa-solid fa-phone mr-1"></i> +86-20-37330666</span>
+              <span class="text-slate-400"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 3: CHIMELONG SAFARI & RESORT (LUSH EMERALD) -->
+        <div onclick="openDrawer('node-hotel-chimelong')" class="glass-card glow-emerald rounded-3xl overflow-hidden cursor-pointer border border-emerald-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-emerald-400 via-teal-500 to-green-500"></div>
+          <div class="relative h-44 overflow-hidden">
+            <img src="media/hotels/hotel_2_chimelong_resort_photo.jpg" onerror="this.src='../media/hotels/hotel_2_chimelong_resort_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Chimelong Hotel">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 bg-emerald-500 text-white font-black px-2.5 py-1 rounded-lg text-[10px] mono">
+              RESORT 02 • 2 NIGHTS
+            </div>
+            <div class="absolute bottom-3 left-4 right-4">
+              <span class="text-xs text-emerald-300 font-bold mono">30 Nov – 02 Dec 2026</span>
+              <h3 class="text-lg font-black text-white group-hover:text-emerald-300 transition">Chimelong Hotel Guangzhou</h3>
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-slate-300">Exploration Kid's Room • 3-Day Unlimited 3-Park Access • Safari Open Train • International Circus VIP</p>
+            <div class="flex flex-wrap gap-1.5 text-[11px] mono">
+              <span class="bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-md border border-emerald-500/30">3-Park Unlimited Pass</span>
+              <span class="bg-teal-500/20 text-teal-300 px-2.5 py-0.5 rounded-md border border-teal-500/30">30m Early Entry</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-emerald-300"><i class="fa-solid fa-phone mr-1"></i> +86-20-84786838</span>
+              <span class="text-slate-400"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 4: CANTON DOWNTOWN & DONGSHANKOU (ROYAL PURPLE) -->
+        <div onclick="openDrawer('node-hotel-atour')" class="glass-card glow-purple rounded-3xl overflow-hidden cursor-pointer border border-purple-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-purple-400 via-violet-500 to-indigo-500"></div>
+          <div class="relative h-44 overflow-hidden">
+            <img src="media/hotels/hotel_3_atour_dongshankou_photo.jpg" onerror="this.src='../media/hotels/hotel_3_atour_dongshankou_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Atour Hotel Dongshankou">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 bg-purple-500 text-white font-black px-2.5 py-1 rounded-lg text-[10px] mono">
+              BASE 03 • 5 NIGHTS
+            </div>
+            <div class="absolute bottom-3 left-4 right-4">
+              <span class="text-xs text-purple-300 font-bold mono">02 Dec – 07 Dec 2026</span>
+              <h3 class="text-lg font-black text-white group-hover:text-purple-300 transition">Atour Hotel Dongshankou</h3>
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-slate-300">Deluxe Twin Room • Autonomous Delivery Robots • 1920s Historic Mansions • Dafo Temple • Canton Tower</p>
+            <div class="flex flex-wrap gap-1.5 text-[11px] mono">
+              <span class="bg-purple-500/20 text-purple-300 px-2.5 py-0.5 rounded-md border border-purple-500/30">Robot Food Delivery</span>
+              <span class="bg-indigo-500/20 text-indigo-300 px-2.5 py-0.5 rounded-md border border-indigo-500/30">Historic Quarter</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-purple-300"><i class="fa-solid fa-phone mr-1"></i> +86-20-83806868</span>
+              <span class="text-slate-400"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 5: QINGYUAN GULONG GORGE DAY TRIP (SAPPHIRE BLUE) -->
+        <div onclick="openDrawer('node-qingyuan')" class="glass-card glow-cyan rounded-3xl overflow-hidden cursor-pointer border border-blue-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-blue-500 via-indigo-600 to-cyan-400"></div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-xl text-[10px] font-black bg-blue-500/20 text-blue-300 border border-blue-500/40 mono uppercase">
+                Day 05 • Alpine Charter
+              </span>
+              <span class="text-xs text-blue-400 font-bold mono">Thu, 03 Dec</span>
+            </div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white text-xl shrink-0 shadow-lg shadow-blue-500/30">
+                <i class="fa-solid fa-mountain-sun"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white group-hover:text-blue-300 transition">Qingyuan Gulong Gorge Glass Skywalk</h3>
+                <p class="text-xs text-slate-300 mt-0.5">Private 7-Seater Van Charter Round-Trip</p>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs text-slate-300 space-y-1">
+              <div><strong>Yuntian Glass Bridge:</strong> 530m above canyon</div>
+              <div><strong>Buddha Hand:</strong> Giant aerial photo platform</div>
+              <div><strong>Cliff Alpine Coaster:</strong> Mountain gravity toboggan</div>
+              <div><strong>Cuisine:</strong> Authentic Qingyuan free-range chicken</div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-blue-300"><i class="fa-solid fa-van-shuttle mr-1"></i> Private Van Charter</span>
+              <span class="px-2.5 py-1 rounded-lg bg-blue-500/20 text-blue-200 text-[10px]">Full Day</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 6: HIGH-SPEED BULLET RAIL GZ -> SZ (ELECTRIC FUCHSIA) -->
+        <div onclick="openDrawer('node-hsr-gz-sz')" class="glass-card glow-pink rounded-3xl overflow-hidden cursor-pointer border border-fuchsia-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-fuchsia-500 via-pink-500 to-purple-500"></div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-xl text-[10px] font-black bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/40 mono uppercase">
+                Phase 05 • Bullet Rail
+              </span>
+              <span class="text-xs text-fuchsia-400 font-bold mono">Mon, 07 Dec</span>
+            </div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-fuchsia-500 to-pink-600 flex items-center justify-center text-white text-xl shrink-0 shadow-lg shadow-fuchsia-500/30">
+                <i class="fa-solid fa-train-subway"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white group-hover:text-fuchsia-300 transition">Guangzhou South → Shenzhen Futian</h3>
+                <p class="text-xs text-slate-300 mt-0.5">High-Speed Rail Bullet Train (30-45 mins)</p>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20 text-xs text-slate-300 space-y-1">
+              <div><strong>Departure:</strong> Guangzhou South (广州南站)</div>
+              <div><strong>Arrival:</strong> Shenzhen Futian / North (福田/深圳北)</div>
+              <div><strong>Ticketing:</strong> Book 14 days in advance via 12306</div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-fuchsia-300"><i class="fa-solid fa-bolt mr-1"></i> 350 km/h Transit</span>
+              <span class="px-2.5 py-1 rounded-lg bg-fuchsia-500/20 text-fuchsia-200 text-[10px]">Seamless</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 7: HOTEL 4 QIUGO S SHENZHEN (NEON PINK & MAGENTA) -->
+        <div onclick="openDrawer('node-hotel-qiuguo')" class="glass-card glow-pink rounded-3xl overflow-hidden cursor-pointer border border-pink-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500"></div>
+          <div class="relative h-44 overflow-hidden">
+            <img src="media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg" onerror="this.src='../media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Qiuguo S Hotel Shenzhen">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 bg-pink-500 text-white font-black px-2.5 py-1 rounded-lg text-[10px] mono">
+              HOTEL 04 • 3 NIGHTS
+            </div>
+            <div class="absolute bottom-3 left-4 right-4">
+              <span class="text-xs text-pink-300 font-bold mono">07 Dec – 10 Dec 2026</span>
+              <h3 class="text-lg font-black text-white group-hover:text-pink-300 transition">Qiuguo S Hotel Shenzhen Nanshan</h3>
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-slate-300">Forest Oxygen Bar Family Suite (1 Queen + 1 Bunk Bed) • Nantou Ancient City • Huaqiangbei • Shenzhen Bay Coast</p>
+            <div class="flex flex-wrap gap-1.5 text-[11px] mono">
+              <span class="bg-pink-500/20 text-pink-300 px-2.5 py-0.5 rounded-md border border-pink-500/30">Early Check-in 10:00</span>
+              <span class="bg-rose-500/20 text-rose-300 px-2.5 py-0.5 rounded-md border border-rose-500/30">Breakfast for 3</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-pink-300"><i class="fa-solid fa-phone mr-1"></i> +86-755-61000168</span>
+              <span class="text-slate-400"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 8: CROSS BORDER HSR TO HK (GOLDEN AMBER) -->
+        <div onclick="openDrawer('node-hsr-sz-hk')" class="glass-card glow-gold rounded-3xl overflow-hidden cursor-pointer border border-amber-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500"></div>
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-xl text-[10px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 mono uppercase">
+                Cross-Border HSR
+              </span>
+              <span class="text-xs text-amber-400 font-bold mono">Thu, 10 Dec</span>
+            </div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-600 flex items-center justify-center text-white text-xl shrink-0 shadow-lg shadow-amber-500/30">
+                <i class="fa-solid fa-bolt-lightning"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-black text-white group-hover:text-amber-300 transition">Shenzhen Futian → HK West Kowloon</h3>
+                <p class="text-xs text-slate-300 mt-0.5">Nonstop Bullet Train • Exactly 14 Minutes</p>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-slate-300 space-y-1">
+              <div><strong>Duration:</strong> 14 minutes nonstop</div>
+              <div><strong>Joint Customs:</strong> Clear both Mainland exit & HK entry inside West Kowloon</div>
+              <div><strong>Transfer:</strong> Taxi or MTR to Royal Plaza Mong Kok</div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-amber-300"><i class="fa-solid fa-clock mr-1"></i> Ultra Fast 14 Min</span>
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-200 text-[10px]">Co-location</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 9: HOTEL 5 ROYAL PLAZA HONG KONG (GOLDEN RED) -->
+        <div onclick="openDrawer('node-hotel-royal')" class="glass-card glow-gold rounded-3xl overflow-hidden cursor-pointer border border-yellow-500/30 group">
+          <div class="h-3 bg-gradient-to-r from-amber-400 via-rose-500 to-red-600"></div>
+          <div class="relative h-44 overflow-hidden">
+            <img src="media/hotels/hotel_5_royal_plaza_hk_photo.jpg" onerror="this.src='../media/hotels/hotel_5_royal_plaza_hk_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Royal Plaza Hotel HK">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 bg-amber-500 text-white font-black px-2.5 py-1 rounded-lg text-[10px] mono">
+              5★ LUXURY • 2 NIGHTS
+            </div>
+            <div class="absolute bottom-3 left-4 right-4">
+              <span class="text-xs text-amber-300 font-bold mono">10 Dec – 12 Dec 2026</span>
+              <h3 class="text-lg font-black text-white group-hover:text-amber-300 transition">Royal Plaza Hotel Hong Kong</h3>
+            </div>
+          </div>
+          <div class="p-5 space-y-3">
+            <p class="text-xs text-slate-300">Plaza Deluxe Family Room (2 Double Beds) • Connected to 7-Storey MOKO Mall • Mong Kok East MTR • Victoria Peak</p>
+            <div class="flex flex-wrap gap-1.5 text-[11px] mono">
+              <span class="bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-md border border-amber-500/30">MOKO Mall Bridge</span>
+              <span class="bg-red-500/20 text-red-300 px-2.5 py-0.5 rounded-md border border-red-500/30">Mong Kok East MTR</span>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs mono">
+              <span class="text-amber-300"><i class="fa-solid fa-phone mr-1"></i> +852-29288822</span>
+              <span class="text-slate-400"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NODE 10: RETURN FLIGHT CX657 (PACIFIC TEAL & SKY BLUE) -->
+        <div onclick="openDrawer('node-flight-return')" class="glass-card glow-cyan rounded-3xl overflow-hidden cursor-pointer border border-teal-500/30 group lg:col-span-3">
+          <div class="h-3 bg-gradient-to-r from-teal-400 via-cyan-500 to-sky-500"></div>
+          <div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-500 to-cyan-500 flex items-center justify-center text-white text-2xl shrink-0 shadow-lg shadow-teal-500/30">
+                <i class="fa-solid fa-plane-arrival"></i>
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="px-3 py-1 rounded-xl text-[10px] font-black bg-teal-500/20 text-teal-300 border border-teal-500/40 mono uppercase">
+                    Phase 07 • Return Home
+                  </span>
+                  <span class="text-xs text-teal-400 font-bold mono">Sat, 12 Dec 2026</span>
+                </div>
+                <h3 class="text-xl font-black text-white group-hover:text-teal-300 transition">Hong Kong (HKG T1) → Singapore Changi (SIN T4)</h3>
+                <p class="text-xs text-slate-300">Cathay Pacific CX657 • Boeing 777-300 Widebody • Depart HKG 16:05 → Land SIN 20:05 • 23kg Checked Baggage</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 shrink-0 self-end md:self-center">
+              <span class="px-4 py-2 rounded-xl bg-teal-500/20 text-teal-300 font-bold text-xs mono border border-teal-500/30">
+                Welcome Home Singapore
+              </span>
+              <button class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-bold text-xs mono flex items-center gap-1.5 shadow-md shadow-cyan-500/20">
+                <span>Inspect</span> <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- MODULE 3: VISUAL ITINERARY GENERATOR -->
-    <section id="itinerary" class="glass-card rounded-2xl p-6 sm:p-8 border border-dark-800 space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-dark-800 gap-2">
+    <!-- ========================================== -->
+    <!-- VIEW 2: INTERACTIVE MINDMAP (REGIONAL HUBS)-->
+    <!-- ========================================== -->
+    <section id="view-mindmap" class="view-panel hidden space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-4">
         <div>
-          <h2 class="text-xl font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-route text-travel-400"></i> Dynamic 7-Day Roadmap Generator
+          <h2 class="text-2xl font-black text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-diagram-project text-purple-400"></i> Regional Concept Mindmap
           </h2>
-          <p class="text-xs text-slate-400 mt-1">Curated sequence of cultural landmarks, scenic points, and culinary highlights</p>
+          <p class="text-xs text-slate-300 mt-1">Hierarchical tree map categorized by regional adventure hubs</p>
         </div>
-        <div class="flex items-center space-x-2 text-xs mono">
-          <span class="text-slate-400">Selected Hub:</span>
-          <span class="text-travel-400 font-bold" id="itineraryHubName">Tokyo, Japan</span>
+        
+        <!-- MINDMAP FILTER BUTTONS -->
+        <div class="flex flex-wrap gap-2 text-xs mono">
+          <button onclick="filterMindmap('all')" class="mm-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold" data-target="all">All Hubs</button>
+          <button onclick="filterMindmap('panyu')" class="mm-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-target="panyu">Panyu</button>
+          <button onclick="filterMindmap('chimelong')" class="mm-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-target="chimelong">Chimelong</button>
+          <button onclick="filterMindmap('canton')" class="mm-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-target="canton">Canton & Qingyuan</button>
+          <button onclick="filterMindmap('shenzhen')" class="mm-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-target="shenzhen">Shenzhen</button>
+          <button onclick="filterMindmap('hongkong')" class="mm-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-target="hongkong">Hong Kong</button>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="itineraryGrid">
-        <!-- Injected dynamically by app.js -->
+      <!-- MINDMAP CARDS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="mindmapCardsGrid">
+        
+        <!-- HUB 1: AVIATION -->
+        <div class="mm-card glass-card glow-cyan rounded-3xl p-6 border-t-4 border-t-cyan-400 space-y-4" data-category="flights">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-cyan-500/20 text-cyan-300 mono">TRANSIT ROOT</span>
+            <span class="text-xs text-cyan-400 font-bold mono">29 Nov 2026</span>
+          </div>
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-plane-departure text-cyan-400"></i> Inbound Aviation Ingress
+          </h3>
+          <ul class="text-xs space-y-2.5 text-slate-300">
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-cyan-300 transition" onclick="openDrawer('node-flight-outbound')">
+              <i class="fa-solid fa-angle-right text-cyan-400 mt-0.5"></i>
+              <span><strong>Flight CX714:</strong> SIN T4 (01:25) → HKG T1 (05:20)</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-angle-right text-cyan-400 mt-0.5"></i>
+              <span><strong>Layover HKG:</strong> 2h 30m airside breakfast & transfer</span>
+            </li>
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-cyan-300 transition" onclick="openDrawer('node-flight-outbound')">
+              <i class="fa-solid fa-angle-right text-cyan-400 mt-0.5"></i>
+              <span><strong>Flight CX982:</strong> HKG T1 (07:50) → CAN Baiyun (08:55)</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400">
+              <i class="fa-solid fa-taxi text-teal-400 mt-0.5"></i>
+              <span>Didi south to Panyu (~55 min highway, ~¥150)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- HUB 2: PANYU -->
+        <div class="mm-card glass-card glow-orange rounded-3xl p-6 border-t-4 border-t-orange-400 space-y-4" data-category="panyu">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-orange-500/20 text-orange-300 mono">HUB 01 • PANYU</span>
+            <span class="text-xs text-orange-400 font-bold mono">Day 1 (29-30 Nov)</span>
+          </div>
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-house-chimney text-orange-400"></i> Panyu Arrival & Heritage
+          </h3>
+          <ul class="text-xs space-y-2.5 text-slate-300">
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-orange-300 transition" onclick="openDrawer('node-hotel-mehood')">
+              <i class="fa-solid fa-hotel text-orange-400 mt-0.5"></i>
+              <span><strong>Mehood Lestie Hotel:</strong> Parent-child suite with bubble bath</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-mug-hot text-amber-400 mt-0.5"></i>
+              <span><strong>Afternoon Tea Buffet:</strong> Complimentary 14:00-18:00</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-landmark text-orange-400 mt-0.5"></i>
+              <span><strong>Shawan Ancient Town:</strong> Historic oyster shell walls & water-buffalo curd</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-bowl-food text-amber-400 mt-0.5"></i>
+              <span><strong>Late-night Noodles:</strong> Complimentary 21:00-23:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- HUB 3: CHIMELONG -->
+        <div class="mm-card glass-card glow-emerald rounded-3xl p-6 border-t-4 border-t-emerald-400 space-y-4" data-category="chimelong">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-emerald-500/20 text-emerald-300 mono">HUB 02 • RESORT</span>
+            <span class="text-xs text-emerald-400 font-bold mono">Days 2-4 (30 Nov-02 Dec)</span>
+          </div>
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-hippo text-emerald-400"></i> Chimelong Safari & Parks
+          </h3>
+          <ul class="text-xs space-y-2.5 text-slate-300">
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-emerald-300 transition" onclick="openDrawer('node-hotel-chimelong')">
+              <i class="fa-solid fa-hotel text-emerald-400 mt-0.5"></i>
+              <span><strong>Chimelong Hotel:</strong> Exploration Kid's Room inside resort</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-paw text-emerald-400 mt-0.5"></i>
+              <span><strong>Safari Park:</strong> Right side open train, giant panda triplets & gondola</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-masks-theater text-purple-400 mt-0.5"></i>
+              <span><strong>International Circus:</strong> 90-min world-class live performance</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-dove text-teal-400 mt-0.5"></i>
+              <span><strong>Birds Park:</strong> Pelican feeding & wetlands boat tour</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- HUB 4: CANTON DOWNTOWN -->
+        <div class="mm-card glass-card glow-purple rounded-3xl p-6 border-t-4 border-t-purple-400 space-y-4" data-category="canton">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-purple-500/20 text-purple-300 mono">HUB 03 • CANTON</span>
+            <span class="text-xs text-purple-400 font-bold mono">Days 4-8 (02-07 Dec)</span>
+          </div>
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-city text-purple-400"></i> Historic Canton & CBD
+          </h3>
+          <ul class="text-xs space-y-2.5 text-slate-300">
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-purple-300 transition" onclick="openDrawer('node-hotel-atour')">
+              <i class="fa-solid fa-hotel text-purple-400 mt-0.5"></i>
+              <span><strong>Atour Hotel Dongshankou:</strong> Smart robots, 1920s mansions</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-torii-gate text-yellow-400 mt-0.5"></i>
+              <span><strong>Dafo Temple & Beijing Rd:</strong> Illuminated golden pagoda</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-building-columns text-emerald-400 mt-0.5"></i>
+              <span><strong>Shamian Island & Yongqing Fang:</strong> Colonial enclave & Cantonese Opera</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-tower-observation text-cyan-400 mt-0.5"></i>
+              <span><strong>Canton Tower & Pearl River:</strong> CBD skyline & suspension bridge</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- HUB 5: QINGYUAN CANYON -->
+        <div class="mm-card glass-card glow-cyan rounded-3xl p-6 border-t-4 border-t-blue-400 space-y-4" data-category="canton">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-blue-500/20 text-blue-300 mono">EXPEDITION • ALPINE</span>
+            <span class="text-xs text-blue-400 font-bold mono">Day 5 (03 Dec)</span>
+          </div>
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-mountain text-blue-400"></i> Qingyuan Gulong Gorge
+          </h3>
+          <ul class="text-xs space-y-2.5 text-slate-300">
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-blue-300 transition" onclick="openDrawer('node-qingyuan')">
+              <i class="fa-solid fa-van-shuttle text-blue-400 mt-0.5"></i>
+              <span><strong>Private Driver Charter:</strong> ~9h round-trip from Atour</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-bridge-water text-cyan-400 mt-0.5"></i>
+              <span><strong>Yuntian Glass Skywalk:</strong> Cantilevered 530m over gorge</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-hands-holding-circle text-amber-400 mt-0.5"></i>
+              <span><strong>Buddha Hand Platform:</strong> Scenic aerial panoramic photo point</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-person-snowboarding text-orange-400 mt-0.5"></i>
+              <span><strong>Cliff Alpine Coaster:</strong> Mountain gravity toboggan ride</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- HUB 6: SHENZHEN TECH COAST -->
+        <div class="mm-card glass-card glow-pink rounded-3xl p-6 border-t-4 border-t-pink-400 space-y-4" data-category="shenzhen">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-pink-500/20 text-pink-300 mono">HUB 04 • SHENZHEN</span>
+            <span class="text-xs text-pink-400 font-bold mono">Days 9-12 (07-10 Dec)</span>
+          </div>
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-microchip text-pink-400"></i> High-Tech & Coastal Nanshan
+          </h3>
+          <ul class="text-xs space-y-2.5 text-slate-300">
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-pink-300 transition" onclick="openDrawer('node-hotel-qiuguo')">
+              <i class="fa-solid fa-hotel text-pink-400 mt-0.5"></i>
+              <span><strong>Qiuguo S Hotel:</strong> Oxygen Bar Suite (1 Queen + 1 Bunk Bed)</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-archway text-pink-400 mt-0.5"></i>
+              <span><strong>Nantou Ancient City:</strong> 1,700-yr gate, hipster cafes beside hotel</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-drone text-cyan-400 mt-0.5"></i>
+              <span><strong>Huaqiangbei Hardware:</strong> World capital of drones and electronics</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-bicycle text-emerald-400 mt-0.5"></i>
+              <span><strong>Shenzhen Bay Park:</strong> Family coastal cycling facing HK skyline</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- HUB 7: HONG KONG -->
+        <div class="mm-card glass-card glow-gold rounded-3xl p-6 border-t-4 border-t-amber-400 space-y-4" data-category="hongkong">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-amber-500/20 text-amber-300 mono">HUB 05 • HONG KONG</span>
+            <span class="text-xs text-amber-400 font-bold mono">Days 12-14 (10-12 Dec)</span>
+          </div>
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-train-tram text-amber-400"></i> Mong Kok & Harbour
+          </h3>
+          <ul class="text-xs space-y-2.5 text-slate-300">
+            <li class="flex items-start gap-2.5 cursor-pointer hover:text-amber-300 transition" onclick="openDrawer('node-hotel-royal')">
+              <i class="fa-solid fa-hotel text-amber-400 mt-0.5"></i>
+              <span><strong>Royal Plaza Hotel:</strong> Plaza Deluxe Room, linked to MOKO Mall</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-bag-shopping text-pink-400 mt-0.5"></i>
+              <span><strong>Mong Kok Night Markets:</strong> Ladies' Market & Sneaker Street</span>
+            </li>
+            <li class="fa-solid fa-ship text-cyan-400 mt-0.5"></i>
+              <span><strong>Star Ferry & Harbour:</strong> Iconic Victoria Harbour crossing</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-mountain-sun text-yellow-400 mt-0.5"></i>
+              <span><strong>Victoria Peak Tram:</strong> World-renowned panorama skyline</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: 14-DAY DAY-BY-DAY SCHEDULE         -->
+    <!-- ========================================== -->
+    <section id="view-schedule" class="view-panel hidden space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <h2 class="text-2xl font-black text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-calendar-days text-orange-400"></i> 14-Day Day-by-Day Master Schedule
+          </h2>
+          <p class="text-xs text-slate-300 mt-1">Complete daily chronological timeline with logistics, activities, and dining</p>
+        </div>
+
+        <!-- DAY FILTERS -->
+        <div class="flex flex-wrap gap-2 text-xs mono">
+          <button onclick="filterDays('all')" class="day-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold" data-city="all">All Days (14)</button>
+          <button onclick="filterDays('panyu')" class="day-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="panyu">Panyu (D1-D3)</button>
+          <button onclick="filterDays('yuexiu')" class="day-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="yuexiu">Canton & Qingyuan (D4-D8)</button>
+          <button onclick="filterDays('shenzhen')" class="day-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="shenzhen">Shenzhen (D9-D11)</button>
+          <button onclick="filterDays('hongkong')" class="day-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="hongkong">Hong Kong (D12-D14)</button>
+        </div>
+      </div>
+
+      <!-- 14-DAY SCHEDULE CONTAINER -->
+      <div class="space-y-4" id="dailyScheduleList">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: HOTELS & LODGING GALLERY (PHOTOS)  -->
+    <!-- ========================================== -->
+    <section id="view-hotels" class="view-panel hidden space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <h2 class="text-2xl font-black text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-hotel text-emerald-400"></i> Confirmed Accommodations & Hotel Photography
+          </h2>
+          <p class="text-xs text-slate-300 mt-1">High-definition room photography, physical addresses, direct telephone hotlines, and stay amenities</p>
+        </div>
+        <div class="text-xs font-bold text-emerald-300 mono bg-emerald-500/20 px-3.5 py-1.5 rounded-xl border border-emerald-500/40">
+          5 Properties Confirmed
+        </div>
+      </div>
+
+      <!-- HOTEL SHOWCASE GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="hotelsGrid">
+        
+        <!-- HOTEL 1 -->
+        <div class="glass-card glow-orange rounded-3xl overflow-hidden border border-orange-500/30 flex flex-col justify-between">
+          <div>
+            <div class="relative h-64 overflow-hidden group">
+              <img src="media/hotels/hotel_1_mehood_panyu_photo.jpg" onerror="this.src='../media/hotels/hotel_1_mehood_panyu_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Mehood Lestie Hotel">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              <div class="absolute top-4 left-4 bg-orange-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">
+                STAY 01 • 1 NIGHT
+              </div>
+              <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">
+                29 Nov – 30 Nov 2026
+              </div>
+              <div class="absolute bottom-4 left-5 right-5">
+                <h3 class="text-2xl font-black text-white">Mehood Lestie Hotel (Guangzhou Panyu)</h3>
+                <p class="text-xs text-orange-300 font-bold mono">广州番禺美豪丽致酒店 • Shatou Street</p>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="grid grid-cols-2 gap-3 text-xs mono">
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
+                  <span class="text-slate-200 font-bold">Warm Parent-Child Room</span>
+                </div>
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">BEDS & GUESTS</span>
+                  <span class="text-slate-200 font-bold">1 Queen + 1 Double Bed</span>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-location-dot text-orange-400 mt-1 shrink-0"></i>
+                  <span>No. 266 West Ring Road, Shatou Street, Panyu District, Guangzhou</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-phone text-orange-400 shrink-0"></i>
+                  <a href="tel:+862037330666" class="text-orange-300 font-bold hover:underline mono">+86-20-37330666</a>
+                  <span class="text-slate-500">/</span>
+                  <a href="tel:+8619928388194" class="text-orange-300 font-bold hover:underline mono">+86-19928388194</a>
+                </div>
+              </div>
+
+              <div class="border-t border-white/10 pt-3">
+                <span class="text-[11px] font-black text-slate-400 mono uppercase block mb-2">Key Inclusions & Perks</span>
+                <div class="flex flex-wrap gap-1.5 text-xs">
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Buffet Breakfast for 2</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Afternoon Tea Buffet (14:00-18:00)</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Late Night Noodles (21:00-23:00)</span>
+                  <span class="bg-orange-500/20 text-orange-300 border border-orange-500/30 px-3 py-1 rounded-lg font-bold">Late Checkout 14:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 flex gap-3">
+            <button onclick="copyToClipboard('No. 266 West Ring Road, Shatou Street, Panyu District, Guangzhou, Guangdong, China')" class="flex-1 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs text-slate-300 mono flex items-center justify-center gap-2 transition font-bold">
+              <i class="fa-regular fa-copy"></i> Copy Address
+            </button>
+            <a href="tel:+862037330666" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-white font-bold text-xs mono flex items-center justify-center gap-2 shadow-md shadow-orange-500/20 transition">
+              <i class="fa-solid fa-phone"></i> Call Hotel
+            </a>
+          </div>
+        </div>
+
+        <!-- HOTEL 2 -->
+        <div class="glass-card glow-emerald rounded-3xl overflow-hidden border border-emerald-500/30 flex flex-col justify-between">
+          <div>
+            <div class="relative h-64 overflow-hidden group">
+              <img src="media/hotels/hotel_2_chimelong_resort_photo.jpg" onerror="this.src='../media/hotels/hotel_2_chimelong_resort_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Chimelong Hotel">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              <div class="absolute top-4 left-4 bg-emerald-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">
+                STAY 02 • 2 NIGHTS
+              </div>
+              <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">
+                30 Nov – 02 Dec 2026
+              </div>
+              <div class="absolute bottom-4 left-5 right-5">
+                <h3 class="text-2xl font-black text-white">Chimelong Hotel (Guangzhou Resort)</h3>
+                <p class="text-xs text-emerald-300 font-bold mono">广州长隆酒店 • Hanxi Avenue East</p>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="grid grid-cols-2 gap-3 text-xs mono">
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
+                  <span class="text-slate-200 font-bold">Exploration Kid's Room</span>
+                </div>
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">OCCUPANCY</span>
+                  <span class="text-slate-200 font-bold">Up to 4 Guests (Family)</span>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-location-dot text-emerald-400 mt-1 shrink-0"></i>
+                  <span>Inside Chimelong Resort, No. 299 Hanxi Ave East, Panyu District, Guangzhou</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-phone text-emerald-400 shrink-0"></i>
+                  <a href="tel:+862084786838" class="text-emerald-300 font-bold hover:underline mono">+86-20-84786838</a>
+                </div>
+              </div>
+
+              <div class="border-t border-white/10 pt-3">
+                <span class="text-[11px] font-black text-slate-400 mono uppercase block mb-2">Key Inclusions & Perks</span>
+                <div class="flex flex-wrap gap-1.5 text-xs">
+                  <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-lg font-bold">3-Day Unlimited Multi-Park Pass</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">30-min Early Park Entry</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Resort Shuttle Bus</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Facial Recognition Entry</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 flex gap-3">
+            <button onclick="copyToClipboard('Inside Chimelong Tourist Resort, No. 299 Hanxi Avenue East, Panyu District, Guangzhou, Guangdong 511430, China')" class="flex-1 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs text-slate-300 mono flex items-center justify-center gap-2 transition font-bold">
+              <i class="fa-regular fa-copy"></i> Copy Address
+            </button>
+            <a href="tel:+862084786838" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-bold text-xs mono flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20 transition">
+              <i class="fa-solid fa-phone"></i> Call Hotel
+            </a>
+          </div>
+        </div>
+
+        <!-- HOTEL 3 -->
+        <div class="glass-card glow-purple rounded-3xl overflow-hidden border border-purple-500/30 flex flex-col justify-between">
+          <div>
+            <div class="relative h-64 overflow-hidden group">
+              <img src="media/hotels/hotel_3_atour_dongshankou_photo.jpg" onerror="this.src='../media/hotels/hotel_3_atour_dongshankou_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Atour Hotel Dongshankou">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              <div class="absolute top-4 left-4 bg-purple-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">
+                STAY 03 • 5 NIGHTS
+              </div>
+              <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">
+                02 Dec – 07 Dec 2026
+              </div>
+              <div class="absolute bottom-4 left-5 right-5">
+                <h3 class="text-2xl font-black text-white">Atour Hotel Dongshankou (Guangzhou)</h3>
+                <p class="text-xs text-purple-300 font-bold mono">广州北京路步行街东山口地铁站亚朵酒店 • Yuexiu</p>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="grid grid-cols-2 gap-3 text-xs mono">
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
+                  <span class="text-slate-200 font-bold">Deluxe Twin Room</span>
+                </div>
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">BEDS & GUESTS</span>
+                  <span class="text-slate-200 font-bold">2 Double Beds (Up to 4)</span>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-location-dot text-purple-400 mt-1 shrink-0"></i>
+                  <span>No. 163 Donghua South Road, Yuexiu District, Guangzhou</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-phone text-purple-400 shrink-0"></i>
+                  <a href="tel:+862083806868" class="text-purple-300 font-bold hover:underline mono">+86-20-83806868</a>
+                  <span class="text-slate-500">/</span>
+                  <a href="tel:+8617513579326" class="text-purple-300 font-bold hover:underline mono">+86-17513579326</a>
+                </div>
+              </div>
+
+              <div class="border-t border-white/10 pt-3">
+                <span class="text-[11px] font-black text-slate-400 mono uppercase block mb-2">Key Inclusions & Perks</span>
+                <div class="flex flex-wrap gap-1.5 text-xs">
+                  <span class="bg-purple-500/20 text-purple-300 border border-purple-500/30 px-3 py-1 rounded-lg font-bold">Autonomous Delivery Robots</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Dongshankou Historic Mansions</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Reading Library Lounge</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Self-Service Laundry</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 flex gap-3">
+            <button onclick="copyToClipboard('No. 163 Donghua South Road, Yuexiu District, Guangzhou, Guangdong, China')" class="flex-1 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs text-slate-300 mono flex items-center justify-center gap-2 transition font-bold">
+              <i class="fa-regular fa-copy"></i> Copy Address
+            </button>
+            <a href="tel:+862083806868" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white font-bold text-xs mono flex items-center justify-center gap-2 shadow-md shadow-purple-500/20 transition">
+              <i class="fa-solid fa-phone"></i> Call Hotel
+            </a>
+          </div>
+        </div>
+
+        <!-- HOTEL 4 -->
+        <div class="glass-card glow-pink rounded-3xl overflow-hidden border border-pink-500/30 flex flex-col justify-between">
+          <div>
+            <div class="relative h-64 overflow-hidden group">
+              <img src="media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg" onerror="this.src='../media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Qiuguo S Hotel Shenzhen">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              <div class="absolute top-4 left-4 bg-pink-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">
+                STAY 04 • 3 NIGHTS
+              </div>
+              <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">
+                07 Dec – 10 Dec 2026
+              </div>
+              <div class="absolute bottom-4 left-5 right-5">
+                <h3 class="text-2xl font-black text-white">Qiuguo S Hotel (Shenzhen Tech Park)</h3>
+                <p class="text-xs text-pink-300 font-bold mono">秋果S酒店 深圳科技园南头古城店 • Nanshan</p>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="grid grid-cols-2 gap-3 text-xs mono">
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
+                  <span class="text-slate-200 font-bold">Forest Oxygen Bar Family Suite</span>
+                </div>
+                <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">BEDS & GUESTS</span>
+                  <span class="text-slate-200 font-bold">1 Queen + 1 Bunk Bed (Up to 5)</span>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-location-dot text-pink-400 mt-1 shrink-0"></i>
+                  <span>No. 5 Shop, No. 3125 Nanxin Road, Nanshan District, Shenzhen</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-phone text-pink-400 shrink-0"></i>
+                  <a href="tel:+8675561000168" class="text-pink-300 font-bold hover:underline mono">+86-755-61000168</a>
+                </div>
+              </div>
+
+              <div class="border-t border-white/10 pt-3">
+                <span class="text-[11px] font-black text-slate-400 mono uppercase block mb-2">Key Inclusions & Perks</span>
+                <div class="flex flex-wrap gap-1.5 text-xs">
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Breakfast for 3 Included</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Complimentary Minibar</span>
+                  <span class="bg-white/10 px-3 py-1 rounded-lg text-slate-200 border border-white/15">Vitamin Station Daily</span>
+                  <span class="bg-pink-500/20 text-pink-300 border border-pink-500/30 px-3 py-1 rounded-lg font-bold">Early Check-in Reward (10:00)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 flex gap-3">
+            <button onclick="copyToClipboard('No. 5 Shop, No. 3125 Nanxin Road, Nanshan District, Shenzhen, Guangdong, China')" class="flex-1 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs text-slate-300 mono flex items-center justify-center gap-2 transition font-bold">
+              <i class="fa-regular fa-copy"></i> Copy Address
+            </button>
+            <a href="tel:+8675561000168" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-400 hover:to-rose-400 text-white font-bold text-xs mono flex items-center justify-center gap-2 shadow-md shadow-pink-500/20 transition">
+              <i class="fa-solid fa-phone"></i> Call Hotel
+            </a>
+          </div>
+        </div>
+
+        <!-- HOTEL 5 -->
+        <div class="glass-card glow-gold rounded-3xl overflow-hidden border border-amber-500/30 flex flex-col justify-between lg:col-span-2">
+          <div>
+            <div class="relative h-72 overflow-hidden group">
+              <img src="media/hotels/hotel_5_royal_plaza_hk_photo.jpg" onerror="this.src='../media/hotels/hotel_5_royal_plaza_hk_photo.jpg'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Royal Plaza Hotel HK">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              <div class="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-black px-3.5 py-1.5 rounded-xl text-xs mono shadow-md">
+                5★ GRAND LUXURY • 2 NIGHTS
+              </div>
+              <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">
+                10 Dec – 12 Dec 2026
+              </div>
+              <div class="absolute bottom-4 left-6 right-6">
+                <h3 class="text-3xl font-black text-white">Royal Plaza Hotel (香港帝京酒店 • Mong Kok)</h3>
+                <p class="text-xs text-amber-300 font-bold mono">Prince Edward Road West • Connected to 7-Storey MOKO Mall & Mong Kok East MTR</p>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs mono">
+                <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
+                  <span class="text-slate-200 font-bold text-sm">Plaza Deluxe Family Room</span>
+                </div>
+                <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">BEDS & GUESTS</span>
+                  <span class="text-slate-200 font-bold text-sm">2 Double Beds (Up to 4 Guests)</span>
+                </div>
+                <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10">
+                  <span class="text-slate-400 block text-[10px]">MALL ACCESS</span>
+                  <span class="text-slate-200 font-bold text-sm">Direct Bridge into MOKO Mall</span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-location-dot text-amber-400 mt-1 shrink-0"></i>
+                  <span>No. 193 Prince Edward Road West, Mong Kok, Yau Tsim Mong District, Hong Kong</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-phone text-amber-400 shrink-0"></i>
+                  <a href="tel:+85229288822" class="text-amber-300 font-bold hover:underline mono">+852-29288822</a>
+                </div>
+              </div>
+
+              <div class="border-t border-white/10 pt-3">
+                <span class="text-[11px] font-black text-slate-400 mono uppercase block mb-2">Key Inclusions & Perks</span>
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3.5 py-1 rounded-xl font-bold">Connected 7-Storey MOKO Shopping Mall</span>
+                  <span class="bg-white/10 px-3.5 py-1 rounded-xl text-slate-200 border border-white/15">Direct Bridge to Mong Kok East MTR</span>
+                  <span class="bg-white/10 px-3.5 py-1 rounded-xl text-slate-200 border border-white/15">24-Hour Concierge & Luggage Hold</span>
+                  <span class="bg-white/10 px-3.5 py-1 rounded-xl text-slate-200 border border-white/15">Walking distance to Ladies' Market & Sneaker Street</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-8 pt-0 flex gap-3.5">
+            <button onclick="copyToClipboard('No. 193 Prince Edward Road West, Mong Kok, Yau Tsim Mong District, Hong Kong')" class="flex-1 py-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs text-slate-300 mono flex items-center justify-center gap-2 transition font-bold">
+              <i class="fa-regular fa-copy"></i> Copy Address
+            </button>
+            <a href="tel:+85229288822" class="flex-1 py-3 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:to-red-400 text-white font-bold text-xs mono flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 transition">
+              <i class="fa-solid fa-phone"></i> Call Hotel (+852)
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 5: DINING & RESTAURANTS               -->
+    <!-- ========================================== -->
+    <section id="view-dining" class="view-panel hidden space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <h2 class="text-2xl font-black text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-utensils text-yellow-400"></i> Curated Gastronomy & Dining Guide
+          </h2>
+          <p class="text-xs text-slate-300 mt-1">Authentic Cantonese dim sum, street eats, tea houses, and user-customized restaurant planner</p>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button onclick="openAddRestaurantModal()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-black text-xs mono flex items-center gap-2 shadow-lg shadow-yellow-500/25 transition">
+            <i class="fa-solid fa-plus"></i> Add Restaurant
+          </button>
+          <button onclick="resetRestaurants()" title="Reset to default suggestions" class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-slate-300 text-xs mono transition">
+            <i class="fa-solid fa-rotate-left"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- RESTAURANT FILTER CHIPS -->
+      <div class="flex flex-wrap gap-2 text-xs mono">
+        <button onclick="filterRestaurants('all')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black" data-city="all">All Spots</button>
+        <button onclick="filterRestaurants('Panyu')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Panyu">Panyu / Shawan</button>
+        <button onclick="filterRestaurants('Chimelong')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Chimelong">Chimelong Area</button>
+        <button onclick="filterRestaurants('Guangzhou')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Guangzhou">Downtown Canton</button>
+        <button onclick="filterRestaurants('Qingyuan')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Qingyuan">Qingyuan Canyon</button>
+        <button onclick="filterRestaurants('Shenzhen')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Shenzhen">Shenzhen</button>
+        <button onclick="filterRestaurants('Hong Kong')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Hong Kong">Hong Kong</button>
+      </div>
+
+      <!-- RESTAURANT CARDS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="diningGrid">
+        <!-- Rendered dynamically by JS with localStorage persistence -->
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-dark-800 bg-dark-900/90 py-8 mt-12 text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center space-x-2">
-        <span class="font-extrabold text-white mono">SPECTRAVEL</span>
-        <span>•</span>
-        <span>Global Destination Intelligence</span>
-        <span>•</span>
-        <span>Nomad Expedition Architecture</span>
+  <!-- ========================================== -->
+  <!-- SLIDE-OUT INSPECTOR DRAWER (MODAL)         -->
+  <!-- ========================================== -->
+  <div id="inspectorDrawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+    <div onclick="closeDrawer()" class="absolute inset-0 bg-black/70 backdrop-blur-md pointer-events-auto"></div>
+
+    <div class="absolute inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+      <div id="drawerPanel" class="w-screen max-w-md bg-slate-900 border-l border-white/15 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out">
+        
+        <div class="p-6 border-b border-white/10 flex items-center justify-between bg-black/40">
+          <div class="flex items-center space-x-2.5">
+            <span id="drawerBadge" class="px-3 py-1 rounded-xl text-[10px] font-black bg-cyan-500/20 text-cyan-300 mono uppercase border border-cyan-500/30">
+              NODE INSPECTOR
+            </span>
+            <span id="drawerDate" class="text-xs text-slate-400 mono"></span>
+          </div>
+          <button onclick="closeDrawer()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-slate-300 hover:text-white flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark text-base"></i>
+          </button>
+        </div>
+
+        <div class="p-6 overflow-y-auto space-y-6 flex-1" id="drawerBody">
+          <!-- Injected via JS -->
+        </div>
+
+        <div class="p-6 border-t border-white/10 bg-black/40 flex items-center justify-between text-xs mono text-slate-400">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400"></i> Privacy Shield Active</span>
+          <button onclick="closeDrawer()" class="px-5 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold transition">
+            Done
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: ADD CUSTOM RESTAURANT               -->
+  <!-- ========================================== -->
+  <div id="addRestaurantModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div onclick="closeAddRestaurantModal()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="relative bg-slate-900 border border-white/20 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-5 shadow-2xl z-10">
+      
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <h3 class="text-xl font-black text-white flex items-center gap-2.5">
+          <i class="fa-solid fa-utensils text-yellow-400"></i> Add New Restaurant Spot
+        </h3>
+        <button onclick="closeAddRestaurantModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
       </div>
 
-      <div class="flex items-center space-x-4 mono">
-        <span class="text-travel-400 flex items-center gap-1">
-          <i class="fa-solid fa-compass"></i> Cloudflare Edge Network
-        </span>
-        <span>•</span>
-        <span>Zero Latency Telemetry</span>
+      <form id="addRestaurantForm" onsubmit="handleSaveRestaurant(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block text-slate-300 mono mb-1 font-bold">RESTAURANT NAME</label>
+          <input type="text" id="restName" required placeholder="e.g. Bingsheng Taste (炳胜品味)" class="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-yellow-400 outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-slate-300 mono mb-1 font-bold">DESTINATION HUB</label>
+            <select id="restCity" class="w-full bg-slate-800 border border-white/15 rounded-xl px-3.5 py-3 text-white outline-none focus:border-yellow-400 mono">
+              <option value="Panyu">Panyu / Shawan</option>
+              <option value="Chimelong">Chimelong Area</option>
+              <option value="Guangzhou">Downtown Guangzhou</option>
+              <option value="Qingyuan">Qingyuan Canyon</option>
+              <option value="Shenzhen">Shenzhen</option>
+              <option value="Hong Kong">Hong Kong</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-300 mono mb-1 font-bold">CUISINE TYPE</label>
+            <input type="text" id="restCuisine" required placeholder="e.g. Classic Cantonese / Dim Sum" class="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-slate-500 outline-none focus:border-yellow-400">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 mono mb-1 font-bold">RECOMMENDED DISHES</label>
+          <input type="text" id="restDishes" placeholder="e.g. Crispy Char Siu, Black Truffle Tofu, Roast Goose" class="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-slate-500 outline-none focus:border-yellow-400">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-slate-300 mono mb-1 font-bold">LOCATION / METRO / ADDRESS</label>
+            <input type="text" id="restAddress" placeholder="e.g. Times E-PARK / Hanxi Changlong" class="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-slate-500 outline-none focus:border-yellow-400">
+          </div>
+          <div>
+            <label class="block text-slate-300 mono mb-1 font-bold">PRICE TIER</label>
+            <select id="restPrice" class="w-full bg-slate-800 border border-white/15 rounded-xl px-3.5 py-3 text-white outline-none focus:border-yellow-400 mono">
+              <option value="$$">Moderate ($$)</option>
+              <option value="$">Budget / Street Food ($)</option>
+              <option value="$$$">Premium / Michelin ($$$)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 mono mb-1 font-bold">INSIDER NOTES / TIPS</label>
+          <textarea id="restNotes" rows="2" placeholder="e.g. Take early queue number via Dianping app" class="w-full bg-white/5 border border-white/15 rounded-xl p-3 text-white placeholder-slate-500 outline-none focus:border-yellow-400"></textarea>
+        </div>
+
+        <div class="pt-3 flex justify-end gap-3">
+          <button type="button" onclick="closeAddRestaurantModal()" class="px-5 py-2.5 rounded-xl bg-white/10 text-slate-300 hover:bg-white/20 mono font-semibold">Cancel</button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black mono shadow-lg shadow-yellow-500/20">Save Restaurant</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="border-t border-white/10 bg-slate-950/80 py-8 mt-12 text-xs mono text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2.5">
+        <span class="text-white font-black text-sm">SPECTRAVEL</span>
+        <span>• 2026 China Family Trip Master Itinerary</span>
+      </div>
+      <div class="flex items-center space-x-4 text-slate-400 text-[11px]">
+        <span>Singapore ⇄ Hong Kong ⇄ Guangzhou ⇄ Shenzhen</span>
+        <span class="text-emerald-400 font-bold">● Strict Privacy Architecture</span>
       </div>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT LOGIC ENGINE                    -->
+  <!-- ========================================== -->
+  <script>
+    // -------------------------------------------------------------
+    // 0. THEME SWITCHER LOGIC
+    // -------------------------------------------------------------
+    let isLightMode = false;
+    function toggleTheme() {
+      isLightMode = !isLightMode;
+      const html = document.documentElement;
+      const body = document.body;
+      const icon = document.getElementById('themeIcon');
+      const text = document.getElementById('themeText');
+
+      if (isLightMode) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        body.classList.remove('mesh-gradient-dark');
+        body.classList.add('mesh-gradient-light');
+        icon.className = 'fa-solid fa-moon text-indigo-400';
+        text.textContent = 'Aurora Dark';
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        body.classList.remove('mesh-gradient-light');
+        body.classList.add('mesh-gradient-dark');
+        icon.className = 'fa-solid fa-sun text-yellow-400';
+        text.textContent = 'Daylight';
+      }
+    }
+
+    // -------------------------------------------------------------
+    // 1. DATA REPOSITORY: 14-DAY SCHEDULE (Days 1 to 14)
+    // -------------------------------------------------------------
+    const itinerarySchedule = [
+      {
+        day: 1,
+        date: "2026-11-29",
+        weekday: "Sunday",
+        city: "panyu",
+        region: "Guangzhou (Panyu)",
+        badgeColor: "bg-orange-500",
+        hotel: "Mehood Lestie Hotel (Guangzhou Panyu)",
+        transport: "CX982 CAN Arrival (08:55 AM) → Didi south to Panyu (~55 min, ~¥150)",
+        foodTip: "Shawan buffalo ginger milk curd & hotel late-night noodle bowl",
+        activities: [
+          "Land at CAN Guangzhou Baiyun Airport at 08:55 AM (CX982 from SIN via HKG)",
+          "Take Didi south to Panyu Shatou Street (~55 mins on smooth highway)",
+          "Check in to Mehood Lestie Hotel (Warm Parent-Child Room)",
+          "Afternoon rest & complimentary afternoon tea buffet (14:00–18:00)",
+          "Explore Shawan Ancient Town (historic oyster shell houses, water-buffalo milk curd)",
+          "Complimentary late-night noodles at hotel (21:00–23:00)"
+        ]
+      },
+      {
+        day: 2,
+        date: "2026-11-30",
+        weekday: "Monday",
+        city: "panyu",
+        region: "Guangzhou (Chimelong)",
+        badgeColor: "bg-emerald-500",
+        hotel: "Chimelong Hotel (Guangzhou)",
+        transport: "Short Didi transfer (~15 mins) from Mehood to Chimelong Hotel",
+        foodTip: "Lunch in Panyu, evening snacks before Chimelong Circus",
+        activities: [
+          "Buffet breakfast for 2 at Mehood Lestie, enjoy guaranteed late checkout at 14:00",
+          "Didi transfer to Chimelong Hotel (Exploration Kid's Room)",
+          "Activate 3-Day Unlimited Multi-Park Pass with facial recognition ID",
+          "Chimelong Safari Park exploration (take open train on right side, see panda triplets, ride sky gondola)",
+          "Evening 90-min world-class Chimelong International Circus show"
+        ]
+      },
+      {
+        day: 3,
+        date: "2026-12-01",
+        weekday: "Tuesday",
+        city: "panyu",
+        region: "Guangzhou (Chimelong)",
+        badgeColor: "bg-emerald-500",
+        hotel: "Chimelong Hotel (Guangzhou)",
+        transport: "Resort complimentary electric shuttles between parks",
+        foodTip: "Times E-PARK dining (Michelin Bingsheng Taste / Tao Tao Ju)",
+        activities: [
+          "Take advantage of 30-minute early park entry via North Gate",
+          "Chimelong Paradise thrill rides (B&M Dive Coaster, 10-Inversion Coaster, kids zone)",
+          "Chimelong Birds Park afternoon excursion (pelican feeding & wetland boat tour)",
+          "Dinner outside resort at Times E-PARK (7 mins Didi) to avoid marked-up park food"
+        ]
+      },
+      {
+        day: 4,
+        date: "2026-12-02",
+        weekday: "Wednesday",
+        city: "yuexiu",
+        region: "Guangzhou (Downtown Yuexiu)",
+        badgeColor: "bg-purple-500",
+        hotel: "Atour Hotel Dongshankou (Guangzhou)",
+        transport: "Didi north from Chimelong to Yuexiu (~35 mins)",
+        foodTip: "Beijing Road traditional roast goose & street snack alleys",
+        activities: [
+          "Check out of Chimelong Hotel by 11:00 AM, Didi north into central Guangzhou",
+          "Check in to Atour Hotel Dongshankou (Deluxe Twin Room)",
+          "Stroll historic 1920s red-brick Dongshan mansions, trendy indie boutiques & cafes",
+          "Beijing Road Pedestrian Street exploration & Dafo Temple night illumination"
+        ]
+      },
+      {
+        day: 5,
+        date: "2026-12-03",
+        weekday: "Thursday",
+        city: "yuexiu",
+        region: "Qingyuan (Gulong Gorge Expedition)",
+        badgeColor: "bg-blue-500",
+        hotel: "Atour Hotel Dongshankou (Guangzhou)",
+        transport: "Private driver van charter round-trip (~9-10h, ~¥700-1,100)",
+        foodTip: "Authentic Qingyuan farmhouse free-range white cut chicken (清远白切鸡)",
+        activities: [
+          "Morning pickup by private driver charter at Atour Hotel lobby",
+          "Yuntian Glass Skywalk & Bridge (cantilevered 530m above canyon)",
+          "Giant Buddha Hand panoramic photo platform over the ravine",
+          "Cliff Coaster alpine mountain toboggan ride down the mountain",
+          "Nine Waterfalls scenic canyon trail & farmhouse feast",
+          "Evening return to Guangzhou; autonomous robot waimai dinner delivery at Atour"
+        ]
+      },
+      {
+        day: 6,
+        date: "2026-12-04",
+        weekday: "Friday",
+        city: "yuexiu",
+        region: "Guangzhou (Heritage & Culture)",
+        badgeColor: "bg-purple-500",
+        hotel: "Atour Hotel Dongshankou (Guangzhou)",
+        transport: "Guangzhou Metro Line 1 / 6 & Didi",
+        foodTip: "Huangpu Ancient Port ginger milk & traditional Cantonese treats",
+        activities: [
+          "Colonial European architecture walk on Shamian Island",
+          "Xiguan traditional houses & Yongqing Fang revitalized heritage quarter",
+          "Cantonese Opera Art Museum water stage performance",
+          "Huangpu Ancient Port or Shangxiajiu historic traditional food alleys"
+        ]
+      },
+      {
+        day: 7,
+        date: "2026-12-05",
+        weekday: "Saturday",
+        city: "yuexiu",
+        region: "Guangzhou (Modern Skyline & CBD)",
+        badgeColor: "bg-purple-500",
+        hotel: "Atour Hotel Dongshankou (Guangzhou)",
+        transport: "APM automated people mover & Metro Line 3",
+        foodTip: "Zhujiang New Town CBD riverside restaurants",
+        activities: [
+          "Zhujiang New Town CBD & Guangdong Museum architecture",
+          "Haixinsha Asian Games Park & Ersha Island music park",
+          "Cross Haixinqiao pedestrian suspension bridge across Pearl River",
+          "Canton Tower evening illumination & Pearl River night cruise"
+        ]
+      },
+      {
+        day: 8,
+        date: "2026-12-06",
+        weekday: "Sunday",
+        city: "yuexiu",
+        region: "Guangzhou (Classic Highlights)",
+        badgeColor: "bg-purple-500",
+        hotel: "Atour Hotel Dongshankou (Guangzhou)",
+        transport: "Metro Line 1 / 2",
+        foodTip: "Morning Yum Cha dim sum feast at iconic Panxi Restaurant (泮溪酒家)",
+        activities: [
+          "Morning Yum Cha dim sum feast at iconic lakeside Panxi Restaurant",
+          "Yuexiu Park & iconic Five Rams sculpture monument",
+          "Chen Clan Ancestral Hall intricate wood, brick, and pottery carvings",
+          "Evening packing and preparations for high-speed bullet rail transfer"
+        ]
+      },
+      {
+        day: 9,
+        date: "2026-12-07",
+        weekday: "Monday",
+        city: "shenzhen",
+        region: "Guangzhou to Shenzhen (Nanshan)",
+        badgeColor: "bg-pink-500",
+        hotel: "Qiuguo S Hotel Shenzhen (Nanshan)",
+        transport: "High-Speed Rail from Guangzhou South to Shenzhen North / Futian (30–45 mins)",
+        foodTip: "Nantou Ancient City craft breweries & Chaozhou beef hotpot",
+        activities: [
+          "Check out of Atour Hotel by 12:00 PM",
+          "High-Speed Rail bullet train from Guangzhou South to Shenzhen North / Futian",
+          "Check in to Qiuguo S Hotel Nantou (Forest Oxygen Bar Family Suite, 1 Queen + 1 Bunk Bed)",
+          "Complimentary Qiuguo comforting package, minibar & vitamin station",
+          "Evening stroll through 1,700-year-old Nantou Ancient City right beside hotel"
+        ]
+      },
+      {
+        day: 10,
+        date: "2026-12-08",
+        weekday: "Tuesday",
+        city: "shenzhen",
+        region: "Shenzhen (Tech & Innovation)",
+        badgeColor: "bg-pink-500",
+        hotel: "Qiuguo S Hotel Shenzhen (Nanshan)",
+        transport: "Shenzhen Metro Line 1 / 2 & Didi",
+        foodTip: "OCT-LOFT artsy cafes & Huaqiangbei street food",
+        activities: [
+          "Breakfast for 3 included at Qiuguo S Hotel",
+          "Huaqiangbei electronics & drone markets (world capital of hardware tech)",
+          "OCT-LOFT creative culture park and contemporary art galleries",
+          "Ping An Finance Centre 118th floor observation deck for Shenzhen panoramas"
+        ]
+      },
+      {
+        day: 11,
+        date: "2026-12-09",
+        weekday: "Wednesday",
+        city: "shenzhen",
+        region: "Shenzhen (Coastal & Leisure)",
+        badgeColor: "bg-pink-500",
+        hotel: "Qiuguo S Hotel Shenzhen (Nanshan)",
+        transport: "Metro Line 9 / 11",
+        foodTip: "Sea World Shekou international promenade dining",
+        activities: [
+          "Breakfast for 3 included at Qiuguo S Hotel",
+          "Shenzhen Bay coastal park family cycling facing Hong Kong skyline",
+          "Sea World Shekou plaza dining & Minghua cruise ship illumination",
+          "Final evening packing for Hong Kong cross-border bullet train"
+        ]
+      },
+      {
+        day: 12,
+        date: "2026-12-10",
+        weekday: "Thursday",
+        city: "hongkong",
+        region: "Shenzhen to Hong Kong (Mong Kok)",
+        badgeColor: "bg-amber-500",
+        hotel: "Royal Plaza Hotel Hong Kong (Mong Kok)",
+        transport: "14-min High-Speed Rail: Shenzhen Futian → HK West Kowloon (Joint Customs)",
+        foodTip: "Mong Kok street stalls (curry fishballs, egg waffles) & Kam Wah pineapple bun",
+        activities: [
+          "Breakfast for 3 included at Qiuguo, checkout before 12:00 PM",
+          "Futian Station: 14-min High-Speed Rail bullet train to HK West Kowloon (joint customs)",
+          "Check in to Royal Plaza Hotel Mong Kok (Plaza Deluxe Family Room, 2 Double Beds)",
+          "Direct access to connected 7-storey MOKO Shopping Mall",
+          "Evening exploration of Mong Kok Ladies' Market, Goldfish Street, and Sneaker Street"
+        ]
+      },
+      {
+        day: 13,
+        date: "2026-12-11",
+        weekday: "Friday",
+        city: "hongkong",
+        region: "Hong Kong (Harbour & Peak)",
+        badgeColor: "bg-amber-500",
+        hotel: "Royal Plaza Hotel Hong Kong (Mong Kok)",
+        transport: "MTR East Rail Line, Star Ferry & Historic Peak Tram",
+        foodTip: "Tim Ho Wan dim sum & Victoria Peak panoramic restaurant",
+        activities: [
+          "Tsim Sha Tsui Avenue of Stars harbour promenade",
+          "Historic Star Ferry ride across Victoria Harbour to Central",
+          "Tai Kwun heritage police compound and revitalized art galleries",
+          "Peak Tram ride up to Victoria Peak for panoramic world-class skyline",
+          "Evening return to Mong Kok MOKO Mall"
+        ]
+      },
+      {
+        day: 14,
+        date: "2026-12-12",
+        weekday: "Saturday",
+        city: "hongkong",
+        region: "Hong Kong to Singapore",
+        badgeColor: "bg-cyan-500",
+        hotel: "Flight CX657 Home",
+        transport: "Airport Express from Kowloon Station to HKG Airport (~22 mins)",
+        foodTip: "Traditional Kowloon morning dim sum & airport dining",
+        activities: [
+          "Morning traditional dim sum breakfast in Kowloon",
+          "Check out of Royal Plaza Hotel (store luggage or in-town check-in)",
+          "Last-minute duty-free shopping at connected MOKO Mall",
+          "Airport Express from Kowloon Station to HKG Airport (~22 mins)",
+          "Cathay Pacific CX657: Depart HKG 16:05 → Arrive SIN 20:05",
+          "Welcome home to Singapore!"
+        ]
+      }
+    ];
+
+    // -------------------------------------------------------------
+    // 2. DEFAULT RESTAURANTS DATABASE
+    // -------------------------------------------------------------
+    const defaultRestaurants = [
+      {
+        id: "rest-1",
+        name: "Shawan Ancient Town Milk Shop (沁芳园甜品)",
+        city: "Panyu",
+        cuisine: "Traditional Lingnan Desserts",
+        dishes: "Water-buffalo ginger milk curd (沙湾水牛奶姜撞奶), egg rolls, double-skin milk",
+        address: "Shawan Ancient Town Scenic Area, Panyu",
+        price: "$",
+        notes: "Historic dessert house famous for hot curd formed right at your table with freshly grated ginger juice."
+      },
+      {
+        id: "rest-2",
+        name: "Bingsheng Taste (炳胜品味 • 时代E-PARK店)",
+        city: "Chimelong",
+        cuisine: "Michelin Cantonese",
+        dishes: "Signature Char Siu (秘制黑叉烧), Crispy Tofu, Pineapple Buns",
+        address: "Building 2, Times E-PARK, No. 290 Hanxi Ave East (7 mins Didi from Chimelong Hotel)",
+        price: "$$$",
+        notes: "Far superior in quality and price compared to marked-up theme park restaurants. Take Didi outside resort gate."
+      },
+      {
+        id: "rest-3",
+        name: "Panxi Restaurant (泮溪酒家)",
+        city: "Guangzhou",
+        cuisine: "Classic Lingnan Yum Cha",
+        dishes: "Har Gow (Crystal Shrimp Dumplings), Siu Mai, Water Chestnut Cake",
+        address: "No. 151 Longjin West Road, Liwan District (Beside Liwan Lake)",
+        price: "$$",
+        notes: "Legendary garden restaurant with traditional gazebos and koi ponds. Arrive before 9:30 AM for morning tea table."
+      },
+      {
+        id: "rest-4",
+        name: "Dafo Temple Vegetarian House (大佛寺素食阁)",
+        city: "Guangzhou",
+        cuisine: "Buddhist Vegetarian Buffet",
+        dishes: "Mushroom stew, vegetarian dim sum, lotus root soup",
+        address: "Inside Dafo Temple, Beijing Road, Yuexiu District",
+        price: "$$",
+        notes: "Dine inside the illuminated golden pagoda complex right beside Beijing Road pedestrian shopping street."
+      },
+      {
+        id: "rest-5",
+        name: "Qingyuan Mountain Farmhouse (古龙峡土菜馆)",
+        city: "Qingyuan",
+        cuisine: "Mountain Farmhouse Feasts",
+        dishes: "Authentic Qingyuan Free-Range White Cut Chicken (清远正宗白切鸡), mountain spring tofu, bamboo shoots",
+        address: "Base of Gulong Gorge scenic entry, Qingyuan",
+        price: "$$",
+        notes: "Qingyuan chicken is world-famous across Guangdong for its tender texture and natural sweetness."
+      },
+      {
+        id: "rest-6",
+        name: "Baheli Chaoshan Beef Hotpot (八合里牛肉火锅)",
+        city: "Shenzhen",
+        cuisine: "Chaoshan Fresh Beef Hotpot",
+        dishes: "Freshly sliced beef brisket, hand-pounded beef meatballs, satay dip",
+        address: "Nanshan District, near Nantou / Tech Park",
+        price: "$$",
+        notes: "Beef slaughtered and delivered within 4 hours. Clear broth brings out pristine beef tenderness."
+      },
+      {
+        id: "rest-7",
+        name: "Kam Wah Cafe (金华冰厅)",
+        city: "Hong Kong",
+        cuisine: "Hong Kong Cha Chaan Teng",
+        dishes: "Award-winning Crispy Pineapple Bun with slab of cold butter (菠萝油), Silk Stocking Milk Tea, Egg Tart",
+        address: "No. 47 Bute Street, Prince Edward / Mong Kok (5 mins walk from Royal Plaza)",
+        price: "$",
+        notes: "Crowned champion pineapple buns of Hong Kong. Piping hot crust with frozen butter melts instantly."
+      },
+      {
+        id: "rest-8",
+        name: "Tim Ho Wan (添好运 • 旺角)",
+        city: "Hong Kong",
+        cuisine: "Michelin Dim Sum",
+        dishes: "Baked BBQ Pork Buns (酥皮叉烧包), pan-fried turnip cake, steamed rice rolls",
+        address: "Olympian City / Mong Kok area",
+        price: "$$",
+        notes: "Renowned as the world's most accessible Michelin-starred dim sum."
+      }
+    ];
+
+    // -------------------------------------------------------------
+    // 3. NODE DETAILS DICTIONARY (For Drawer Inspector)
+    // -------------------------------------------------------------
+    const nodeDetails = {
+      'node-flight-outbound': {
+        badge: 'FLIGHT LOGISTICS',
+        date: 'Sun, 29 Nov 2026',
+        title: 'Cathay Pacific Inbound Transit: SIN → HKG → CAN',
+        heroImage: 'media/hotels/hotel_1_mehood_panyu_photo.jpg',
+        sections: [
+          {
+            title: 'Flight Leg 1 (CX714)',
+            items: [
+              'Origin: Singapore Changi Airport (SIN Terminal 4)',
+              'Departure: 01:25 AM SGT',
+              'Arrival: Hong Kong International Airport (HKG Terminal 1) at 05:20 AM HKT',
+              'Aircraft: Airbus A330-300 Widebody (2-4-2 twin aisle)',
+              'Seats Selected: 47H, 47K, 48H, 48K (Family window & aisle cluster)'
+            ]
+          },
+          {
+            title: 'Hong Kong Layover (2h 30m)',
+            items: [
+              'Transit Terminal: HKG Terminal 1 Airside',
+              'No luggage recheck needed (bags checked through to Guangzhou CAN)',
+              'Family breakfast & airport refreshment'
+            ]
+          },
+          {
+            title: 'Flight Leg 2 (CX982)',
+            items: [
+              'Departure: HKG T1 at 07:50 AM HKT',
+              'Arrival: Guangzhou Baiyun International Airport (CAN) at 08:55 AM CST',
+              'Baggage allowance: 23kg checked + 7kg cabin baggage per passenger'
+            ]
+          }
+        ],
+        tips: 'Take Didi south directly from CAN airport arrivals. Direct highway transit to Panyu takes ~55 minutes (~¥150).'
+      },
+      'node-hotel-mehood': {
+        badge: 'CONFIRMED HOTEL',
+        date: '29 Nov – 30 Nov 2026 (1 Night)',
+        title: 'Mehood Lestie Hotel (Guangzhou Panyu Flagship)',
+        heroImage: 'media/hotels/hotel_1_mehood_panyu_photo.jpg',
+        sections: [
+          {
+            title: 'Property Overview',
+            items: [
+              'Chinese Name: 广州番禺美豪丽致酒店',
+              'Address: No. 266 West Ring Road, Shatou Street, Panyu District, Guangzhou',
+              'Telephone: +86-20-37330666 / +86-19928388194',
+              'Room Type: Warm Parent-Child Room (Smart Control + Bathtub)'
+            ]
+          },
+          {
+            title: 'Complimentary Hospitality Perks',
+            items: [
+              'Daily buffet breakfast for 2 guests (07:00–10:00)',
+              'Daily afternoon tea buffet (14:00–18:00)',
+              'Late-night warm noodle bowls (21:00–23:00)',
+              'Guaranteed late check-out at 14:00 on Nov 30'
+            ]
+          }
+        ],
+        tips: 'Perfect recovery stay after overnight flight. Take afternoon stroll around nearby Shawan Ancient Town.'
+      },
+      'node-hotel-chimelong': {
+        badge: 'THEME PARK RESORT',
+        date: '30 Nov – 02 Dec 2026 (2 Nights)',
+        title: 'Chimelong Hotel (Guangzhou Resort)',
+        heroImage: 'media/hotels/hotel_2_chimelong_resort_photo.jpg',
+        sections: [
+          {
+            title: 'Property Overview',
+            items: [
+              'Chinese Name: 广州长隆酒店',
+              'Address: Inside Chimelong Resort, No. 299 Hanxi Avenue East, Panyu, Guangzhou',
+              'Telephone: +86-20-84786838',
+              'Room Type: Exploration Kid\'s Room'
+            ]
+          },
+          {
+            title: 'Multi-Park Privileges',
+            items: [
+              '3-Day Unlimited Multi-Park Access (Safari Park + Paradise + Birds Park)',
+              'Facial recognition entry at turnstiles for seamless re-entry',
+              '30-minute early park entry via North Gate',
+              'Includes evening tickets to Chimelong International Circus show'
+            ]
+          }
+        ],
+        tips: 'Resort restaurants carry heavy markups. Take Didi 7 mins to Times E-PARK for Bingsheng Taste or order food delivery to resort security gate.'
+      },
+      'node-hotel-atour': {
+        badge: 'DOWNTOWN HOTEL',
+        date: '02 Dec – 07 Dec 2026 (5 Nights)',
+        title: 'Atour Hotel Dongshankou (Guangzhou)',
+        heroImage: 'media/hotels/hotel_3_atour_dongshankou_photo.jpg',
+        sections: [
+          {
+            title: 'Property Overview',
+            items: [
+              'Chinese Name: 广州北京路步行街东山口地铁站亚朵酒店',
+              'Address: No. 163 Donghua South Road, Yuexiu District, Guangzhou',
+              'Telephone: +86-20-83806868 / +86-17513579326',
+              'Room Type: Deluxe Twin Room (2 Double Beds)'
+            ]
+          },
+          {
+            title: 'Location & Amenities',
+            items: [
+              'Autonomous delivery robots bring food delivery directly to room door',
+              'Direct walking access to historic 1920s Dongshan mansions & trendy cafes',
+              'Short metro / Didi ride to Beijing Road, Dafo Temple, and Shamian Island'
+            ]
+          }
+        ],
+        tips: 'Autonomous robots handle Meituan/Ele.me food deliveries straight to your door. Great central hub for city sightseeing.'
+      },
+      'node-qingyuan': {
+        badge: 'ALPINE EXPEDITION',
+        date: 'Thu, 03 Dec 2026',
+        title: 'Qingyuan Gulong Gorge Glass Canyon & Coaster Day Trip',
+        heroImage: 'media/hotels/hotel_3_atour_dongshankou_photo.jpg',
+        sections: [
+          {
+            title: 'Logistics Charter',
+            items: [
+              'Pickup & Drop-off: Atour Hotel Dongshankou lobby (~08:00 AM)',
+              'Vehicle: Private 7-seater van charter (~9-10h round-trip, ~¥700-1,100)',
+              'Travel Time: ~1h 45m each way along Guangqing Expressway'
+            ]
+          },
+          {
+            title: 'Canyon Attractions',
+            items: [
+              'Yuntian Glass Grand Canyon Skywalk (530m above canyon floor)',
+              'Giant Buddha Hand panoramic photo platform',
+              'Cliff Alpine Mountain Coaster (gravity-powered toboggan ride)',
+              'Nine Waterfalls mountain trail'
+            ]
+          }
+        ],
+        tips: 'Stop by a local farmhouse at the foot of the mountain for world-famous Qingyuan free-range white cut chicken (清远白切鸡).'
+      },
+      'node-hsr-gz-sz': {
+        badge: 'HIGH-SPEED RAIL',
+        date: 'Mon, 07 Dec 2026',
+        title: 'Guangzhou South → Shenzhen North / Futian',
+        heroImage: 'media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg',
+        sections: [
+          {
+            title: 'Bullet Train Details',
+            items: [
+              'Departure Station: Guangzhou South (广州南站)',
+              'Arrival Station: Shenzhen North (深圳北) or Shenzhen Futian (福田)',
+              'Duration: 30 to 45 minutes',
+              'Ticketing: Book 14 days in advance via official Railway 12306 app or Trip.com'
+            ]
+          }
+        ],
+        tips: 'Arrive at Guangzhou South station 45 minutes before departure to clear passport ID turnstiles and security inspection.'
+      },
+      'node-hotel-qiuguo': {
+        badge: 'TECH LUXE HOTEL',
+        date: '07 Dec – 10 Dec 2026 (3 Nights)',
+        title: 'Qiuguo S Hotel Shenzhen (Nanshan)',
+        heroImage: 'media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg',
+        sections: [
+          {
+            title: 'Property Overview',
+            items: [
+              'Chinese Name: 秋果S酒店 深圳科技园南头古城店',
+              'Address: No. 5 Shop, No. 3125 Nanxin Road, Nanshan District, Shenzhen',
+              'Telephone: +86-755-61000168',
+              'Room Type: Forest Oxygen Bar Family Suite (1 Queen + 1 Bunk Bed)'
+            ]
+          },
+          {
+            title: 'Included Privileges',
+            items: [
+              'Breakfast for 3 guests included daily (Dec 8, 9, 10)',
+              'Early Check-in Reward (check-in after 10:00 AM)',
+              'Complimentary minibar and daily vitamin station',
+              'Direct access to 1,700-year-old historic Nantou Ancient City'
+            ]
+          }
+        ],
+        tips: 'Custom bunk beds are family favorites. Step directly out of hotel into Nantou Ancient City for evening eats and craft cafes.'
+      },
+      'node-hsr-sz-hk': {
+        badge: 'CROSS-BORDER HSR',
+        date: 'Thu, 10 Dec 2026',
+        title: 'Shenzhen Futian → Hong Kong West Kowloon Bullet Train',
+        heroImage: 'media/hotels/hotel_5_royal_plaza_hk_photo.jpg',
+        sections: [
+          {
+            title: 'High-Speed Rail Transit',
+            items: [
+              'Departure: Shenzhen Futian Station (福田)',
+              'Arrival: Hong Kong West Kowloon Station (香港西九龙)',
+              'Travel Time: Exactly 14 minutes nonstop',
+              'Customs: Co-location arrangement — clear both Mainland exit and HK entry customs inside West Kowloon station'
+            ]
+          }
+        ],
+        tips: 'Fastest cross-border transit. From West Kowloon, take taxi or MTR directly to Royal Plaza Hotel in Mong Kok.'
+      },
+      'node-hotel-royal': {
+        badge: 'GRAND 5-STAR HOTEL',
+        date: '10 Dec – 12 Dec 2026 (2 Nights)',
+        title: 'Royal Plaza Hotel Hong Kong (Mong Kok)',
+        heroImage: 'media/hotels/hotel_5_royal_plaza_hk_photo.jpg',
+        sections: [
+          {
+            title: 'Property Overview',
+            items: [
+              'Chinese Name: 香港帝京酒店',
+              'Address: No. 193 Prince Edward Road West, Mong Kok, Hong Kong',
+              'Telephone: +852-29288822',
+              'Room Type: Plaza Deluxe Family Room (2 Double Beds)'
+            ]
+          },
+          {
+            title: 'Connected Amenities',
+            items: [
+              'Direct covered walkway into 7-storey MOKO Shopping Mall',
+              'Direct connection to Mong Kok East MTR Station',
+              'Short walk to famous Ladies\' Market, Goldfish Street, and Sneaker Street'
+            ]
+          }
+        ],
+        tips: 'MOKO mall offers supermarkets, pharmacies, and dozens of restaurants. Great base for exploring Kowloon and Victoria Harbour.'
+      },
+      'node-flight-return': {
+        badge: 'RETURN FLIGHT',
+        date: 'Sat, 12 Dec 2026',
+        title: 'Cathay Pacific CX657: Hong Kong (HKG) → Singapore (SIN)',
+        heroImage: 'media/hotels/hotel_5_royal_plaza_hk_photo.jpg',
+        sections: [
+          {
+            title: 'Flight Information',
+            items: [
+              'Flight Number: Cathay Pacific CX657',
+              'Departure: Hong Kong International Airport (HKG Terminal 1) at 16:05 HKT',
+              'Arrival: Singapore Changi Airport (SIN Terminal 4) at 20:05 SGT',
+              'Aircraft: Boeing 777-300 Widebody',
+              'Baggage: 23kg checked + 7kg cabin baggage per passenger'
+            ]
+          },
+          {
+            title: 'Airport Transit Logistics',
+            items: [
+              'Take Airport Express from Kowloon Station directly to HKG Airport (~22 mins)',
+              'Arrive at airport by 13:30 for smooth duty-free shopping and boarding'
+            ]
+          }
+        ],
+        tips: 'Welcome home to Singapore! Seamless conclusion of the 14-day China Greater Bay Area trip.'
+      }
+    };
+
+    // -------------------------------------------------------------
+    // 4. VIEW SWITCHING LOGIC
+    // -------------------------------------------------------------
+    function switchView(viewName) {
+      document.querySelectorAll('.view-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.nav-tab').forEach(b => {
+        b.classList.remove('active-tab');
+        b.classList.add('text-slate-300');
+      });
+
+      const targetView = document.getElementById('view-' + viewName);
+      const targetBtn = document.getElementById('btn-' + viewName);
+      if (targetView) targetView.classList.remove('hidden');
+      if (targetBtn) {
+        targetBtn.classList.add('active-tab');
+        targetBtn.classList.remove('text-slate-300');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // -------------------------------------------------------------
+    // 5. RENDER DAILY SCHEDULE (Days 1 to 14)
+    // -------------------------------------------------------------
+    function renderDailySchedule(filterCity = 'all') {
+      const container = document.getElementById('dailyScheduleList');
+      if (!container) return;
+
+      const filtered = filterCity === 'all' 
+        ? itinerarySchedule 
+        : itinerarySchedule.filter(item => item.city === filterCity);
+
+      container.innerHTML = filtered.map(item => `
+        <div class="glass-card rounded-3xl p-6 border border-white/10 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
+            <div class="flex items-center gap-3.5">
+              <span class="w-11 h-11 rounded-2xl ${item.badgeColor} flex items-center justify-center font-black text-white mono text-sm shrink-0 shadow-lg">
+                D${item.day}
+              </span>
+              <div>
+                <h3 class="text-lg font-black text-white flex items-center gap-2">
+                  <span>Day ${item.day}: ${item.region}</span>
+                </h3>
+                <span class="text-xs text-slate-400 mono font-bold">${item.weekday}, ${item.date}</span>
+              </div>
+            </div>
+            <div class="text-xs text-slate-200 mono bg-white/10 px-3.5 py-1.5 rounded-xl border border-white/15 self-start sm:self-auto font-semibold">
+              <i class="fa-solid fa-bed text-teal-400 mr-1.5"></i> ${item.hotel}
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="text-xs font-black text-slate-400 mono uppercase">Day Progression & Activities</div>
+            <ul class="space-y-2 text-xs text-slate-300">
+              ${item.activities.map(act => `
+                <li class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-cyan-400 text-sm mt-0.5 shrink-0"></i>
+                  <span>${act}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-2 text-xs mono">
+            <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10 flex items-start gap-3">
+              <i class="fa-solid fa-van-shuttle text-cyan-400 text-lg mt-0.5 shrink-0"></i>
+              <div>
+                <span class="text-slate-400 text-[10px] block font-bold">LOGISTICS & TRANSIT</span>
+                <span class="text-slate-200 font-medium">${item.transport}</span>
+              </div>
+            </div>
+            <div class="bg-white/5 p-3.5 rounded-2xl border border-white/10 flex items-start gap-3">
+              <i class="fa-solid fa-utensils text-yellow-400 text-lg mt-0.5 shrink-0"></i>
+              <div>
+                <span class="text-slate-400 text-[10px] block font-bold">RECOMMENDED FOOD SPOT</span>
+                <span class="text-slate-200 font-medium">${item.foodTip}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterDays(city) {
+      document.querySelectorAll('.day-filter-btn').forEach(btn => {
+        if (btn.dataset.city === city) {
+          btn.className = "day-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold";
+        } else {
+          btn.className = "day-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10";
+        }
+      });
+      renderDailySchedule(city);
+    }
+
+    // -------------------------------------------------------------
+    // 6. RENDER RESTAURANTS & LOCALSTORAGE PERSISTENCE
+    // -------------------------------------------------------------
+    function loadRestaurants() {
+      const stored = localStorage.getItem('spectravel_restaurants');
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch (e) {
+          return defaultRestaurants;
+        }
+      }
+      return defaultRestaurants;
+    }
+
+    function saveRestaurants(arr) {
+      localStorage.setItem('spectravel_restaurants', JSON.stringify(arr));
+    }
+
+    let activeDiningFilter = 'all';
+
+    function renderRestaurants(cityFilter = 'all') {
+      activeDiningFilter = cityFilter;
+      const container = document.getElementById('diningGrid');
+      if (!container) return;
+
+      const list = loadRestaurants();
+      const filtered = cityFilter === 'all' ? list : list.filter(r => r.city.toLowerCase() === cityFilter.toLowerCase());
+
+      container.innerHTML = filtered.map(r => `
+        <div class="glass-card glow-gold rounded-3xl p-6 border border-white/10 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-xl text-[10px] font-black bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 mono uppercase">${r.city}</span>
+              <span class="text-xs font-black text-yellow-400 mono bg-white/10 px-2.5 py-0.5 rounded-lg">${r.price || '$$'}</span>
+            </div>
+            <h3 class="text-lg font-black text-white">${r.name}</h3>
+            <div class="text-xs text-cyan-400 font-bold">${r.cuisine}</div>
+            
+            <div class="text-xs text-slate-300 space-y-1.5 pt-1">
+              <div><strong class="text-slate-400">Must Try:</strong> ${r.dishes || 'Specialty chef selection'}</div>
+              ${r.address ? `<div class="text-slate-400 flex items-start gap-1.5"><i class="fa-solid fa-location-dot mt-0.5 text-yellow-400 shrink-0"></i> <span>${r.address}</span></div>` : ''}
+              ${r.notes ? `<div class="p-3 bg-white/5 rounded-2xl text-slate-300 text-[11px] border border-white/10 mt-2">${r.notes}</div>` : ''}
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs mono">
+            <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition font-bold">
+              <i class="fa-regular fa-copy"></i> Copy Name & Address
+            </button>
+            <span class="text-emerald-400 font-bold text-[10px]">Verified Spot</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterRestaurants(city) {
+      document.querySelectorAll('.dining-filter-btn').forEach(btn => {
+        if (btn.dataset.city.toLowerCase() === city.toLowerCase()) {
+          btn.className = "dining-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black";
+        } else {
+          btn.className = "dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10";
+        }
+      });
+      renderRestaurants(city);
+    }
+
+    function openAddRestaurantModal() {
+      document.getElementById('addRestaurantModal').classList.remove('hidden');
+    }
+
+    function closeAddRestaurantModal() {
+      document.getElementById('addRestaurantModal').classList.add('hidden');
+      document.getElementById('addRestaurantForm').reset();
+    }
+
+    function handleSaveRestaurant(e) {
+      e.preventDefault();
+      const newRest = {
+        id: 'rest-' + Date.now(),
+        name: document.getElementById('restName').value,
+        city: document.getElementById('restCity').value,
+        cuisine: document.getElementById('restCuisine').value,
+        dishes: document.getElementById('restDishes').value,
+        address: document.getElementById('restAddress').value,
+        price: document.getElementById('restPrice').value,
+        notes: document.getElementById('restNotes').value
+      };
+
+      const list = loadRestaurants();
+      list.unshift(newRest);
+      saveRestaurants(list);
+      renderRestaurants(activeDiningFilter);
+      closeAddRestaurantModal();
+      showToast('Restaurant saved successfully!');
+    }
+
+    function resetRestaurants() {
+      if (confirm('Reset restaurant recommendations to defaults?')) {
+        saveRestaurants(defaultRestaurants);
+        renderRestaurants('all');
+        showToast('Reset to default curated restaurants.');
+      }
+    }
+
+    // -------------------------------------------------------------
+    // 7. MINDMAP FILTERING LOGIC
+    // -------------------------------------------------------------
+    function filterMindmap(category) {
+      document.querySelectorAll('.mm-filter-btn').forEach(btn => {
+        if (btn.dataset.target === category) {
+          btn.className = "mm-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold";
+        } else {
+          btn.className = "mm-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10";
+        }
+      });
+
+      document.querySelectorAll('.mm-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // -------------------------------------------------------------
+    // 8. DRAWER INSPECTOR (SLIDE-OUT MODAL)
+    // -------------------------------------------------------------
+    function openDrawer(nodeKey) {
+      const node = nodeDetails[nodeKey];
+      if (!node) return;
+
+      const drawer = document.getElementById('inspectorDrawer');
+      const panel = document.getElementById('drawerPanel');
+      const badge = document.getElementById('drawerBadge');
+      const date = document.getElementById('drawerDate');
+      const body = document.getElementById('drawerBody');
+
+      badge.textContent = node.badge;
+      date.textContent = node.date;
+
+      body.innerHTML = `
+        <div class="space-y-5">
+          <div class="relative rounded-2xl overflow-hidden border border-white/15">
+            <img src="${node.heroImage}" onerror="this.src='../${node.heroImage}'" class="w-full h-52 object-cover" alt="Node visual">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-xl font-black text-white">${node.title}</h3>
+            </div>
+          </div>
+
+          ${node.sections.map(sec => `
+            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2.5">
+              <h4 class="text-xs font-black text-cyan-400 mono uppercase tracking-wider">${sec.title}</h4>
+              <ul class="text-xs space-y-2 text-slate-300">
+                ${sec.items.map(it => `<li class="flex items-start gap-2.5"><i class="fa-solid fa-angle-right text-cyan-400 mt-1 shrink-0"></i><span>${it}</span></li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+
+          ${node.tips ? `
+            <div class="p-4 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-xs text-amber-300 space-y-1.5">
+              <span class="font-bold flex items-center gap-2"><i class="fa-solid fa-lightbulb"></i> Travel Pro Tip</span>
+              <p class="text-slate-300 leading-relaxed">${node.tips}</p>
+            </div>
+          ` : ''}
+        </div>
+      `;
+
+      drawer.classList.remove('opacity-0', 'pointer-events-none');
+      panel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('inspectorDrawer');
+      const panel = document.getElementById('drawerPanel');
+      panel.classList.add('translate-x-full');
+      drawer.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDrawer();
+        closeAddRestaurantModal();
+      }
+    });
+
+    // -------------------------------------------------------------
+    // 9. UTILITY HELPERS: CLIPBOARD & TOAST
+    // -------------------------------------------------------------
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied to clipboard!');
+      }).catch(() => {
+        showToast('Copied address');
+      });
+    }
+
+    function showToast(msg) {
+      const existing = document.getElementById('toastNotification');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = 'toastNotification';
+      toast.className = 'fixed bottom-6 right-6 z-50 bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-black text-xs mono px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 transform transition duration-300';
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-base"></i> <span>${msg}</span>`;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 2500);
+    }
+
+    // -------------------------------------------------------------
+    // INITIALIZATION
+    // -------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      renderDailySchedule('all');
+      renderRestaurants('all');
+    });
+  </script>
+
 </body>
 </html>
