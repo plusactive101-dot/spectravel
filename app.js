@@ -475,10 +475,19 @@ function openDrawer(nodeKey) {
         <div class="relative rounded-2xl overflow-hidden border border-white/15">
           <img src="${node.heroImage}" onerror="this.src='media/hotels/hotel_1_mehood_panyu_photo.jpg'" class="w-full h-52 object-cover" alt="${node.title}">
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4">
+          <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
             <h3 class="text-xl font-black text-white">${node.title}</h3>
+            ${node.hotelRoomId ? `<span class="text-[10px] mono bg-black/60 text-slate-300 px-2 py-0.5 rounded border border-white/10 shrink-0">Exterior</span>` : ''}
           </div>
         </div>
+
+        ${node.hotelRoomId ? `
+          <button onclick="openHotelRoomModal('${node.hotelRoomId}')" class="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold mono text-xs shadow-lg shadow-orange-500/25 transition flex items-center justify-center gap-2.5">
+            <i class="fa-solid fa-bed text-sm"></i>
+            <span>Browse Room Selection (${getHotelRoomsCount(node.hotelRoomId)} Photos)</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
+          </button>
+        ` : ''}
 
         ${node.sections.map(sec => `
           <div class="bg-white/5 p-4 rounded-2xl border border-white/10 space-y-2">
@@ -845,11 +854,188 @@ function showToast(msg) {
   }, 2500);
 }
 
+// --- 7.5 HOTEL ROOM GALLERY MODAL ---
+let currentHotelId = null;
+let currentRoomIndex = 0;
+
+function getHotelRoomsCount(hotelId) {
+  if (typeof hotelRoomsData === 'undefined') return 0;
+  const hotel = hotelRoomsData.find(h => h.id === hotelId);
+  return hotel && hotel.rooms ? hotel.rooms.length : 0;
+}
+
+function openHotelRoomModal(hotelId, roomIndex = 0) {
+  if (typeof hotelRoomsData === 'undefined') {
+    console.error('hotelRoomsData not loaded');
+    return;
+  }
+  const hotel = hotelRoomsData.find(h => h.id === hotelId);
+  if (!hotel) return;
+
+  currentHotelId = hotelId;
+  currentRoomIndex = Math.max(0, Math.min(roomIndex, hotel.rooms.length - 1));
+
+  const modal = document.getElementById('hotelRoomModal');
+  if (!modal) return;
+
+  renderHotelRoomModalContent(hotel, currentRoomIndex);
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeHotelRoomModal() {
+  const modal = document.getElementById('hotelRoomModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
+
+function selectHotelRoom(roomIndex) {
+  if (!currentHotelId || typeof hotelRoomsData === 'undefined') return;
+  const hotel = hotelRoomsData.find(h => h.id === currentHotelId);
+  if (!hotel || !hotel.rooms[roomIndex]) return;
+
+  currentRoomIndex = roomIndex;
+  renderHotelRoomModalContent(hotel, currentRoomIndex);
+}
+
+function nextHotelRoom() {
+  if (!currentHotelId || typeof hotelRoomsData === 'undefined') return;
+  const hotel = hotelRoomsData.find(h => h.id === currentHotelId);
+  if (!hotel || !hotel.rooms) return;
+  currentRoomIndex = (currentRoomIndex + 1) % hotel.rooms.length;
+  renderHotelRoomModalContent(hotel, currentRoomIndex);
+}
+
+function prevHotelRoom() {
+  if (!currentHotelId || typeof hotelRoomsData === 'undefined') return;
+  const hotel = hotelRoomsData.find(h => h.id === currentHotelId);
+  if (!hotel || !hotel.rooms) return;
+  currentRoomIndex = (currentRoomIndex - 1 + hotel.rooms.length) % hotel.rooms.length;
+  renderHotelRoomModalContent(hotel, currentRoomIndex);
+}
+
+function renderHotelRoomModalContent(hotel, roomIdx) {
+  const activeRoom = hotel.rooms[roomIdx];
+  const container = document.getElementById('hotelRoomModalContent');
+  if (!container || !activeRoom) return;
+
+  container.innerHTML = `
+    <!-- Modal Header -->
+    <div class="p-5 sm:p-6 border-b border-white/10 flex items-start justify-between bg-black/50 gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-orange-500/20 text-orange-400 border border-orange-500/30 mono uppercase">
+            <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> TRIP.COM VERIFIED
+          </span>
+          <span class="text-xs text-slate-400 mono">Room Type ${roomIdx + 1} of ${hotel.rooms.length}</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-black text-white">${hotel.name}</h3>
+        <p class="text-xs text-orange-300 font-bold mono">${hotel.nameZh}</p>
+      </div>
+      <button onclick="closeHotelRoomModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-slate-300 hover:text-white flex items-center justify-center transition shrink-0 cursor-pointer">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+    </div>
+
+    <!-- Main Showcase Photo -->
+    <div class="p-5 sm:p-6 space-y-5 overflow-y-auto max-h-[75vh]">
+      <div class="relative rounded-2xl overflow-hidden border border-white/15 bg-black h-64 sm:h-96 group shadow-2xl">
+        <img id="roomShowcaseImg" src="${activeRoom.file}" alt="${activeRoom.name}" class="w-full h-full object-cover transition duration-300">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+        
+        <!-- Navigation Arrows -->
+        <button onclick="prevHotelRoom()" title="Previous Room (Left Arrow)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 text-white flex items-center justify-center border border-white/20 transition backdrop-blur-md cursor-pointer hover:scale-105">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="nextHotelRoom()" title="Next Room (Right Arrow)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 text-white flex items-center justify-center border border-white/20 transition backdrop-blur-md cursor-pointer hover:scale-105">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Room info overlay on photo -->
+        <div class="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6">
+          <span class="inline-block px-3 py-1 rounded-lg bg-orange-500 text-white font-black text-xs mono mb-1.5 shadow-md">
+            ${activeRoom.name}
+          </span>
+          <h4 class="text-base sm:text-lg font-bold text-white drop-shadow-md">${activeRoom.nameZh}</h4>
+        </div>
+      </div>
+
+      <!-- Room Specs Card -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mono">
+        <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
+          <span class="text-slate-400 block text-[10px] font-bold tracking-wider">BED CONFIGURATION</span>
+          <span class="text-slate-100 font-bold flex items-center gap-2">
+            <i class="fa-solid fa-bed text-orange-400 text-sm"></i> ${activeRoom.beds}
+          </span>
+        </div>
+        <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
+          <span class="text-slate-400 block text-[10px] font-bold tracking-wider">KEY ROOM PERKS</span>
+          <span class="text-slate-200 font-medium flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-400 text-sm"></i> ${activeRoom.perks}
+          </span>
+        </div>
+      </div>
+
+      <!-- Room Selection Thumbnails -->
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between text-xs mono">
+          <span class="text-slate-200 font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-images text-cyan-400"></i> ROOM TYPES SELECTION
+          </span>
+          <span class="text-slate-400 text-[11px]">Click any room below to switch photo</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+          ${hotel.rooms.map((rm, idx) => `
+            <button onclick="selectHotelRoom(${idx})" class="p-2 rounded-xl border transition text-left space-y-1.5 cursor-pointer ${idx === roomIdx ? 'bg-orange-500/20 border-orange-500 shadow-md ring-2 ring-orange-500/50' : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'}">
+              <div class="h-20 rounded-lg overflow-hidden bg-slate-800">
+                <img src="${rm.file}" alt="${rm.name}" class="w-full h-full object-cover">
+              </div>
+              <p class="text-[11px] font-bold text-white line-clamp-1">${rm.name}</p>
+              <p class="text-[9px] text-slate-400 mono line-clamp-1">${rm.beds.split('+')[0].trim()}</p>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="p-4 sm:p-5 border-t border-white/10 bg-black/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs mono">
+      <div class="flex items-center gap-2 text-slate-400 text-[11px]">
+        <i class="fa-solid fa-camera text-cyan-400"></i> Genuine hotel exterior & room photography from Trip.com
+      </div>
+      <div class="flex items-center gap-2.5 w-full sm:w-auto">
+        ${hotel.tripUrl ? `
+          <a href="${hotel.tripUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-orange-500/20 hover:bg-orange-500 border border-orange-500/40 text-orange-200 hover:text-white font-bold transition flex items-center justify-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open on Trip.com
+          </a>
+        ` : ''}
+        <button onclick="closeHotelRoomModal()" class="px-5 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold transition cursor-pointer">
+          Done
+        </button>
+      </div>
+    </div>
+  `;
+}
+
 // --- 8. INITIALIZATION ---
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeDrawer();
     closeAddRestaurantModal();
+    closeHotelRoomModal();
+  } else if (e.key === 'ArrowLeft') {
+    const modal = document.getElementById('hotelRoomModal');
+    if (modal && !modal.classList.contains('hidden')) {
+      prevHotelRoom();
+    }
+  } else if (e.key === 'ArrowRight') {
+    const modal = document.getElementById('hotelRoomModal');
+    if (modal && !modal.classList.contains('hidden')) {
+      nextHotelRoom();
+    }
   }
 });
 

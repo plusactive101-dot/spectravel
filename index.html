@@ -1004,14 +1004,21 @@
           
           <!-- HOTEL 1: MEHOOD PANYU -->
           <div class="glass-card glow-orange rounded-3xl overflow-hidden border border-orange-500/30 space-y-4">
-            <div class="relative h-64 overflow-hidden">
-              <img src="media/hotels/hotel_1_mehood_panyu_photo.jpg" class="w-full h-full object-cover" alt="Mehood Lestie Hotel">
+            <div class="relative h-64 overflow-hidden group cursor-pointer" onclick="openHotelRoomModal('hotel_1_mehood')">
+              <img src="media/hotels/hotel_1_mehood_panyu_photo.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Mehood Lestie Hotel Exterior Outlook">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <span class="absolute top-4 left-4 bg-orange-500 text-white font-black px-3 py-1 rounded-xl text-xs mono">STAY 01 • 1 NIGHT</span>
-              <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">29 Nov – 30 Nov 2026</span>
-              <div class="absolute bottom-4 left-5 right-5">
-                <h3 class="text-2xl font-black text-white">Mehood Lestie Hotel (Guangzhou Panyu)</h3>
-                <p class="text-xs text-orange-300 font-bold mono">广州番禺美豪丽致酒店 • Shatou Street</p>
+              <span class="absolute top-4 left-4 bg-orange-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">STAY 01 • 1 NIGHT</span>
+              <button onclick="event.stopPropagation(); openHotelRoomModal('hotel_1_mehood')" class="absolute top-4 right-4 bg-slate-900/90 hover:bg-orange-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold mono border border-white/20 shadow-lg backdrop-blur-md transition flex items-center gap-1.5">
+                <i class="fa-solid fa-bed text-orange-400"></i> View Rooms (5)
+              </button>
+              <div class="absolute bottom-4 left-5 right-5 flex items-end justify-between">
+                <div>
+                  <h3 class="text-2xl font-black text-white group-hover:text-orange-300 transition">Mehood Lestie Hotel (Guangzhou Panyu)</h3>
+                  <p class="text-xs text-orange-300 font-bold mono">广州番禺美豪丽致酒店 • Shatou Street</p>
+                </div>
+                <span class="text-[10px] mono bg-black/60 text-slate-300 px-2.5 py-1 rounded-lg border border-white/10 backdrop-blur-sm hidden sm:inline-flex items-center gap-1">
+                  <i class="fa-solid fa-camera"></i> Exterior Outlook
+                </span>
               </div>
             </div>
             <div class="p-6 pt-0 space-y-4 text-xs">
@@ -1035,29 +1042,41 @@
                   <a href="tel:+862037330666" class="text-orange-300 font-bold hover:underline mono">+86-20-37330666</a>
                 </div>
               </div>
-              <button onclick="copyToClipboard('No. 266 West Ring Road, Shatou Street, Panyu District, Guangzhou, Guangdong, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
-                <i class="fa-regular fa-copy"></i> Copy Address for Didi / Map
-              </button>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <button onclick="openHotelRoomModal('hotel_1_mehood')" class="w-full py-2.5 rounded-xl bg-orange-500/20 hover:bg-orange-500 border border-orange-500/40 text-orange-200 hover:text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-images"></i> Room Selection (5)
+                </button>
+                <button onclick="copyToClipboard('No. 266 West Ring Road, Shatou Street, Panyu District, Guangzhou, Guangdong, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-copy"></i> Copy Address
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- HOTEL 2: CHIMELONG RESORT -->
           <div class="glass-card glow-emerald rounded-3xl overflow-hidden border border-emerald-500/30 space-y-4">
-            <div class="relative h-64 overflow-hidden">
-              <img src="media/hotels/hotel_2_chimelong_resort_photo.jpg" class="w-full h-full object-cover" alt="Chimelong Hotel">
+            <div class="relative h-64 overflow-hidden group cursor-pointer" onclick="openHotelRoomModal('hotel_2_chimelong')">
+              <img src="media/hotels/hotel_2_chimelong_resort_photo.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Chimelong Hotel Exterior Outlook">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <span class="absolute top-4 left-4 bg-emerald-500 text-white font-black px-3 py-1 rounded-xl text-xs mono">STAY 02 • 3 NIGHTS</span>
-              <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">30 Nov – 03 Dec 2026</span>
-              <div class="absolute bottom-4 left-5 right-5">
-                <h3 class="text-2xl font-black text-white">Chimelong Hotel (Guangzhou Resort)</h3>
-                <p class="text-xs text-emerald-300 font-bold mono">广州长隆酒店 • Hanxi Avenue</p>
+              <span class="absolute top-4 left-4 bg-emerald-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">STAY 02 • 3 NIGHTS</span>
+              <button onclick="event.stopPropagation(); openHotelRoomModal('hotel_2_chimelong')" class="absolute top-4 right-4 bg-slate-900/90 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold mono border border-white/20 shadow-lg backdrop-blur-md transition flex items-center gap-1.5">
+                <i class="fa-solid fa-bed text-emerald-400"></i> View Rooms (6)
+              </button>
+              <div class="absolute bottom-4 left-5 right-5 flex items-end justify-between">
+                <div>
+                  <h3 class="text-2xl font-black text-white group-hover:text-emerald-300 transition">Chimelong Hotel (Guangzhou Resort)</h3>
+                  <p class="text-xs text-emerald-300 font-bold mono">广州长隆酒店 • Hanxi Avenue</p>
+                </div>
+                <span class="text-[10px] mono bg-black/60 text-slate-300 px-2.5 py-1 rounded-lg border border-white/10 backdrop-blur-sm hidden sm:inline-flex items-center gap-1">
+                  <i class="fa-solid fa-camera"></i> Exterior Outlook
+                </span>
               </div>
             </div>
             <div class="p-6 pt-0 space-y-4 text-xs">
               <div class="grid grid-cols-2 gap-3 mono">
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
-                  <span class="text-slate-200 font-bold">Superior Hunting Family Room</span>
+                  <span class="text-slate-200 font-bold">Exploration Kid's Room</span>
                 </div>
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">SPECIAL PERKS</span>
@@ -1074,33 +1093,45 @@
                   <a href="tel:+862084786838" class="text-emerald-300 font-bold hover:underline mono">+86-20-84786838</a>
                 </div>
               </div>
-              <button onclick="copyToClipboard('Inside Chimelong Tourist Resort, No. 299 Hanxi Avenue East, Panyu District, Guangzhou, Guangdong 511430, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
-                <i class="fa-regular fa-copy"></i> Copy Address for Didi / Map
-              </button>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <button onclick="openHotelRoomModal('hotel_2_chimelong')" class="w-full py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500 border border-emerald-500/40 text-emerald-200 hover:text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-images"></i> Room Selection (6)
+                </button>
+                <button onclick="copyToClipboard('Inside Chimelong Tourist Resort, No. 299 Hanxi Avenue East, Panyu District, Guangzhou, Guangdong 511430, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-copy"></i> Copy Address
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- HOTEL 3: ATOUR DONGSHANKOU -->
           <div class="glass-card glow-purple rounded-3xl overflow-hidden border border-purple-500/30 space-y-4">
-            <div class="relative h-64 overflow-hidden">
-              <img src="media/hotels/hotel_3_atour_dongshankou_photo.jpg" class="w-full h-full object-cover" alt="Atour Hotel Dongshankou">
+            <div class="relative h-64 overflow-hidden group cursor-pointer" onclick="openHotelRoomModal('hotel_3_atour')">
+              <img src="media/hotels/hotel_3_atour_dongshankou_photo.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Atour Hotel Dongshankou Exterior Outlook">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <span class="absolute top-4 left-4 bg-purple-500 text-white font-black px-3 py-1 rounded-xl text-xs mono">STAY 03 • 3 NIGHTS</span>
-              <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">03 Dec – 06 Dec 2026</span>
-              <div class="absolute bottom-4 left-5 right-5">
-                <h3 class="text-2xl font-black text-white">Atour Hotel Dongshankou (Guangzhou)</h3>
-                <p class="text-xs text-purple-300 font-bold mono">广州东山口亚朵酒店 • Yuexiu District</p>
+              <span class="absolute top-4 left-4 bg-purple-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">STAY 03 • 3 NIGHTS</span>
+              <button onclick="event.stopPropagation(); openHotelRoomModal('hotel_3_atour')" class="absolute top-4 right-4 bg-slate-900/90 hover:bg-purple-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold mono border border-white/20 shadow-lg backdrop-blur-md transition flex items-center gap-1.5">
+                <i class="fa-solid fa-bed text-purple-400"></i> View Rooms (5)
+              </button>
+              <div class="absolute bottom-4 left-5 right-5 flex items-end justify-between">
+                <div>
+                  <h3 class="text-2xl font-black text-white group-hover:text-purple-300 transition">Atour Hotel Dongshankou (Guangzhou)</h3>
+                  <p class="text-xs text-purple-300 font-bold mono">广州东山口亚朵酒店 • Yuexiu District</p>
+                </div>
+                <span class="text-[10px] mono bg-black/60 text-slate-300 px-2.5 py-1 rounded-lg border border-white/10 backdrop-blur-sm hidden sm:inline-flex items-center gap-1">
+                  <i class="fa-solid fa-camera"></i> Exterior Outlook
+                </span>
               </div>
             </div>
             <div class="p-6 pt-0 space-y-4 text-xs">
               <div class="grid grid-cols-2 gap-3 mono">
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
-                  <span class="text-slate-200 font-bold">Executive Twin Suite</span>
+                  <span class="text-slate-200 font-bold">Privilege Family Twin Room</span>
                 </div>
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">BEDS & GUESTS</span>
-                  <span class="text-slate-200 font-bold">1 King + 1 Twin (Family Setup)</span>
+                  <span class="text-slate-200 font-bold">1 Queen + 1 Single Bed</span>
                 </div>
               </div>
               <div class="space-y-2 text-slate-300">
@@ -1113,33 +1144,45 @@
                   <a href="tel:+862087756888" class="text-purple-300 font-bold hover:underline mono">+86-20-87756888</a>
                 </div>
               </div>
-              <button onclick="copyToClipboard('No. 163 Donghua South Road, Yuexiu District, Guangzhou, Guangdong, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
-                <i class="fa-regular fa-copy"></i> Copy Address for Didi / Map
-              </button>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <button onclick="openHotelRoomModal('hotel_3_atour')" class="w-full py-2.5 rounded-xl bg-purple-500/20 hover:bg-purple-500 border border-purple-500/40 text-purple-200 hover:text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-images"></i> Room Selection (5)
+                </button>
+                <button onclick="copyToClipboard('No. 163 Donghua South Road, Yuexiu District, Guangzhou, Guangdong, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-copy"></i> Copy Address
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- HOTEL 4: QIUGO S SHENZHEN -->
           <div class="glass-card glow-pink rounded-3xl overflow-hidden border border-pink-500/30 space-y-4">
-            <div class="relative h-64 overflow-hidden">
-              <img src="media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg" class="w-full h-full object-cover" alt="Qiuguo S Hotel Shenzhen">
+            <div class="relative h-64 overflow-hidden group cursor-pointer" onclick="openHotelRoomModal('hotel_4_qiuguo')">
+              <img src="media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Qiuguo S Hotel Shenzhen Exterior Outlook">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <span class="absolute top-4 left-4 bg-pink-500 text-white font-black px-3 py-1 rounded-xl text-xs mono">STAY 04 • 3 NIGHTS</span>
-              <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">06 Dec – 09 Dec 2026</span>
-              <div class="absolute bottom-4 left-5 right-5">
-                <h3 class="text-2xl font-black text-white">Qiuguo S Hotel Shenzhen (Nanshan)</h3>
-                <p class="text-xs text-pink-300 font-bold mono">深圳南山秋果S酒店 • Nanxin Road</p>
+              <span class="absolute top-4 left-4 bg-pink-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">STAY 04 • 3 NIGHTS</span>
+              <button onclick="event.stopPropagation(); openHotelRoomModal('hotel_4_qiuguo')" class="absolute top-4 right-4 bg-slate-900/90 hover:bg-pink-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold mono border border-white/20 shadow-lg backdrop-blur-md transition flex items-center gap-1.5">
+                <i class="fa-solid fa-bed text-pink-400"></i> View Rooms (5)
+              </button>
+              <div class="absolute bottom-4 left-5 right-5 flex items-end justify-between">
+                <div>
+                  <h3 class="text-2xl font-black text-white group-hover:text-pink-300 transition">Qiuguo S Hotel Shenzhen (Nanshan)</h3>
+                  <p class="text-xs text-pink-300 font-bold mono">深圳南山秋果S酒店 • Nanxin Road</p>
+                </div>
+                <span class="text-[10px] mono bg-black/60 text-slate-300 px-2.5 py-1 rounded-lg border border-white/10 backdrop-blur-sm hidden sm:inline-flex items-center gap-1">
+                  <i class="fa-solid fa-camera"></i> Exterior Outlook
+                </span>
               </div>
             </div>
             <div class="p-6 pt-0 space-y-4 text-xs">
               <div class="grid grid-cols-2 gap-3 mono">
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
-                  <span class="text-slate-200 font-bold">Smart Family Duplex / Suite</span>
+                  <span class="text-slate-200 font-bold">Forest Oxygen Family Suite</span>
                 </div>
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">SMART PERKS</span>
-                  <span class="text-pink-300 font-bold">Voice-Controlled Robotics</span>
+                  <span class="text-pink-300 font-bold">Queen + Children Bunk Bed</span>
                 </div>
               </div>
               <div class="space-y-2 text-slate-300">
@@ -1152,29 +1195,41 @@
                   <a href="tel:+8675526909888" class="text-pink-300 font-bold hover:underline mono">+86-755-26909888</a>
                 </div>
               </div>
-              <button onclick="copyToClipboard('No. 5 Shop, No. 3125 Nanxin Road, Nanshan District, Shenzhen, Guangdong, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
-                <i class="fa-regular fa-copy"></i> Copy Address for Didi / Map
-              </button>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <button onclick="openHotelRoomModal('hotel_4_qiuguo')" class="w-full py-2.5 rounded-xl bg-pink-500/20 hover:bg-pink-500 border border-pink-500/40 text-pink-200 hover:text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-images"></i> Room Selection (5)
+                </button>
+                <button onclick="copyToClipboard('No. 5 Shop, No. 3125 Nanxin Road, Nanshan District, Shenzhen, Guangdong, China')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-copy"></i> Copy Address
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- HOTEL 5: ROYAL PLAZA HK -->
           <div class="glass-card glow-gold rounded-3xl overflow-hidden border border-amber-500/30 space-y-4 md:col-span-2 max-w-2xl mx-auto w-full">
-            <div class="relative h-64 overflow-hidden">
-              <img src="media/hotels/hotel_5_royal_plaza_hk_photo.jpg" class="w-full h-full object-cover" alt="Royal Plaza Hotel Hong Kong">
+            <div class="relative h-64 overflow-hidden group cursor-pointer" onclick="openHotelRoomModal('hotel_5_royal_plaza')">
+              <img src="media/hotels/hotel_5_royal_plaza_hk_photo.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Royal Plaza Hotel Hong Kong Exterior Outlook">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs mono">STAY 05 • 3 NIGHTS</span>
-              <span class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-200 px-3 py-1 rounded-xl text-xs mono border border-white/15">09 Dec – 12 Dec 2026</span>
-              <div class="absolute bottom-4 left-5 right-5">
-                <h3 class="text-2xl font-black text-white">Royal Plaza Hotel Hong Kong (Mong Kok)</h3>
-                <p class="text-xs text-amber-300 font-bold mono">香港帝京酒店 • Prince Edward Road West</p>
+              <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs mono shadow-md">STAY 05 • 3 NIGHTS</span>
+              <button onclick="event.stopPropagation(); openHotelRoomModal('hotel_5_royal_plaza')" class="absolute top-4 right-4 bg-slate-900/90 hover:bg-amber-500 text-white hover:text-slate-950 px-3 py-1.5 rounded-xl text-xs font-bold mono border border-white/20 shadow-lg backdrop-blur-md transition flex items-center gap-1.5">
+                <i class="fa-solid fa-bed text-amber-400"></i> View Rooms (5)
+              </button>
+              <div class="absolute bottom-4 left-5 right-5 flex items-end justify-between">
+                <div>
+                  <h3 class="text-2xl font-black text-white group-hover:text-amber-300 transition">Royal Plaza Hotel Hong Kong (Mong Kok)</h3>
+                  <p class="text-xs text-amber-300 font-bold mono">香港帝京酒店 • Prince Edward Road West</p>
+                </div>
+                <span class="text-[10px] mono bg-black/60 text-slate-300 px-2.5 py-1 rounded-lg border border-white/10 backdrop-blur-sm hidden sm:inline-flex items-center gap-1">
+                  <i class="fa-solid fa-camera"></i> Exterior Outlook
+                </span>
               </div>
             </div>
             <div class="p-6 pt-0 space-y-4 text-xs">
               <div class="grid grid-cols-2 gap-3 mono">
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">ROOM TYPE</span>
-                  <span class="text-slate-200 font-bold">Plaza Grand Deluxe Family Room</span>
+                  <span class="text-slate-200 font-bold">Plaza Deluxe Family Room</span>
                 </div>
                 <div class="bg-white/5 p-3 rounded-xl border border-white/10">
                   <span class="text-slate-400 block text-[10px]">CONNECTED TRANSIT</span>
@@ -1191,9 +1246,14 @@
                   <a href="tel:+85229288822" class="text-amber-300 font-bold hover:underline mono">+852-2928-8822</a>
                 </div>
               </div>
-              <button onclick="copyToClipboard('No. 193 Prince Edward Road West, Mong Kok, Yau Tsim Mong District, Hong Kong')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
-                <i class="fa-regular fa-copy"></i> Copy Address for Uber / Taxi
-              </button>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <button onclick="openHotelRoomModal('hotel_5_royal_plaza')" class="w-full py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 border border-amber-500/40 text-amber-200 hover:text-slate-950 font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-images"></i> Room Selection (5)
+                </button>
+                <button onclick="copyToClipboard('No. 193 Prince Edward Road West, Mong Kok, Yau Tsim Mong District, Hong Kong')" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono transition flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-copy"></i> Copy Address
+                </button>
+              </div>
             </div>
           </div>
 
@@ -1644,6 +1704,16 @@
         </div>
       </form>
 
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL 3: HOTEL ROOM SELECTION GALLERY       -->
+  <!-- ========================================== -->
+  <div id="hotelRoomModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6">
+    <div onclick="closeHotelRoomModal()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+    <div id="hotelRoomModalContent" class="relative bg-slate-900 border border-white/20 rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl z-10 flex flex-col max-h-[92vh]">
+      <!-- Dynamically populated via renderHotelRoomModalContent() in app.js -->
     </div>
   </div>
 

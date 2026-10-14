@@ -382,6 +382,7 @@ const nodeDetails = {
         badge: 'Stay 01 • 1 Night',
         date: '29 Nov – 30 Nov 2026',
         title: 'Mehood Lestie Hotel (Guangzhou Panyu Flagship)',
+        hotelRoomId: 'hotel_1_mehood',
         heroImage: 'media/hotels/hotel_1_mehood_panyu_photo.jpg',
         sections: [
           {
@@ -409,6 +410,7 @@ const nodeDetails = {
         badge: 'Stay 02 • 3 Nights',
         date: '30 Nov – 03 Dec 2026',
         title: 'Chimelong Hotel (Guangzhou Resort)',
+        hotelRoomId: 'hotel_2_chimelong',
         heroImage: 'media/hotels/hotel_2_chimelong_resort_photo.jpg',
         sections: [
           {
@@ -436,6 +438,7 @@ const nodeDetails = {
         badge: 'Stay 03 • 3 Nights',
         date: '03 Dec – 06 Dec 2026',
         title: 'Atour Hotel Dongshankou (Guangzhou)',
+        hotelRoomId: 'hotel_3_atour',
         heroImage: 'media/hotels/hotel_3_atour_dongshankou_photo.jpg',
         sections: [
           {
@@ -506,6 +509,7 @@ const nodeDetails = {
         badge: 'Stay 04 • 3 Nights',
         date: '06 Dec – 09 Dec 2026',
         title: 'Qiuguo S Hotel Shenzhen (Nanshan)',
+        hotelRoomId: 'hotel_4_qiuguo',
         heroImage: 'media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg',
         sections: [
           {
@@ -551,6 +555,7 @@ const nodeDetails = {
         badge: 'Stay 05 • 3 Nights',
         date: '09 Dec – 12 Dec 2026',
         title: 'Royal Plaza Hotel Hong Kong (Mong Kok)',
+        hotelRoomId: 'hotel_5_royal_plaza',
         heroImage: 'media/hotels/hotel_5_royal_plaza_hk_photo.jpg',
         sections: [
           {
@@ -600,3 +605,295 @@ const nodeDetails = {
         tips: 'Welcome home to Singapore! Seamless conclusion of the 14-day China Greater Bay Area trip.'
       }
     };
+
+
+// -------------------------------------------------------------
+// 4. HOTEL ROOM GALLERIES & TRIP.COM METADATA
+// -------------------------------------------------------------
+
+const hotelRoomsData = [
+  {
+    "id": "hotel_1_mehood",
+    "name": "Mehood Lestie Hotel (Guangzhou Panyu)",
+    "nameZh": "广州番禺美豪丽致酒店",
+    "exteriorPhoto": "media/hotels/hotel_1_mehood_panyu_photo.jpg",
+    "exteriorUrl": "https://dimg04.c-ctrip.com/images/1mc0u12000j6ui0hvC0E8.jpg",
+    "rooms": [
+      {
+        "id": "mehood_parent_child",
+        "name": "Warm Parent-Child Room",
+        "nameZh": "温馨亲子房（超大圆形浴缸+投屏电视+儿童主题）",
+        "beds": "1 Queen Bed (1.8m) + 1 Single Bed (1.2m)",
+        "perks": "Smart Voice Controls • Large Round Bubble Tub • Kids Themed Amenities",
+        "file": "media/hotels/rooms/hotel_1_room_1_parent_child.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/0202212000k67blta56B9.jpg"
+      },
+      {
+        "id": "mehood_deluxe_family",
+        "name": "Deluxe Family Room",
+        "nameZh": "豪华家庭房（智能客控+深度睡眠+明亮外窗）",
+        "beds": "1 King Bed (2.0m) + 1 Single Bed (1.2m)",
+        "perks": "Panoramic Windows • Deep Sleep Mattresses • Smart Voice Control",
+        "file": "media/hotels/rooms/hotel_1_room_2_deluxe_family.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/0584j12000sqstq94DEF0.jpg"
+      },
+      {
+        "id": "mehood_egg_party_suite",
+        "name": "Egg Party Theme Family Suite",
+        "nameZh": "蛋仔派对主题亲子套房（智能客控+儿童帐篷+泡泡浴缸）",
+        "beds": "1 Queen Bed + In-Room Children's Play Tent",
+        "perks": "In-room Play Tent • Fun Kid Bedding • Bubble Bath & Toys",
+        "file": "media/hotels/rooms/hotel_1_room_3_egg_party.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc2512000t95cch05BCA.jpg"
+      },
+      {
+        "id": "mehood_rumu_bathtub",
+        "name": "Rumu Bathtub King Room",
+        "nameZh": "如沐浴缸大床房（泡泡浴缸+智能马桶+阳光视野大窗户）",
+        "beds": "1 King Bed (2.0m)",
+        "perks": "Window-side Bathtub • Smart Toilet • Skylight Views",
+        "file": "media/hotels/rooms/hotel_1_room_4_rumu_bathtub.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/0200i12000h5y8ews3A73.jpg"
+      },
+      {
+        "id": "mehood_executive_suite",
+        "name": "Executive City-View Suite",
+        "nameZh": "行政套房（高空采光好景+超大圆形浴缸+静谧深睡眠）",
+        "beds": "1 King Bed + Living Area",
+        "perks": "High-floor City Views • Whirlpool Tub • Dedicated Lounge Sofa",
+        "file": "media/hotels/rooms/hotel_1_room_5_executive_suite.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc2312000t5ay6an2CB8.jpg"
+      }
+    ],
+    "tripUrl": "https://sg.trip.com/hotels/guangzhou-hotel-detail-124525038/mehood-lestie-hotel/"
+  },
+  {
+    "id": "hotel_2_chimelong",
+    "name": "Chimelong Hotel (Guangzhou Resort)",
+    "nameZh": "广州长隆酒店",
+    "exteriorPhoto": "media/hotels/hotel_2_chimelong_resort_photo.jpg",
+    "exteriorUrl": "https://dimg04.c-ctrip.com/images/1mc3e12000m5mwj7gAE45.jpg",
+    "rooms": [
+      {
+        "id": "chimelong_exploration_kids",
+        "name": "Exploration Kid's Room",
+        "nameZh": "探趣亲子房（丛林探险主题+儿童定制床）",
+        "beds": "1 King Bed (2.0m) + 1 Kid Safari Boat/Tent Bed",
+        "perks": "Jungle Safari Theme • Child Robes & Slippers • Unlimited Park Re-entry",
+        "file": "media/hotels/rooms/hotel_2_room_1_exploration_kids.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc5l12000cx2n06f3EF3.jpg"
+      },
+      {
+        "id": "chimelong_safari_king",
+        "name": "Safari Hunter King Room",
+        "nameZh": "野趣大床房（热带花园绿意+舒适大床）",
+        "beds": "1 King Bed (2.0m)",
+        "perks": "Private Garden Balcony • Forest Atmosphere • Welcome Animal Mascot",
+        "file": "media/hotels/rooms/hotel_2_room_2_safari_king.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc2b12000b2vzzz72B7B.jpg"
+      },
+      {
+        "id": "chimelong_hunting_room",
+        "name": "Hunting Themed Room",
+        "nameZh": "狩猎大床房（非洲原生态原木风情）",
+        "beds": "1 King Bed (2.0m)",
+        "perks": "African Safari Decor • Solid Wood Craftsmanship • Direct Resort Access",
+        "file": "media/hotels/rooms/hotel_2_room_3_hunting_king.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc4i12000auy6bxp35F6.jpg"
+      },
+      {
+        "id": "chimelong_exploration_twin",
+        "name": "Exploration Twin Room",
+        "nameZh": "探趣双床房（亲子出游+双大床设置）",
+        "beds": "2 Double Beds (1.35m each)",
+        "perks": "Ideal for 2 Adults + 2 Kids • Forest Elements • Walk to White Tiger Cafe",
+        "file": "media/hotels/rooms/hotel_2_room_4_exploration_twin.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc5i12000cwba7nx728C.jpg"
+      },
+      {
+        "id": "chimelong_family_suite",
+        "name": "Resort Family Suite",
+        "nameZh": "长隆家庭套房（独立客厅+儿童活动空间）",
+        "beds": "1 Master King Bed + Family Lounge / Sofa Bed",
+        "perks": "Spacious Living Room • 2 Bathrooms • VIP Early Park Entry Access",
+        "file": "media/hotels/rooms/hotel_2_room_5_family_suite.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc4e12000f6t390rE301.jpg"
+      },
+      {
+        "id": "chimelong_white_tiger_room",
+        "name": "White Tiger View Room",
+        "nameZh": "白虎大床房（俯瞰白虎生态中庭花园）",
+        "beds": "1 King Bed (2.0m)",
+        "perks": "Courtyard White Tiger Habitat Views • Complimentary Safari Badges",
+        "file": "media/hotels/rooms/hotel_2_room_6_white_tiger.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc4f12000btgggckB184.jpg"
+      }
+    ],
+    "tripUrl": "https://sg.trip.com/hotels/guangzhou-hotel-detail-419302/chimelong-hotel/"
+  },
+  {
+    "id": "hotel_3_atour",
+    "name": "Atour Hotel Dongshankou (Guangzhou)",
+    "nameZh": "广州东山口亚朵酒店",
+    "exteriorPhoto": "media/hotels/hotel_3_atour_dongshankou_photo.jpg",
+    "exteriorUrl": "https://dimg04.c-ctrip.com/images/1mc5k12000oift0m8A0B8.jpg",
+    "rooms": [
+      {
+        "id": "atour_family_twin",
+        "name": "Privilege Family Twin Room",
+        "nameZh": "尊享家庭双床房（深睡床垫+深睡枕头＋裸棉床品+冰箱）",
+        "beds": "1 Queen Bed (1.5m) + 1 Single Bed (1.2m)",
+        "perks": "Plant-derived Deep Sleep Mattresses • Soundproof Windows • Minibar",
+        "file": "media/hotels/rooms/hotel_3_room_1_family_twin.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc1f12000oi8u3nc2534.jpg"
+      },
+      {
+        "id": "atour_exec_twin",
+        "name": "Executive Twin Room",
+        "nameZh": "行政双床房（深睡床垫+深睡枕头＋裸棉床品+冰箱）",
+        "beds": "2 Single Beds (1.2m each)",
+        "perks": "Work Desk with Tea Set • Zero-pressure Bedding • Air Purifier",
+        "file": "media/hotels/rooms/hotel_3_room_2_exec_twin.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc6z12000oi8q0ld8B85.jpg"
+      },
+      {
+        "id": "atour_oxygen_king",
+        "name": "Premium Oxygen King Room",
+        "nameZh": "高级清氧大床房（深睡床垫+深睡枕头＋裸棉床品+冰箱）",
+        "beds": "1 King Bed (2.0m)",
+        "perks": "Negative Ion Air Purification • Reading Lamp & Bookshelf • Rain Shower",
+        "file": "media/hotels/rooms/hotel_3_room_3_oxygen_king.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc3u12000oi8k3pm1346.jpg"
+      },
+      {
+        "id": "atour_exec_king",
+        "name": "Executive King Room",
+        "nameZh": "行政大床房（深睡床垫+深睡枕头＋裸棉床品+冰箱）",
+        "beds": "1 King Bed (2.0m)",
+        "perks": "Upper Floor Yuexiu View • Complimentary Bottled Water • Warm Night Congee",
+        "file": "media/hotels/rooms/hotel_3_room_4_exec_king.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc0v12000oi8ok3m402F.jpg"
+      },
+      {
+        "id": "atour_privilege_king",
+        "name": "Privilege King Room",
+        "nameZh": "尊享大床房（深睡床垫+深睡枕头＋裸棉床品+冰箱）",
+        "beds": "1 King Bed (1.8m)",
+        "perks": "Comfort Lounge Chair • Chinese Herbal Bath Products • High Speed Wi-Fi",
+        "file": "media/hotels/rooms/hotel_3_room_5_privilege_king.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc6o12000oi8tidp3719.jpg"
+      }
+    ],
+    "tripUrl": "https://sg.trip.com/hotels/guangzhou-hotel-detail-131873153/guangzhou-beijing-road-pedestrian-street-dongshankou-metro-station-atour-hotel/"
+  },
+  {
+    "id": "hotel_4_qiuguo",
+    "name": "Qiuguo S Hotel Shenzhen (Nanshan Nantou)",
+    "nameZh": "深圳南山科技园秋果S酒店南头古城店",
+    "exteriorPhoto": "media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg",
+    "exteriorUrl": "https://dimg04.c-ctrip.com/images/1mc6n12000ipkbh0qB00A.jpg",
+    "rooms": [
+      {
+        "id": "qiuguo_family_bunk_suite",
+        "name": "Forest Oxygen Bar Family Suite",
+        "nameZh": "森林氧吧家庭套房【亲子床+智能客控+迷你冰箱】",
+        "beds": "1 Queen Bed (1.8m) + 1 Upper Children Bunk Bed (1.2m)",
+        "perks": "Bunk Bed with Guardrail • Voice-controlled Lighting & Curtains • Vitamin Bar",
+        "file": "media/hotels/rooms/hotel_4_room_1_family_bunk.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc2712000olwtya5D13F.jpg"
+      },
+      {
+        "id": "qiuguo_oxygen_twin",
+        "name": "Forest Oxygen Bar Twin Room",
+        "nameZh": "森林氧吧高级双床房[高层景观+空气净化器+独立冰箱]",
+        "beds": "2 Double Beds (1.35m each)",
+        "perks": "Nanshan Skyline Views • In-room Air Purification • Screen Cast Smart TV",
+        "file": "media/hotels/rooms/hotel_4_room_2_oxygen_twin.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc0x12000e5ohfn81288.jpg"
+      },
+      {
+        "id": "qiuguo_exec_bathtub",
+        "name": "Executive Bathtub King Room",
+        "nameZh": "浴享行政大床房[森林氧吧+行政浴缸+智能客控+迷你冰箱]",
+        "beds": "1 King Bed (1.8m)",
+        "perks": "Deep Soaking Bathtub • Complimentary Bath Salts • Robot Room Delivery",
+        "file": "media/hotels/rooms/hotel_4_room_3_exec_bathtub.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc2o12000e5ojfyiC77C.jpg"
+      },
+      {
+        "id": "qiuguo_deluxe_city_view",
+        "name": "City-View Deluxe Room",
+        "nameZh": "城景豪华大床房[高层景观+空气净化器+独立冰箱]",
+        "beds": "1 King Bed (1.8m)",
+        "perks": "Overlooking Nantou Ancient City • Ergonomic Desk • Bluetooth Speaker",
+        "file": "media/hotels/rooms/hotel_4_room_4_city_deluxe.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc6n12000ipkgukz6B71.jpg"
+      },
+      {
+        "id": "qiuguo_comfort_twin",
+        "name": "Comfort Twin Room",
+        "nameZh": "特惠双床房[智能客控+手机投屏+迷你冰箱]",
+        "beds": "2 Single Beds (1.2m each)",
+        "perks": "Smart Guest Controls • Quiet Soundproof Glazing • Free Afternoon Tea",
+        "file": "media/hotels/rooms/hotel_4_room_5_comfort_twin.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc5a12000ipki2zb3BB0.jpg"
+      }
+    ],
+    "tripUrl": "https://sg.trip.com/hotels/shenzhen-hotel-detail-120148979/qiuguo-s-hotel/"
+  },
+  {
+    "id": "hotel_5_royal_plaza",
+    "name": "Royal Plaza Hotel Hong Kong (Mong Kok)",
+    "nameZh": "香港帝京酒店",
+    "exteriorPhoto": "media/hotels/hotel_5_royal_plaza_hk_photo.jpg",
+    "exteriorUrl": "https://dimg04.c-ctrip.com/images/200i070000002qls6BB88.jpg",
+    "rooms": [
+      {
+        "id": "royal_deluxe_family",
+        "name": "Plaza Deluxe Family Room",
+        "nameZh": "豪华亲子客房（2张双人大床·4人入住·直通MOKO）",
+        "beds": "2 Queen Beds (1.5m each - 33 sqm)",
+        "perks": "Accommodates 4 Guests • Deep Bathtub + Separate Shower • Direct Mall Walkway",
+        "file": "media/hotels/rooms/hotel_5_room_1_deluxe_family.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/0585n12000sv7f9te535B.jpg"
+      },
+      {
+        "id": "royal_grand_family",
+        "name": "Club Grand Family Room",
+        "nameZh": "臻悦尊贵亲子客房（高层旺角景致+家庭大空间）",
+        "beds": "2 Queen Beds (1.5m each) + Club Lounge Access",
+        "perks": "High-floor Mong Kok Panorama • Nespresso Coffee Machine • Club Privileges",
+        "file": "media/hotels/rooms/hotel_5_room_2_club_family.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/0581c12000sok1an89501.jpg"
+      },
+      {
+        "id": "royal_premier_room",
+        "name": "Plaza Premier Room",
+        "nameZh": "优晋客房（现代轻奢设计+大理石浴室）",
+        "beds": "1 King Bed (1.8m) or 2 Single Beds",
+        "perks": "Marble Bathroom • 55-inch LED TV • USB Fast Charging Hubs",
+        "file": "media/hotels/rooms/hotel_5_room_3_premier_room.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/0224p12000asile9mE109.jpg"
+      },
+      {
+        "id": "royal_deluxe_suite",
+        "name": "Plaza Deluxe Suite",
+        "nameZh": "豪华套房（独立起居厅+全景观景大窗）",
+        "beds": "1 King Master Bed + Separate Living Room (64 sqm)",
+        "perks": "Walk-in Wardrobe • Guest Powder Room • Executive Work Desk",
+        "file": "media/hotels/rooms/hotel_5_room_4_deluxe_suite.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/1mc4u12000hs596dnA929.jpg"
+      },
+      {
+        "id": "royal_superior_room",
+        "name": "Plaza Superior Room",
+        "nameZh": "优悦客房（温馨典雅+舒适大床）",
+        "beds": "1 King Bed or 2 Single Beds",
+        "perks": "Cityscape Views • Pillow Menu • Connected to Mong Kok East MTR",
+        "file": "media/hotels/rooms/hotel_5_room_5_superior_room.jpg",
+        "url": "https://dimg04.c-ctrip.com/images/0222u12000asil7gjAFFF.jpg"
+      }
+    ],
+    "tripUrl": "https://sg.trip.com/hotels/hong-kong-hotel-detail-354012/royal-plaza-hotel/"
+  }
+];
