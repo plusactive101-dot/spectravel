@@ -1,5 +1,5 @@
 // =============================================================
-// SPECTRAVEL - China 2026 Greater Bay Area Expedition
+// MKTRAVEL - China 2026 Greater Bay Area Expedition
 // Interactive Roadmap, 14-Day Timeline, Booked Hotels & Dining
 // =============================================================
 
@@ -9,7 +9,7 @@ let activeChinaView = 'flowchart';
 let activeChinaDayFilter = 'all';
 let activeDiningFilter = 'all';
 let activeMindmapFilter = 'all';
-let chinaDaysCompleted = JSON.parse(localStorage.getItem('spectravel_china_completed') || '{}');
+let chinaDaysCompleted = JSON.parse(localStorage.getItem('mktravel_china_completed') || localStorage.getItem('spectravel_china_completed') || '{}');
 let chinaBudgetCurrency = 'SGD';
 
 const currencyRates = {
@@ -277,7 +277,7 @@ function toggleChinaDay(day) {
     chinaDaysCompleted[day] = true;
     showToast(`Day ${day} marked as completed!`);
   }
-  localStorage.setItem('spectravel_china_completed', JSON.stringify(chinaDaysCompleted));
+  localStorage.setItem('mktravel_china_completed', JSON.stringify(chinaDaysCompleted));
   renderDailySchedule(activeChinaDayFilter);
 }
 
@@ -294,15 +294,31 @@ function updateChinaProgress() {
 
 // Dining Radar
 function loadRestaurants() {
-  const stored = localStorage.getItem('spectravel_restaurants');
+  const stored = localStorage.getItem('mktravel_restaurants') || localStorage.getItem('spectravel_restaurants');
+  const defaults = typeof defaultRestaurants !== 'undefined' ? defaultRestaurants : [];
   if (stored) {
-    try { return JSON.parse(stored); } catch (e) { return defaultRestaurants; }
+    try {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        // Merge missing default items by id so newly added items show up
+        const existingIds = new Set(parsed.map(p => p.id));
+        const merged = [...parsed];
+        defaults.forEach(d => {
+          if (!existingIds.has(d.id)) {
+            merged.push(d);
+          }
+        });
+        return merged;
+      }
+    } catch (e) {
+      return defaults;
+    }
   }
-  return typeof defaultRestaurants !== 'undefined' ? defaultRestaurants : [];
+  return defaults;
 }
 
 function saveRestaurants(arr) {
-  localStorage.setItem('spectravel_restaurants', JSON.stringify(arr));
+  localStorage.setItem('mktravel_restaurants', JSON.stringify(arr));
 }
 
 function renderRestaurants(cityFilter = 'all') {

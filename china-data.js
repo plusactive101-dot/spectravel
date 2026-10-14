@@ -1,4 +1,4 @@
-// SPECTRAVEL - China 2026 Greater Bay Area Expedition Repository
+// MKTRAVEL - China 2026 Greater Bay Area Expedition Repository
 
 const itinerarySchedule = [
       {
@@ -295,6 +295,106 @@ const defaultRestaurants = [
         address: "Inside Dafo Temple, Beijing Road, Yuexiu District",
         price: "$$",
         notes: "Dine inside the illuminated golden pagoda complex right beside Beijing Road pedestrian shopping street."
+      },
+      {
+        id: "rest-gz-1",
+        name: "Tao Tao Ju (陶陶居)",
+        city: "Guangzhou",
+        cuisine: "Centenary Cantonese Dim Sum & Tea House",
+        dishes: "Shrimp Dumplings (虾饺皇), Signature Jumbo Shrimp Dumplings (陶陶居大虾饺), Crispy Pineapple Bun with Buffalo Milk Custard (酥皮水牛奶菠萝包)",
+        address: "No. 20 Dishifu Road, Liwan District / Beijing Road branches",
+        price: "$$",
+        notes: "Guangzhou's most celebrated heritage tea house established in 1880. Must-try for golden flaky milk buns and fresh morning dim sum."
+      },
+      {
+        id: "rest-gz-2",
+        name: "Da Ge Fan (大鸽饭 • 招牌红烧乳鸽)",
+        city: "Guangzhou",
+        cuisine: "Guangdong Specialty Roast Pigeon",
+        dishes: "Signature Crispy Roasted Pigeon (红烧乳鸽), Pigeon Claypot Rice (招牌鸽饭), Salt & Pepper Pigeon (椒盐乳鸽)",
+        address: "Multiple branches in Guangzhou core / Yuexiu & Tianhe",
+        price: "$$",
+        notes: "Guangzhou's #1 renowned roasted pigeon chain. Intensely juicy pigeon with blistered crispy skin and fragrance-infused claypot rice."
+      },
+      {
+        id: "rest-gz-3",
+        name: "Xie San Bao (蟹叁宝)",
+        city: "Guangzhou",
+        cuisine: "Crab Roe & Seafood Specialty",
+        dishes: "Crab Roe Over Rice (蟹黄捞饭), Crab Roe Tossed Noodles (蟹黄拌面), Crab Roe Soup Dumplings (蟹黄小笼包)",
+        address: "Beijing Road Commercial Pedestrian Zone, Yuexiu District",
+        price: "$$$",
+        notes: "Famous golden bowl packed with pure hand-peeled female crab roe and crab meat poured over steaming hot rice and noodles."
+      },
+      {
+        id: "rest-gz-4",
+        name: "Dian Dou De (点都德)",
+        city: "Guangzhou",
+        cuisine: "Intangible Cultural Heritage All-Day Dim Sum",
+        dishes: "Golden Crispy Salted Egg Shrimp Red Rice Roll (金沙海虾红米肠), Har Gow Dumplings (虾饺皇), Red Rice Rolls (红米肠)",
+        address: "Beijing Road & Dongshankou branch locations",
+        price: "$$",
+        notes: "Old-school Cantonese teahouse atmosphere with traditional teapots and freshly handmade dim sum served morning until late night."
+      },
+      {
+        id: "rest-gz-5",
+        name: "Guangzhou Restaurant (广州酒家)",
+        city: "Guangzhou",
+        cuisine: "Legendary Heritage State Cantonese Dining",
+        dishes: "Wenchang Chicken (文昌鸡), Crystal Shrimp Dumplings (虾饺), BBQ Char Siu Buns (叉烧包)",
+        address: "No. 2 Wenchang South Road, Liwan District (Original 1935 Flagship)",
+        price: "$$$",
+        notes: "Known as 'First Food in Guangzhou' (食在广州第一家). Elegant classical garden setting serving authentic state-banquet Cantonese cuisine."
+      },
+      {
+        id: "rest-gz-6",
+        name: "Yuan Ji Rice Noodle Rolls (源记肠粉)",
+        city: "Guangzhou",
+        cuisine: "Old Town Street Changfen & Congee",
+        dishes: "Fresh Shrimp Rice Rolls (鲜虾肠粉), Tender Beef Rice Rolls (牛肉肠粉), Traditional Sampan Congee (艇仔粥)",
+        address: "No. 92 Huagui Road, Liwan District",
+        price: "$",
+        notes: "Beloved neighborhood Michelin Bib Gourmand street joint. Stone-ground silky smooth rice sheets freshly steamed with hot sweet soy sauce."
+      },
+      {
+        id: "rest-gz-7",
+        name: "Chua Lam's Dim Sum (蔡澜港式点心)",
+        city: "Guangzhou",
+        cuisine: "Modern Gourmet Hong Kong Dim Sum",
+        dishes: "Crispy Hawthorn BBQ Pork Buns (酥皮山楂叉烧包), Egg White & Shrimp Dumplings (赛螃蟹凤眼饺), Lava Custard Buns (流心奶黄包)",
+        address: "Parc Central / TeeMall area, Tianhe CBD",
+        price: "$$",
+        notes: "Created by legendary food critic Chua Lam. Famous for combining sweet-and-sour candied hawthorn into baked crispy BBQ pork buns."
+      },
+      {
+        id: "rest-gz-8",
+        name: "Min Ji Claypot Rice (民记煲仔饭)",
+        city: "Guangzhou",
+        cuisine: "Traditional Charcoal Claypot Rice",
+        dishes: "Cured Sausage Claypot Rice (腊味煲仔饭), Pork Rib Rice (排骨煲仔饭), Raw Egg & Minced Beef Claypot Rice (窝蛋牛肉煲仔饭)",
+        address: "Yuexiu South Road, near Beijing Road core",
+        price: "$",
+        notes: "Legendary 40-year claypot stalwart. Cooked to order over raw heat with an irresistible crispy golden bottom rice crust (锅巴)."
+      },
+      {
+        id: "rest-gz-9",
+        name: "Ming Shao Chicken Specialty Restaurant (铭少食鸡专门店)",
+        city: "Guangzhou",
+        cuisine: "Guangdong Free-Range Chicken Feast",
+        dishes: "Signature Hand-Shredded Chicken (招牌鸡), Fragrant Soy Sauce Chicken (豉油鸡), Stir-Fried Chicken Giblets (鸡杂)",
+        address: "Guangzhou downtown dining core",
+        price: "$$",
+        notes: "Revered local saying: 'No banquet without chicken' (无鸡不成宴). Tender silky chicken skins and rich natural meat sweetness."
+      },
+      {
+        id: "rest-gz-10",
+        name: "Li Fang Four Seasons Dessert Shop (荔芳四季糖水店)",
+        city: "Guangzhou",
+        cuisine: "Authentic Cantonese Traditional Tong Sui",
+        dishes: "Mango Pomelo Sago (杨枝甘露), Shunde Double-Skin Milk (双皮奶), Aged Tangerine Peel Red Bean Soup (陈皮红豆沙)",
+        address: "Xihua Road Food Street, Liwan District",
+        price: "$",
+        notes: "Guangzhou dessert institution on bustling Xihua food street. Made with genuine 15-year Xinhui dried tangerine peel and rich buffalo milk."
       },
       {
         id: "rest-5",
