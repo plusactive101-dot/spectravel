@@ -1157,9 +1157,28 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Attractions Filtering
+function filterAttractionsCards(category) {
+  document.querySelectorAll('.attraction-filter-btn').forEach(btn => {
+    if (btn.dataset.category === category) {
+      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md";
+    } else {
+      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
+    }
+  });
+
+  document.querySelectorAll('.attraction-card').forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
 function initApp() {
   const hash = window.location.hash ? window.location.hash.replace('#', '') : '';
-  const validViews = ['flowchart', 'schedule', 'hotels', 'dining', 'mindmap', 'budget'];
+  const validViews = ['flowchart', 'schedule', 'hotels', 'attractions', 'dining', 'mindmap', 'budget'];
   const initialView = validViews.includes(hash) ? hash : 'flowchart';
   
   switchChinaView(initialView, Boolean(hash));

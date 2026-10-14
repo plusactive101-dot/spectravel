@@ -226,30 +226,34 @@
       </div>
 
       <!-- CHINA EXPEDITION QUICK VIEW NAVIGATION -->
-      <nav class="flex items-center space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs mono">
-        <button onclick="switchChinaView('flowchart', true)" id="header-btn-flowchart" class="header-nav-tab px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold flex items-center gap-1.5 transition shrink-0 shadow-md">
+      <nav class="flex items-center space-x-1.5 sm:space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs mono">
+        <button onclick="switchChinaView('flowchart', true)" id="header-btn-flowchart" class="header-nav-tab px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold flex items-center gap-1.5 transition shrink-0 shadow-md">
           <i class="fa-solid fa-route text-cyan-300"></i>
-          <span>Flowchart</span>
+          <span>Route</span>
         </button>
-        <button onclick="switchChinaView('schedule', true)" id="header-btn-schedule" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('schedule', true)" id="header-btn-schedule" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-calendar-days text-orange-400"></i>
-          <span>14-Day Itinerary</span>
+          <span>Itinerary</span>
         </button>
-        <button onclick="switchChinaView('hotels', true)" id="header-btn-hotels" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('hotels', true)" id="header-btn-hotels" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-hotel text-emerald-400"></i>
-          <span>Hotels & Rooms</span>
+          <span>Hotels</span>
         </button>
-        <button onclick="switchChinaView('dining', true)" id="header-btn-dining" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('attractions', true)" id="header-btn-attractions" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+          <i class="fa-solid fa-ferris-wheel text-pink-400"></i>
+          <span>Attractions</span>
+        </button>
+        <button onclick="switchChinaView('dining', true)" id="header-btn-dining" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-utensils text-yellow-400"></i>
           <span>Dining</span>
         </button>
-        <button onclick="switchChinaView('budget', true)" id="header-btn-budget" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('budget', true)" id="header-btn-budget" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-calculator text-teal-400"></i>
           <span>Budget</span>
         </button>
-        <button onclick="switchChinaView('mindmap', true)" id="header-btn-mindmap" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('mindmap', true)" id="header-btn-mindmap" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-map-location-dot text-purple-400"></i>
-          <span>Regional Map</span>
+          <span>Map</span>
         </button>
       </nav>
 
@@ -346,30 +350,34 @@
       </section>
 
       <!-- CHINA SUB-VIEW TABS -->
-      <nav id="chinaViewNav" class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs font-bold mono">
-        <button onclick="switchChinaView('flowchart')" id="btn-china-flowchart" class="china-nav-tab active-tab px-4 py-2.5 rounded-xl border border-white/10 transition flex items-center gap-2 shrink-0">
-          <i class="fa-solid fa-route"></i>
-          <span>Global Flowchart</span>
+      <nav id="chinaViewNav" class="flex items-center space-x-1.5 sm:space-x-2 overflow-x-auto pb-1 text-xs font-bold mono">
+        <button onclick="switchChinaView('flowchart')" id="btn-china-flowchart" class="china-nav-tab active-tab px-3.5 py-2 rounded-xl border border-white/10 transition flex items-center gap-1.5 shrink-0">
+          <i class="fa-solid fa-route text-cyan-300"></i>
+          <span>Route</span>
         </button>
-        <button onclick="switchChinaView('schedule')" id="btn-china-schedule" class="china-nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+        <button onclick="switchChinaView('schedule')" id="btn-china-schedule" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
           <i class="fa-solid fa-calendar-days text-orange-400"></i>
-          <span>14-Day Schedule & Checklist</span>
+          <span>Itinerary</span>
         </button>
-        <button onclick="switchChinaView('hotels')" id="btn-china-hotels" class="china-nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+        <button onclick="switchChinaView('hotels')" id="btn-china-hotels" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
           <i class="fa-solid fa-hotel text-emerald-400"></i>
-          <span>Hotel Bases & Photos</span>
+          <span>Hotels</span>
         </button>
-        <button onclick="switchChinaView('dining')" id="btn-china-dining" class="china-nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+        <button onclick="switchChinaView('attractions')" id="btn-china-attractions" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
+          <i class="fa-solid fa-ferris-wheel text-pink-400"></i>
+          <span>Attractions</span>
+        </button>
+        <button onclick="switchChinaView('dining')" id="btn-china-dining" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
           <i class="fa-solid fa-utensils text-yellow-400"></i>
-          <span>Dining Radar</span>
+          <span>Dining</span>
         </button>
-        <button onclick="switchChinaView('mindmap')" id="btn-china-mindmap" class="china-nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
-          <i class="fa-solid fa-map-location-dot text-purple-400"></i>
-          <span>Regional Map</span>
-        </button>
-        <button onclick="switchChinaView('budget')" id="btn-china-budget" class="china-nav-tab px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-2 shrink-0">
+        <button onclick="switchChinaView('budget')" id="btn-china-budget" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
           <i class="fa-solid fa-calculator text-teal-400"></i>
-          <span>Trip Cost Estimator</span>
+          <span>Budget</span>
+        </button>
+        <button onclick="switchChinaView('mindmap')" id="btn-china-mindmap" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
+          <i class="fa-solid fa-map-location-dot text-purple-400"></i>
+          <span>Map</span>
         </button>
       </nav>
 
@@ -1120,6 +1128,307 @@
                   <i class="fa-regular fa-copy"></i> Copy Address
                 </button>
               </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- VIEW 3.5: ATTRACTIONS & THEME PARKS        -->
+      <!-- ========================================== -->
+      <section id="view-attractions" class="china-view-panel hidden space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-4">
+          <div>
+            <h2 class="text-2xl font-black text-white flex items-center gap-2.5">
+              <i class="fa-solid fa-ferris-wheel text-pink-400"></i> Expedition Attractions & Parks
+            </h2>
+            <p class="text-xs text-slate-300 mt-1">Curated world-class safari parks, canyon adventures, tech flagship centers, and historic heritage villages.</p>
+          </div>
+
+          <!-- ATTRACTIONS FILTER TABS -->
+          <div class="flex flex-wrap gap-2 text-xs mono">
+            <button onclick="filterAttractionsCards('all')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md" data-category="all">All Sights</button>
+            <button onclick="filterAttractionsCards('theme-park')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="theme-park">Theme Parks</button>
+            <button onclick="filterAttractionsCards('nature')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="nature">Nature & Alps</button>
+            <button onclick="filterAttractionsCards('heritage')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="heritage">Heritage & Culture</button>
+            <button onclick="filterAttractionsCards('tech')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="tech">Tech & Skyline</button>
+          </div>
+        </div>
+
+        <!-- ATTRACTIONS GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="attractionsGrid">
+          
+          <!-- ATTRACTION 1: CHIMELONG SAFARI PARK -->
+          <div class="attraction-card glass-card glow-emerald rounded-3xl overflow-hidden border border-emerald-500/30 flex flex-col justify-between space-y-4" data-category="theme-park">
+            <div class="space-y-4">
+              <div class="relative h-52 overflow-hidden group cursor-pointer" onclick="openDrawer('node-hotel-chimelong')">
+                <img src="https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Chimelong Safari Park">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <span class="absolute top-4 left-4 bg-emerald-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs mono shadow-md">GUANGZHOU • CHIMELONG</span>
+                <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-emerald-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15">
+                  <i class="fa-solid fa-ticket mr-1"></i> Multi-Park Pass
+                </span>
+                <div class="absolute bottom-4 left-5 right-5">
+                  <h3 class="text-xl font-black text-white group-hover:text-emerald-300 transition">Chimelong Safari Park</h3>
+                  <p class="text-xs text-emerald-300 font-mono">长隆野生动物世界 • Giant Pandas & Gondola</p>
+                </div>
+              </div>
+              <div class="px-6 space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">TIME REQUIRED</span>
+                    <span class="text-white font-bold">Full Day (6-8h)</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">HIGHLIGHT</span>
+                    <span class="text-emerald-300 font-bold">Panda Triplets</span>
+                  </div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">World-renowned animal theme park featuring open-air self-drive savannah train, scenic sky gondola over safari enclosures, and world's only surviving giant panda triplets.</p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center gap-2">
+              <button onclick="openDrawer('node-hotel-chimelong')" class="flex-1 py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500 border border-emerald-500/40 text-emerald-200 hover:text-slate-950 font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-circle-info"></i> View Itinerary Specs
+              </button>
+              <button onclick="pointToLocation('loc-chimelong-resort'); switchChinaView('mindmap', true);" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono text-xs transition flex items-center gap-1 cursor-pointer" title="Locate on Map">
+                <i class="fa-solid fa-map-pin text-emerald-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ATTRACTION 2: CHIMELONG INTERNATIONAL CIRCUS -->
+          <div class="attraction-card glass-card glow-purple rounded-3xl overflow-hidden border border-purple-500/30 flex flex-col justify-between space-y-4" data-category="theme-park">
+            <div class="space-y-4">
+              <div class="relative h-52 overflow-hidden group cursor-pointer" onclick="openDrawer('node-hotel-chimelong')">
+                <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Chimelong Circus">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <span class="absolute top-4 left-4 bg-purple-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">GUANGZHOU • CHIMELONG</span>
+                <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-purple-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15">
+                  <i class="fa-solid fa-clock mr-1"></i> 19:30 Show
+                </span>
+                <div class="absolute bottom-4 left-5 right-5">
+                  <h3 class="text-xl font-black text-white group-hover:text-purple-300 transition">Chimelong International Circus</h3>
+                  <p class="text-xs text-purple-300 font-mono">广州长隆国际大马戏 • Global Acrobatics</p>
+                </div>
+              </div>
+              <div class="px-6 space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">SEATING TIP</span>
+                    <span class="text-white font-bold">Hotel VIP / First Come</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">DURATION</span>
+                    <span class="text-purple-300 font-bold">90 Mins Grand Theater</span>
+                  </div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">Largest permanent circus theater in the world featuring over 300 elite performers from 20+ countries, high-altitude trapeze, equestrian stunts, and immersive lasers.</p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center gap-2">
+              <button onclick="openDrawer('node-hotel-chimelong')" class="flex-1 py-2.5 rounded-xl bg-purple-500/20 hover:bg-purple-500 border border-purple-500/40 text-purple-200 hover:text-white font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-circle-info"></i> View Itinerary Specs
+              </button>
+              <button onclick="pointToLocation('loc-chimelong-resort'); switchChinaView('mindmap', true);" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono text-xs transition flex items-center gap-1 cursor-pointer" title="Locate on Map">
+                <i class="fa-solid fa-map-pin text-purple-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ATTRACTION 3: QINGYUAN GULONG GORGE -->
+          <div class="attraction-card glass-card glow-cyan rounded-3xl overflow-hidden border border-cyan-500/30 flex flex-col justify-between space-y-4" data-category="nature">
+            <div class="space-y-4">
+              <div class="relative h-52 overflow-hidden group cursor-pointer" onclick="openDrawer('node-qingyuan')">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Qingyuan Gulong Gorge">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <span class="absolute top-4 left-4 bg-cyan-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs mono shadow-md">QINGYUAN • ALPINE</span>
+                <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-cyan-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15">
+                  <i class="fa-solid fa-van-shuttle mr-1"></i> Day Charter
+                </span>
+                <div class="absolute bottom-4 left-5 right-5">
+                  <h3 class="text-xl font-black text-white group-hover:text-cyan-300 transition">Qingyuan Gulong Gorge</h3>
+                  <p class="text-xs text-cyan-300 font-mono">清远古龙峡 • Glass Grand Canyon & Coaster</p>
+                </div>
+              </div>
+              <div class="px-6 space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">RECORD BREAKER</span>
+                    <span class="text-white font-bold">12 World Records</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">THRILL RIDE</span>
+                    <span class="text-cyan-300 font-bold">Canyon Coaster</span>
+                  </div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">Massive alpine forest reserve featuring a 520m suspended glass walkway, glass suspension bridge over roaring waterfalls, alpine coaster descent, and world-famous Qingyuan chicken feast.</p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center gap-2">
+              <button onclick="openDrawer('node-qingyuan')" class="flex-1 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 border border-cyan-500/40 text-cyan-200 hover:text-slate-950 font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-circle-info"></i> View Itinerary Specs
+              </button>
+              <button onclick="pointToLocation('loc-qingyuan-gulong'); switchChinaView('mindmap', true);" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono text-xs transition flex items-center gap-1 cursor-pointer" title="Locate on Map">
+                <i class="fa-solid fa-map-pin text-cyan-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ATTRACTION 4: SHAWAN ANCIENT TOWN -->
+          <div class="attraction-card glass-card glow-orange rounded-3xl overflow-hidden border border-orange-500/30 flex flex-col justify-between space-y-4" data-category="heritage">
+            <div class="space-y-4">
+              <div class="relative h-52 overflow-hidden group cursor-pointer" onclick="openDrawer('node-hotel-mehood')">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Shawan Ancient Town">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <span class="absolute top-4 left-4 bg-orange-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">PANYU • HERITAGE</span>
+                <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-orange-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15">
+                  <i class="fa-solid fa-bowl-food mr-1"></i> Ginger Milk Curd
+                </span>
+                <div class="absolute bottom-4 left-5 right-5">
+                  <h3 class="text-xl font-black text-white group-hover:text-orange-300 transition">Shawan Ancient Town</h3>
+                  <p class="text-xs text-orange-300 font-mono">沙湾古镇 • Oyster Shell Walls & Folk Music</p>
+                </div>
+              </div>
+              <div class="px-6 space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">HISTORY</span>
+                    <span class="text-white font-bold">800+ Years Old</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">DELICACY</span>
+                    <span class="text-orange-300 font-bold">Water-Buffalo Milk</span>
+                  </div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">Picturesque Lingnan water village celebrated for ancestral brick shrines, oyster-shell boundary walls, Cantonese Guangdong music heritage, and freshly made ginger water-buffalo curd.</p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center gap-2">
+              <button onclick="openDrawer('node-hotel-mehood')" class="flex-1 py-2.5 rounded-xl bg-orange-500/20 hover:bg-orange-500 border border-orange-500/40 text-orange-200 hover:text-slate-950 font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-circle-info"></i> View Itinerary Specs
+              </button>
+              <button onclick="pointToLocation('loc-shawan'); switchChinaView('mindmap', true);" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono text-xs transition flex items-center gap-1 cursor-pointer" title="Locate on Map">
+                <i class="fa-solid fa-map-pin text-orange-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ATTRACTION 5: BEIJING ROAD & DAFO TEMPLE -->
+          <div class="attraction-card glass-card glow-gold rounded-3xl overflow-hidden border border-amber-500/30 flex flex-col justify-between space-y-4" data-category="heritage">
+            <div class="space-y-4">
+              <div class="relative h-52 overflow-hidden group cursor-pointer" onclick="openDrawer('node-hotel-atour')">
+                <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Beijing Road Dafo Temple">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs mono shadow-md">CANTON CORE • YUEXIU</span>
+                <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15">
+                  <i class="fa-solid fa-moon mr-1"></i> Night Illumination
+                </span>
+                <div class="absolute bottom-4 left-5 right-5">
+                  <h3 class="text-xl font-black text-white group-hover:text-amber-300 transition">Beijing Road & Dafo Temple</h3>
+                  <p class="text-xs text-amber-300 font-mono">北京路千年古道 & 大佛寺 • Spirited Away Pagoda</p>
+                </div>
+              </div>
+              <div class="px-6 space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">ARCHEOLOGY</span>
+                    <span class="text-white font-bold">11-Layer Glass Road</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">NIGHT SCENE</span>
+                    <span class="text-amber-300 font-bold">Golden Temple Lights</span>
+                  </div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">Bustling commercial corridor displaying preserved historical layers from the Tang and Song dynasties under glass flooring, beside the glowing golden wooden pavilion of Dafo Temple.</p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center gap-2">
+              <button onclick="openDrawer('node-hotel-atour')" class="flex-1 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 border border-amber-500/40 text-amber-200 hover:text-slate-950 font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-circle-info"></i> View Itinerary Specs
+              </button>
+              <button onclick="pointToLocation('loc-beijing-road'); switchChinaView('mindmap', true);" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono text-xs transition flex items-center gap-1 cursor-pointer" title="Locate on Map">
+                <i class="fa-solid fa-map-pin text-amber-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ATTRACTION 6: DJI SKY CITY & SHENZHEN TECH -->
+          <div class="attraction-card glass-card glow-pink rounded-3xl overflow-hidden border border-pink-500/30 flex flex-col justify-between space-y-4" data-category="tech">
+            <div class="space-y-4">
+              <div class="relative h-52 overflow-hidden group cursor-pointer" onclick="openDrawer('node-hotel-qiuguo')">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="DJI Sky City">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <span class="absolute top-4 left-4 bg-pink-500 text-white font-black px-3 py-1 rounded-xl text-xs mono shadow-md">SHENZHEN • NANSHAN</span>
+                <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-pink-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15">
+                  <i class="fa-solid fa-microchip mr-1"></i> Global Tech HQ
+                </span>
+                <div class="absolute bottom-4 left-5 right-5">
+                  <h3 class="text-xl font-black text-white group-hover:text-pink-300 transition">DJI Sky City Global HQ</h3>
+                  <p class="text-xs text-pink-300 font-mono">大疆天空之城全球总部 • Foster + Partners</p>
+                </div>
+              </div>
+              <div class="px-6 space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">ARCHITECTURE</span>
+                    <span class="text-white font-bold">Suspension Twin Towers</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">EXPERIENCE</span>
+                    <span class="text-pink-300 font-bold">Drone Flagship Demo</span>
+                  </div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">State-of-the-art dual cantilever towers designed by Foster + Partners with outdoor drone flight test bridges, leading directly into the futuristic tech district of Nanshan.</p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center gap-2">
+              <button onclick="openDrawer('node-hotel-qiuguo')" class="flex-1 py-2.5 rounded-xl bg-pink-500/20 hover:bg-pink-500 border border-pink-500/40 text-pink-200 hover:text-white font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-circle-info"></i> View Itinerary Specs
+              </button>
+              <button onclick="pointToLocation('loc-dji-skycity'); switchChinaView('mindmap', true);" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono text-xs transition flex items-center gap-1 cursor-pointer" title="Locate on Map">
+                <i class="fa-solid fa-map-pin text-pink-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ATTRACTION 7: VICTORIA HARBOUR & PEAK TRAM -->
+          <div class="attraction-card glass-card glow-gold rounded-3xl overflow-hidden border border-amber-500/30 flex flex-col justify-between space-y-4" data-category="tech">
+            <div class="space-y-4">
+              <div class="relative h-52 overflow-hidden group cursor-pointer" onclick="openDrawer('node-hotel-royal')">
+                <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Victoria Harbour Hong Kong">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs mono shadow-md">HONG KONG • HARBOUR</span>
+                <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-amber-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15">
+                  <i class="fa-solid fa-ferry mr-1"></i> Star Ferry & Peak
+                </span>
+                <div class="absolute bottom-4 left-5 right-5">
+                  <h3 class="text-xl font-black text-white group-hover:text-amber-300 transition">Victoria Harbour & Peak Tram</h3>
+                  <p class="text-xs text-amber-300 font-mono">维多利亚港 & 太平山顶 • World Skyline</p>
+                </div>
+              </div>
+              <div class="px-6 space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">ICONIC TRANSIT</span>
+                    <span class="text-white font-bold">Star Ferry (HK$5)</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-white/5 border border-white/10">
+                    <span class="text-slate-400 block text-[10px]">PANORAMA</span>
+                    <span class="text-amber-300 font-bold">Sky Terrace 428</span>
+                  </div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">Avenue of Stars promenade overlooking world-famous skyscrapers, vintage double-decker Star Ferry crossing, and the sixth-generation Peak Tram funicular railway.</p>
+              </div>
+            </div>
+            <div class="p-6 pt-0 flex items-center gap-2">
+              <button onclick="openDrawer('node-hotel-royal')" class="flex-1 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500 border border-amber-500/40 text-amber-200 hover:text-slate-950 font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-circle-info"></i> View Itinerary Specs
+              </button>
+              <button onclick="pointToLocation('loc-victoria-harbour'); switchChinaView('mindmap', true);" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold mono text-xs transition flex items-center gap-1 cursor-pointer" title="Locate on Map">
+                <i class="fa-solid fa-map-pin text-amber-400"></i>
+              </button>
             </div>
           </div>
 
