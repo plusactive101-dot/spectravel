@@ -597,6 +597,70 @@ const regionalLocations = [
   }
 ];
 
+let currentBaseLayerName = 'esri-dark';
+let activeBaseLayers = [];
+
+function setMapBaseLayer(layerName) {
+  currentBaseLayerName = layerName;
+  if (!regionalMapInstance) return;
+
+  // Clear existing tile layers
+  activeBaseLayers.forEach(l => regionalMapInstance.removeLayer(l));
+  activeBaseLayers = [];
+
+  // Update toggle buttons styling
+  const buttons = {
+    'esri-dark': document.getElementById('map-style-btn-esri'),
+    'amap-detail': document.getElementById('map-style-btn-amap'),
+    'satellite': document.getElementById('map-style-btn-sat')
+  };
+
+  Object.keys(buttons).forEach(k => {
+    const btn = buttons[k];
+    if (!btn) return;
+    if (k === layerName) {
+      btn.className = "px-2.5 py-1 rounded-lg bg-purple-500 text-white font-bold transition flex items-center gap-1 text-[11px] shadow-sm";
+    } else {
+      btn.className = "px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1 text-[11px]";
+    }
+  });
+
+  if (layerName === 'amap-detail') {
+    // High-Detail AutoNavi (高德地图) Standard Vector Roads & Local Landmarks
+    const amapTile = L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+      subdomains: ['1', '2', '3', '4'],
+      maxZoom: 18,
+      attribution: '&copy; AutoNavi (高德地图)'
+    });
+    amapTile.addTo(regionalMapInstance);
+    activeBaseLayers.push(amapTile);
+  } else if (layerName === 'satellite') {
+    // Esri World Satellite Imagery
+    const satTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18,
+      attribution: '&copy; Esri & Earthstar Geographics'
+    });
+    const labelTile = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18
+    });
+    satTile.addTo(regionalMapInstance);
+    labelTile.addTo(regionalMapInstance);
+    activeBaseLayers.push(satTile, labelTile);
+  } else {
+    // Default: 100% Free Dark Gray Canvas Base Map (No API Key Required)
+    const baseTile = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 16,
+      attribution: '&copy; Esri, DeLorme, NAVTEQ'
+    });
+    const refTile = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 16
+    });
+    baseTile.addTo(regionalMapInstance);
+    refTile.addTo(regionalMapInstance);
+    activeBaseLayers.push(baseTile, refTile);
+  }
+}
+
 function initRegionalMap() {
   const mapContainer = document.getElementById('regionalLeafletMap');
   if (!mapContainer || typeof L === 'undefined') return;
@@ -609,16 +673,8 @@ function initRegionalMap() {
       attributionControl: false
     }).setView([22.95, 113.60], 9);
 
-    // 100% Free Dark Gray Canvas Base Map (No API Key Required)
-    L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 16,
-      attribution: '&copy; Esri, DeLorme, NAVTEQ'
-    }).addTo(regionalMapInstance);
-
-    // Free Reference Labels Layer (Cities, Roads & Boundaries)
-    L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 16
-    }).addTo(regionalMapInstance);
+    // Apply default base layer
+    setMapBaseLayer(currentBaseLayerName);
 
     // Draw Transit Polyline linking major hubs
     const corridorPath = [

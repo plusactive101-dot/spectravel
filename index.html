@@ -247,6 +247,10 @@
           <i class="fa-solid fa-calculator text-teal-400"></i>
           <span>Budget</span>
         </button>
+        <button onclick="switchChinaView('mindmap', true)" id="header-btn-mindmap" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+          <i class="fa-solid fa-map-location-dot text-purple-400"></i>
+          <span>Regional Map</span>
+        </button>
       </nav>
 
     </div>
@@ -1203,25 +1207,33 @@
           
           <!-- LEAFLET MAP CANVAS CONTAINER -->
           <div class="lg:col-span-2 glass-card rounded-3xl p-3 border border-white/15 relative overflow-hidden shadow-2xl flex flex-col">
-            <div class="flex items-center justify-between px-3 py-2 text-xs mono text-slate-300 border-b border-white/10 mb-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between px-3 py-2 text-xs mono text-slate-300 border-b border-white/10 mb-2 gap-2">
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-glow"></span>
                 <span class="font-bold text-white">Live Regional Area Map</span>
                 <span class="text-slate-500">•</span>
                 <span class="text-slate-400">GBA Corridor</span>
               </div>
-              <div class="flex items-center gap-3 text-[11px] text-slate-400">
-                <span><i class="fa-solid fa-computer-mouse text-cyan-400"></i> Scroll to zoom</span>
-                <span><i class="fa-solid fa-hand-pointer text-orange-400"></i> Click pins for details</span>
+              <!-- MAP LAYER TOGGLE (Free Esri / High-Detail AutoNavi Amap / Satellite) -->
+              <div class="flex items-center gap-1.5 bg-black/40 p-1 rounded-xl border border-white/10 shrink-0">
+                <button onclick="setMapBaseLayer('esri-dark')" id="map-style-btn-esri" class="px-2.5 py-1 rounded-lg bg-purple-500 text-white font-bold transition flex items-center gap-1 text-[11px]">
+                  <i class="fa-solid fa-moon"></i> Dark Canvas
+                </button>
+                <button onclick="setMapBaseLayer('amap-detail')" id="map-style-btn-amap" class="px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1 text-[11px]">
+                  <i class="fa-solid fa-map"></i> High-Detail AutoNavi (高德)
+                </button>
+                <button onclick="setMapBaseLayer('satellite')" id="map-style-btn-sat" class="px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1 text-[11px]">
+                  <i class="fa-solid fa-satellite"></i> Satellite
+                </button>
               </div>
             </div>
             
             <div id="regionalLeafletMap" class="w-full h-[520px] sm:h-[600px] rounded-2xl overflow-hidden relative z-10 border border-white/10"></div>
             
             <div class="mt-3 px-3 py-2 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between text-xs mono text-slate-400 gap-2">
-              <span class="flex items-center gap-1.5"><i class="fa-solid fa-train text-cyan-400"></i> Rail & transit lines visualized</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-train text-cyan-400"></i> Bullet Rail & Airport links visualized with zero API key</span>
               <button onclick="resetRegionalMapView()" class="hover:text-white transition font-bold text-cyan-400 flex items-center gap-1">
-                <i class="fa-solid fa-rotate-right"></i> Reset View
+                <i class="fa-solid fa-rotate-right"></i> Reset Map View
               </button>
             </div>
           </div>
@@ -1237,10 +1249,230 @@
             </div>
 
             <div class="space-y-3" id="regionalLocationsList">
-              <!-- Dynamically populated or rendered -->
+              <!-- Dynamically populated via app.js -->
             </div>
           </div>
 
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- OVERALL REGIONAL REFERENCE MAP WITH ALL PINS (BELOW LIVE MAP) -->
+        <!-- ======================================================== -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/15 space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-white/10 pb-5">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold mono bg-purple-500/20 text-purple-300 border border-purple-500/30 mb-2">
+                <i class="fa-solid fa-compass"></i> MASTER OVERALL OVERVIEW
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5">
+                <span>Greater Bay Area Expedition Corridor Reference</span>
+              </h3>
+              <p class="text-xs text-slate-300 mt-1">High-level static & schematic reference showing all 15 adventure locations, 5 hotel bases, and transport vectors across Guangdong & Hong Kong.</p>
+            </div>
+
+            <div class="flex items-center gap-2 mono text-xs shrink-0">
+              <span class="px-3 py-1.5 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 font-bold">
+                <i class="fa-solid fa-location-dot"></i> 15 Pinned Sites
+              </span>
+              <span class="px-3 py-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold">
+                <i class="fa-solid fa-bed"></i> 5 Hotel Bases
+              </span>
+            </div>
+          </div>
+
+          <!-- SCHEMATIC CORRIDOR MAP INFOGRAPHIC WITH PIN NODES -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs mono">
+            
+            <!-- REGION 1: CANTON INGRESS & PANYU -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-orange-500/15 to-transparent border border-orange-500/30 space-y-3.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-orange-500 text-slate-950">REGION 01 • PANYU</span>
+                <span class="text-orange-400 font-bold">Days 1 – 2</span>
+              </div>
+              <h4 class="text-base font-black text-white flex items-center gap-2">
+                <i class="fa-solid fa-archway text-orange-400"></i> Panyu Heritage Hub
+              </h4>
+              <div class="space-y-2">
+                <div onclick="pointToLocation('loc-panyu-mehood')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-orange-500 flex items-center justify-center text-white text-[10px] font-black shrink-0">H1</span>
+                    <span class="font-bold text-white group-hover:text-orange-300 transition">Mehood Lestie Hotel</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-orange-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-shawan')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-orange-500/30 text-orange-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-landmark"></i></span>
+                    <span class="text-slate-300 group-hover:text-white transition">Shawan Ancient Town</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-orange-400"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-snug">South of Guangzhou city core; oyster-shell architecture, hot buffalo milk curd, 15-min to Chimelong.</p>
+            </div>
+
+            <!-- REGION 2: CHIMELONG SAFARI RESORT -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-emerald-500/15 to-transparent border border-emerald-500/30 space-y-3.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-emerald-500 text-slate-950">REGION 02 • CHIMELONG</span>
+                <span class="text-emerald-400 font-bold">Days 2 – 5</span>
+              </div>
+              <h4 class="text-base font-black text-white flex items-center gap-2">
+                <i class="fa-solid fa-hippo text-emerald-400"></i> Chimelong Safari Resort
+              </h4>
+              <div class="space-y-2">
+                <div onclick="pointToLocation('loc-chimelong-resort')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-emerald-500 flex items-center justify-center text-slate-950 text-[10px] font-black shrink-0">H2</span>
+                    <span class="font-bold text-white group-hover:text-emerald-300 transition">Chimelong Hotel Resort</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-emerald-400"></i>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between text-slate-300">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-emerald-500/30 text-emerald-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-paw"></i></span>
+                    <span>Safari, Circus & Paradise</span>
+                  </div>
+                  <span class="text-[10px] text-emerald-400 font-bold">3-Day Pass</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-snug">World-famous wildlife park with giant pandas, open-air savannah cable car, and grand circus theater.</p>
+            </div>
+
+            <!-- REGION 3: CANTON CORE & DONGSHANKOU -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-purple-500/15 to-transparent border border-purple-500/30 space-y-3.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-purple-500 text-white">REGION 03 • CANTON</span>
+                <span class="text-purple-400 font-bold">Days 5 – 8</span>
+              </div>
+              <h4 class="text-base font-black text-white flex items-center gap-2">
+                <i class="fa-solid fa-mountain text-purple-400"></i> Canton Heritage & Qingyuan
+              </h4>
+              <div class="space-y-2">
+                <div onclick="pointToLocation('loc-canton-atour')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-purple-500 flex items-center justify-center text-white text-[10px] font-black shrink-0">H3</span>
+                    <span class="font-bold text-white group-hover:text-purple-300 transition">Atour Hotel Dongshankou</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-purple-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-qingyuan-gulong')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-blue-500/30 text-blue-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-mountain"></i></span>
+                    <span class="text-slate-300 group-hover:text-white transition">Qingyuan Gulong Gorge</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-blue-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-beijing-road')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-purple-500/30 text-purple-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-road"></i></span>
+                    <span class="text-slate-300 group-hover:text-white transition">Beijing Rd & Dafo Temple</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-purple-400"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-snug">Historic red-brick villas, Yuexiu cultural landmarks, and high-altitude alpine glass skywalk excursion.</p>
+            </div>
+
+            <!-- REGION 4: SHENZHEN NANSHAN TECH -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-pink-500/15 to-transparent border border-pink-500/30 space-y-3.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-pink-500 text-white">REGION 04 • SHENZHEN</span>
+                <span class="text-pink-400 font-bold">Days 8 – 11</span>
+              </div>
+              <h4 class="text-base font-black text-white flex items-center gap-2">
+                <i class="fa-solid fa-microchip text-pink-400"></i> Shenzhen Tech Metropolis
+              </h4>
+              <div class="space-y-2">
+                <div onclick="pointToLocation('loc-shenzhen-qiuguo')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-pink-500 flex items-center justify-center text-white text-[10px] font-black shrink-0">H4</span>
+                    <span class="font-bold text-white group-hover:text-pink-300 transition">Qiuguo S Hotel Nanshan</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-pink-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-dji-skycity')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-pink-500/30 text-pink-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-city"></i></span>
+                    <span class="text-slate-300 group-hover:text-white transition">DJI Sky City Global HQ</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-pink-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-futian-rail')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-pink-500/30 text-pink-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-train"></i></span>
+                    <span class="text-slate-300 group-hover:text-white transition">Futian Bullet Rail Station</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-pink-400"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-snug">China's tech capital: smart hotel voice controls, coastal cycling, and 14-min bullet rail directly to HK.</p>
+            </div>
+
+            <!-- REGION 5: HONG KONG MONG KOK & HARBOUR -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-amber-500/15 to-transparent border border-amber-500/30 space-y-3.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-amber-500 text-slate-950">REGION 05 • HONG KONG</span>
+                <span class="text-amber-400 font-bold">Days 11 – 14</span>
+              </div>
+              <h4 class="text-base font-black text-white flex items-center gap-2">
+                <i class="fa-solid fa-city text-amber-400"></i> Hong Kong Harbour & Mong Kok
+              </h4>
+              <div class="space-y-2">
+                <div onclick="pointToLocation('loc-royal-plaza')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 text-[10px] font-black shrink-0">H5</span>
+                    <span class="font-bold text-white group-hover:text-amber-300 transition">Royal Plaza Hotel</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-amber-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-hk-west-kowloon')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-amber-500/30 text-amber-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-passport"></i></span>
+                    <span class="text-slate-300 group-hover:text-white transition">West Kowloon Station</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-amber-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-victoria-harbour')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-amber-500/30 text-amber-300 flex items-center justify-center text-[10px] font-black shrink-0"><i class="fa-solid fa-ferry"></i></span>
+                    <span class="text-slate-300 group-hover:text-white transition">Victoria Harbour & Peak</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-amber-400"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-snug">Direct MOKO Mall connection, Star Ferry harbour crossings, iconic Peak skyline, and seamless Airport Express.</p>
+            </div>
+
+            <!-- REGION 6: AVIATION CORRIDOR (CAN & HKG) -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-cyan-500/15 to-transparent border border-cyan-500/30 space-y-3.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-cyan-500 text-slate-950">TRANSIT • CATHAY PACIFIC</span>
+                <span class="text-cyan-400 font-bold">Inbound & Return</span>
+              </div>
+              <h4 class="text-base font-black text-white flex items-center gap-2">
+                <i class="fa-solid fa-plane-departure text-cyan-400"></i> International Air Corridors
+              </h4>
+              <div class="space-y-2">
+                <div onclick="pointToLocation('loc-can-airport')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-cyan-500 flex items-center justify-center text-slate-950 text-[10px] font-black shrink-0"><i class="fa-solid fa-plane-arrival"></i></span>
+                    <span class="font-bold text-white group-hover:text-cyan-300 transition">Guangzhou Baiyun (CAN)</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-cyan-400"></i>
+                </div>
+                <div onclick="pointToLocation('loc-hkg-airport')" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer flex items-center justify-between group transition">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-lg bg-cyan-500 flex items-center justify-center text-slate-950 text-[10px] font-black shrink-0"><i class="fa-solid fa-plane-departure"></i></span>
+                    <span class="font-bold text-white group-hover:text-cyan-300 transition">Hong Kong Int'l (HKG)</span>
+                  </div>
+                  <i class="fa-solid fa-location-crosshairs text-slate-400 group-hover:text-cyan-400"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 leading-snug">Arrival at CAN T2 via HKG transfer; homeward flight CX657 from HKG T1 straight to Singapore Changi.</p>
+            </div>
+
+          </div>
         </div>
       </section>
 
