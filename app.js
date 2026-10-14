@@ -50,20 +50,53 @@ function switchPortal(portalName) {
 }
 
 // --- 6. CHINA 2026 EXPEDITION ENGINE ---
-function switchChinaView(viewName) {
+function getHotelRoomsCount(hotelId) {
+  return getHotelPhotosCount(hotelId);
+}
+
+function switchChinaView(viewName, shouldScroll = false) {
   activeChinaView = viewName;
+  
+  // Update view panels
   document.querySelectorAll('.china-view-panel').forEach(p => p.classList.add('hidden'));
+  const targetView = document.getElementById('view-' + viewName);
+  if (targetView) targetView.classList.remove('hidden');
+
+  // Update sub-view tabs
   document.querySelectorAll('.china-nav-tab').forEach(b => {
     b.classList.remove('active-tab');
     b.classList.add('text-slate-300');
   });
-
-  const targetView = document.getElementById('view-' + viewName);
   const targetBtn = document.getElementById('btn-china-' + viewName);
-  if (targetView) targetView.classList.remove('hidden');
   if (targetBtn) {
     targetBtn.classList.add('active-tab');
     targetBtn.classList.remove('text-slate-300');
+  }
+
+  // Update header nav tabs
+  document.querySelectorAll('.header-nav-tab').forEach(b => {
+    b.classList.remove('bg-gradient-to-r', 'from-cyan-500', 'to-purple-600', 'text-white', 'shadow-md');
+    b.classList.add('bg-white/10', 'text-slate-300');
+  });
+  const headerBtn = document.getElementById('header-btn-' + viewName);
+  if (headerBtn) {
+    headerBtn.classList.remove('bg-white/10', 'text-slate-300');
+    headerBtn.classList.add('bg-gradient-to-r', 'from-cyan-500', 'to-purple-600', 'text-white', 'shadow-md');
+  }
+
+  // Sync URL hash
+  if (window.location.hash !== '#' + viewName) {
+    history.replaceState(null, null, '#' + viewName);
+  }
+
+  // Smooth scroll to view if requested
+  if (shouldScroll) {
+    const navAnchor = document.getElementById('chinaViewNav');
+    if (navAnchor) {
+      navAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (targetView) {
+      targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
 
@@ -698,11 +731,22 @@ document.addEventListener('keydown', (e) => {
 });
 
 function initApp() {
-  switchChinaView('flowchart');
+  const hash = window.location.hash ? window.location.hash.replace('#', '') : '';
+  const validViews = ['flowchart', 'schedule', 'hotels', 'dining', 'mindmap', 'budget'];
+  const initialView = validViews.includes(hash) ? hash : 'flowchart';
+  
+  switchChinaView(initialView, Boolean(hash));
 
   try { renderDailySchedule('all'); } catch (e) { console.error('China schedule err:', e); }
   try { renderRestaurants('all'); } catch (e) { console.error('China dining err:', e); }
   try { calculateChinaBudget(); } catch (e) { console.error('China budget err:', e); }
+
+  window.addEventListener('hashchange', () => {
+    const currentHash = window.location.hash ? window.location.hash.replace('#', '') : '';
+    if (validViews.includes(currentHash) && currentHash !== activeChinaView) {
+      switchChinaView(currentHash, true);
+    }
+  });
 }
 
 if (document.readyState === 'loading') {

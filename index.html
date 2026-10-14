@@ -187,23 +187,23 @@
 
       <!-- CHINA EXPEDITION QUICK VIEW NAVIGATION -->
       <nav class="flex items-center space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs mono">
-        <button onclick="switchChinaView('flowchart')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold flex items-center gap-1.5 transition shrink-0">
-          <i class="fa-solid fa-route text-cyan-400"></i>
+        <button onclick="switchChinaView('flowchart', true)" id="header-btn-flowchart" class="header-nav-tab px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold flex items-center gap-1.5 transition shrink-0 shadow-md">
+          <i class="fa-solid fa-route text-cyan-300"></i>
           <span>Flowchart</span>
         </button>
-        <button onclick="switchChinaView('schedule')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('schedule', true)" id="header-btn-schedule" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-calendar-days text-orange-400"></i>
           <span>14-Day Itinerary</span>
         </button>
-        <button onclick="switchChinaView('hotels')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('hotels', true)" id="header-btn-hotels" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-hotel text-emerald-400"></i>
           <span>Hotels & Rooms</span>
         </button>
-        <button onclick="switchChinaView('dining')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('dining', true)" id="header-btn-dining" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-utensils text-yellow-400"></i>
           <span>Dining</span>
         </button>
-        <button onclick="switchChinaView('budget')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+        <button onclick="switchChinaView('budget', true)" id="header-btn-budget" class="header-nav-tab px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
           <i class="fa-solid fa-calculator text-teal-400"></i>
           <span>Budget</span>
         </button>
@@ -242,46 +242,58 @@
 
             <!-- REGION TAGS -->
             <div class="flex flex-wrap gap-2 pt-2 text-xs mono">
-              <span class="px-3 py-1 rounded-xl bg-orange-500/15 border border-orange-500/30 text-orange-300 font-bold flex items-center gap-1.5">
+              <button onclick="filterChinaDays('panyu'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-orange-500/15 hover:bg-orange-500/30 border border-orange-500/30 text-orange-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span class="w-2 h-2 rounded-full bg-orange-400"></span> Guangzhou Panyu
-              </span>
-              <span class="px-3 py-1 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold flex items-center gap-1.5">
+              </button>
+              <button onclick="filterChinaDays('chimelong'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-500/30 text-emerald-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Chimelong Safari & Circus
-              </span>
-              <span class="px-3 py-1 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-300 font-bold flex items-center gap-1.5">
+              </button>
+              <button onclick="filterChinaDays('canton'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-purple-500/15 hover:bg-purple-500/30 border border-purple-500/30 text-purple-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span class="w-2 h-2 rounded-full bg-purple-400"></span> Canton Heritage (Dongshankou)
-              </span>
-              <span class="px-3 py-1 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-300 font-bold flex items-center gap-1.5">
+              </button>
+              <button onclick="filterChinaDays('qingyuan'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-blue-500/15 hover:bg-blue-500/30 border border-blue-500/30 text-blue-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span class="w-2 h-2 rounded-full bg-blue-400"></span> Qingyuan Gulong Gorge
-              </span>
-              <span class="px-3 py-1 rounded-xl bg-pink-500/15 border border-pink-500/30 text-pink-300 font-bold flex items-center gap-1.5">
+              </button>
+              <button onclick="filterChinaDays('shenzhen'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-pink-500/15 hover:bg-pink-500/30 border border-pink-500/30 text-pink-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span class="w-2 h-2 rounded-full bg-pink-400"></span> Shenzhen Nanshan Tech
-              </span>
-              <span class="px-3 py-1 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold flex items-center gap-1.5">
+              </button>
+              <button onclick="filterChinaDays('hongkong'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-amber-500/15 hover:bg-amber-500/30 border border-amber-500/30 text-amber-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span class="w-2 h-2 rounded-full bg-amber-400"></span> Hong Kong Mong Kok & Harbour
-              </span>
+              </button>
             </div>
           </div>
 
           <!-- 4 METRIC BADGES -->
           <div class="grid grid-cols-2 gap-3 sm:gap-4 shrink-0 mono text-xs">
-            <div class="p-4 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-500/10 border border-orange-500/30">
-              <div class="text-orange-300 text-[11px] font-bold">TOTAL TRIP</div>
+            <div onclick="switchChinaView('schedule', true)" class="p-4 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-500/10 border border-orange-500/30 cursor-pointer hover:border-orange-400 hover:scale-105 transition shadow-lg group" title="Click to view full 14-day itinerary">
+              <div class="text-orange-300 text-[11px] font-bold flex items-center justify-between">
+                <span>TOTAL TRIP</span>
+                <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
+              </div>
               <div class="text-3xl font-black text-white mt-1">14 Days</div>
               <div class="text-[10px] text-orange-400/80">13 Total Nights</div>
             </div>
-            <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/30">
-              <div class="text-emerald-300 text-[11px] font-bold">HOTELS BOOKED</div>
+            <div onclick="switchChinaView('hotels', true)" class="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/30 cursor-pointer hover:border-emerald-400 hover:scale-105 transition shadow-lg group" title="Click to view 5 booked hotel bases">
+              <div class="text-emerald-300 text-[11px] font-bold flex items-center justify-between">
+                <span>HOTELS BOOKED</span>
+                <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
+              </div>
               <div class="text-3xl font-black text-white mt-1">5 Bases</div>
               <div class="text-[10px] text-emerald-400/80">Photos & Specs Verified</div>
             </div>
-            <div class="p-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10 border border-cyan-500/30">
-              <div class="text-cyan-300 text-[11px] font-bold">AVIATION</div>
+            <div onclick="openDrawer('node-flight-outbound')" class="p-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10 border border-cyan-500/30 cursor-pointer hover:border-cyan-400 hover:scale-105 transition shadow-lg group" title="Click to view flight details">
+              <div class="text-cyan-300 text-[11px] font-bold flex items-center justify-between">
+                <span>AVIATION</span>
+                <i class="fa-solid fa-plane-departure text-[10px] group-hover:translate-x-1 transition"></i>
+              </div>
               <div class="text-lg font-black text-white mt-1">Cathay Pacific</div>
               <div class="text-[10px] text-cyan-400/80">A330-300 & B777 Fleet</div>
             </div>
-            <div class="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/30">
-              <div class="text-purple-300 text-[11px] font-bold">RAIL TRANSIT</div>
+            <div onclick="openDrawer('node-hsr-gz-sz')" class="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/30 cursor-pointer hover:border-purple-400 hover:scale-105 transition shadow-lg group" title="Click to view bullet rail transit details">
+              <div class="text-purple-300 text-[11px] font-bold flex items-center justify-between">
+                <span>RAIL TRANSIT</span>
+                <i class="fa-solid fa-train text-[10px] group-hover:translate-x-1 transition"></i>
+              </div>
               <div class="text-lg font-black text-white mt-1">Bullet Rail</div>
               <div class="text-[10px] text-purple-400/80">14-min Cross Border</div>
             </div>
@@ -290,7 +302,7 @@
       </section>
 
       <!-- CHINA SUB-VIEW TABS -->
-      <nav class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs font-bold mono">
+      <nav id="chinaViewNav" class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs font-bold mono">
         <button onclick="switchChinaView('flowchart')" id="btn-china-flowchart" class="china-nav-tab active-tab px-4 py-2.5 rounded-xl border border-white/10 transition flex items-center gap-2 shrink-0">
           <i class="fa-solid fa-route"></i>
           <span>Global Flowchart</span>
