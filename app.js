@@ -609,10 +609,15 @@ function initRegionalMap() {
       attributionControl: false
     }).setView([22.95, 113.60], 9);
 
-    // Dark Tile Layer (CartoDB Dark Matter)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png', {
-      maxZoom: 18,
-      subdomains: 'abcd'
+    // 100% Free Dark Gray Canvas Base Map (No API Key Required)
+    L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 16,
+      attribution: '&copy; Esri, DeLorme, NAVTEQ'
+    }).addTo(regionalMapInstance);
+
+    // Free Reference Labels Layer (Cities, Roads & Boundaries)
+    L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 16
     }).addTo(regionalMapInstance);
 
     // Draw Transit Polyline linking major hubs
