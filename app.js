@@ -89,6 +89,13 @@ function switchChinaView(viewName, shouldScroll = false) {
     history.replaceState(null, null, '#' + viewName);
   }
 
+  // If opening the regional map view, initialize/resize map
+  if (viewName === 'mindmap') {
+    setTimeout(() => {
+      initRegionalMap();
+    }, 100);
+  }
+
   // Smooth scroll to view if requested
   if (shouldScroll) {
     const navAnchor = document.getElementById('chinaViewNav');
@@ -387,24 +394,383 @@ function resetRestaurants() {
   }
 }
 
-// Mindmap Filtering
-function filterMindmap(category) {
-  activeMindmapFilter = category;
-  document.querySelectorAll('.mm-filter-btn').forEach(btn => {
-    if (btn.dataset.target === category) {
-      btn.className = "mm-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold shadow-md";
+// --- 7. REGIONAL AREA MAP ENGINE (Interactive GBA Map) ---
+let regionalMapInstance = null;
+let regionalMarkers = {};
+let activeRegionFilter = 'all';
+
+const regionalLocations = [
+  {
+    id: "loc-can-airport",
+    region: "canton",
+    title: "Guangzhou Baiyun Airport (CAN)",
+    titleZh: "广州白云国际机场 (T1/T2)",
+    category: "Aviation & Ingress",
+    coords: [23.3924, 113.2988],
+    color: "#06b6d4",
+    icon: "fa-plane-arrival",
+    nodeKey: "node-flight-outbound",
+    description: "Cathay CX982 arrival point from SIN via HKG. Smooth Didi pickup to Panyu south.",
+    badge: "Day 1 • 08:55 AM Ingress"
+  },
+  {
+    id: "loc-panyu-mehood",
+    region: "panyu",
+    title: "Mehood Lestie Hotel (Panyu)",
+    titleZh: "广州番禺美豪丽致酒店",
+    category: "Hotel Base 01",
+    coords: [22.9298, 113.3482],
+    color: "#f97316",
+    icon: "fa-hotel",
+    nodeKey: "node-hotel-mehood",
+    description: "Stay 01: Warm Parent-Child room with soaking tub, complimentary afternoon tea & late night noodles.",
+    badge: "29 – 30 Nov • 1 Night"
+  },
+  {
+    id: "loc-shawan",
+    region: "panyu",
+    title: "Shawan Ancient Town",
+    titleZh: "沙湾古镇",
+    category: "Heritage Discovery",
+    coords: [22.9022, 113.3331],
+    color: "#f97316",
+    icon: "fa-archway",
+    nodeKey: "node-hotel-mehood",
+    description: "800-year Lingnan village with oyster shell masonry and famous buffalo ginger milk curd.",
+    badge: "Day 1 Afternoon"
+  },
+  {
+    id: "loc-chimelong-resort",
+    region: "chimelong",
+    title: "Chimelong Hotel & Safari Resort",
+    titleZh: "广州长隆酒店 & 野生动物世界",
+    category: "Hotel Base 02",
+    coords: [23.0031, 113.3278],
+    color: "#10b981",
+    icon: "fa-hippo",
+    nodeKey: "node-hotel-chimelong",
+    description: "Stay 02: Exploration Kid's Room, 3-day multi-park pass, Safari Park, Circus & White Tiger restaurant.",
+    badge: "30 Nov – 03 Dec • 3 Nights"
+  },
+  {
+    id: "loc-canton-atour",
+    region: "canton",
+    title: "Atour Hotel Dongshankou",
+    titleZh: "亚朵酒店 (广州东山口店)",
+    category: "Hotel Base 03",
+    coords: [23.1256, 113.2985],
+    color: "#8b5cf6",
+    icon: "fa-hotel",
+    nodeKey: "node-hotel-atour",
+    description: "Stay 03: Red-brick historic concession quarter, modern boutique twin setup, art cafes and bistros.",
+    badge: "03 – 06 Dec • 3 Nights"
+  },
+  {
+    id: "loc-beijing-road",
+    region: "canton",
+    title: "Beijing Road Ancient Corridor",
+    titleZh: "北京路文化旅游区 & 大佛寺",
+    category: "Cultural & Night Walk",
+    coords: [23.1248, 113.2687],
+    color: "#8b5cf6",
+    icon: "fa-landmark",
+    nodeKey: "node-hotel-atour",
+    description: "Multi-dynasty glass road archeology, illuminated golden Dafo Pagoda, and bustling late dim sum.",
+    badge: "Day 5 Evening"
+  },
+  {
+    id: "loc-qingyuan-gulong",
+    region: "qingyuan",
+    title: "Qingyuan Gulong Gorge",
+    titleZh: "清远古龙峡森林探险王国",
+    category: "Alpine Adventure Excursion",
+    coords: [23.7554, 112.9882],
+    color: "#0ea5e9",
+    icon: "fa-mountain",
+    nodeKey: "node-qingyuan",
+    description: "High-altitude glass bridge skywalk, canyon roller coaster, alpine waterfall forest, and tender white-cut chicken feast.",
+    badge: "Day 6 Day Trip"
+  },
+  {
+    id: "loc-gz-south-rail",
+    region: "canton",
+    title: "Guangzhou South Railway Station",
+    titleZh: "广州南站 (高铁枢纽)",
+    category: "High Speed Rail",
+    coords: [22.9887, 113.2694],
+    color: "#ec4899",
+    icon: "fa-train",
+    nodeKey: "node-hsr-gz-sz",
+    description: "China's premier mega-hub: board the G-series bullet train to Shenzhen North (~30 mins).",
+    badge: "Day 8 Transit"
+  },
+  {
+    id: "loc-shenzhen-qiuguo",
+    region: "shenzhen",
+    title: "Qiuguo S Hotel (Shenzhen Nanshan)",
+    titleZh: "秋果S酒店 (深圳南山科技园店)",
+    category: "Hotel Base 04",
+    coords: [22.5401, 113.9525],
+    color: "#ec4899",
+    icon: "fa-hotel",
+    nodeKey: "node-hotel-qiuguo",
+    description: "Stay 04: Futuristic voice automation in the heart of China's Silicon Valley, 30-min from Futian rail.",
+    badge: "06 – 09 Dec • 3 Nights"
+  },
+  {
+    id: "loc-dji-skycity",
+    region: "shenzhen",
+    title: "DJI Sky City Global HQ",
+    titleZh: "大疆天空之城全球总部",
+    category: "Tech Landmark",
+    coords: [22.5765, 113.9582],
+    color: "#ec4899",
+    icon: "fa-microchip",
+    nodeKey: "node-hotel-qiuguo",
+    description: "Foster + Partners twin suspension towers and cutting-edge drone robotics showcase.",
+    badge: "Day 9 Tech Tour"
+  },
+  {
+    id: "loc-futian-rail",
+    region: "shenzhen",
+    title: "Shenzhen Futian Station",
+    titleZh: "深圳福田高铁站",
+    category: "Cross-Border Rail",
+    coords: [22.5375, 114.0545],
+    color: "#ec4899",
+    icon: "fa-train-subway",
+    nodeKey: "node-hsr-sz-hk",
+    description: "World's largest underground rail station: 14-minute bullet train straight to West Kowloon Hong Kong.",
+    badge: "Day 11 Border Leap"
+  },
+  {
+    id: "loc-hk-west-kowloon",
+    region: "hongkong",
+    title: "Hong Kong West Kowloon Station",
+    titleZh: "香港西九龙高铁站",
+    category: "Cross-Border Customs",
+    coords: [22.3045, 114.1658],
+    color: "#f59e0b",
+    icon: "fa-passport",
+    nodeKey: "node-hsr-sz-hk",
+    description: "Co-location joint customs checkpoint; rapid connection directly to Kowloon and MTR.",
+    badge: "Day 11 • 14-min arrival"
+  },
+  {
+    id: "loc-royal-plaza",
+    region: "hongkong",
+    title: "Royal Plaza Hotel Hong Kong",
+    titleZh: "香港帝京酒店 (旺角东)",
+    category: "Hotel Base 05",
+    coords: [22.3235, 114.1724],
+    color: "#f59e0b",
+    icon: "fa-hotel",
+    nodeKey: "node-hotel-royal",
+    description: "Stay 05: Plaza Deluxe Family Room with 2 double beds, direct covered bridge to MOKO Mall and Mong Kok East MTR.",
+    badge: "09 – 12 Dec • 3 Nights"
+  },
+  {
+    id: "loc-victoria-harbour",
+    region: "hongkong",
+    title: "Victoria Harbour & Star Ferry",
+    titleZh: "维多利亚港 & 天星小轮",
+    category: "Iconic Skyline",
+    coords: [22.2933, 114.1685],
+    color: "#f59e0b",
+    icon: "fa-ferry",
+    nodeKey: "node-hotel-royal",
+    description: "Avenue of Stars promenade, historic green double-deck ferry crossing to Central.",
+    badge: "Day 12 & 13"
+  },
+  {
+    id: "loc-hkg-airport",
+    region: "hongkong",
+    title: "Hong Kong International Airport (HKG)",
+    titleZh: "香港国际机场 (赤鱲角)",
+    category: "Homeward Aviation",
+    coords: [22.3080, 113.9185],
+    color: "#06b6d4",
+    icon: "fa-plane-departure",
+    nodeKey: "node-flight-return",
+    description: "Flight CX657 departure at 16:05 back to Singapore Changi (SIN).",
+    badge: "Day 14 • 16:05 Homeward"
+  }
+];
+
+function initRegionalMap() {
+  const mapContainer = document.getElementById('regionalLeafletMap');
+  if (!mapContainer || typeof L === 'undefined') return;
+
+  if (!regionalMapInstance) {
+    // Create Leaflet map instance centered over GBA Corridor
+    regionalMapInstance = L.map('regionalLeafletMap', {
+      zoomControl: true,
+      scrollWheelZoom: true,
+      attributionControl: false
+    }).setView([22.95, 113.60], 9);
+
+    // Dark Tile Layer (CartoDB Dark Matter)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 18,
+      subdomains: 'abcd'
+    }).addTo(regionalMapInstance);
+
+    // Draw Transit Polyline linking major hubs
+    const corridorPath = [
+      [23.3924, 113.2988], // CAN Airport
+      [22.9298, 113.3482], // Panyu
+      [23.0031, 113.3278], // Chimelong
+      [23.1256, 113.2985], // Canton Atour
+      [23.7554, 112.9882], // Qingyuan Gulong
+      [23.1256, 113.2985], // Back to Canton
+      [22.9887, 113.2694], // GZ South
+      [22.5401, 113.9525], // Shenzhen Qiuguo
+      [22.5375, 114.0545], // Futian Rail
+      [22.3045, 114.1658], // West Kowloon
+      [22.3235, 114.1724], // Mong Kok
+      [22.3080, 113.9185]  // HKG Airport
+    ];
+
+    L.polyline(corridorPath, {
+      color: '#06b6d4',
+      weight: 3,
+      opacity: 0.6,
+      dashArray: '8, 8'
+    }).addTo(regionalMapInstance);
+
+    // Add High Speed Rail Cross-Border Highlight
+    L.polyline([[22.5375, 114.0545], [22.3045, 114.1658]], {
+      color: '#ec4899',
+      weight: 4,
+      opacity: 0.95
+    }).addTo(regionalMapInstance);
+
+    // Create custom markers
+    regionalLocations.forEach(loc => {
+      const customIcon = L.divIcon({
+        className: 'leaflet-data-marker',
+        html: `
+          <div class="custom-map-marker" style="background:${loc.color}; width:34px; height:34px;">
+            <i class="fa-solid ${loc.icon} text-sm"></i>
+          </div>
+        `,
+        iconSize: [34, 34],
+        iconAnchor: [17, 17],
+        popupAnchor: [0, -20]
+      });
+
+      const popupHtml = `
+        <div class="space-y-2 text-xs">
+          <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1.5">
+            <span class="px-2 py-0.5 rounded text-[10px] font-black mono text-white" style="background:${loc.color}">${loc.badge}</span>
+            <span class="text-[10px] mono text-slate-400 uppercase">${loc.category}</span>
+          </div>
+          <div>
+            <h4 class="font-black text-sm text-white">${loc.title}</h4>
+            <p class="text-[11px] text-orange-300 font-bold mono">${loc.titleZh}</p>
+          </div>
+          <p class="text-slate-300 leading-snug">${loc.description}</p>
+          <div class="pt-1.5 flex items-center justify-between">
+            <button onclick="openDrawer('${loc.nodeKey}')" class="px-2.5 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-slate-950 font-bold mono text-[11px] transition flex items-center gap-1 cursor-pointer">
+              <span>View Specs</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+            <span class="text-[10px] mono text-slate-400">${loc.coords[0].toFixed(2)}°N, ${loc.coords[1].toFixed(2)}°E</span>
+          </div>
+        </div>
+      `;
+
+      const marker = L.marker(loc.coords, { icon: customIcon })
+        .addTo(regionalMapInstance)
+        .bindPopup(popupHtml);
+
+      regionalMarkers[loc.id] = marker;
+    });
+
+    renderRegionalLocationsSidebar();
+  }
+
+  // Invalidate size to ensure proper tile rendering in tab views
+  setTimeout(() => {
+    if (regionalMapInstance) {
+      regionalMapInstance.invalidateSize();
+    }
+  }, 200);
+}
+
+function renderRegionalLocationsSidebar() {
+  const container = document.getElementById('regionalLocationsList');
+  if (!container) return;
+
+  const filtered = activeRegionFilter === 'all'
+    ? regionalLocations
+    : regionalLocations.filter(l => l.region === activeRegionFilter);
+
+  container.innerHTML = filtered.map(loc => `
+    <div onclick="pointToLocation('${loc.id}')" class="p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition cursor-pointer space-y-2 group">
+      <div class="flex items-center justify-between text-[11px] mono">
+        <span class="px-2 py-0.5 rounded font-black text-white" style="background:${loc.color}">
+          ${loc.badge}
+        </span>
+        <span class="text-slate-400 group-hover:text-cyan-400 transition flex items-center gap-1">
+          <span>Point Map</span> <i class="fa-solid fa-crosshairs"></i>
+        </span>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-white group-hover:text-cyan-300 transition flex items-center gap-1.5">
+          <i class="fa-solid ${loc.icon}" style="color:${loc.color}"></i>
+          <span>${loc.title}</span>
+        </h4>
+        <p class="text-xs text-orange-300/90 font-mono">${loc.titleZh}</p>
+      </div>
+      <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed">${loc.description}</p>
+    </div>
+  `).join('');
+}
+
+function pointToLocation(locationId) {
+  const loc = regionalLocations.find(l => l.id === locationId);
+  if (!loc || !regionalMapInstance) return;
+
+  regionalMapInstance.setView(loc.coords, 13, { animate: true, duration: 1.2 });
+  const marker = regionalMarkers[locationId];
+  if (marker) {
+    setTimeout(() => {
+      marker.openPopup();
+    }, 400);
+  }
+}
+
+function zoomToRegionalLocation(region) {
+  activeRegionFilter = region;
+
+  document.querySelectorAll('.regional-map-btn').forEach(btn => {
+    if (btn.dataset.target === region) {
+      btn.className = "regional-map-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold shadow-md";
     } else {
-      btn.className = "mm-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
+      btn.className = "regional-map-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
     }
   });
 
-  document.querySelectorAll('.mm-card').forEach(card => {
-    if (category === 'all' || card.dataset.category === category) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
-    }
-  });
+  renderRegionalLocationsSidebar();
+
+  if (!regionalMapInstance) return;
+
+  const regionBounds = {
+    all: [[22.1, 112.8], [23.9, 114.4]],
+    panyu: [[22.85, 113.25], [23.05, 113.45]],
+    chimelong: [[22.97, 113.28], [23.04, 113.36]],
+    canton: [[23.08, 113.22], [23.18, 113.35]],
+    qingyuan: [[23.65, 112.85], [23.85, 113.15]],
+    shenzhen: [[22.48, 113.88], [22.62, 114.12]],
+    hongkong: [[22.25, 114.10], [22.36, 114.24]]
+  };
+
+  const bounds = regionBounds[region] || regionBounds.all;
+  regionalMapInstance.fitBounds(bounds, { padding: [30, 30], animate: true });
+}
+
+function resetRegionalMapView() {
+  zoomToRegionalLocation('all');
 }
 
 // China 2026 Trip Cost Estimator
