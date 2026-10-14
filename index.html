@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPECTRAVEL | Global Exploration, Destination Intelligence & Nomad Lab</title>
+  <title>SPECTRAVEL | China 2026 Greater Bay Area Expedition</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -169,33 +169,43 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row items-center justify-between gap-4">
       
       <!-- LOGO & BRAND -->
-      <div class="flex items-center space-x-3.5 cursor-pointer" onclick="switchPortal('nomad')">
+      <div class="flex items-center space-x-3.5 cursor-pointer" onclick="window.scrollTo({top:0,behavior:'smooth'})">
         <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-cyan-400 via-purple-500 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-purple-500/30">
           <i class="fa-solid fa-compass text-2xl"></i>
         </div>
         <div>
           <div class="flex items-center space-x-2">
             <span class="font-black text-2xl tracking-wider text-white mono">SPEC</span>
-            <span class="font-extrabold text-2xl tracking-wide bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent mono">TRAVEL</span>
-            <span class="px-2 py-0.5 text-[10px] font-black rounded-lg bg-white/10 text-slate-300 border border-white/15 mono uppercase">
-              Global OS
+            <span class="font-extrabold text-2xl tracking-wide bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent mono">TRAVEL</span>
+            <span class="px-2 py-0.5 text-[10px] font-black rounded-lg bg-orange-500/20 text-orange-300 border border-orange-500/30 mono uppercase">
+              China 2026
             </span>
           </div>
-          <p class="text-[11px] text-slate-400 hidden sm:block">Destination Intelligence • Travel Budget Physics • Expeditions</p>
+          <p class="text-[11px] text-slate-400 hidden sm:block">14-Day Greater Bay Area Expedition • Guangzhou • Chimelong • Foshan • Shenzhen • HK</p>
         </div>
       </div>
 
-      <!-- PRIMARY SUITE SWITCHER (GLOBAL NOMAD vs CHINA EXPEDITION) -->
-      <nav class="flex items-center space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
-        <button onclick="switchPortal('nomad')" id="btn-portal-nomad" class="portal-tab active-tab px-5 py-2.5 rounded-2xl border border-transparent font-black flex items-center gap-2.5 shadow-lg transition text-xs mono shrink-0">
-          <i class="fa-solid fa-globe text-cyan-400"></i>
-          <span>Global Nomad Hub & Lab</span>
+      <!-- CHINA EXPEDITION QUICK VIEW NAVIGATION -->
+      <nav class="flex items-center space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs mono">
+        <button onclick="switchChinaView('flowchart')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold flex items-center gap-1.5 transition shrink-0">
+          <i class="fa-solid fa-route text-cyan-400"></i>
+          <span>Flowchart</span>
         </button>
-
-        <button onclick="switchPortal('china')" id="btn-portal-china" class="portal-tab px-5 py-2.5 rounded-2xl border border-white/10 hover:bg-white/10 text-slate-300 font-bold flex items-center gap-2.5 transition text-xs mono shrink-0">
-          <i class="fa-solid fa-route text-orange-400"></i>
-          <span>China 2026 Expedition</span>
-          <span class="px-1.5 py-0.2 rounded-md bg-orange-500/20 text-orange-300 text-[10px] mono font-bold">14-Day</span>
+        <button onclick="switchChinaView('schedule')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+          <i class="fa-solid fa-calendar-days text-orange-400"></i>
+          <span>14-Day Itinerary</span>
+        </button>
+        <button onclick="switchChinaView('hotels')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+          <i class="fa-solid fa-hotel text-emerald-400"></i>
+          <span>Hotels & Rooms</span>
+        </button>
+        <button onclick="switchChinaView('dining')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+          <i class="fa-solid fa-utensils text-yellow-400"></i>
+          <span>Dining</span>
+        </button>
+        <button onclick="switchChinaView('budget')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
+          <i class="fa-solid fa-calculator text-teal-400"></i>
+          <span>Budget</span>
         </button>
       </nav>
 
@@ -208,209 +218,9 @@
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 flex-1 w-full">
 
     <!-- ======================================================== -->
-    <!-- PORTAL 1: GLOBAL NOMAD HUB & DESTINATION LAB              -->
+    <!-- CHINA 2026 GREATER BAY AREA EXPEDITION                   -->
     <!-- ======================================================== -->
-    <section id="portal-nomad" class="space-y-10">
-      
-      <!-- HERO NOMAD BANNER -->
-      <div class="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden border border-white/10">
-        <div class="absolute -right-20 -top-20 w-96 h-96 bg-gradient-to-br from-cyan-500/20 via-teal-500/15 to-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-gradient-to-tr from-orange-500/15 to-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-3xl space-y-4">
-          <div class="flex flex-wrap items-center gap-2">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs bg-white/10 text-cyan-300 border border-white/15 mono">
-              <i class="fa-solid fa-earth-americas text-teal-400"></i>
-              <span>Explore Across The Entire Spectrum of the Earth</span>
-            </div>
-            <button onclick="switchPortal('china')" class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs bg-orange-500/15 text-orange-300 border border-orange-500/30 mono hover:bg-orange-500/25 transition">
-              <i class="fa-solid fa-compass-drafting text-orange-400"></i>
-              <span>Featured: 14-Day China 2026 Flowchart & Itinerary →</span>
-            </button>
-          </div>
-
-          <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-            Global Destination Intelligence & <span class="bg-gradient-to-r from-cyan-400 via-teal-400 to-orange-400 bg-clip-text text-transparent">Remote Exploration</span>
-          </h1>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            From neon cyberpunk skylines to high-altitude alpine passes and serene tropical archipelagos. Filter destinations by vibe, estimate real living budgets in real time, and build interactive customized roadmaps.
-          </p>
-
-          <!-- CATEGORY FILTER CHIPS -->
-          <div class="pt-2 flex flex-wrap gap-2 text-xs mono">
-            <button onclick="filterDestinations('all')" class="cat-btn px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-black shadow-md transition" data-cat="all">All Hubs (8)</button>
-            <button onclick="filterDestinations('Alpine')" class="cat-btn px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-slate-300 border border-white/10 transition" data-cat="Alpine">Alpine & Mountains</button>
-            <button onclick="filterDestinations('Coastal')" class="cat-btn px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-slate-300 border border-white/10 transition" data-cat="Coastal">Coastal & Tropical</button>
-            <button onclick="filterDestinations('Urban')" class="cat-btn px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-slate-300 border border-white/10 transition" data-cat="Urban">Cyberpunk / Metropolis</button>
-            <button onclick="filterDestinations('Heritage')" class="cat-btn px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-slate-300 border border-white/10 transition" data-cat="Heritage">Historic & Culture</button>
-            <button onclick="switchPortal('china')" class="px-3.5 py-1.5 rounded-xl bg-orange-500/20 hover:bg-orange-500/30 text-orange-300 border border-orange-500/40 transition font-bold flex items-center gap-1.5">
-              <i class="fa-solid fa-plane text-orange-400"></i> China 2026 Map
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 1: DESTINATIONS SPECTRUM GRID -->
-      <section id="destinations" class="space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-4">
-          <div>
-            <h2 class="text-2xl font-black text-white flex items-center gap-2">
-              <i class="fa-solid fa-map-location-dot text-teal-400"></i> Destination Spectrum
-            </h2>
-            <p class="text-xs text-slate-300 mt-1">Select any card to inspect scorecards, living cost index, and live 7-day roadmap</p>
-          </div>
-
-          <!-- SEARCH INPUT -->
-          <div class="relative w-full sm:w-72">
-            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
-            <input type="text" id="destSearch" oninput="handleDestSearch(this.value)" placeholder="Search city, country, or vibe..." class="w-full pl-9 pr-4 py-2 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 transition mono">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="destinationsGrid">
-          <!-- Dynamically populated via app.js -->
-        </div>
-      </section>
-
-      <!-- MODULE 2: INTERACTIVE BUDGET CALCULATOR -->
-      <section id="budget-calculator" class="glass-card rounded-3xl p-6 sm:p-10 border border-white/10 space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-white/10 pb-4">
-          <div>
-            <h2 class="text-2xl font-black text-white flex items-center gap-2">
-              <i class="fa-solid fa-calculator text-teal-400"></i> Travel Budget Physics & Simulator
-            </h2>
-            <p class="text-xs text-slate-300 mt-1">Reactive financial model estimating daily expenses, lodging, and living buffers</p>
-          </div>
-          <span class="text-xs mono text-teal-400 font-bold bg-white/10 px-3 py-1 rounded-xl border border-white/15 self-start sm:self-auto">
-            Live Calculations
-          </span>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          <!-- CONTROLS COLUMN -->
-          <div class="space-y-5 lg:col-span-2">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-              <!-- DESTINATION SELECT -->
-              <div>
-                <label class="block text-xs font-bold text-slate-300 mono mb-1.5">ACTIVE DESTINATION</label>
-                <select id="budgetDestSelect" onchange="selectDestination(this.value)" class="w-full bg-slate-900 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-white mono focus:outline-none focus:border-teal-400">
-                  <option value="tokyo">Tokyo, Japan</option>
-                  <option value="swiss">Zermatt & Matterhorn, Switzerland</option>
-                  <option value="bali">Bali & Nusa Penida, Indonesia</option>
-                  <option value="lisbon">Lisbon & Sintra, Portugal</option>
-                  <option value="banff">Banff & Lake Louise, Canada</option>
-                  <option value="amalfi">Amalfi Coast, Italy</option>
-                  <option value="kyoto">Kyoto, Japan</option>
-                  <option value="capetown">Cape Town, South Africa</option>
-                </select>
-              </div>
-
-              <!-- TRAVEL STYLE / TIER -->
-              <div>
-                <label class="block text-xs font-bold text-slate-300 mono mb-1.5">TRAVEL STYLE TIER</label>
-                <div class="grid grid-cols-3 gap-2">
-                  <button onclick="setTravelTier('backpacker')" data-tier="backpacker" class="tier-btn p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-medium text-slate-300 mono transition">Backpacker</button>
-                  <button onclick="setTravelTier('nomad')" data-tier="nomad" class="tier-btn p-2.5 rounded-xl border border-teal-500/50 bg-teal-500/20 text-xs font-black text-teal-300 mono transition shadow-md">Nomad</button>
-                  <button onclick="setTravelTier('luxury')" data-tier="luxury" class="tier-btn p-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-medium text-slate-300 mono transition">Luxury</button>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- SLIDERS -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-              <div class="space-y-2">
-                <div class="flex justify-between text-xs mono">
-                  <span class="text-slate-300 font-bold">TRIP DURATION</span>
-                  <span id="tripDaysVal" class="text-teal-400 font-black">14 Days</span>
-                </div>
-                <input type="range" id="tripDays" min="1" max="90" value="14" oninput="calculateBudget()" class="w-full accent-teal-400 cursor-pointer">
-                <div class="flex justify-between text-[10px] text-slate-500 mono">
-                  <span>1 Day</span>
-                  <span>30 Days</span>
-                  <span>90 Days</span>
-                </div>
-              </div>
-
-              <div class="space-y-2">
-                <div class="flex justify-between text-xs mono">
-                  <span class="text-slate-300 font-bold">TRAVELERS COUNT</span>
-                  <span id="travelersVal" class="text-teal-400 font-black">1 Person</span>
-                </div>
-                <input type="range" id="travelersCount" min="1" max="8" value="1" oninput="calculateBudget()" class="w-full accent-teal-400 cursor-pointer">
-                <div class="flex justify-between text-[10px] text-slate-500 mono">
-                  <span>Solo (1)</span>
-                  <span>Couple (2)</span>
-                  <span>Group (8)</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- PRO TIP BANNER -->
-            <div class="p-4 rounded-2xl bg-teal-500/10 border border-teal-500/25 flex items-start gap-3 text-xs text-teal-300">
-              <i class="fa-solid fa-lightbulb text-amber-400 text-sm mt-0.5 shrink-0"></i>
-              <span id="budgetTip" class="leading-relaxed">Tokyo tip: Get a Welcome Suica IC card on your phone for instant subway taps.</span>
-            </div>
-          </div>
-
-          <!-- SUMMARY SCORECARD -->
-          <div class="glass-card rounded-2xl p-6 border border-teal-500/30 flex flex-col justify-between space-y-6 glow-cyan">
-            <div>
-              <span class="text-[11px] mono text-slate-400 font-bold uppercase tracking-wider block">PROJECTED TOTAL BUDGET</span>
-              <div class="text-4xl font-black text-white mt-1 mono" id="totalCostDisplay">$1,400</div>
-              <span class="text-xs text-teal-400 mono font-semibold" id="perPersonDisplay">($1,400 / person)</span>
-            </div>
-
-            <div class="space-y-2.5 border-t border-white/10 pt-4 text-xs mono">
-              <div class="flex justify-between">
-                <span class="text-slate-400">Accommodations (50%):</span>
-                <span class="text-slate-200 font-bold" id="lodgingCostDisplay">$700</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">Food & Daily Living (30%):</span>
-                <span class="text-slate-200 font-bold" id="foodCostDisplay">$420</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">Activities & Transit (20%):</span>
-                <span class="text-slate-200 font-bold" id="activityCostDisplay">$280</span>
-              </div>
-            </div>
-
-            <button onclick="document.getElementById('itinerary').scrollIntoView({behavior:'smooth'})" class="w-full py-3 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-black text-xs mono uppercase tracking-wider transition hover:opacity-95 shadow-lg">
-              Explore 7-Day Roadmap →
-            </button>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- MODULE 3: 7-DAY ROADMAP BUILDER -->
-      <section id="itinerary" class="glass-card rounded-3xl p-6 sm:p-10 border border-white/10 space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-white/10 pb-4">
-          <div>
-            <h2 class="text-2xl font-black text-white flex items-center gap-2">
-              <i class="fa-solid fa-route text-teal-400"></i> Dynamic 7-Day Roadmap Generator
-            </h2>
-            <p class="text-xs text-slate-300 mt-1">Curated sequence of cultural landmarks, scenic routes, and hidden gem stops for <span id="itineraryHubName" class="text-teal-400 font-bold">Tokyo, Japan</span></p>
-          </div>
-          <span class="text-xs mono text-teal-400 font-bold bg-white/10 px-3 py-1 rounded-xl border border-white/15 self-start sm:self-auto">
-            Interactive Checklist
-          </span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" id="itineraryGrid">
-          <!-- Populated dynamically via app.js -->
-        </div>
-      </section>
-
-    </section>
-
-    <!-- ======================================================== -->
-    <!-- PORTAL 2: CHINA 2026 GREATER BAY AREA EXPEDITION         -->
-    <!-- ======================================================== -->
-    <section id="portal-china" class="hidden space-y-10">
+    <section id="portal-china" class="space-y-10">
 
       <!-- HERO EXPEDITION BANNER -->
       <section class="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden border border-white/10">
@@ -1728,11 +1538,9 @@
         <span>Global Destination Intelligence & 2026 Greater Bay Area Expedition</span>
       </div>
       <div class="flex items-center space-x-4 text-slate-400">
-        <button onclick="switchPortal('nomad')" class="hover:text-cyan-400 transition">Global Nomad Lab</button>
+        <span>Guangzhou • Foshan • Shunde • Shenzhen • Hong Kong</span>
         <span>•</span>
-        <button onclick="switchPortal('china')" class="hover:text-orange-400 transition">China Expedition</button>
-        <span>•</span>
-        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="hover:text-white transition">Top ↑</button>
+        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="hover:text-white transition font-bold">Top ↑</button>
       </div>
     </div>
   </footer>
