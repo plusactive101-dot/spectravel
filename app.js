@@ -854,17 +854,20 @@ function showToast(msg) {
   }, 2500);
 }
 
-// --- 7.5 HOTEL ROOM GALLERY MODAL ---
+// --- 7.5 HOTEL BOOKED ROOM GALLERY MODAL ---
 let currentHotelId = null;
-let currentRoomIndex = 0;
+let currentPhotoIndex = 0;
 
-function getHotelRoomsCount(hotelId) {
+function getHotelPhotosCount(hotelId) {
   if (typeof hotelRoomsData === 'undefined') return 0;
   const hotel = hotelRoomsData.find(h => h.id === hotelId);
-  return hotel && hotel.rooms ? hotel.rooms.length : 0;
+  if (!hotel) return 0;
+  if (hotel.bookedRoom && hotel.bookedRoom.photos) return hotel.bookedRoom.photos.length;
+  if (hotel.rooms) return hotel.rooms.length;
+  return 0;
 }
 
-function openHotelRoomModal(hotelId, roomIndex = 0) {
+function openHotelRoomModal(hotelId, photoIndex = 0) {
   if (typeof hotelRoomsData === 'undefined') {
     console.error('hotelRoomsData not loaded');
     return;
@@ -873,12 +876,13 @@ function openHotelRoomModal(hotelId, roomIndex = 0) {
   if (!hotel) return;
 
   currentHotelId = hotelId;
-  currentRoomIndex = Math.max(0, Math.min(roomIndex, hotel.rooms.length - 1));
+  const photos = (hotel.bookedRoom && hotel.bookedRoom.photos) || hotel.rooms || [];
+  currentPhotoIndex = Math.max(0, Math.min(photoIndex, Math.max(0, photos.length - 1)));
 
   const modal = document.getElementById('hotelRoomModal');
   if (!modal) return;
 
-  renderHotelRoomModalContent(hotel, currentRoomIndex);
+  renderHotelRoomModalContent(hotel, currentPhotoIndex);
   modal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }
@@ -891,45 +895,62 @@ function closeHotelRoomModal() {
   }
 }
 
-function selectHotelRoom(roomIndex) {
+function selectHotelRoomPhoto(photoIndex) {
   if (!currentHotelId || typeof hotelRoomsData === 'undefined') return;
   const hotel = hotelRoomsData.find(h => h.id === currentHotelId);
-  if (!hotel || !hotel.rooms[roomIndex]) return;
+  if (!hotel) return;
+  const photos = (hotel.bookedRoom && hotel.bookedRoom.photos) || hotel.rooms || [];
+  if (!photos[photoIndex]) return;
 
-  currentRoomIndex = roomIndex;
-  renderHotelRoomModalContent(hotel, currentRoomIndex);
+  currentPhotoIndex = photoIndex;
+  renderHotelRoomModalContent(hotel, currentPhotoIndex);
 }
 
-function nextHotelRoom() {
+// Backward compatibility alias
+function selectHotelRoom(index) {
+  selectHotelRoomPhoto(index);
+}
+
+function nextHotelRoomPhoto() {
   if (!currentHotelId || typeof hotelRoomsData === 'undefined') return;
   const hotel = hotelRoomsData.find(h => h.id === currentHotelId);
-  if (!hotel || !hotel.rooms) return;
-  currentRoomIndex = (currentRoomIndex + 1) % hotel.rooms.length;
-  renderHotelRoomModalContent(hotel, currentRoomIndex);
+  if (!hotel) return;
+  const photos = (hotel.bookedRoom && hotel.bookedRoom.photos) || hotel.rooms || [];
+  if (!photos.length) return;
+  currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+  renderHotelRoomModalContent(hotel, currentPhotoIndex);
 }
+function nextHotelRoom() { nextHotelRoomPhoto(); }
 
-function prevHotelRoom() {
+function prevHotelRoomPhoto() {
   if (!currentHotelId || typeof hotelRoomsData === 'undefined') return;
   const hotel = hotelRoomsData.find(h => h.id === currentHotelId);
-  if (!hotel || !hotel.rooms) return;
-  currentRoomIndex = (currentRoomIndex - 1 + hotel.rooms.length) % hotel.rooms.length;
-  renderHotelRoomModalContent(hotel, currentRoomIndex);
+  if (!hotel) return;
+  const photos = (hotel.bookedRoom && hotel.bookedRoom.photos) || hotel.rooms || [];
+  if (!photos.length) return;
+  currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+  renderHotelRoomModalContent(hotel, currentPhotoIndex);
 }
+function prevHotelRoom() { prevHotelRoomPhoto(); }
 
-function renderHotelRoomModalContent(hotel, roomIdx) {
-  const activeRoom = hotel.rooms[roomIdx];
+function renderHotelRoomModalContent(hotel, photoIdx) {
+  const room = hotel.bookedRoom || (hotel.rooms && hotel.rooms[0]);
+  const photos = (hotel.bookedRoom && hotel.bookedRoom.photos) || hotel.rooms || [];
+  const activePhoto = photos[photoIdx] || photos[0];
   const container = document.getElementById('hotelRoomModalContent');
-  if (!container || !activeRoom) return;
+  if (!container || !room || !activePhoto) return;
 
   container.innerHTML = `
     <!-- Modal Header -->
-    <div class="p-5 sm:p-6 border-b border-white/10 flex items-start justify-between bg-black/50 gap-4">
+    <div class="p-5 sm:p-6 border-b border-white/10 flex items-start justify-between bg-black/60 gap-4">
       <div class="space-y-1">
         <div class="flex items-center gap-2 flex-wrap">
-          <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-orange-500/20 text-orange-400 border border-orange-500/30 mono uppercase">
-            <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> TRIP.COM VERIFIED
+          <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mono uppercase flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-check text-emerald-400"></i> YOUR BOOKED ROOM
           </span>
-          <span class="text-xs text-slate-400 mono">Room Type ${roomIdx + 1} of ${hotel.rooms.length}</span>
+          <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-white/10 text-slate-300 border border-white/15 mono">
+            Photo ${photoIdx + 1} of ${photos.length}
+          </span>
         </div>
         <h3 class="text-xl sm:text-2xl font-black text-white">${hotel.name}</h3>
         <p class="text-xs text-orange-300 font-bold mono">${hotel.nameZh}</p>
@@ -939,26 +960,46 @@ function renderHotelRoomModalContent(hotel, roomIdx) {
       </button>
     </div>
 
-    <!-- Main Showcase Photo -->
+    <!-- Modal Body -->
     <div class="p-5 sm:p-6 space-y-5 overflow-y-auto max-h-[75vh]">
-      <div class="relative rounded-2xl overflow-hidden border border-white/15 bg-black h-64 sm:h-96 group shadow-2xl">
-        <img id="roomShowcaseImg" src="${activeRoom.file}" alt="${activeRoom.name}" class="w-full h-full object-cover transition duration-300">
+      
+      <!-- Booked Room Title Banner -->
+      <div class="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-orange-500/15 via-purple-500/10 to-transparent border border-orange-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <span class="text-[10px] font-black text-orange-400 mono tracking-wider uppercase block">RESERVED ROOM TYPE</span>
+          <h4 class="text-lg sm:text-xl font-black text-white">${room.name}</h4>
+          <p class="text-xs text-slate-300 font-medium">${room.nameZh}</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs mono text-slate-300 bg-black/40 px-3 py-1.5 rounded-xl border border-white/10 w-fit shrink-0">
+          <i class="fa-solid fa-images text-orange-400"></i>
+          <span>${photos.length} Photos in Gallery</span>
+        </div>
+      </div>
+
+      <!-- Main Showcase Photo -->
+      <div class="relative rounded-2xl overflow-hidden border border-white/15 bg-black h-72 sm:h-[420px] group shadow-2xl">
+        <img id="roomShowcaseImg" src="${activePhoto.file}" alt="${activePhoto.title || room.name}" class="w-full h-full object-cover transition duration-300">
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
         
         <!-- Navigation Arrows -->
-        <button onclick="prevHotelRoom()" title="Previous Room (Left Arrow)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 text-white flex items-center justify-center border border-white/20 transition backdrop-blur-md cursor-pointer hover:scale-105">
-          <i class="fa-solid fa-chevron-left"></i>
+        <button onclick="prevHotelRoomPhoto()" title="Previous Photo (Left Arrow)" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-orange-500 text-white flex items-center justify-center border border-white/20 transition backdrop-blur-md cursor-pointer hover:scale-105 shadow-lg">
+          <i class="fa-solid fa-chevron-left text-base"></i>
         </button>
-        <button onclick="nextHotelRoom()" title="Next Room (Right Arrow)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 text-white flex items-center justify-center border border-white/20 transition backdrop-blur-md cursor-pointer hover:scale-105">
-          <i class="fa-solid fa-chevron-right"></i>
+        <button onclick="nextHotelRoomPhoto()" title="Next Photo (Right Arrow)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/75 hover:bg-orange-500 text-white flex items-center justify-center border border-white/20 transition backdrop-blur-md cursor-pointer hover:scale-105 shadow-lg">
+          <i class="fa-solid fa-chevron-right text-base"></i>
         </button>
 
-        <!-- Room info overlay on photo -->
+        <!-- Photo caption overlay on photo -->
         <div class="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6">
-          <span class="inline-block px-3 py-1 rounded-lg bg-orange-500 text-white font-black text-xs mono mb-1.5 shadow-md">
-            ${activeRoom.name}
-          </span>
-          <h4 class="text-base sm:text-lg font-bold text-white drop-shadow-md">${activeRoom.nameZh}</h4>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-block px-2.5 py-0.5 rounded-md bg-orange-500 text-white font-bold text-[11px] mono shadow-md">
+              Angle ${photoIdx + 1}
+            </span>
+            <span class="text-xs text-white/90 font-bold mono drop-shadow">
+              ${activePhoto.title || 'Room View'}
+            </span>
+          </div>
+          ${activePhoto.titleZh ? `<p class="text-xs text-slate-300 font-medium drop-shadow">${activePhoto.titleZh}</p>` : ''}
         </div>
       </div>
 
@@ -967,34 +1008,36 @@ function renderHotelRoomModalContent(hotel, roomIdx) {
         <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
           <span class="text-slate-400 block text-[10px] font-bold tracking-wider">BED CONFIGURATION</span>
           <span class="text-slate-100 font-bold flex items-center gap-2">
-            <i class="fa-solid fa-bed text-orange-400 text-sm"></i> ${activeRoom.beds}
+            <i class="fa-solid fa-bed text-orange-400 text-sm"></i> ${room.beds}
           </span>
         </div>
         <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
-          <span class="text-slate-400 block text-[10px] font-bold tracking-wider">KEY ROOM PERKS</span>
+          <span class="text-slate-400 block text-[10px] font-bold tracking-wider">ROOM AMENITIES & HIGHLIGHTS</span>
           <span class="text-slate-200 font-medium flex items-center gap-2">
-            <i class="fa-solid fa-wand-magic-sparkles text-amber-400 text-sm"></i> ${activeRoom.perks}
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-400 text-sm"></i> ${room.perks}
           </span>
         </div>
       </div>
 
-      <!-- Room Selection Thumbnails -->
+      <!-- All Photos Thumbnail Strip -->
       <div class="space-y-2.5">
         <div class="flex items-center justify-between text-xs mono">
           <span class="text-slate-200 font-bold flex items-center gap-1.5">
-            <i class="fa-solid fa-images text-cyan-400"></i> ROOM TYPES SELECTION
+            <i class="fa-solid fa-layer-group text-cyan-400"></i> ALL ROOM ANGLES & DETAILS (${photos.length})
           </span>
-          <span class="text-slate-400 text-[11px]">Click any room below to switch photo</span>
+          <span class="text-slate-400 text-[11px]">Click any photo to zoom in • Arrow keys to flip</span>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
-          ${hotel.rooms.map((rm, idx) => `
-            <button onclick="selectHotelRoom(${idx})" class="p-2 rounded-xl border transition text-left space-y-1.5 cursor-pointer ${idx === roomIdx ? 'bg-orange-500/20 border-orange-500 shadow-md ring-2 ring-orange-500/50' : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'}">
-              <div class="h-20 rounded-lg overflow-hidden bg-slate-800">
-                <img src="${rm.file}" alt="${rm.name}" class="w-full h-full object-cover">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+          ${photos.map((p, idx) => `
+            <button onclick="selectHotelRoomPhoto(${idx})" class="p-2 rounded-xl border transition text-left space-y-1.5 cursor-pointer ${idx === photoIdx ? 'bg-orange-500/20 border-orange-500 shadow-md ring-2 ring-orange-500/50' : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'}">
+              <div class="h-20 sm:h-24 rounded-lg overflow-hidden bg-slate-800 relative">
+                <img src="${p.file}" alt="${p.title || ''}" class="w-full h-full object-cover">
+                <span class="absolute bottom-1 right-1 bg-black/75 text-white text-[9px] px-1.5 py-0.5 rounded font-mono font-bold">
+                  #${idx + 1}
+                </span>
               </div>
-              <p class="text-[11px] font-bold text-white line-clamp-1">${rm.name}</p>
-              <p class="text-[9px] text-slate-400 mono line-clamp-1">${rm.beds.split('+')[0].trim()}</p>
+              <p class="text-[11px] font-bold text-white line-clamp-1">${p.title || 'Photo ' + (idx + 1)}</p>
             </button>
           `).join('')}
         </div>
@@ -1002,9 +1045,9 @@ function renderHotelRoomModalContent(hotel, roomIdx) {
     </div>
 
     <!-- Modal Footer -->
-    <div class="p-4 sm:p-5 border-t border-white/10 bg-black/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs mono">
+    <div class="p-4 sm:p-5 border-t border-white/10 bg-black/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs mono">
       <div class="flex items-center gap-2 text-slate-400 text-[11px]">
-        <i class="fa-solid fa-camera text-cyan-400"></i> Genuine hotel exterior & room photography from Trip.com
+        <i class="fa-solid fa-camera text-cyan-400"></i> Verified photography linked strictly to your booked room
       </div>
       <div class="flex items-center gap-2.5 w-full sm:w-auto">
         ${hotel.tripUrl ? `
@@ -1029,12 +1072,12 @@ document.addEventListener('keydown', (e) => {
   } else if (e.key === 'ArrowLeft') {
     const modal = document.getElementById('hotelRoomModal');
     if (modal && !modal.classList.contains('hidden')) {
-      prevHotelRoom();
+      prevHotelRoomPhoto();
     }
   } else if (e.key === 'ArrowRight') {
     const modal = document.getElementById('hotelRoomModal');
     if (modal && !modal.classList.contains('hidden')) {
-      nextHotelRoom();
+      nextHotelRoomPhoto();
     }
   }
 });
