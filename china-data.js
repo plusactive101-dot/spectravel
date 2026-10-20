@@ -455,20 +455,14 @@ const defaultRestaurants = [
           {
             title: "西关荔枝湾畔 · 岭南园林庭院与多彩满洲窗 (粤宴西关)",
             type: "interior",
-            desc: "占地超3000平米，设有水榭园林景观、多彩满洲窗、西关大屋石拱门与锦鲤池，粤剧雅致与茶香交织。",
+            desc: "岭南园林庭院、锦鲤水景与传统多彩满洲窗，交相辉映，营造雍容典雅的广府园林风致。",
             image: "media/dining/guangzhou_restaurant/courtyard.jpg"
           },
           {
-            title: "库克与苏炳添同款10道早茶全宴 (Tim Cook Banquet Table)",
+            title: "精致宴会空间与水榭包房 (粤韵芳渡 · 兰桂轩)",
             type: "interior",
-            desc: "涵盖广府靓汤、广州点心、特色粤菜与广式甜品，展现非遗烹饪技艺的经典盛筵。",
-            image: "media/dining/guangzhou_restaurant/cook_banquet_table.jpg"
-          },
-          {
-            title: "库克探访定制西关红木茶台菜单 (Tim Cook Menu Card)",
-            type: "interior",
-            desc: "广州酒家为库克打卡西关早茶特制的10道粤点粤菜专属菜单。",
-            image: "media/dining/guangzhou_restaurant/tim_cook_menu_card.jpg"
+            desc: "内设粤韵芳渡、兰桂轩、听月阁四大空间，融合广绣与西关石拱门，打造沉浸式广式茶宴空间。",
+            image: "media/dining/guangzhou_restaurant/dining_hall.jpg"
           }
         ],
         menu: [
