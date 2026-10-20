@@ -441,6 +441,8 @@ const defaultRestaurants = [
         highlights: ["🥟 鲜虾饺皇", "🥢 爽脆红米肠", "🍗 姜茸爽皮鸡"],
         dishes: "穗城鲜虾饺皇, 爽脆红米肠, 金丝姜茸爽皮鸡",
         address: "📍 No. 102 Longjin West Road, Liwan District (荔湾区龙津西路102号，荔枝湾畔)",
+        mapUrl: "https://www.google.com/maps/search/?api=1&query=广州市荔湾区龙津西路102号+广州酒家",
+        officialUrl: "https://www.gzr.com.cn/pinpaijiazu/guangzhoujiujia/2473.html",
         price: "$$$",
         schedule: "⏰ 08:00—14:00 (Breakfast / Morning Tea)",
         coverImage: "media/dining/guangzhou_restaurant/facade.jpg",
@@ -453,16 +455,16 @@ const defaultRestaurants = [
             image: "media/dining/guangzhou_restaurant/facade.jpg"
           },
           {
-            title: "西关荔枝湾畔 · 岭南园林庭院与多彩满洲窗 (粤宴西关)",
+            title: "岭南水乡庭院 · 锦鲤水景与水榭飞檐",
             type: "interior",
-            desc: "岭南园林庭院、锦鲤水景与传统多彩满洲窗，交相辉映，营造雍容典雅的广府园林风致。",
-            image: "media/dining/guangzhou_restaurant/courtyard.jpg"
+            desc: "传统广府园林水系，飞檐亭阁倒映碧波，锦鲤环绕，凸显老字号水乡闲趣。",
+            image: "media/dining/guangzhou_restaurant/interior_courtyard.jpg"
           },
           {
-            title: "精致宴会空间与水榭包房 (粤韵芳渡 · 兰桂轩)",
+            title: "精致宴会空间 · 多彩满洲窗 (粤宴西关)",
             type: "interior",
-            desc: "内设粤韵芳渡、兰桂轩、听月阁四大空间，融合广绣与西关石拱门，打造沉浸式广式茶宴空间。",
-            image: "media/dining/guangzhou_restaurant/dining_hall.jpg"
+            desc: "内设粤韵芳渡、兰桂轩、听月阁四大空间，饰以全套传统彩色满洲窗与广式木雕，尽显雍容广府茶宴格调。",
+            image: "media/dining/guangzhou_restaurant/interior_dining.jpg"
           }
         ],
         menu: [

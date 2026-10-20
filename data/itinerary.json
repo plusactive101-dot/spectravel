@@ -20,8 +20,28 @@
         "category": "Cantonese Morning Tea (老字号粤宴早茶)",
         "price": "$$$",
         "cover_image": "media/dining/guangzhou_restaurant/facade.jpg",
-        "courtyard_image": "media/dining/guangzhou_restaurant/courtyard.jpg",
-        "courtyard_caption": "西关荔枝湾畔 · 岭南园林庭院与多彩满洲窗 (粤宴西关)",
+        "map_url": "https://www.google.com/maps/search/?api=1&query=广州市荔湾区龙津西路102号+广州酒家",
+        "official_url": "https://www.gzr.com.cn/pinpaijiazu/guangzhoujiujia/2473.html",
+        "gallery": [
+          {
+            "title": "西关荔枝湾畔 · 门头外观",
+            "type": "exterior",
+            "desc": "广州市荔湾区龙津西路102号，坐落于西关荔枝湾河畔的标志性岭南建筑门头与骑楼石拱门。",
+            "image": "media/dining/guangzhou_restaurant/facade.jpg"
+          },
+          {
+            "title": "岭南水乡庭院 · 锦鲤水景与水榭飞檐",
+            "type": "interior",
+            "desc": "传统广府园林水系，飞檐亭阁倒映碧波，锦鲤环绕，凸显老字号水乡闲趣。",
+            "image": "media/dining/guangzhou_restaurant/interior_courtyard.jpg"
+          },
+          {
+            "title": "精致宴会空间 · 多彩满洲窗 (粤宴西关)",
+            "type": "interior",
+            "desc": "内设粤韵芳渡、兰桂轩、听月阁四大空间，饰以全套传统彩色满洲窗与广式木雕，尽显雍容广府茶宴格调。",
+            "image": "media/dining/guangzhou_restaurant/interior_dining.jpg"
+          }
+        ],
         "menu_theme": "Tim Cook & Su Bingtian 10-Dish Morning Tea Feast (库克苏炳添同款菜单)",
         "menu": [
           {

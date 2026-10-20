@@ -315,6 +315,8 @@ function loadRestaurants() {
               ...item,
               name: defaultItem.name || item.name,
               address: defaultItem.address || item.address,
+              mapUrl: defaultItem.mapUrl || item.mapUrl,
+              officialUrl: defaultItem.officialUrl || item.officialUrl,
               cuisine: defaultItem.cuisine || item.cuisine,
               dishes: defaultItem.dishes || item.dishes,
               notes: defaultItem.notes || item.notes,
@@ -419,7 +421,14 @@ function renderRestaurants(cityFilter = 'all') {
               ${r.address ? `
                 <div class="text-slate-400 flex items-start gap-1.5 text-[11px]">
                   <i class="fa-solid fa-location-dot mt-0.5 text-yellow-400 shrink-0"></i>
-                  <span class="line-clamp-1">${r.address}</span>
+                  ${r.mapUrl ? `
+                    <a href="${r.mapUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="hover:text-amber-300 hover:underline line-clamp-1 transition flex items-center gap-1">
+                      <span>${r.address}</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-amber-400/80"></i>
+                    </a>
+                  ` : `
+                    <span class="line-clamp-1">${r.address}</span>
+                  `}
                 </div>
               ` : ''}
             </div>
@@ -448,9 +457,15 @@ function renderRestaurants(cityFilter = 'all') {
               <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition text-[11px] font-bold">
                 <i class="fa-regular fa-copy"></i> Copy Details
               </button>
-              <span class="text-emerald-400 font-bold text-[10px] flex items-center gap-1">
-                <i class="fa-solid fa-check"></i> Verified Spot
-              </span>
+              ${r.officialUrl ? `
+                <a href="${r.officialUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 font-bold text-[10px] flex items-center gap-1.5 transition">
+                  <i class="fa-solid fa-globe"></i> Official Site
+                </a>
+              ` : `
+                <span class="text-emerald-400 font-bold text-[10px] flex items-center gap-1">
+                  <i class="fa-solid fa-check"></i> Verified Spot
+                </span>
+              `}
             </div>
           </div>
         </div>
