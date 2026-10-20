@@ -2028,12 +2028,31 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- MODAL 4: DINING PHOTO GALLERY MODAL        -->
+  <!-- MODAL 4: DINING PHOTO GALLERY & DETAIL MODAL -->
   <!-- ========================================== -->
-  <div id="diningPhotoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6">
+  <div id="diningPhotoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-2 sm:p-4 md:p-6 transition-all duration-300">
     <div onclick="closeDiningPhotoModal()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
-    <div id="diningPhotoModalContent" class="relative bg-slate-900 border border-white/20 rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl z-10 flex flex-col max-h-[92vh]">
+    <div id="diningPhotoModalContent" class="relative bg-slate-900 border border-white/20 rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl z-10 flex flex-col max-h-[92vh]">
       <!-- Dynamically populated via openDiningPhotoModal() in app.js -->
+    </div>
+  </div>
+
+  <!-- DISH ZOOM PREVIEW MODAL -->
+  <div id="dishZoomModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div onclick="closeDishZoomModal()" class="absolute inset-0 bg-black/90 backdrop-blur-lg"></div>
+    <div class="relative max-w-2xl w-full bg-slate-900 border border-white/20 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col">
+      <div class="relative h-72 sm:h-96 w-full bg-slate-950 flex items-center justify-center">
+        <img id="dishZoomImg" src="" alt="Dish Zoom" class="w-full h-full object-cover">
+        <button onclick="closeDishZoomModal()" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition">✕</button>
+      </div>
+      <div class="p-5 bg-slate-900/90 border-t border-white/10 space-y-1">
+        <div class="flex items-center justify-between">
+          <span id="dishZoomCategory" class="px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase mono bg-amber-500/20 text-amber-300 border border-amber-500/40"></span>
+          <span class="text-[11px] text-slate-400 mono">Tap anywhere outside to close</span>
+        </div>
+        <h3 id="dishZoomTitle" class="text-lg font-black text-white"></h3>
+        <p id="dishZoomDesc" class="text-xs text-slate-300 leading-relaxed"></p>
+      </div>
     </div>
   </div>
 

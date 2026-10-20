@@ -307,13 +307,16 @@ function loadRestaurants() {
     try {
       const parsed = JSON.parse(stored);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        // Merge missing default items by id and update mediaCards/visualTags from defaults
         const defaultsMap = new Map(defaults.map(d => [d.id, d]));
         const merged = parsed.map(item => {
           const defaultItem = defaultsMap.get(item.id);
           if (defaultItem) {
             return {
               ...item,
+              coverImage: defaultItem.coverImage || item.coverImage,
+              highlights: defaultItem.highlights || item.highlights,
+              gallery: defaultItem.gallery || item.gallery,
+              menu: defaultItem.menu || item.menu,
               mediaCards: defaultItem.mediaCards || item.mediaCards,
               visualTags: defaultItem.visualTags || item.visualTags,
               schedule: defaultItem.schedule || item.schedule
@@ -351,40 +354,125 @@ function renderRestaurants(cityFilter = 'all') {
     ? list
     : list.filter(r => r.city.toLowerCase() === cityFilter.toLowerCase());
 
-  container.innerHTML = filtered.map(r => `
-    <div class="glass-card glow-gold rounded-3xl p-6 border border-white/10 flex flex-col justify-between space-y-4">
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <span class="px-3 py-1 rounded-xl text-[10px] font-black bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 mono uppercase">${r.city}</span>
-          <span class="text-xs font-black text-yellow-400 mono bg-white/10 px-2.5 py-0.5 rounded-lg">${r.price || '$$'}</span>
+  container.innerHTML = filtered.map(r => {
+    // Derive top 3 highlights
+    let topChips = [];
+    if (Array.isArray(r.highlights) && r.highlights.length > 0) {
+      topChips = r.highlights.slice(0, 3);
+    } else if (Array.isArray(r.menu) && r.menu.length > 0) {
+      topChips = r.menu.slice(0, 3).map(m => m.nameEn || m.nameZh);
+    } else if (typeof r.dishes === 'string') {
+      topChips = r.dishes.split(',').map(s => s.trim().replace(/^\d+\.\s*/, '').split('(')[0].trim()).filter(Boolean).slice(0, 3);
+    }
+    if (topChips.length === 0) {
+      topChips = ['Specialty Dim Sum', 'Cantonese Roast', 'Signature Delicacy'];
+    }
+
+    // Cover image fallback
+    const cover = r.coverImage || (r.gallery && r.gallery[0] ? r.gallery[0].image : 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80');
+
+    return `
+      <div class="glass-card glow-gold rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-yellow-500/40 transition duration-300 shadow-xl bg-slate-900/60 backdrop-blur-md">
+        <!-- Top Cover Banner Image -->
+        <div class="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-950 cursor-pointer" onclick="openDiningPhotoModal('${r.id}')">
+          <img src="${cover}" alt="${r.name}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+          
+          <!-- Badges on Cover -->
+          <div class="absolute top-3 left-3 flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-black/60 backdrop-blur-md text-yellow-300 border border-yellow-500/40 mono uppercase">${r.city}</span>
+            <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-black/60 backdrop-blur-md text-amber-400 mono">${r.price || '$$'}</span>
+          </div>
+
+          <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-cyan-300 drop-shadow flex items-center gap-1.5 line-clamp-1">
+              <i class="fa-solid fa-utensils text-yellow-400"></i> ${r.cuisine}
+            </span>
+            ${(r.menu && r.menu.length > 0) ? `
+              <span class="px-2 py-0.5 rounded-md bg-yellow-500/20 backdrop-blur-md text-[10px] font-bold text-yellow-300 border border-yellow-500/30 mono">
+                ${r.menu.length} Dishes
+              </span>
+            ` : ''}
+          </div>
         </div>
-        <h3 class="text-lg font-black text-white">${r.name}</h3>
-        <div class="text-xs text-cyan-400 font-bold">${r.cuisine}</div>
-        
-        <div class="text-xs text-slate-300 space-y-1.5 pt-1">
-          <div><strong class="text-slate-400">Must Try:</strong> ${r.dishes || 'Specialty chef selection'}</div>
-          ${r.address ? `<div class="text-slate-400 flex items-start gap-1.5"><i class="fa-solid fa-location-dot mt-0.5 text-yellow-400 shrink-0"></i> <span>${r.address}</span></div>` : ''}
-          ${r.schedule ? `<div class="text-amber-300 font-bold text-xs flex items-center gap-1.5 pt-1"><i class="fa-regular fa-clock"></i> <span>${r.schedule}</span></div>` : ''}
-          ${r.notes ? `<div class="p-3 bg-white/5 rounded-2xl text-slate-300 text-[11px] border border-white/10 mt-2">${r.notes}</div>` : ''}
+
+        <!-- Card Body -->
+        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <h3 class="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition line-clamp-2 cursor-pointer" onclick="openDiningPhotoModal('${r.id}')">
+              ${r.name}
+            </h3>
+
+            <!-- Address & Recommended Hours -->
+            <div class="text-xs text-slate-300 space-y-1.5 mono">
+              ${r.schedule ? `
+                <div class="text-amber-300 font-bold flex items-center gap-1.5 text-[11px]">
+                  <i class="fa-regular fa-clock text-yellow-400 shrink-0"></i>
+                  <span class="line-clamp-1">${r.schedule}</span>
+                </div>
+              ` : ''}
+              ${r.address ? `
+                <div class="text-slate-400 flex items-start gap-1.5 text-[11px]">
+                  <i class="fa-solid fa-location-dot mt-0.5 text-yellow-400 shrink-0"></i>
+                  <span class="line-clamp-1">${r.address}</span>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Top 3 Highlights Badges -->
+            <div class="pt-1">
+              <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mono mb-1.5 flex items-center gap-1">
+                <i class="fa-solid fa-fire text-amber-400"></i> Must-Try Highlights:
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                ${topChips.map(chip => `
+                  <span class="px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/5 border border-white/10 text-amber-200 line-clamp-1 hover:border-yellow-500/40 transition">
+                    ${chip}
+                  </span>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-3 border-t border-white/10 space-y-2">
+            <button onclick="openDiningPhotoModal('${r.id}')" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-black text-xs mono flex items-center justify-center gap-2 transition shadow-md hover:shadow-amber-500/20">
+              <i class="fa-solid fa-book-open"></i> View Full Menu & Interior Photos
+            </button>
+            <div class="flex items-center justify-between text-xs mono pt-1">
+              <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition text-[11px] font-bold">
+                <i class="fa-regular fa-copy"></i> Copy Details
+              </button>
+              <span class="text-emerald-400 font-bold text-[10px] flex items-center gap-1">
+                <i class="fa-solid fa-check"></i> Verified Spot
+              </span>
+            </div>
+          </div>
         </div>
       </div>
+    `;
+  }).join('');
+}
 
-      <div class="space-y-3 pt-2">
-        ${(r.mediaCards && r.mediaCards.length > 0) ? `
-          <button onclick="openDiningPhotoModal('${r.id}')" class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-yellow-500/20 hover:from-amber-500/30 hover:to-yellow-500/30 border border-yellow-500/40 text-yellow-300 text-xs font-bold flex items-center justify-center gap-2 transition shadow-sm">
-            <i class="fa-solid fa-camera-retro"></i> View Photos & Media Cards (${r.mediaCards.length})
-          </button>
-        ` : ''}
+let activeGalleryType = 'all';
 
-        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs mono">
-          <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition font-bold">
-            <i class="fa-regular fa-copy"></i> Copy Details
-          </button>
-          <span class="text-emerald-400 font-bold text-[10px]">Verified Spot</span>
-        </div>
-      </div>
-    </div>
-  `).join('');
+function setGalleryFilter(type) {
+  activeGalleryType = type;
+  document.querySelectorAll('.gallery-tab-btn').forEach(btn => {
+    if (btn.dataset.type === type) {
+      btn.className = "gallery-tab-btn px-3 py-1 rounded-xl bg-amber-500 text-slate-950 font-black text-xs transition";
+    } else {
+      btn.className = "gallery-tab-btn px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs transition";
+    }
+  });
+
+  document.querySelectorAll('.gallery-item-card').forEach(item => {
+    if (type === 'all' || item.dataset.type === type) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
 }
 
 function openDiningPhotoModal(restaurantId) {
@@ -396,80 +484,166 @@ function openDiningPhotoModal(restaurantId) {
   const container = document.getElementById('diningPhotoModalContent');
   if (!modal || !container) return;
 
-  const mediaCards = rest.mediaCards || [];
+  // Lock body scrolling
+  document.body.classList.add('overflow-hidden');
+
+  const gallery = rest.gallery || rest.mediaCards || [];
+  const menu = rest.menu || [];
   const visualTags = rest.visualTags || [];
 
   container.innerHTML = `
-    <!-- Header -->
-    <div class="p-6 border-b border-white/10 flex items-center justify-between bg-slate-950/40">
+    <!-- Modal Header -->
+    <div class="p-5 sm:p-6 border-b border-white/10 flex items-start justify-between bg-slate-950/80 sticky top-0 z-20 backdrop-blur-md">
       <div>
-        <div class="flex items-center gap-2 mb-1">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
           <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 mono uppercase">${rest.city}</span>
-          <span class="text-xs text-slate-400">${rest.cuisine}</span>
+          <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-white/10 text-amber-400 mono">${rest.price || '$$'}</span>
+          <span class="text-xs font-bold text-cyan-300">${rest.cuisine}</span>
         </div>
-        <h2 class="text-xl font-black text-white">${rest.name}</h2>
+        <h2 class="text-xl sm:text-2xl font-black text-white">${rest.name}</h2>
+        ${rest.schedule ? `
+          <div class="text-xs text-amber-300 mt-1 flex items-center gap-1.5 mono font-bold">
+            <i class="fa-regular fa-clock"></i> Recommended Time: ${rest.schedule}
+          </div>
+        ` : ''}
       </div>
-      <button onclick="closeDiningPhotoModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center text-lg transition">
+      <button onclick="closeDiningPhotoModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center text-xl transition shrink-0 ml-3">
         ✕
       </button>
     </div>
 
-    <!-- Body -->
-    <div class="p-6 overflow-y-auto space-y-6 max-h-[72vh]">
+    <!-- Modal Scrollable Body -->
+    <div class="p-5 sm:p-7 overflow-y-auto space-y-8 max-h-[78vh]">
       <!-- Visual Tags -->
       ${visualTags.length > 0 ? `
         <div class="flex flex-wrap gap-2">
-          ${visualTags.map(tag => `<span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-white/5 border border-white/10 text-cyan-300 mono">${tag}</span>`).join('')}
+          ${visualTags.map(tag => `<span class="px-3 py-1 rounded-xl text-xs font-bold bg-amber-500/10 border border-amber-500/30 text-amber-300 mono">${tag}</span>`).join('')}
         </div>
       ` : ''}
 
-      <!-- Media Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        ${mediaCards.map((card, idx) => `
-          <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-yellow-500/40 transition">
-            <div class="h-48 relative overflow-hidden bg-slate-950 flex items-center justify-center">
-              ${card.image ? `
-                <img src="${card.image}" alt="${card.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'w-full h-full p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-slate-900 to-amber-950/40 border border-white/5\\'><i class=\\'fa-solid fa-utensils text-4xl text-amber-400/60 mb-2\\'></i><span class=\\'text-xs font-bold text-slate-400 mono\\'>Asset Reference</span><span class=\\'text-sm font-black text-white mt-1\\'>${card.title}</span></div>';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              ` : `
-                <div class="w-full h-full p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-slate-900 to-amber-950/40 border border-white/5">
-                  <i class="fa-solid fa-utensils text-4xl text-amber-400/60 mb-2"></i>
-                  <span class="text-xs font-bold text-slate-400 mono">Asset Reference</span>
-                  <span class="text-sm font-black text-white mt-1">${card.title}</span>
-                </div>
-              `}
-              <div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-bold text-amber-300 mono">Card 0${idx + 1}</div>
-            </div>
-            <div class="p-4 space-y-1.5 bg-slate-900/60">
-              <h4 class="text-sm font-black text-white">${card.title}</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">${card.desc}</p>
-            </div>
+      <!-- SECTION A: AMBIENCE & ARCHITECTURE GALLERY -->
+      <div class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-white/10 pb-3">
+          <div>
+            <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+              <i class="fa-solid fa-camera-retro text-amber-400"></i> Ambience & Architecture Gallery
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Explore classical courtyard architecture, Manchu stained-glass windows, and dining halls.</p>
           </div>
-        `).join('')}
+          <div class="flex items-center gap-2 text-xs mono">
+            <button onclick="setGalleryFilter('all')" data-type="all" class="gallery-tab-btn px-3 py-1 rounded-xl bg-amber-500 text-slate-950 font-black text-xs transition">All Views</button>
+            <button onclick="setGalleryFilter('exterior')" data-type="exterior" class="gallery-tab-btn px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs transition">Exterior Facade</button>
+            <button onclick="setGalleryFilter('interior')" data-type="interior" class="gallery-tab-btn px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs transition">Interior Courtyard</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="galleryGrid">
+          ${gallery.map((g, idx) => `
+            <div data-type="${g.type || 'interior'}" class="gallery-item-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden group hover:border-yellow-500/40 transition">
+              <div class="h-52 relative overflow-hidden bg-slate-950 flex items-center justify-center cursor-pointer" onclick="openDishZoomModal('${g.image || ''}', '${g.title}', 'Architecture & Ambience', '${g.desc || ''}')">
+                ${g.image ? `
+                  <img src="${g.image}" alt="${g.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full p-6 flex flex-col items-center justify-center text-center bg-slate-900 border border-white/5\'><i class=\'fa-solid fa-image text-4xl text-amber-400/60 mb-2\'></i><span class=\'text-xs font-bold text-slate-400\'>Photo Reference</span><span class=\'text-sm font-black text-white mt-1\'>${g.title}</span></div>';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                ` : `
+                  <div class="w-full h-full p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-slate-900 to-amber-950/40">
+                    <i class="fa-solid fa-utensils text-4xl text-amber-400/60 mb-2"></i>
+                    <span class="text-xs font-bold text-slate-400 mono">Asset Reference</span>
+                    <span class="text-sm font-black text-white mt-1">${g.title}</span>
+                  </div>
+                `}
+                <div class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md text-[10px] font-bold text-amber-300 mono uppercase border border-amber-500/30">
+                  ${g.type === 'exterior' ? 'Exterior Facade' : 'Interior Courtyard'}
+                </div>
+                <div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-[10px] text-white mono font-bold">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i> Zoom
+                </div>
+              </div>
+              <div class="p-4 bg-slate-900/80 space-y-1">
+                <h4 class="text-sm font-black text-white">${g.title}</h4>
+                <p class="text-xs text-slate-300 leading-relaxed">${g.desc || ''}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
       </div>
 
-      <!-- Dishes List Highlights -->
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-3">
-        <h4 class="text-xs font-black uppercase mono text-yellow-400 tracking-wider flex items-center gap-2">
-          <i class="fa-solid fa-list-check"></i> 10 Registered Signature Dishes
-        </h4>
-        <div class="text-xs text-slate-300 leading-relaxed font-mono">
-          ${rest.dishes}
-        </div>
-        ${rest.address ? `
-          <div class="pt-2 border-t border-white/10 text-xs text-slate-400 flex items-center gap-2">
-            <i class="fa-solid fa-location-dot text-amber-400"></i>
-            <span>${rest.address}</span>
+      <!-- SECTION B: COMPLETE DISH MENU & PHOTO SHOWCASE -->
+      <div class="space-y-4">
+        <div class="border-b border-white/10 pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div>
+            <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+              <i class="fa-solid fa-bowl-food text-yellow-400"></i> Complete Dish Menu & Flavor Showcase
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Click any dish photo to zoom in on authentic texture & plating presentation.</p>
           </div>
-        ` : ''}
+          ${menu.length > 0 ? `
+            <span class="px-3 py-1 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono font-bold w-fit">
+              ${menu.length} Curated Specialties
+            </span>
+          ` : ''}
+        </div>
+
+        ${menu.length > 0 ? `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${menu.map((dish, idx) => `
+              <div class="bg-white/5 border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 flex gap-4 items-start transition duration-200 group bg-slate-900/60">
+                <!-- Dish Thumbnail -->
+                <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-950 shrink-0 cursor-pointer border border-white/10 group-hover:border-amber-500/50" onclick="openDishZoomModal('${dish.image}', '${dish.nameZh} (${dish.nameEn})', '${dish.category}', '${dish.desc}')">
+                  <img src="${dish.image}" alt="${dish.nameZh}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80';" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                  <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                  <div class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-black/70 backdrop-blur text-[9px] text-white mono font-bold">
+                    #0${idx + 1}
+                  </div>
+                </div>
+
+                <!-- Dish Info -->
+                <div class="flex-1 space-y-1.5 min-w-0">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase mono bg-amber-500/20 text-amber-300 border border-amber-500/30 shrink-0">
+                      ${dish.category || 'Specialty'}
+                    </span>
+                    <button onclick="openDishZoomModal('${dish.image}', '${dish.nameZh} (${dish.nameEn})', '${dish.category}', '${dish.desc}')" class="text-slate-400 hover:text-amber-300 text-[10px] mono flex items-center gap-1 transition">
+                      <i class="fa-solid fa-expand"></i> Zoom
+                    </button>
+                  </div>
+                  <h4 class="text-sm font-black text-white group-hover:text-amber-300 transition line-clamp-1">
+                    ${dish.nameZh}
+                  </h4>
+                  <div class="text-xs font-bold text-slate-300 line-clamp-1">
+                    ${dish.nameEn}
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-relaxed line-clamp-2 pt-0.5">
+                    ${dish.desc}
+                  </p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        ` : `
+          <!-- Fallback when menu array is simple string -->
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2">
+            <h4 class="text-xs font-black uppercase mono text-yellow-400 tracking-wider">Must-Try Specialties</h4>
+            <div class="text-xs text-slate-300 leading-relaxed font-mono">
+              ${rest.dishes || 'Specialty Chef Selection'}
+            </div>
+          </div>
+        `}
       </div>
+
+      <!-- Notes & Logistics -->
+      ${(rest.notes || rest.address) ? `
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2 text-xs">
+          ${rest.notes ? `<div class="text-slate-300 leading-relaxed"><strong class="text-amber-300 mono">Insider Guide:</strong> ${rest.notes}</div>` : ''}
+          ${rest.address ? `<div class="text-slate-400 flex items-center gap-2 pt-2 border-t border-white/10"><i class="fa-solid fa-location-dot text-amber-400"></i> <span>${rest.address}</span></div>` : ''}
+        </div>
+      ` : ''}
     </div>
 
-    <!-- Footer -->
-    <div class="p-4 border-t border-white/10 bg-slate-950/60 flex items-center justify-between">
-      <button onclick="copyToClipboard('${rest.name} ${rest.address || ''}')" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-bold transition flex items-center gap-2">
-        <i class="fa-regular fa-copy"></i> Copy Details
+    <!-- Modal Footer -->
+    <div class="p-4 sm:p-5 border-t border-white/10 bg-slate-950/90 flex items-center justify-between sticky bottom-0 z-20 backdrop-blur-md">
+      <button onclick="copyToClipboard('${rest.name} ${rest.address || ''}')" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-bold transition flex items-center gap-2 mono">
+        <i class="fa-regular fa-copy"></i> Copy Address
       </button>
-      <button onclick="closeDiningPhotoModal()" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition">
+      <button onclick="closeDiningPhotoModal()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-black text-xs transition shadow-md">
         Done
       </button>
     </div>
@@ -480,6 +654,29 @@ function openDiningPhotoModal(restaurantId) {
 
 function closeDiningPhotoModal() {
   const modal = document.getElementById('diningPhotoModal');
+  if (modal) modal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+
+function openDishZoomModal(imageSrc, title, category, desc) {
+  const modal = document.getElementById('dishZoomModal');
+  const img = document.getElementById('dishZoomImg');
+  const titleEl = document.getElementById('dishZoomTitle');
+  const catEl = document.getElementById('dishZoomCategory');
+  const descEl = document.getElementById('dishZoomDesc');
+  if (!modal || !img) return;
+
+  img.src = imageSrc || 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80';
+  img.onerror = () => { img.src = 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80'; };
+  if (titleEl) titleEl.textContent = title || 'Dish Preview';
+  if (catEl) catEl.textContent = category || 'Dim Sum';
+  if (descEl) descEl.textContent = desc || '';
+
+  modal.classList.remove('hidden');
+}
+
+function closeDishZoomModal() {
+  const modal = document.getElementById('dishZoomModal');
   if (modal) modal.classList.add('hidden');
 }
 
@@ -1285,6 +1482,8 @@ document.addEventListener('keydown', (e) => {
     closeDrawer();
     closeAddRestaurantModal();
     closeHotelRoomModal();
+    closeDishZoomModal();
+    closeDiningPhotoModal();
   } else if (e.key === 'ArrowLeft') {
     const modal = document.getElementById('hotelRoomModal');
     if (modal && !modal.classList.contains('hidden')) {
