@@ -348,8 +348,16 @@ const defaultRestaurants = [
         schedule: "Breakfast / Morning Tea (08:30–10:30 AM)",
         visualTags: ["#visual/lingnan-garden", "#visual/manchu-stained-glass", "#visual/10-dish-flatlay", "#visual/cantonese-dimsum"],
         mediaCards: [
-          { title: "Lingnan Canal-side Garden Room", desc: "Traditional Lingnan canal-side garden dining room with Manchu stained-glass windows overlooking Lychee Bay" },
-          { title: "10-Dish Morning Tea Feast Flat-Lay", desc: "Complete 10-dish table banquet flat-lay with heritage kung-fu tea service" }
+          {
+            title: "Lingnan Canal-side Garden Room",
+            desc: "Traditional Lingnan canal-side garden dining room with Manchu stained-glass windows overlooking Lychee Bay",
+            image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80"
+          },
+          {
+            title: "10-Dish Morning Tea Feast Flat-Lay",
+            desc: "Complete 10-dish table banquet flat-lay with heritage kung-fu tea service",
+            image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80"
+          }
         ],
         notes: "Known as 'First Food in Guangzhou' (食在广州第一家). Elegant classical water-garden setting beside Lychee Bay. Scheduled for 08:30–10:30 AM on Day 6 Xiguan/Yongqing Fang exploration."
       },

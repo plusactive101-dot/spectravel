@@ -55,11 +55,13 @@ function getHotelRoomsCount(hotelId) {
 }
 
 function switchChinaView(viewName, shouldScroll = false) {
-  activeChinaView = viewName;
+  // Normalize alias
+  const normalized = (viewName === 'food' || viewName === 'restaurant' || viewName === 'restaurants') ? 'dining' : viewName;
+  activeChinaView = normalized;
   
   // Update view panels
   document.querySelectorAll('.china-view-panel').forEach(p => p.classList.add('hidden'));
-  const targetView = document.getElementById('view-' + viewName);
+  const targetView = document.getElementById('view-' + normalized) || document.querySelector(`[data-view="${normalized}"]`);
   if (targetView) targetView.classList.remove('hidden');
 
   // Update sub-view tabs
@@ -67,7 +69,7 @@ function switchChinaView(viewName, shouldScroll = false) {
     b.classList.remove('active-tab');
     b.classList.add('text-slate-300');
   });
-  const targetBtn = document.getElementById('btn-china-' + viewName);
+  const targetBtn = document.getElementById('btn-china-' + normalized);
   if (targetBtn) {
     targetBtn.classList.add('active-tab');
     targetBtn.classList.remove('text-slate-300');
@@ -78,19 +80,19 @@ function switchChinaView(viewName, shouldScroll = false) {
     b.classList.remove('bg-gradient-to-r', 'from-cyan-500', 'to-purple-600', 'text-white', 'shadow-md');
     b.classList.add('bg-white/10', 'text-slate-300');
   });
-  const headerBtn = document.getElementById('header-btn-' + viewName);
+  const headerBtn = document.getElementById('header-btn-' + normalized);
   if (headerBtn) {
     headerBtn.classList.remove('bg-white/10', 'text-slate-300');
     headerBtn.classList.add('bg-gradient-to-r', 'from-cyan-500', 'to-purple-600', 'text-white', 'shadow-md');
   }
 
   // Sync URL hash
-  if (window.location.hash !== '#' + viewName) {
-    history.replaceState(null, null, '#' + viewName);
+  if (window.location.hash !== '#' + normalized) {
+    history.replaceState(null, null, '#' + normalized);
   }
 
   // If opening the regional map view, initialize/resize map
-  if (viewName === 'mindmap') {
+  if (normalized === 'mindmap') {
     setTimeout(() => {
       initRegionalMap();
     }, 100);
@@ -98,12 +100,17 @@ function switchChinaView(viewName, shouldScroll = false) {
 
   // Smooth scroll to view if requested
   if (shouldScroll) {
-    const navAnchor = document.getElementById('chinaViewNav');
-    if (navAnchor) {
-      navAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (targetView) {
-      targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    setTimeout(() => {
+      const explicitAnchor = document.getElementById(normalized);
+      if (explicitAnchor) {
+        explicitAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (targetView) {
+        targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        const navAnchor = document.getElementById('chinaViewNav');
+        if (navAnchor) navAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   }
 }
 
@@ -300,9 +307,22 @@ function loadRestaurants() {
     try {
       const parsed = JSON.parse(stored);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        // Merge missing default items by id so newly added items show up
-        const existingIds = new Set(parsed.map(p => p.id));
-        const merged = [...parsed];
+        // Merge missing default items by id and update mediaCards/visualTags from defaults
+        const defaultsMap = new Map(defaults.map(d => [d.id, d]));
+        const merged = parsed.map(item => {
+          const defaultItem = defaultsMap.get(item.id);
+          if (defaultItem) {
+            return {
+              ...item,
+              mediaCards: defaultItem.mediaCards || item.mediaCards,
+              visualTags: defaultItem.visualTags || item.visualTags,
+              schedule: defaultItem.schedule || item.schedule
+            };
+          }
+          return item;
+        });
+
+        const existingIds = new Set(merged.map(p => p.id));
         defaults.forEach(d => {
           if (!existingIds.has(d.id)) {
             merged.push(d);
@@ -409,7 +429,7 @@ function openDiningPhotoModal(restaurantId) {
           <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-yellow-500/40 transition">
             <div class="h-48 relative overflow-hidden bg-slate-950 flex items-center justify-center">
               ${card.image ? `
-                <img src="${card.image}" alt="${card.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <img src="${card.image}" alt="${card.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'w-full h-full p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-slate-900 to-amber-950/40 border border-white/5\\'><i class=\\'fa-solid fa-utensils text-4xl text-amber-400/60 mb-2\\'></i><span class=\\'text-xs font-bold text-slate-400 mono\\'>Asset Reference</span><span class=\\'text-sm font-black text-white mt-1\\'>${card.title}</span></div>';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
               ` : `
                 <div class="w-full h-full p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-slate-900 to-amber-950/40 border border-white/5">
                   <i class="fa-solid fa-utensils text-4xl text-amber-400/60 mb-2"></i>
@@ -1298,7 +1318,8 @@ function filterAttractionsCards(category) {
 }
 
 function initApp() {
-  const hash = window.location.hash ? window.location.hash.replace('#', '') : '';
+  const rawHash = window.location.hash ? window.location.hash.replace('#', '') : '';
+  const hash = (rawHash === 'food' || rawHash === 'restaurant' || rawHash === 'restaurants') ? 'dining' : rawHash;
   const validViews = ['flowchart', 'schedule', 'hotels', 'attractions', 'dining', 'mindmap', 'budget'];
   const initialView = validViews.includes(hash) ? hash : 'flowchart';
   
@@ -1309,7 +1330,8 @@ function initApp() {
   try { calculateChinaBudget(); } catch (e) { console.error('China budget err:', e); }
 
   window.addEventListener('hashchange', () => {
-    const currentHash = window.location.hash ? window.location.hash.replace('#', '') : '';
+    const raw = window.location.hash ? window.location.hash.replace('#', '') : '';
+    const currentHash = (raw === 'food' || raw === 'restaurant' || raw === 'restaurants') ? 'dining' : raw;
     if (validViews.includes(currentHash) && currentHash !== activeChinaView) {
       switchChinaView(currentHash, true);
     }
