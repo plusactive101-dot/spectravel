@@ -2027,6 +2027,16 @@
   </div>
 
   <!-- ========================================== -->
+  <!-- MODAL 4: DINING PHOTO GALLERY MODAL        -->
+  <!-- ========================================== -->
+  <div id="diningPhotoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6">
+    <div onclick="closeDiningPhotoModal()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+    <div id="diningPhotoModalContent" class="relative bg-slate-900 border border-white/20 rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl z-10 flex flex-col max-h-[92vh]">
+      <!-- Dynamically populated via openDiningPhotoModal() in app.js -->
+    </div>
+  </div>
+
+  <!-- ========================================== -->
   <!-- FOOTER                                     -->
   <!-- ========================================== -->
   <footer class="border-t border-white/10 bg-slate-950/80 mt-16 py-8 text-xs mono text-slate-400">

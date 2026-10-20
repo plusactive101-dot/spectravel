@@ -344,18 +344,123 @@ function renderRestaurants(cityFilter = 'all') {
         <div class="text-xs text-slate-300 space-y-1.5 pt-1">
           <div><strong class="text-slate-400">Must Try:</strong> ${r.dishes || 'Specialty chef selection'}</div>
           ${r.address ? `<div class="text-slate-400 flex items-start gap-1.5"><i class="fa-solid fa-location-dot mt-0.5 text-yellow-400 shrink-0"></i> <span>${r.address}</span></div>` : ''}
+          ${r.schedule ? `<div class="text-amber-300 font-bold text-xs flex items-center gap-1.5 pt-1"><i class="fa-regular fa-clock"></i> <span>${r.schedule}</span></div>` : ''}
           ${r.notes ? `<div class="p-3 bg-white/5 rounded-2xl text-slate-300 text-[11px] border border-white/10 mt-2">${r.notes}</div>` : ''}
         </div>
       </div>
 
-      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs mono">
-        <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition font-bold">
-          <i class="fa-regular fa-copy"></i> Copy Name & Address
-        </button>
-        <span class="text-emerald-400 font-bold text-[10px]">Verified Spot</span>
+      <div class="space-y-3 pt-2">
+        ${(r.mediaCards && r.mediaCards.length > 0) ? `
+          <button onclick="openDiningPhotoModal('${r.id}')" class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-yellow-500/20 hover:from-amber-500/30 hover:to-yellow-500/30 border border-yellow-500/40 text-yellow-300 text-xs font-bold flex items-center justify-center gap-2 transition shadow-sm">
+            <i class="fa-solid fa-camera-retro"></i> View Photos & Media Cards (${r.mediaCards.length})
+          </button>
+        ` : ''}
+
+        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs mono">
+          <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition font-bold">
+            <i class="fa-regular fa-copy"></i> Copy Details
+          </button>
+          <span class="text-emerald-400 font-bold text-[10px]">Verified Spot</span>
+        </div>
       </div>
     </div>
   `).join('');
+}
+
+function openDiningPhotoModal(restaurantId) {
+  const list = loadRestaurants();
+  const rest = list.find(r => r.id === restaurantId);
+  if (!rest) return;
+
+  const modal = document.getElementById('diningPhotoModal');
+  const container = document.getElementById('diningPhotoModalContent');
+  if (!modal || !container) return;
+
+  const mediaCards = rest.mediaCards || [];
+  const visualTags = rest.visualTags || [];
+
+  container.innerHTML = `
+    <!-- Header -->
+    <div class="p-6 border-b border-white/10 flex items-center justify-between bg-slate-950/40">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-yellow-500/20 text-yellow-300 border border-yellow-500/40 mono uppercase">${rest.city}</span>
+          <span class="text-xs text-slate-400">${rest.cuisine}</span>
+        </div>
+        <h2 class="text-xl font-black text-white">${rest.name}</h2>
+      </div>
+      <button onclick="closeDiningPhotoModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center text-lg transition">
+        ✕
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-6 overflow-y-auto space-y-6 max-h-[72vh]">
+      <!-- Visual Tags -->
+      ${visualTags.length > 0 ? `
+        <div class="flex flex-wrap gap-2">
+          ${visualTags.map(tag => `<span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-white/5 border border-white/10 text-cyan-300 mono">${tag}</span>`).join('')}
+        </div>
+      ` : ''}
+
+      <!-- Media Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        ${mediaCards.map((card, idx) => `
+          <div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-yellow-500/40 transition">
+            <div class="h-48 relative overflow-hidden bg-slate-950 flex items-center justify-center">
+              ${card.image ? `
+                <img src="${card.image}" alt="${card.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              ` : `
+                <div class="w-full h-full p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-slate-900 to-amber-950/40 border border-white/5">
+                  <i class="fa-solid fa-utensils text-4xl text-amber-400/60 mb-2"></i>
+                  <span class="text-xs font-bold text-slate-400 mono">Asset Reference</span>
+                  <span class="text-sm font-black text-white mt-1">${card.title}</span>
+                </div>
+              `}
+              <div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[10px] font-bold text-amber-300 mono">Card 0${idx + 1}</div>
+            </div>
+            <div class="p-4 space-y-1.5 bg-slate-900/60">
+              <h4 class="text-sm font-black text-white">${card.title}</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">${card.desc}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- Dishes List Highlights -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-3">
+        <h4 class="text-xs font-black uppercase mono text-yellow-400 tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-list-check"></i> 10 Registered Signature Dishes
+        </h4>
+        <div class="text-xs text-slate-300 leading-relaxed font-mono">
+          ${rest.dishes}
+        </div>
+        ${rest.address ? `
+          <div class="pt-2 border-t border-white/10 text-xs text-slate-400 flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-amber-400"></i>
+            <span>${rest.address}</span>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="p-4 border-t border-white/10 bg-slate-950/60 flex items-center justify-between">
+      <button onclick="copyToClipboard('${rest.name} ${rest.address || ''}')" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-bold transition flex items-center gap-2">
+        <i class="fa-regular fa-copy"></i> Copy Details
+      </button>
+      <button onclick="closeDiningPhotoModal()" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition">
+        Done
+      </button>
+    </div>
+  `;
+
+  modal.classList.remove('hidden');
+}
+
+function closeDiningPhotoModal() {
+  const modal = document.getElementById('diningPhotoModal');
+  if (modal) modal.classList.add('hidden');
 }
 
 function filterRestaurants(city) {

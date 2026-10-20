@@ -96,12 +96,13 @@ const itinerarySchedule = [
         date: "2026-12-04",
         weekday: "Friday",
         city: "yuexiu",
-        region: "Guangzhou (Heritage & Culture)",
+        region: "Guangzhou (Heritage, Xiguan & Yongqing Fang)",
         badgeColor: "bg-purple-500",
         hotel: "Atour Hotel Dongshankou (Guangzhou)",
         transport: "Guangzhou Metro Line 1 / 6 & Didi",
-        foodTip: "Huangpu Ancient Port ginger milk & traditional Cantonese treats",
+        foodTip: "Morning Tea (08:30–10:30) at Guangzhou Restaurant (Longjin West Branch) by Lychee Bay",
         activities: [
+          "08:30–10:30 AM: Morning Tea / Dim Sum banquet at Guangzhou Restaurant (Longjin West Road Branch) / 广州酒家（龙津西路店） by Lychee Bay canal (10-dish signature feast)",
           "Colonial European architecture walk on Shamian Island",
           "Xiguan traditional houses & Yongqing Fang revitalized heritage quarter",
           "Cantonese Opera Art Museum water stage performance",
@@ -338,13 +339,19 @@ const defaultRestaurants = [
       },
       {
         id: "rest-gz-5",
-        name: "Guangzhou Restaurant (广州酒家)",
+        name: "Guangzhou Restaurant (Longjin West Branch) / 广州酒家（龙津西路店）",
         city: "Guangzhou",
-        cuisine: "Legendary Heritage State Cantonese Dining",
-        dishes: "Wenchang Chicken (文昌鸡), Crystal Shrimp Dumplings (虾饺), BBQ Char Siu Buns (叉烧包)",
-        address: "No. 2 Wenchang South Road, Liwan District (Original 1935 Flagship)",
+        cuisine: "Cantonese Morning Tea / Dim Sum (老字号粤宴早茶)",
+        dishes: "1. 穗城鲜虾饺皇 (Master King Prawn Har Gow) [Dim Sum], 2. 爽脆红米肠 (Crispy Red Rice Rolls) [Dim Sum], 3. 豉汁蒸排骨 (Steamed Spare Ribs w/ Taro) [Dim Sum], 4. 梅子叉烧包 (Plum Char Siu Buns) [Dim Sum], 5. 松露小笼包 (Truffle Xiao Long Bao) [Dim Sum], 6. 香煎萝卜糕 (Pan-Fried Daikon Cake) [Dim Sum], 7. 金丝姜茸爽皮鸡 (Crispy Poached Chicken) [Main], 8. 黄榄肉汁炖花胶 (Fish Maw & Olive Soup) [Soup], 9. 红葱头淋生菜胆 (Shallot Oil Lettuce) [Veg], 10. 燕窝双皮奶 (Bird's Nest Milk Pudding) [Dessert]",
+        address: "No. 98 Longjin West Road, Liwan District (西关 / 荔湾区龙津西路98号, 荔枝湾畔)",
         price: "$$$",
-        notes: "Known as 'First Food in Guangzhou' (食在广州第一家). Elegant classical garden setting serving authentic state-banquet Cantonese cuisine."
+        schedule: "Breakfast / Morning Tea (08:30–10:30 AM)",
+        visualTags: ["#visual/lingnan-garden", "#visual/manchu-stained-glass", "#visual/10-dish-flatlay", "#visual/cantonese-dimsum"],
+        mediaCards: [
+          { title: "Lingnan Canal-side Garden Room", desc: "Traditional Lingnan canal-side garden dining room with Manchu stained-glass windows overlooking Lychee Bay" },
+          { title: "10-Dish Morning Tea Feast Flat-Lay", desc: "Complete 10-dish table banquet flat-lay with heritage kung-fu tea service" }
+        ],
+        notes: "Known as 'First Food in Guangzhou' (食在广州第一家). Elegant classical water-garden setting beside Lychee Bay. Scheduled for 08:30–10:30 AM on Day 6 Xiguan/Yongqing Fang exploration."
       },
       {
         id: "rest-gz-6",
