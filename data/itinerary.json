@@ -1,0 +1,111 @@
+{
+  "trip": "China 2026 Greater Bay Area Expedition",
+  "generated_at": "2026-10-20",
+  "days": [
+    {
+      "day": 6,
+      "date": "2026-12-04",
+      "weekday": "Friday",
+      "region": "Guangzhou (Heritage, Xiguan & Yongqing Fang)",
+      "theme": "Liwan & Yongqing Fang Cultural Day",
+      "dining": {
+        "scheduled_time": "08:00—14:00 (Morning Tea 08:30–10:30 AM)",
+        "restaurant_id": "rest-gz-5",
+        "name": "Guangzhou Restaurant (Longjin West Branch) / 广州酒家（龙津西路店 · 粤宴西关）",
+        "address": "No. 102 Longjin West Road, Liwan District (荔湾区龙津西路102号，荔枝湾畔)",
+        "phone": [
+          "020-38809838",
+          "020-38800733"
+        ],
+        "category": "Cantonese Morning Tea (老字号粤宴早茶)",
+        "price": "$$$",
+        "cover_image": "media/dining/guangzhou_restaurant/facade.jpg",
+        "courtyard_image": "media/dining/guangzhou_restaurant/courtyard.jpg",
+        "courtyard_caption": "西关荔枝湾畔 · 岭南园林庭院与多彩满洲窗 (粤宴西关)",
+        "menu_theme": "Tim Cook & Su Bingtian 10-Dish Morning Tea Feast (库克苏炳添同款菜单)",
+        "menu": [
+          {
+            "id": 1,
+            "nameZh": "穗城鲜虾饺皇",
+            "nameEn": "Master King Prawn Har Gow",
+            "category": "经典点心",
+            "desc": "11道精巧褶纹透薄澄面皮，包裹整颗手剥鲜甜脆弹海虾仁与爽脆竹笋丁，鲜汁充盈。",
+            "image": "media/dining/guangzhou_restaurant/dish_01_hargow.jpg"
+          },
+          {
+            "id": 2,
+            "nameZh": "爽脆红米肠",
+            "nameEn": "Crispy Red Rice Noodle Rolls",
+            "category": "经典点心",
+            "desc": "天然红曲米研磨拉制丝滑拉肠，内层裹以金黄香脆网皮与饱满虾仁，三层质感三重享受。",
+            "image": "media/dining/guangzhou_restaurant/dish_02_red_rice_roll.jpg"
+          },
+          {
+            "id": 3,
+            "nameZh": "豉汁蒸排骨",
+            "nameEn": "Steamed Spare Ribs in Black Bean Sauce",
+            "category": "经典点心",
+            "desc": "精选一字肋排以阳江黑豆豉、蒜蓉腌制，垫以粉糯荔浦芋头高温快蒸，肉质嫩滑多汁。",
+            "image": "media/dining/guangzhou_restaurant/dish_03_spare_ribs.jpg"
+          },
+          {
+            "id": 4,
+            "nameZh": "梅子叉烧包",
+            "nameEn": "Plum-Glazed BBQ Pork Buns",
+            "category": "经典点心",
+            "desc": "松软若棉花般的开花老面馒头，包裹肥瘦相间秘制蜜汁叉烧，融入岭南酸甜乌梅酱生津解腻。",
+            "image": "media/dining/guangzhou_restaurant/dish_04_char_siu_bun.jpg"
+          },
+          {
+            "id": 5,
+            "nameZh": "松露小笼包",
+            "nameEn": "Black Truffle Xiao Long Bao",
+            "category": "经典点心",
+            "desc": "薄如蝉翼的精巧褶皮，内裹浓郁黑松露茸与黑猪肉馅，滚烫一口爆汁、蕈香馥郁。",
+            "image": "media/dining/guangzhou_restaurant/dish_05_xiao_long_bao.jpg"
+          },
+          {
+            "id": 6,
+            "nameZh": "香煎萝卜糕",
+            "nameEn": "Pan-Fried Daikon Radish Cake",
+            "category": "经典点心",
+            "desc": "手切冬头水嫩萝卜丝融和广式皇上皇腊味粒与生晒虾米，慢火两面双煎至外焦里嫩酥香。",
+            "image": "media/dining/guangzhou_restaurant/dish_06_radish_cake.jpg"
+          },
+          {
+            "id": 7,
+            "nameZh": "金丝姜茸爽皮鸡",
+            "nameEn": "Crispy-Skin Poached Chicken with Ginger Purée",
+            "category": "特色粤菜",
+            "desc": "精选180天山林走地鸡浸熟冰镇定型，皮脆肉嫩带皮冻，配上炸至金黄松酥的金丝沙姜与香油姜茸。",
+            "image": "media/dining/guangzhou_restaurant/dish_07_chicken.jpg"
+          },
+          {
+            "id": 8,
+            "nameZh": "黄榄肉汁炖花胶",
+            "nameEn": "Double-Boiled Fish Maw Soup",
+            "category": "广府靓汤",
+            "desc": "深海鳘鱼厚花胶与慢火土猪瘦肉汁清炖4小时，配搭西关古法甘甘苦苦的野山青黄榄，汤清甘润回甜。",
+            "image": "media/dining/guangzhou_restaurant/dish_08_fish_maw_soup.jpg"
+          },
+          {
+            "id": 9,
+            "nameZh": "红葱头淋生菜胆",
+            "nameEn": "Poached Lettuce with Shallot Oil",
+            "category": "特色粤菜",
+            "desc": "清甜无筋的高山罗马生菜心滚水快灼，淋上镬气十足、焦香微甜的现炸红葱头头抽香油。",
+            "image": "media/dining/guangzhou_restaurant/dish_09_lettuce.jpg"
+          },
+          {
+            "id": 10,
+            "nameZh": "燕窝双皮奶",
+            "nameEn": "Double-Skin Milk Pudding with Bird's Nest",
+            "category": "广式甜品",
+            "desc": "顺德纯正水牛奶古法文火慢蒸形成醇厚奶皮，上覆精炖通透的印尼极品金丝官燕窝，奶香醇厚细腻。",
+            "image": "media/dining/guangzhou_restaurant/dish_10_milk_pudding.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -313,6 +313,11 @@ function loadRestaurants() {
           if (defaultItem) {
             return {
               ...item,
+              name: defaultItem.name || item.name,
+              address: defaultItem.address || item.address,
+              cuisine: defaultItem.cuisine || item.cuisine,
+              dishes: defaultItem.dishes || item.dishes,
+              notes: defaultItem.notes || item.notes,
               coverImage: defaultItem.coverImage || item.coverImage,
               highlights: defaultItem.highlights || item.highlights,
               gallery: defaultItem.gallery || item.gallery,

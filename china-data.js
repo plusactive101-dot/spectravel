@@ -435,106 +435,112 @@ const defaultRestaurants = [
       },
       {
         id: "rest-gz-5",
-        name: "Guangzhou Restaurant (Longjin West Branch) / 广州酒家（龙津西路店）",
+        name: "Guangzhou Restaurant (Longjin West Branch) / 广州酒家（龙津西路店 · 粤宴西关）",
         city: "Guangzhou",
-        cuisine: "Cantonese Morning Tea / Dim Sum (老字号粤宴早茶)",
-        highlights: ["Master King Prawn Har Gow", "Crispy Red Rice Rolls", "Ginger Poached Chicken"],
-        dishes: "Master King Prawn Har Gow, Crispy Red Rice Rolls, Crispy-Skin Poached Chicken with Ginger Purée",
-        address: "No. 98 Longjin West Road, Liwan District (西关 / 荔湾区龙津西路98号, 荔枝湾畔)",
+        cuisine: "Cantonese Morning Tea (老字号粤宴早茶)",
+        highlights: ["🥟 鲜虾饺皇", "🥢 爽脆红米肠", "🍗 姜茸爽皮鸡"],
+        dishes: "穗城鲜虾饺皇, 爽脆红米肠, 金丝姜茸爽皮鸡",
+        address: "📍 No. 102 Longjin West Road, Liwan District (荔湾区龙津西路102号，荔枝湾畔)",
         price: "$$$",
-        schedule: "Breakfast / Morning Tea (08:30–10:30 AM)",
-        coverImage: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
-        notes: "Known as 'First Food in Guangzhou' (食在广州第一家). Classical water-garden courtyard setting beside Lychee Bay. Scheduled for Day 6 Morning Tea.",
+        schedule: "⏰ 08:00—14:00 (Breakfast / Morning Tea)",
+        coverImage: "media/dining/guangzhou_restaurant/facade.jpg",
+        notes: "Known as 'First Food in Guangzhou' (食在广州第一家). Elegant classical water-garden courtyard setting beside Lychee Bay canal. Scheduled for Day 6 Morning Tea.",
         gallery: [
           {
-            title: "Lingnan Canal-side Garden Facade",
+            title: "西关荔枝湾畔 · 门头外观",
             type: "exterior",
-            desc: "Historical Lingnan architecture along the scenic Lychee Bay canal promenade",
-            image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80"
+            desc: "广州市荔湾区龙津西路102号，坐落于西关荔枝湾河畔的标志性岭南建筑门头与骑楼石拱门。",
+            image: "media/dining/guangzhou_restaurant/facade.jpg"
           },
           {
-            title: "Classical Lingnan Water-Garden Courtyard",
+            title: "西关荔枝湾畔 · 岭南园林庭院与多彩满洲窗 (粤宴西关)",
             type: "interior",
-            desc: "Manchu stained-glass windows, carved camphorwood screens, and indoor koi pond",
-            image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"
+            desc: "占地超3000平米，设有水榭园林景观、多彩满洲窗、西关大屋石拱门与锦鲤池，粤剧雅致与茶香交织。",
+            image: "media/dining/guangzhou_restaurant/courtyard.jpg"
           },
           {
-            title: "Complete 10-Dish Morning Tea Banquet Flat-Lay",
+            title: "库克与苏炳添同款10道早茶全宴 (Tim Cook Banquet Table)",
             type: "interior",
-            desc: "Tim Cook 10-dish signature feast flat-lay with heritage kung-fu tea service",
-            image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80"
+            desc: "涵盖广府靓汤、广州点心、特色粤菜与广式甜品，展现非遗烹饪技艺的经典盛筵。",
+            image: "media/dining/guangzhou_restaurant/cook_banquet_table.jpg"
+          },
+          {
+            title: "库克探访定制西关红木茶台菜单 (Tim Cook Menu Card)",
+            type: "interior",
+            desc: "广州酒家为库克打卡西关早茶特制的10道粤点粤菜专属菜单。",
+            image: "media/dining/guangzhou_restaurant/tim_cook_menu_card.jpg"
           }
         ],
         menu: [
           {
             nameZh: "穗城鲜虾饺皇",
             nameEn: "Master King Prawn Har Gow",
-            category: "Dim Sum",
-            desc: "11-fold translucent crystal pastry packed with whole sweet tiger prawns and bamboo shoot crunch.",
-            image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+            category: "经典点心",
+            desc: "11道精巧褶纹透薄澄面皮，包裹整颗手剥鲜甜脆弹海虾仁与爽脆竹笋丁，鲜汁充盈。",
+            image: "media/dining/guangzhou_restaurant/dish_01_hargow.jpg"
           },
           {
             nameZh: "爽脆红米肠",
             nameEn: "Crispy Red Rice Noodle Rolls",
-            category: "Dim Sum",
-            desc: "Silky red yeast rice crepes rolled around golden fried pastry netting and succulent prawns.",
-            image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+            category: "经典点心",
+            desc: "天然红曲米研磨拉制丝滑拉肠，内层裹以金黄香脆网皮与饱满虾仁，三层质感三重享受。",
+            image: "media/dining/guangzhou_restaurant/dish_02_red_rice_roll.jpg"
           },
           {
             nameZh: "豉汁蒸排骨",
             nameEn: "Steamed Spare Ribs in Black Bean Sauce",
-            category: "Dim Sum",
-            desc: "Tender duroc pork ribs marinated in fermented black bean paste, garlic, and steamed over sweet taro.",
-            image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+            category: "经典点心",
+            desc: "精选一字肋排以阳江黑豆豉、蒜蓉腌制，垫以粉糯荔浦芋头高温快蒸，肉质嫩滑多汁。",
+            image: "media/dining/guangzhou_restaurant/dish_03_spare_ribs.jpg"
           },
           {
             nameZh: "梅子叉烧包",
             nameEn: "Plum-Glazed BBQ Pork Buns",
-            category: "Dim Sum",
-            desc: "Snow-white steamed buns filled with honey roasted pork infused with tangy sour plum glaze.",
-            image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+            category: "经典点心",
+            desc: "松软若棉花般的开花老面馒头，包裹肥瘦相间秘制蜜汁叉烧，融入岭南酸甜乌梅酱生津解腻。",
+            image: "media/dining/guangzhou_restaurant/dish_04_char_siu_bun.jpg"
           },
           {
             nameZh: "松露小笼包",
             nameEn: "Black Truffle Xiao Long Bao",
-            category: "Dim Sum",
-            desc: "Paper-thin pleated dumplings bursting with rich pork broth infused with aromatic shaved black truffle.",
-            image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+            category: "经典点心",
+            desc: "薄如蝉翼的精巧褶皮，内裹浓郁黑松露茸与黑猪肉馅，滚烫一口爆汁、蕈香馥郁。",
+            image: "media/dining/guangzhou_restaurant/dish_05_xiao_long_bao.jpg"
           },
           {
             nameZh: "香煎萝卜糕",
             nameEn: "Pan-Fried Daikon Radish Cake",
-            category: "Dim Sum",
-            desc: "Cast-iron seared radish cakes studded with Cantonese cured wind-dried sausage and dried conpoy shrimp.",
-            image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+            category: "经典点心",
+            desc: "手切冬头水嫩萝卜丝融和广式皇上皇腊味粒与生晒虾米，慢火两面双煎至外焦里嫩酥香。",
+            image: "media/dining/guangzhou_restaurant/dish_06_radish_cake.jpg"
           },
           {
             nameZh: "金丝姜茸爽皮鸡",
             nameEn: "Crispy-Skin Poached Chicken with Ginger Purée",
-            category: "Cantonese Main",
-            desc: "Free-range pasture chicken poached with gelatinous crackling skin, drizzled with golden ginger purée.",
-            image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
+            category: "特色粤菜",
+            desc: "精选180天山林走地鸡浸熟冰镇定型，皮脆肉嫩带皮冻，配上炸至金黄松酥的金丝沙姜与香油姜茸。",
+            image: "media/dining/guangzhou_restaurant/dish_07_chicken.jpg"
           },
           {
             nameZh: "黄榄肉汁炖花胶",
             nameEn: "Double-Boiled Fish Maw Soup",
-            category: "Double-Boiled Soup",
-            desc: "Double-boiled for 4 hours with premium marine fish maw, lean pork extract, and wild Chinese green olives.",
-            image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
+            category: "广府靓汤",
+            desc: "深海鳘鱼厚花胶与慢火土猪瘦肉汁清炖4小时，配搭西关古法甘甘苦苦的野山青黄榄，汤清甘润回甜。",
+            image: "media/dining/guangzhou_restaurant/dish_08_fish_maw_soup.jpg"
           },
           {
             nameZh: "红葱头淋生菜胆",
             nameEn: "Poached Lettuce with Shallot Oil",
-            category: "Cantonese Main",
-            desc: "Crisp heart of iceberg lettuce blanched in broth and bathed in sizzling fragrant shallot and sweet soy oil.",
-            image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80"
+            category: "特色粤菜",
+            desc: "清甜无筋的高山罗马生菜心滚水快灼，淋上镬气十足、焦香微甜的现炸红葱头头抽香油。",
+            image: "media/dining/guangzhou_restaurant/dish_09_lettuce.jpg"
           },
           {
             nameZh: "燕窝双皮奶",
             nameEn: "Double-Skin Milk Pudding with Bird's Nest",
-            category: "Dessert",
-            desc: "Silky steamed Shunde buffalo milk custard topped with delicately simmered imperial bird's nest and rock sugar.",
-            image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+            category: "广式甜品",
+            desc: "顺德纯正水牛奶古法文火慢蒸形成醇厚奶皮，上覆精炖通透的印尼极品金丝官燕窝，奶香醇厚细腻。",
+            image: "media/dining/guangzhou_restaurant/dish_10_milk_pudding.jpg"
           }
         ]
       },
