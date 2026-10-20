@@ -1458,15 +1458,30 @@
           </div>
         </div>
 
-        <!-- DINING FILTER BUTTONS -->
-        <div class="flex flex-wrap gap-2 text-xs mono">
-          <button onclick="filterRestaurants('all')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black shadow-md" data-city="all">All Spots</button>
-          <button onclick="filterRestaurants('Panyu')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Panyu">Panyu & Shawan</button>
-          <button onclick="filterRestaurants('Chimelong')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Chimelong">Chimelong</button>
-          <button onclick="filterRestaurants('Guangzhou')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Guangzhou">Canton Core</button>
-          <button onclick="filterRestaurants('Qingyuan')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Qingyuan">Qingyuan</button>
-          <button onclick="filterRestaurants('Shenzhen')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Shenzhen">Shenzhen</button>
-          <button onclick="filterRestaurants('Hong Kong')" class="dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10" data-city="Hong Kong">Hong Kong</button>
+        <!-- DINING FILTER CONTROLS (CITY & CATEGORY) -->
+        <div class="space-y-3 bg-slate-900/50 p-4 rounded-2xl border border-white/5 backdrop-blur-sm">
+          <!-- City Filter Chips -->
+          <div class="flex items-center gap-2 flex-wrap text-xs mono">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1 mr-1">
+              <i class="fa-solid fa-location-dot text-amber-400"></i> Region:
+            </span>
+            <button onclick="filterDiningByCity('all')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black shadow-md transition" data-city="all">All (21)</button>
+            <button onclick="filterDiningByCity('Guangzhou')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-city="Guangzhou">📍 Guangzhou (15)</button>
+            <button onclick="filterDiningByCity('Shenzhen')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-city="Shenzhen">📍 Shenzhen (3)</button>
+            <button onclick="filterDiningByCity('Hong Kong')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-city="Hong Kong">📍 Hong Kong (3)</button>
+          </div>
+
+          <!-- Category Filter Chips -->
+          <div class="flex items-center gap-2 flex-wrap text-xs mono pt-2 border-t border-white/5">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1 mr-1">
+              <i class="fa-solid fa-utensils text-yellow-400"></i> Cuisine:
+            </span>
+            <button onclick="filterDiningByCategory('all')" class="dining-cat-btn px-3 py-1.5 rounded-xl bg-amber-500/20 text-yellow-300 border border-yellow-500/40 font-bold transition" data-cat="all">All Cuisines</button>
+            <button onclick="filterDiningByCategory('DimSum')" class="dining-cat-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-cat="DimSum">🥟 Morning Tea / Dim Sum (7)</button>
+            <button onclick="filterDiningByCategory('Roast')" class="dining-cat-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-cat="Roast">🍗 Roast & Cantonese (6)</button>
+            <button onclick="filterDiningByCategory('Street')" class="dining-cat-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-cat="Street">🍢 Street Food & Snacks (6)</button>
+            <button onclick="filterDiningByCategory('Dessert')" class="dining-cat-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-cat="Dessert">🍮 Desserts & Sweet Soups (2)</button>
+          </div>
         </div>
 
         <!-- RESTAURANTS GRID -->

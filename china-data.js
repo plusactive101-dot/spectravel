@@ -257,481 +257,1210 @@ const itinerarySchedule = [
     // -------------------------------------------------------------
 
 const defaultRestaurants = [
+  {
+    "id": "rest-1",
+    "name": "Shawan Ancient Town Milk Shop (沁芳园甜品)",
+    "city": "Guangzhou",
+    "district": "Panyu",
+    "category": "Dessert",
+    "cuisine": "Traditional Lingnan Desserts (沙湾水牛奶甜品)",
+    "price": "$",
+    "schedule": "10:00 AM – 09:30 PM",
+    "address": "Shawan Ancient Town Scenic Area, Panyu District, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=沁芳园沙湾水牛奶+番禺区",
+    "officialUrl": "https://www.dianping.com/shop/G8vXW3zVqN",
+    "coverImage": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "沙湾姜撞奶 (Ginger Milk Curd)",
+      "香脆蛋卷 (Crispy Egg Rolls)",
+      "原味双皮奶 (Double-Skin Milk)"
+    ],
+    "dishes": "Water-buffalo ginger milk curd (沙湾水牛奶姜撞奶), crispy egg rolls, double-skin milk",
+    "notes": "Historic dessert house famous for hot curd formed right at your table with freshly grated ginger juice and fresh buffalo milk.",
+    "gallery": [
       {
-        id: "rest-1",
-        name: "Shawan Ancient Town Milk Shop (沁芳园甜品)",
-        city: "Panyu",
-        cuisine: "Traditional Lingnan Desserts",
-        highlights: ["Ginger Milk Curd", "Egg Rolls", "Double-Skin Milk"],
-        dishes: "Water-buffalo ginger milk curd (沙湾水牛奶姜撞奶), crispy egg rolls, double-skin milk",
-        address: "Shawan Ancient Town Scenic Area, Panyu",
-        price: "$",
-        schedule: "10:00 AM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
-        notes: "Historic dessert house famous for hot curd formed right at your table with freshly grated ginger juice.",
-        gallery: [
-          { title: "Shawan Historic Oyster Shell Courtyard", type: "exterior", image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80", desc: "Traditional Lingnan historic courtyard and oyster shell architecture in Shawan" },
-          { title: "Traditional Dessert Tea Table", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Rustic wooden benches and ceramic teaware inside the centenary dessert hall" }
-        ],
-        menu: [
-          { nameZh: "沙湾水牛奶姜撞奶", nameEn: "Water-Buffalo Ginger Milk Curd", category: "Dessert", desc: "Freshly pressed fiery ginger juice instantly curdled with boiling high-fat Shawan buffalo milk at your table.", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "传统原味双皮奶", nameEn: "Traditional Double-Skin Milk Pudding", category: "Dessert", desc: "Velvety smooth steamed buffalo milk custard topped with a fragile caramelized skin.", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "手工香脆蛋卷", nameEn: "Handmade Crispy Egg Rolls", category: "Dessert", desc: "Golden waffle pastry rolls infused with rich farm eggs and pure lard, baked fresh daily.", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" }
-        ]
+        "title": "Shawan Historic Oyster Shell Courtyard",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Traditional Lingnan historic courtyard and oyster shell architecture in Shawan"
       },
       {
-        id: "rest-2",
-        name: "Bingsheng Taste (炳胜品味 • 时代E-PARK店)",
-        city: "Chimelong",
-        cuisine: "Michelin Cantonese",
-        highlights: ["Signature Black Char Siu", "Crispy Tofu", "Pineapple Buns"],
-        dishes: "Signature Char Siu (秘制黑叉烧), Crispy Tofu, Pineapple Buns",
-        address: "Building 2, Times E-PARK, No. 290 Hanxi Ave East (7 mins Didi from Chimelong Hotel)",
-        price: "$$$",
-        schedule: "11:00 AM – 02:30 PM, 05:00 PM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
-        notes: "Far superior in quality and price compared to marked-up theme park restaurants. Take Didi outside resort gate.",
-        gallery: [
-          { title: "Modern Lingnan Architectural Hall", type: "exterior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Contemporary glass facade with ambient warm timber tones" },
-          { title: "Private Dining Salon", type: "interior", image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80", desc: "Polished terrazzo tables and sleek brass lanterns for refined Cantonese dining" }
-        ],
-        menu: [
-          { nameZh: "炳胜秘制黑叉烧", nameEn: "Signature Glazed Black Char Siu", category: "Cantonese Main", desc: "Pork collar caramel-lacquered over charcoal; ultra-crisp outer crust with melt-in-your-mouth fat.", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "金沙脆皮豆腐", nameEn: "Crispy Golden Sand Tofu", category: "Cantonese Main", desc: "Silken house-made soy tofu fried to paper-thin crunch, dusted with salted egg crumble.", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "炳胜大菠萝包", nameEn: "Jumbo Crispy Pineapple Buns", category: "Dim Sum", desc: "Airy sweet bread crown crusted with sugar butter cookie, served with farm fresh butter.", image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-3",
-        name: "Panxi Restaurant (泮溪酒家)",
-        city: "Guangzhou",
-        cuisine: "Classic Lingnan Yum Cha",
-        highlights: ["Har Gow Prawn Dumplings", "Crab Roe Siu Mai", "Water Chestnut Cake"],
-        dishes: "Har Gow (Crystal Shrimp Dumplings), Siu Mai, Water Chestnut Cake",
-        address: "No. 151 Longjin West Road, Liwan District (Beside Liwan Lake)",
-        price: "$$",
-        schedule: "07:30 AM – 02:00 PM, 05:00 PM – 09:00 PM",
-        coverImage: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
-        notes: "Legendary garden restaurant with traditional gazebos and koi ponds. Arrive before 9:30 AM for morning tea table.",
-        gallery: [
-          { title: "Liwan Lake Waterfront Pavilion", type: "exterior", image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80", desc: "Classical Chinese curved eaves floating right above emerald lotus ponds" },
-          { title: "Banyan Lake Dining Veranda", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Open-air wooden verandas surrounded by swimming carp and ancient weeping willows" }
-        ],
-        menu: [
-          { nameZh: "原只鲜虾饺皇", nameEn: "Crystal Master Prawn Har Gow", category: "Dim Sum", desc: "Translucent pleated dough pouches stuffed with whole sweet ocean prawns and bamboo shoot crunch.", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "蟹籽鲜肉烧卖皇", nameEn: "Steamed Crab Roe Pork Siu Mai", category: "Dim Sum", desc: "Tender hand-chopped pork and shrimp encased in wonton skins, crowned with golden tobiko crab roe.", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "泮塘香煎马蹄糕", nameEn: "Pan-Fried Pantang Water Chestnut Cake", category: "Dim Sum", desc: "Golden caramel seared cubes of Liwan water chestnut flour packed with crunchy fresh water chestnuts.", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-4",
-        name: "Dafo Temple Vegetarian House (大佛寺素食阁)",
-        city: "Guangzhou",
-        cuisine: "Buddhist Vegetarian Buffet",
-        highlights: ["Wild Mushroom Stew", "Lotus Root Soup", "Vegetarian Dim Sum"],
-        dishes: "Mushroom stew, vegetarian dim sum, lotus root soup",
-        address: "Inside Dafo Temple, Beijing Road, Yuexiu District",
-        price: "$$",
-        schedule: "11:30 AM – 02:00 PM, 05:30 PM – 08:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=800&q=80",
-        notes: "Dine inside the illuminated golden pagoda complex right beside Beijing Road pedestrian shopping street.",
-        gallery: [
-          { title: "Dafo Temple Golden Pagoda Courtyard", type: "exterior", image: "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=1200&q=80", desc: "Multi-tiered illuminated copper eave pagoda glowing dramatically at twilight" },
-          { title: "Serene Temple Dining Hall", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Zen wooden monastery hall featuring peaceful incense aromatics and tea tables" }
-        ],
-        menu: [
-          { nameZh: "大佛寺养生十宝菇", nameEn: "Ten Treasures Forest Mushroom Stew", category: "Cantonese Main", desc: "Slow-simmered morels, matsutake, and shiitake mushrooms stewed with Chinese yam in claypot.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "素香翡翠水晶饺", nameEn: "Emerald Crystal Vegetarian Dumplings", category: "Dim Sum", desc: "Glass dough pockets packed with fresh bok choy, black fungus, and fragrant sesame.", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "古法慢火老火靓汤", nameEn: "Slow-Boiled Lotus Root Herb Broth", category: "Double-Boiled Soup", desc: "Simmered for 6 hours with red dates, lotus roots, and wolfberries for wholesome nourishment.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-1",
-        name: "Tao Tao Ju (陶陶居)",
-        city: "Guangzhou",
-        cuisine: "Centenary Cantonese Dim Sum & Tea House",
-        highlights: ["Signature Jumbo Har Gow", "Crispy Buffalo Milk Pineapple Bun", "Golden Lava Buns"],
-        dishes: "Shrimp Dumplings (虾饺皇), Signature Jumbo Shrimp Dumplings (陶陶居大虾饺), Crispy Pineapple Bun with Buffalo Milk Custard (酥皮水牛奶菠萝包)",
-        address: "No. 20 Dishifu Road, Liwan District / Beijing Road branches",
-        price: "$$",
-        schedule: "08:00 AM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
-        notes: "Guangzhou's most celebrated heritage tea house established in 1880. Must-try for golden flaky milk buns and fresh morning dim sum.",
-        gallery: [
-          { title: "Dishifu 1880 Heritage Tea House Facade", type: "exterior", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80", desc: "Classic republican-era brick archway facade in historical Xiguan" },
-          { title: "Stained Glass Morning Tea Room", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Manchu etched colored glass windows and brass teapots over bamboo steamers" }
-        ],
-        menu: [
-          { nameZh: "陶陶居大虾饺", nameEn: "Signature Jumbo Shrimp Dumplings", category: "Dim Sum", desc: "Celebrated triple-fold dough filled with 3 whole crunchy tiger prawns and savory broth.", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "酥皮水牛奶菠萝包", nameEn: "Crispy Pineapple Bun w/ Buffalo Milk Custard", category: "Dim Sum", desc: "Molten hot buffalo milk custard bursting out of a sweet cookie-crusted brioche crown.", image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "金沙海虾红米肠", nameEn: "Golden Crispy Net Red Rice Rolls", category: "Dim Sum", desc: "Red yeast rice noodles wrapped around crunchy deep-fried netting and whole prawns.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-2",
-        name: "Da Ge Fan (大鸽饭 • 招牌红烧乳鸽)",
-        city: "Guangzhou",
-        cuisine: "Guangdong Specialty Roast Pigeon",
-        highlights: ["Blistered Crispy Roast Pigeon", "Pigeon Claypot Rice", "Salt & Pepper Pigeon"],
-        dishes: "Signature Crispy Roasted Pigeon (红烧乳鸽), Pigeon Claypot Rice (招牌鸽饭), Salt & Pepper Pigeon (椒盐乳鸽)",
-        address: "Multiple branches in Guangzhou core / Yuexiu & Tianhe",
-        price: "$$",
-        schedule: "11:00 AM – 02:30 PM, 05:00 PM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80",
-        notes: "Guangzhou's #1 renowned roasted pigeon chain. Intensely juicy pigeon with blistered crispy skin and fragrance-infused claypot rice.",
-        gallery: [
-          { title: "Da Ge Fan Flagship Entrance", type: "exterior", image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80", desc: "Bustling lively neon signage with queue crowds awaiting roasted squab" },
-          { title: "Charcoal Claypot Hearth", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Open kitchen station with blazing charcoal flames searing claypot rice" }
-        ],
-        menu: [
-          { nameZh: "招牌红烧生炸乳鸽", nameEn: "Signature Crispy Skin Roasted Pigeon", category: "Cantonese Main", desc: "Glass-like crackling skin that bursts with aromatic game jus upon first bite.", image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "传统原煲大鸽饭", nameEn: "Claypot Rice w/ Minced Pigeon", category: "Cantonese Main", desc: "Fragrant Jasmine rice cooked in pigeon broth over claypot, topped with crispy golden crust.", image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "椒盐乳鸽腿", nameEn: "Salt & Szechuan Pepper Pigeon Drumsticks", category: "Cantonese Main", desc: "Deep-fried squab legs tossed with crispy shallots, minced garlic, and pepper salt.", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-3",
-        name: "Xie San Bao (蟹叁宝)",
-        city: "Guangzhou",
-        cuisine: "Crab Roe & Seafood Specialty",
-        highlights: ["Pure Crab Roe Over Rice", "Crab Roe Tossed Noodles", "Crab Roe Soup Dumplings"],
-        dishes: "Crab Roe Over Rice (蟹黄捞饭), Crab Roe Tossed Noodles (蟹黄拌面), Crab Roe Soup Dumplings (蟹黄小笼包)",
-        address: "Beijing Road Commercial Pedestrian Zone, Yuexiu District",
-        price: "$$$",
-        schedule: "11:00 AM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
-        notes: "Famous golden bowl packed with pure hand-peeled female crab roe and crab meat poured over steaming hot rice and noodles.",
-        gallery: [
-          { title: "Beijing Road Boutique Storefront", type: "exterior", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80", desc: "Sleek dining boutique along the pedestrian heritage avenue" },
-          { title: "Golden Crab Bar & Open Counter", type: "interior", image: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80", desc: "Chefs dishing out heaping ladlefuls of glistening golden crab roe" }
-        ],
-        menu: [
-          { nameZh: "金汤浓郁蟹黄捞饭", nameEn: "Golden Pure Crab Roe Over Rice", category: "Cantonese Main", desc: "Rich bowl containing the meat and roe of 10 freshwater crabs served over hot pearly rice.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "招牌鲜蟹粉拌面", nameEn: "Crab Roe Scallion Oil Tossed Noodles", category: "Cantonese Main", desc: "Springy hand-pulled egg noodles saturated in golden crab butter and aged crab vinegar.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "金牌爆汁蟹黄小笼包", nameEn: "Crab Roe Xiao Long Bao Dumplings", category: "Dim Sum", desc: "Delicate pleated dumplings filled with piping-hot savory crab roe broth.", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-4",
-        name: "Dian Dou De (点都德)",
-        city: "Guangzhou",
-        cuisine: "Intangible Cultural Heritage All-Day Dim Sum",
-        highlights: ["Golden Net Red Rice Roll", "Master Har Gow", "Char Siu Bao"],
-        dishes: "Golden Crispy Salted Egg Shrimp Red Rice Roll (金沙海虾红米肠), Har Gow Dumplings (虾饺皇), Red Rice Rolls (红米肠)",
-        address: "Beijing Road & Dongshankou branch locations",
-        price: "$$",
-        schedule: "07:30 AM – 10:00 PM All-Day Dim Sum",
-        coverImage: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
-        notes: "Old-school Cantonese teahouse atmosphere with traditional teapots and freshly handmade dim sum served morning until late night.",
-        gallery: [
-          { title: "Xiguan Grand Teahouse Hall", type: "exterior", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80", desc: "Sprawling two-story Cantonese salon adorned with traditional lanterns" },
-          { title: "Kung Fu Tea Counter", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Boiling brass water kettles brewing aged pu-erh and tieguanyin tea" }
-        ],
-        menu: [
-          { nameZh: "金沙海虾红米肠", nameEn: "Golden Crispy Net Red Rice Rolls", category: "Dim Sum", desc: "Crimson rice noodles wrapping a fried crispy mesh tube packed with tender fresh shrimp.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "金牌虾饺皇", nameEn: "Heritage King Prawn Har Gow", category: "Dim Sum", desc: "Eleven delicate folds around succulent pink prawns with a drop of rich broth.", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "蜜汁叉烧包", nameEn: "Fluffy Steamed Honey Char Siu Buns", category: "Dim Sum", desc: "Snow-white steamed buns blooming open to reveal sweet honey barbecue pork.", image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-5",
-        name: "Guangzhou Restaurant (Longjin West Branch) / 广州酒家（龙津西路店 · 粤宴西关）",
-        city: "Guangzhou",
-        cuisine: "Cantonese Morning Tea (老字号粤宴早茶)",
-        highlights: ["🥟 鲜虾饺皇", "🥢 爽脆红米肠", "🍗 姜茸爽皮鸡"],
-        dishes: "穗城鲜虾饺皇, 爽脆红米肠, 金丝姜茸爽皮鸡",
-        address: "📍 No. 102 Longjin West Road, Liwan District (荔湾区龙津西路102号，荔枝湾畔)",
-        mapUrl: "https://www.google.com/maps/search/?api=1&query=广州市荔湾区龙津西路102号+广州酒家",
-        officialUrl: "https://www.gzr.com.cn/pinpaijiazu/guangzhoujiujia/2473.html",
-        price: "$$$",
-        schedule: "⏰ 08:00—14:00 (Breakfast / Morning Tea)",
-        coverImage: "media/dining/guangzhou_restaurant/facade.jpg",
-        notes: "Known as 'First Food in Guangzhou' (食在广州第一家). Elegant classical water-garden courtyard setting beside Lychee Bay canal. Scheduled for Day 6 Morning Tea.",
-        gallery: [
-          {
-            title: "西关荔枝湾畔 · 门头外观",
-            type: "exterior",
-            desc: "广州市荔湾区龙津西路102号，坐落于西关荔枝湾河畔的标志性岭南建筑门头与骑楼石拱门。",
-            image: "media/dining/guangzhou_restaurant/facade.jpg"
-          },
-          {
-            title: "岭南水乡庭院 · 锦鲤水景与水榭飞檐",
-            type: "interior",
-            desc: "传统广府园林水系，飞檐亭阁倒映碧波，锦鲤环绕，凸显老字号水乡闲趣。",
-            image: "media/dining/guangzhou_restaurant/interior_courtyard.jpg"
-          },
-          {
-            title: "精致宴会空间 · 多彩满洲窗 (粤宴西关)",
-            type: "interior",
-            desc: "内设粤韵芳渡、兰桂轩、听月阁四大空间，饰以全套传统彩色满洲窗与广式木雕，尽显雍容广府茶宴格调。",
-            image: "media/dining/guangzhou_restaurant/interior_dining.jpg"
-          }
-        ],
-        menu: [
-          {
-            nameZh: "穗城鲜虾饺皇",
-            nameEn: "Master King Prawn Har Gow",
-            category: "经典点心",
-            desc: "11道精巧褶纹透薄澄面皮，包裹整颗手剥鲜甜脆弹海虾仁与爽脆竹笋丁，鲜汁充盈。",
-            image: "media/dining/guangzhou_restaurant/dish_01_hargow.jpg"
-          },
-          {
-            nameZh: "爽脆红米肠",
-            nameEn: "Crispy Red Rice Noodle Rolls",
-            category: "经典点心",
-            desc: "天然红曲米研磨拉制丝滑拉肠，内层裹以金黄香脆网皮与饱满虾仁，三层质感三重享受。",
-            image: "media/dining/guangzhou_restaurant/dish_02_red_rice_roll.jpg"
-          },
-          {
-            nameZh: "豉汁蒸排骨",
-            nameEn: "Steamed Spare Ribs in Black Bean Sauce",
-            category: "经典点心",
-            desc: "精选一字肋排以阳江黑豆豉、蒜蓉腌制，垫以粉糯荔浦芋头高温快蒸，肉质嫩滑多汁。",
-            image: "media/dining/guangzhou_restaurant/dish_03_spare_ribs.jpg"
-          },
-          {
-            nameZh: "梅子叉烧包",
-            nameEn: "Plum-Glazed BBQ Pork Buns",
-            category: "经典点心",
-            desc: "松软若棉花般的开花老面馒头，包裹肥瘦相间秘制蜜汁叉烧，融入岭南酸甜乌梅酱生津解腻。",
-            image: "media/dining/guangzhou_restaurant/dish_04_char_siu_bun.jpg"
-          },
-          {
-            nameZh: "松露小笼包",
-            nameEn: "Black Truffle Xiao Long Bao",
-            category: "经典点心",
-            desc: "薄如蝉翼的精巧褶皮，内裹浓郁黑松露茸与黑猪肉馅，滚烫一口爆汁、蕈香馥郁。",
-            image: "media/dining/guangzhou_restaurant/dish_05_xiao_long_bao.jpg"
-          },
-          {
-            nameZh: "香煎萝卜糕",
-            nameEn: "Pan-Fried Daikon Radish Cake",
-            category: "经典点心",
-            desc: "手切冬头水嫩萝卜丝融和广式皇上皇腊味粒与生晒虾米，慢火两面双煎至外焦里嫩酥香。",
-            image: "media/dining/guangzhou_restaurant/dish_06_radish_cake.jpg"
-          },
-          {
-            nameZh: "金丝姜茸爽皮鸡",
-            nameEn: "Crispy-Skin Poached Chicken with Ginger Purée",
-            category: "特色粤菜",
-            desc: "精选180天山林走地鸡浸熟冰镇定型，皮脆肉嫩带皮冻，配上炸至金黄松酥的金丝沙姜与香油姜茸。",
-            image: "media/dining/guangzhou_restaurant/dish_07_chicken.jpg"
-          },
-          {
-            nameZh: "黄榄肉汁炖花胶",
-            nameEn: "Double-Boiled Fish Maw Soup",
-            category: "广府靓汤",
-            desc: "深海鳘鱼厚花胶与慢火土猪瘦肉汁清炖4小时，配搭西关古法甘甘苦苦的野山青黄榄，汤清甘润回甜。",
-            image: "media/dining/guangzhou_restaurant/dish_08_fish_maw_soup.jpg"
-          },
-          {
-            nameZh: "红葱头淋生菜胆",
-            nameEn: "Poached Lettuce with Shallot Oil",
-            category: "特色粤菜",
-            desc: "清甜无筋的高山罗马生菜心滚水快灼，淋上镬气十足、焦香微甜的现炸红葱头头抽香油。",
-            image: "media/dining/guangzhou_restaurant/dish_09_lettuce.jpg"
-          },
-          {
-            nameZh: "燕窝双皮奶",
-            nameEn: "Double-Skin Milk Pudding with Bird's Nest",
-            category: "广式甜品",
-            desc: "顺德纯正水牛奶古法文火慢蒸形成醇厚奶皮，上覆精炖通透的印尼极品金丝官燕窝，奶香醇厚细腻。",
-            image: "media/dining/guangzhou_restaurant/dish_10_milk_pudding.jpg"
-          }
-        ]
-      },
-      {
-        id: "rest-gz-6",
-        name: "Yuan Ji Rice Noodle Rolls (源记肠粉)",
-        city: "Guangzhou",
-        cuisine: "Old Town Street Changfen & Congee",
-        highlights: ["Fresh Shrimp Rice Rolls", "Tender Beef Changfen", "Sampan Congee"],
-        dishes: "Fresh Shrimp Rice Rolls (鲜虾肠粉), Tender Beef Rice Rolls (牛肉肠粉), Traditional Sampan Congee (艇仔粥)",
-        address: "No. 92 Huagui Road, Liwan District",
-        price: "$",
-        schedule: "08:00 AM – 11:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
-        notes: "Beloved neighborhood Michelin Bib Gourmand street joint. Stone-ground silky smooth rice sheets freshly steamed with hot sweet soy sauce.",
-        gallery: [
-          { title: "Huagui Road Street Front", type: "exterior", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80", desc: "No-frills traditional noodle shop humming with local residents" },
-          { title: "Stone Grinder & Steamers", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Fresh rice batter pouring continuously over cloth steamers" }
-        ],
-        menu: [
-          { nameZh: "布拉鲜虾牛肉双拼肠", nameEn: "Cloth-Pulled Shrimp & Beef Rice Rolls", category: "Dim Sum", desc: "Paper-thin rice noodle sheets pulled off steaming cloth, folded with beef and fresh prawns.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "荔湾传统艇仔粥", nameEn: "Traditional Liwan Sampan Congee", category: "Cantonese Main", desc: "Silky rice porridge simmered with cuttlefish, jellyfish slices, roasted peanuts, and scallions.", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-7",
-        name: "Chua Lam's Dim Sum (蔡澜港式点心)",
-        city: "Guangzhou",
-        cuisine: "Modern Gourmet Hong Kong Dim Sum",
-        highlights: ["Crispy Hawthorn BBQ Pork Buns", "Crab Egg White Dumplings", "Lava Custard Buns"],
-        dishes: "Crispy Hawthorn BBQ Pork Buns (酥皮山楂叉烧包), Egg White & Shrimp Dumplings (赛螃蟹凤眼饺), Lava Custard Buns (流心奶黄包)",
-        address: "Parc Central / TeeMall area, Tianhe CBD",
-        price: "$$",
-        schedule: "10:00 AM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80",
-        notes: "Created by legendary food critic Chua Lam. Famous for combining sweet-and-sour candied hawthorn into baked crispy BBQ pork buns.",
-        gallery: [
-          { title: "Parc Central CBD Entrance", type: "exterior", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1200&q=80", desc: "Modern architectural mall setting with bright wooden accents" },
-          { title: "Open Dim Sum Craft Kitchen", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Chefs rolling and baking signature crispy pastry buns to order" }
-        ],
-        menu: [
-          { nameZh: "酥皮山楂叉烧包", nameEn: "Crispy Hawthorn BBQ Pork Buns", category: "Dim Sum", desc: "Golden crumbly pastry crust filled with savory char siu balanced by tangy candied mountain hawthorn.", image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "赛螃蟹凤眼饺", nameEn: "Egg White & Shrimp Phoenix Eye Dumplings", category: "Dim Sum", desc: "Silky wok-whipped egg whites folded with tender shrimp meat resembling fresh crab flesh.", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "金沙流心奶黄包", nameEn: "Molten Salted Egg Lava Custard Buns", category: "Dim Sum", desc: "Piping-hot yellow bun that oozes rich sweet and savory salted duck egg yolk lava.", image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-8",
-        name: "Min Ji Claypot Rice (民记煲仔饭)",
-        city: "Guangzhou",
-        cuisine: "Traditional Charcoal Claypot Rice",
-        highlights: ["Cured Sausage Claypot Rice", "Tender Pork Rib Rice", "Raw Egg & Minced Beef"],
-        dishes: "Cured Sausage Claypot Rice (腊味煲仔饭), Pork Rib Rice (排骨煲仔饭), Raw Egg & Minced Beef Claypot Rice (窝蛋牛肉煲仔饭)",
-        address: "Yuexiu South Road, near Beijing Road core",
-        price: "$",
-        schedule: "10:30 AM – 08:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=800&q=80",
-        notes: "Legendary 40-year claypot stalwart. Cooked to order over raw heat with an irresistible crispy golden bottom rice crust (锅巴).",
-        gallery: [
-          { title: "Yuexiu South Road Classic Shophouse", type: "exterior", image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1200&q=80", desc: "Time-honored Old Guangzhou storefront with aroma of sizzling sausage" },
-          { title: "Roaring Charcoal Claypot Rows", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Dozens of claypots sizzling together with sweet soy sauce drizzles" }
-        ],
-        menu: [
-          { nameZh: "广式皇上皇腊味煲仔饭", nameEn: "Cantonese Cured Sausage Claypot Rice", category: "Cantonese Main", desc: "Wind-dried lap cheong sausage rendering its sweet wine fat deep into crispy-bottomed jasmine rice.", image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "窝蛋牛肉煲仔饭", nameEn: "Raw Farm Egg & Tender Beef Claypot Rice", category: "Cantonese Main", desc: "Tender beef slices topped with a fresh orange egg yolk mixed vigorously into smoking hot rice.", image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-9",
-        name: "Ming Shao Chicken Specialty Restaurant (铭少食鸡专门店)",
-        city: "Guangzhou",
-        cuisine: "Guangdong Free-Range Chicken Feast",
-        highlights: ["Signature Hand-Shredded Chicken", "Fragrant Soy Sauce Chicken", "Stir-Fried Chicken Giblets"],
-        dishes: "Signature Hand-Shredded Chicken (招牌鸡), Fragrant Soy Sauce Chicken (豉油鸡), Stir-Fried Chicken Giblets (鸡杂)",
-        address: "Guangzhou downtown dining core",
-        price: "$$",
-        schedule: "11:00 AM – 02:30 PM, 05:00 PM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80",
-        notes: "Revered local saying: 'No banquet without chicken' (无鸡不成宴). Tender silky chicken skins and rich natural meat sweetness.",
-        gallery: [
-          { title: "Ming Shao Restaurant Front", type: "exterior", image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=1200&q=80", desc: "Vibrant yellow poultry emblem showcasing Cantonese chicken mastery" },
-          { title: "Carving & Chopping Station", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Master butcher slicing golden free-range chickens with swift cleaver strokes" }
-        ],
-        menu: [
-          { nameZh: "铭少招牌金牌手撕鸡", nameEn: "Signature Golden Hand-Shredded Chicken", category: "Cantonese Main", desc: "Free-range pasture chicken hand-shredded with crispy skins, sesame oil, and crunchy peanuts.", image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "头抽慢火豉油鸡", nameEn: "First-Draw Soy Sauce Poached Chicken", category: "Cantonese Main", desc: "Simmered in premium aged sweet soy with star anise, rock sugar, and ginger slices.", image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-gz-10",
-        name: "Li Fang Four Seasons Dessert Shop (荔芳四季糖水店)",
-        city: "Guangzhou",
-        cuisine: "Authentic Cantonese Traditional Tong Sui",
-        highlights: ["Mango Pomelo Sago", "Shunde Double-Skin Milk", "Aged Tangerine Peel Red Bean"],
-        dishes: "Mango Pomelo Sago (杨枝甘露), Shunde Double-Skin Milk (双皮奶), Aged Tangerine Peel Red Bean Soup (陈皮红豆沙)",
-        address: "Xihua Road Food Street, Liwan District",
-        price: "$",
-        schedule: "11:30 AM – 11:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
-        notes: "Guangzhou dessert institution on bustling Xihua food street. Made with genuine 15-year Xinhui dried tangerine peel and rich buffalo milk.",
-        gallery: [
-          { title: "Xihua Road Nostalgic Shopfront", type: "exterior", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80", desc: "Quaint tile-lined shop on the famous foodie strip of Xihua Road" },
-          { title: "Simmering Sweet Soup Pots", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Earthenware pots slow-cooking red bean and lotus seed dessert soups" }
-        ],
-        menu: [
-          { nameZh: "新会陈皮十年红豆沙", nameEn: "10-Year Aged Tangerine Peel Red Bean Soup", category: "Dessert", desc: "Silky sand-textured red bean broth scented with precious citrus peel oils.", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "顺德手造双皮奶", nameEn: "Shunde Handmade Double-Skin Buffalo Milk", category: "Dessert", desc: "Rich and custard-like curd produced with local water buffalo milk.", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "浓醇金芒杨枝甘露", nameEn: "Alphonso Mango Pomelo Sago", category: "Dessert", desc: "Fresh sweet mango purée, coconut milk, chewy tapioca pearls, and ruby pomelo pulps.", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-5",
-        name: "Qingyuan Mountain Farmhouse (古龙峡土菜馆)",
-        city: "Qingyuan",
-        cuisine: "Mountain Farmhouse Feasts",
-        highlights: ["Qingyuan Free-Range White Cut Chicken", "Mountain Spring Tofu", "Wild Bamboo Shoots"],
-        dishes: "Authentic Qingyuan Free-Range White Cut Chicken (清远正宗白切鸡), mountain spring tofu, bamboo shoots",
-        address: "Base of Gulong Gorge scenic entry, Qingyuan",
-        price: "$$",
-        schedule: "11:00 AM – 08:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-        notes: "Qingyuan chicken is world-famous across Guangdong for its tender texture and natural sweetness.",
-        gallery: [
-          { title: "Gulong Gorge Mountain Gate Entry", type: "exterior", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80", desc: "Breathtaking canyon backdrop right below cascading waterfall streams" },
-          { title: "Rustic Riverside Farmhouse Deck", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Bamboo dining tables beside rushing mountain streams" }
-        ],
-        menu: [
-          { nameZh: "正宗清远走地白切鸡", nameEn: "Authentic Qingyuan Free-Range White Cut Chicken", category: "Cantonese Main", desc: "Tender mountain chicken poached in fragrant herb court-bouillon served with scallion-ginger oil.", image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "古龙峡山泉水豆腐", nameEn: "Gulong Mountain Spring Water Tofu", category: "Cantonese Main", desc: "Handcrafted tofu curd made using pristine canyon spring water, pan-seared to golden crust.", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-6",
-        name: "Baheli Chaoshan Beef Hotpot (八合里牛肉火锅)",
-        city: "Shenzhen",
-        cuisine: "Chaoshan Fresh Beef Hotpot",
-        highlights: ["Fresh Hand-Sliced Beef Brisket", "Springy Hand-Pounded Meatballs", "Signature Satay Sauce"],
-        dishes: "Freshly sliced beef brisket, hand-pounded beef meatballs, satay dip",
-        address: "Nanshan District, near Nantou / Tech Park",
-        price: "$$",
-        schedule: "11:00 AM – 11:00 PM",
-        coverImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
-        notes: "Beef slaughtered and delivered within 4 hours. Clear broth brings out pristine beef tenderness.",
-        gallery: [
-          { title: "Nanshan Tech Park Restaurant Front", type: "exterior", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80", desc: "Spacious contemporary hotpot venue near Shenzhen High-Tech Zone" },
-          { title: "Glass Window Beef Butchery Counter", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Master carvers thinly slicing prime cuts of yellow cattle beef to order" }
-        ],
-        menu: [
-          { nameZh: "手切鲜吊龙牛肉", nameEn: "Hand-Sliced Ribeye Beef (Diao Long)", category: "Cantonese Main", desc: "Prime rib-eye slice that flash-blanches to butter tenderness in clear beef bone broth in 8 seconds.", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "纯正手打鲜牛肉丸", nameEn: "Hand-Pounded Chaoshan Beef Meatballs", category: "Cantonese Main", desc: "Beaten rhythmically with heavy iron rods for ultimate bouncy crunch and rich beef juices.", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-7",
-        name: "Kam Wah Cafe (金华冰厅)",
-        city: "Hong Kong",
-        cuisine: "Hong Kong Cha Chaan Teng",
-        highlights: ["Award-Winning Pineapple Butter Bun", "Silk Stocking Milk Tea", "Fresh Egg Tarts"],
-        dishes: "Award-winning Crispy Pineapple Bun with slab of cold butter (菠萝油), Silk Stocking Milk Tea, Egg Tart",
-        address: "No. 47 Bute Street, Prince Edward / Mong Kok (5 mins walk from Royal Plaza)",
-        price: "$",
-        schedule: "06:30 AM – 09:00 PM",
-        coverImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
-        notes: "Crowned champion pineapple buns of Hong Kong. Piping hot crust with frozen butter melts instantly.",
-        gallery: [
-          { title: "Bute Street Mong Kok Neon Shophouse", type: "exterior", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80", desc: "Classic neon sign and bustling Mong Kok street scene" },
-          { title: "Cozy Green Booth Dining Room", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Nostalgic mosaic tiled walls and traditional tea diner booths" }
-        ],
-        menu: [
-          { nameZh: "得奖金牌冰火菠萝油", nameEn: "Award-Winning Crispy Pineapple Butter Bun", category: "Dim Sum", desc: "Fresh-out-of-oven piping hot crumbly sweet bun split with a thick frozen slab of Anchor butter.", image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "驰名丝袜冻奶茶", nameEn: "Chilled Hong Kong Silk Stocking Milk Tea", category: "Dessert", desc: "Strong Ceylon black tea blend hand-strained through cloth sack and whipped with Black & White milk.", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" }
-        ]
-      },
-      {
-        id: "rest-8",
-        name: "Tim Ho Wan (添好运 • 旺角)",
-        city: "Hong Kong",
-        cuisine: "Michelin Dim Sum",
-        highlights: ["Baked BBQ Pork Buns", "Pan-Fried Turnip Cake", "Steamed Rice Rolls"],
-        dishes: "Baked BBQ Pork Buns (酥皮叉烧包), pan-fried turnip cake, steamed rice rolls",
-        address: "Olympian City / Mong Kok area",
-        price: "$$",
-        schedule: "10:00 AM – 09:30 PM",
-        coverImage: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
-        notes: "Renowned as the world's most accessible Michelin-starred dim sum.",
-        gallery: [
-          { title: "Mong Kok Modern Hall", type: "exterior", image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80", desc: "Clean modern facade welcomes dim sum enthusiasts from around the world" },
-          { title: "Bamboo Steamer Kitchen Bar", type: "interior", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", desc: "Tiered bamboo steamers releasing clouds of fragrant sweet dough vapor" }
-        ],
-        menu: [
-          { nameZh: "酥皮焗叉烧包", nameEn: "Baked BBQ Pork Buns (3 Pcs)", category: "Dim Sum", desc: "Signature golden crumbly sugar crust encasing sweet barbecue pork and savory sauce.", image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80" },
-          { nameZh: "香煎萝卜糕", nameEn: "Pan-Fried Turnip Cake", category: "Dim Sum", desc: "Crispy browned surface with moist interior loaded with radish shreds and Chinese bacon.", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" }
-        ]
+        "title": "Traditional Dessert Tea Table",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Rustic wooden benches and ceramic teaware inside the centenary dessert hall"
       }
-    ];
+    ],
+    "menu": [
+      {
+        "nameZh": "沙湾水牛奶姜撞奶",
+        "nameEn": "Water-Buffalo Ginger Milk Curd",
+        "category": "广式甜品",
+        "desc": "Freshly pressed fiery ginger juice instantly curdled with boiling high-fat Shawan buffalo milk at your table.",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "传统原味双皮奶",
+        "nameEn": "Traditional Double-Skin Milk Pudding",
+        "category": "广式甜品",
+        "desc": "Velvety smooth steamed buffalo milk custard topped with a fragile caramelized skin.",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "手工香脆蛋卷",
+        "nameEn": "Handmade Crispy Egg Rolls",
+        "category": "广式甜品",
+        "desc": "Golden waffle pastry rolls infused with rich farm eggs and pure lard, baked fresh daily.",
+        "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-2",
+    "name": "Bingsheng Taste (炳胜品味 • 时代E-PARK店)",
+    "city": "Guangzhou",
+    "district": "Panyu / Chimelong",
+    "category": "Roast",
+    "cuisine": "Michelin Cantonese & Roast Specialty (黑叉烧粤菜)",
+    "price": "$$$",
+    "schedule": "11:00 AM – 02:30 PM, 05:00 PM – 09:30 PM",
+    "address": "Building 2, Times E-PARK, No. 290 Hanxi Ave East (7 mins Didi from Chimelong Hotel)",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=炳胜品味+时代EPARK店+番禺区",
+    "officialUrl": "http://www.bingsheng.com/",
+    "coverImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "秘制黑叉烧 (Signature Black Char Siu)",
+      "金沙脆皮豆腐 (Crispy Tofu)",
+      "炳胜大菠萝包 (Jumbo Pineapple Bun)"
+    ],
+    "dishes": "Signature Char Siu (秘制黑叉烧), Crispy Tofu, Pineapple Buns",
+    "notes": "Far superior in quality and price compared to marked-up theme park restaurants. Take Didi outside resort gate to Times E-PARK.",
+    "gallery": [
+      {
+        "title": "Modern Lingnan Architectural Hall",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Contemporary glass facade with ambient warm timber tones"
+      },
+      {
+        "title": "Private Dining Salon",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Polished terrazzo tables and sleek brass lanterns for refined Cantonese dining"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "炳胜秘制黑叉烧",
+        "nameEn": "Signature Glazed Black Char Siu",
+        "category": "特色粤菜",
+        "desc": "Pork collar caramel-lacquered over charcoal; ultra-crisp outer crust with melt-in-your-mouth fat.",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "金沙脆皮豆腐",
+        "nameEn": "Crispy Golden Sand Tofu",
+        "category": "特色粤菜",
+        "desc": "Silken house-made soy tofu fried to paper-thin crunch, dusted with salted egg crumble.",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "炳胜大菠萝包",
+        "nameEn": "Jumbo Crispy Pineapple Buns",
+        "category": "经典点心",
+        "desc": "Airy sweet bread crown crusted with sugar butter cookie, served with farm fresh butter.",
+        "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-3",
+    "name": "Panxi Restaurant (泮溪酒家)",
+    "city": "Guangzhou",
+    "district": "Liwan",
+    "category": "DimSum",
+    "cuisine": "Classic Lingnan Garden Yum Cha (园林早茶点心)",
+    "price": "$$",
+    "schedule": "07:30 AM – 02:00 PM, 05:00 PM – 09:00 PM",
+    "address": "No. 151 Longjin West Road, Liwan District (Beside Liwan Lake)",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=泮溪酒家+广州市荔湾区龙津西路151号",
+    "officialUrl": "https://www.dianping.com/shop/G6W9zM1k8A",
+    "coverImage": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "原只鲜虾饺皇 (Master Har Gow)",
+      "蟹籽鲜肉烧卖皇 (Pork Siu Mai)",
+      "泮塘香煎马蹄糕 (Water Chestnut Cake)"
+    ],
+    "dishes": "Har Gow (Crystal Shrimp Dumplings), Siu Mai, Water Chestnut Cake",
+    "notes": "Legendary garden restaurant with traditional gazebos and koi ponds. Arrive before 9:30 AM for morning tea table.",
+    "gallery": [
+      {
+        "title": "Liwan Lake Waterfront Pavilion",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Classical Chinese curved eaves floating right above emerald lotus ponds"
+      },
+      {
+        "title": "Banyan Lake Dining Veranda",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Open-air wooden verandas surrounded by swimming carp and ancient weeping willows"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "原只鲜虾饺皇",
+        "nameEn": "Crystal Master Prawn Har Gow",
+        "category": "经典点心",
+        "desc": "Translucent pleated dough pouches stuffed with whole sweet ocean prawns and bamboo shoot crunch.",
+        "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "蟹籽鲜肉烧卖皇",
+        "nameEn": "Steamed Crab Roe Pork Siu Mai",
+        "category": "经典点心",
+        "desc": "Tender hand-chopped pork and shrimp encased in wonton skins, crowned with golden tobiko crab roe.",
+        "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "泮塘香煎马蹄糕",
+        "nameEn": "Pan-Fried Pantang Water Chestnut Cake",
+        "category": "经典点心",
+        "desc": "Golden caramel seared cubes of Liwan water chestnut flour packed with crunchy fresh water chestnuts.",
+        "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-4",
+    "name": "Dafo Temple Vegetarian House (大佛寺素食阁)",
+    "city": "Guangzhou",
+    "district": "Yuexiu",
+    "category": "Street",
+    "cuisine": "Buddhist Vegetarian Buffet (大佛寺养生素食)",
+    "price": "$$",
+    "schedule": "11:30 AM – 02:00 PM, 05:30 PM – 08:30 PM",
+    "address": "Inside Dafo Temple, Beijing Road, Yuexiu District, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=大佛寺素食阁+广州市越秀区北京路",
+    "officialUrl": "https://www.dianping.com/shop/H1y2K3m4N5",
+    "coverImage": "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "大佛寺养生十宝菇 (Mushroom Stew)",
+      "素香翡翠水晶饺 (Emerald Dumpling)",
+      "古法老火靓汤 (Lotus Root Broth)"
+    ],
+    "dishes": "Mushroom stew, vegetarian dim sum, lotus root soup",
+    "notes": "Dine inside the illuminated golden pagoda complex right beside Beijing Road pedestrian shopping street.",
+    "gallery": [
+      {
+        "title": "Dafo Temple Golden Pagoda Courtyard",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Multi-tiered illuminated copper eave pagoda glowing dramatically at twilight"
+      },
+      {
+        "title": "Serene Temple Dining Hall",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Zen wooden monastery hall featuring peaceful incense aromatics and tea tables"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "大佛寺养生十宝菇",
+        "nameEn": "Ten Treasures Forest Mushroom Stew",
+        "category": "特色粤菜",
+        "desc": "Slow-simmered morels, matsutake, and shiitake mushrooms stewed with Chinese yam in claypot.",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "素香翡翠水晶饺",
+        "nameEn": "Emerald Crystal Vegetarian Dumplings",
+        "category": "经典点心",
+        "desc": "Glass dough pockets packed with fresh bok choy, black fungus, and fragrant sesame.",
+        "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "古法慢火老火靓汤",
+        "nameEn": "Slow-Boiled Lotus Root Herb Broth",
+        "category": "广府靓汤",
+        "desc": "Simmered for 6 hours with red dates, lotus roots, and wolfberries for wholesome nourishment.",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-1",
+    "name": "Tao Tao Ju (陶陶居 • 百年老字号)",
+    "city": "Guangzhou",
+    "district": "Liwan / Yuexiu",
+    "category": "DimSum",
+    "cuisine": "Centenary Cantonese Dim Sum & Tea House (百年老字号茶楼)",
+    "price": "$$",
+    "schedule": "08:00 AM – 09:30 PM",
+    "address": "No. 20 Dishifu Road, Liwan District / Beijing Road branches",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=陶陶居总店+广州市荔湾区第十甫路20号",
+    "officialUrl": "http://www.taotaoju1880.com/",
+    "coverImage": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "陶陶居大虾饺 (Jumbo Har Gow)",
+      "酥皮水牛奶菠萝包 (Buffalo Milk Pineapple Bun)",
+      "金沙海虾红米肠 (Golden Net Red Rice Rolls)"
+    ],
+    "dishes": "Shrimp Dumplings (虾饺皇), Signature Jumbo Shrimp Dumplings (陶陶居大虾饺), Crispy Pineapple Bun with Buffalo Milk Custard",
+    "notes": "Guangzhou's most celebrated heritage tea house established in 1880. Must-try for golden flaky milk buns and fresh morning dim sum.",
+    "gallery": [
+      {
+        "title": "Dishifu 1880 Heritage Tea House Facade",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Classic republican-era brick archway facade in historical Xiguan"
+      },
+      {
+        "title": "Stained Glass Morning Tea Room",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Manchu etched colored glass windows and brass teapots over bamboo steamers"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "陶陶居大虾饺",
+        "nameEn": "Signature Jumbo Shrimp Dumplings",
+        "category": "经典点心",
+        "desc": "Celebrated triple-fold dough filled with 3 whole crunchy tiger prawns and savory broth.",
+        "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "酥皮水牛奶菠萝包",
+        "nameEn": "Crispy Pineapple Bun w/ Buffalo Milk Custard",
+        "category": "经典点心",
+        "desc": "Molten hot buffalo milk custard bursting out of a sweet cookie-crusted brioche crown.",
+        "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "金沙海虾红米肠",
+        "nameEn": "Golden Crispy Net Red Rice Rolls",
+        "category": "经典点心",
+        "desc": "Red yeast rice noodles wrapped around crunchy deep-fried netting and whole prawns.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-2",
+    "name": "Da Ge Fan (大鸽饭 • 招牌红烧乳鸽)",
+    "city": "Guangzhou",
+    "district": "Yuexiu / Tianhe",
+    "category": "Roast",
+    "cuisine": "Guangdong Specialty Roast Pigeon (红烧乳鸽专门店)",
+    "price": "$$",
+    "schedule": "11:00 AM – 02:30 PM, 05:00 PM – 09:30 PM",
+    "address": "Multiple branches in Guangzhou core / Yuexiu & Tianhe",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=大鸽饭+广州市",
+    "officialUrl": "https://www.dianping.com/shop/H9k8J7m6P5",
+    "coverImage": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "招牌红烧乳鸽 (Blistered Roast Pigeon)",
+      "传统大鸽饭 (Pigeon Claypot Rice)",
+      "椒盐乳鸽腿 (Salt & Pepper Pigeon)"
+    ],
+    "dishes": "Signature Crispy Roasted Pigeon (红烧乳鸽), Pigeon Claypot Rice (招牌鸽饭), Salt & Pepper Pigeon (椒盐乳鸽)",
+    "notes": "Guangzhou's #1 renowned roasted pigeon chain. Intensely juicy pigeon with blistered crispy skin and fragrance-infused claypot rice.",
+    "gallery": [
+      {
+        "title": "Da Ge Fan Flagship Entrance",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Bustling lively neon signage with queue crowds awaiting roasted squab"
+      },
+      {
+        "title": "Charcoal Claypot Hearth",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Open kitchen station with blazing charcoal flames searing claypot rice"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "招牌红烧生炸乳鸽",
+        "nameEn": "Signature Crispy Skin Roasted Pigeon",
+        "category": "特色粤菜",
+        "desc": "Glass-like crackling skin that bursts with aromatic game jus upon first bite.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "传统原煲大鸽饭",
+        "nameEn": "Claypot Rice w/ Minced Pigeon",
+        "category": "特色粤菜",
+        "desc": "Fragrant Jasmine rice cooked in pigeon broth over claypot, topped with crispy golden crust.",
+        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "椒盐乳鸽腿",
+        "nameEn": "Salt & Szechuan Pepper Pigeon Drumsticks",
+        "category": "特色粤菜",
+        "desc": "Deep-fried squab legs tossed with crispy shallots, minced garlic, and pepper salt.",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-3",
+    "name": "Xie San Bao (蟹叁宝 • 蟹黄捞饭)",
+    "city": "Guangzhou",
+    "district": "Yuexiu",
+    "category": "Street",
+    "cuisine": "Crab Roe & Seafood Specialty (蟹黄海鲜名店)",
+    "price": "$$$",
+    "schedule": "11:00 AM – 09:30 PM",
+    "address": "Beijing Road Commercial Pedestrian Zone, Yuexiu District, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=蟹叁宝+广州市北京路",
+    "officialUrl": "https://www.dianping.com/shop/H3x4Y5z6A7",
+    "coverImage": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "金汤浓郁蟹黄捞饭 (Pure Crab Roe Rice)",
+      "招牌鲜蟹粉拌面 (Crab Roe Noodles)",
+      "爆汁蟹黄小笼包 (Crab Roe Xiao Long Bao)"
+    ],
+    "dishes": "Crab Roe Over Rice (蟹黄捞饭), Crab Roe Tossed Noodles (蟹黄拌面), Crab Roe Soup Dumplings (蟹黄小笼包)",
+    "notes": "Famous golden bowl packed with pure hand-peeled female crab roe and crab meat poured over steaming hot rice and noodles.",
+    "gallery": [
+      {
+        "title": "Beijing Road Boutique Storefront",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Sleek dining boutique along the pedestrian heritage avenue"
+      },
+      {
+        "title": "Golden Crab Bar & Open Counter",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Chefs dishing out heaping ladlefuls of glistening golden crab roe"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "金汤浓郁蟹黄捞饭",
+        "nameEn": "Golden Pure Crab Roe Over Rice",
+        "category": "特色粤菜",
+        "desc": "Rich bowl containing the meat and roe of 10 freshwater crabs served over hot pearly rice.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "招牌鲜蟹粉拌面",
+        "nameEn": "Crab Roe Scallion Oil Tossed Noodles",
+        "category": "特色粤菜",
+        "desc": "Springy hand-pulled egg noodles saturated in golden crab butter and aged crab vinegar.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "金牌爆汁蟹黄小笼包",
+        "nameEn": "Crab Roe Xiao Long Bao Dumplings",
+        "category": "经典点心",
+        "desc": "Delicate pleated dumplings filled with piping-hot savory crab roe broth.",
+        "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-4",
+    "name": "Dian Dou De (点都德 • 非遗广式早茶)",
+    "city": "Guangzhou",
+    "district": "Yuexiu / Liwan",
+    "category": "DimSum",
+    "cuisine": "Intangible Cultural Heritage All-Day Dim Sum (非遗早茶点心)",
+    "price": "$$",
+    "schedule": "07:30 AM – 10:00 PM All-Day Dim Sum",
+    "address": "Beijing Road & Dongshankou branch locations, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=点都德+广州市北京路",
+    "officialUrl": "http://www.diandoude.com.cn/",
+    "coverImage": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "金沙海虾红米肠 (Golden Net Red Rice Roll)",
+      "金牌虾饺皇 (Master Har Gow)",
+      "蜜汁叉烧包 (Char Siu Bao)"
+    ],
+    "dishes": "Golden Crispy Salted Egg Shrimp Red Rice Roll (金沙海虾红米肠), Har Gow Dumplings (虾饺皇), Red Rice Rolls (红米肠)",
+    "notes": "Old-school Cantonese teahouse atmosphere with traditional teapots and freshly handmade dim sum served morning until late night.",
+    "gallery": [
+      {
+        "title": "Xiguan Grand Teahouse Hall",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Sprawling two-story Cantonese salon adorned with traditional lanterns"
+      },
+      {
+        "title": "Kung Fu Tea Counter",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Boiling brass water kettles brewing aged pu-erh and tieguanyin tea"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "金沙海虾红米肠",
+        "nameEn": "Golden Crispy Net Red Rice Rolls",
+        "category": "经典点心",
+        "desc": "Crimson rice noodles wrapping a fried crispy mesh tube packed with tender fresh shrimp.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "金牌虾饺皇",
+        "nameEn": "Heritage King Prawn Har Gow",
+        "category": "经典点心",
+        "desc": "Eleven delicate folds around succulent pink prawns with a drop of rich broth.",
+        "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "蜜汁叉烧包",
+        "nameEn": "Fluffy Steamed Honey Char Siu Buns",
+        "category": "经典点心",
+        "desc": "Snow-white steamed buns blooming open to reveal sweet honey barbecue pork.",
+        "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-5",
+    "name": "Guangzhou Restaurant (Longjin West Branch) / 广州酒家（龙津西路店 · 粤宴西关）",
+    "city": "Guangzhou",
+    "district": "Liwan",
+    "category": "DimSum",
+    "cuisine": "Cantonese Morning Tea & State Banquet (老字号粤宴早茶)",
+    "price": "$$$",
+    "schedule": "⏰ 08:00—14:00 (Breakfast / Morning Tea)",
+    "address": "📍 No. 102 Longjin West Road, Liwan District (荔湾区龙津西路102号，荔枝湾畔)",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=广州市荔湾区龙津西路102号+广州酒家",
+    "officialUrl": "https://www.gzr.com.cn/pinpaijiazu/guangzhoujiujia/2473.html",
+    "coverImage": "media/dining/guangzhou_restaurant/facade.jpg",
+    "highlights": [
+      "🥟 鲜虾饺皇 (Master Har Gow)",
+      "🥢 爽脆红米肠 (Red Rice Rolls)",
+      "🍗 姜茸爽皮鸡 (Ginger Chicken)"
+    ],
+    "dishes": "穗城鲜虾饺皇, 爽脆红米肠, 金丝姜茸爽皮鸡",
+    "notes": "Known as 'First Food in Guangzhou' (食在广州第一家). Classical water-garden courtyard setting beside Lychee Bay canal. Scheduled for Day 6 Morning Tea.",
+    "gallery": [
+      {
+        "title": "西关荔枝湾畔 · 门头外观",
+        "type": "exterior",
+        "image": "media/dining/guangzhou_restaurant/facade.jpg",
+        "desc": "广州市荔湾区龙津西路102号，坐落于西关荔枝湾河畔的标志性岭南建筑门头与骑楼石拱门。"
+      },
+      {
+        "title": "岭南水乡庭院 · 锦鲤水景与水榭飞檐",
+        "type": "interior",
+        "image": "media/dining/guangzhou_restaurant/interior_courtyard.jpg",
+        "desc": "传统广府园林水系，飞檐亭阁倒映碧波，锦鲤环绕，凸显老字号水乡闲趣。"
+      },
+      {
+        "title": "精致宴会空间 · 多彩满洲窗 (粤宴西关)",
+        "type": "interior",
+        "image": "media/dining/guangzhou_restaurant/interior_dining.jpg",
+        "desc": "内设粤韵芳渡、兰桂轩、听月阁四大空间，饰以全套传统彩色满洲窗与广式木雕，尽显雍容广府茶宴格调。"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "穗城鲜虾饺皇",
+        "nameEn": "Master King Prawn Har Gow",
+        "category": "经典点心",
+        "desc": "11道精巧褶纹透薄澄面皮，包裹整颗手剥鲜甜脆弹海虾仁与爽脆竹笋丁，鲜汁充盈。",
+        "image": "media/dining/guangzhou_restaurant/dish_01_hargow.jpg"
+      },
+      {
+        "nameZh": "爽脆红米肠",
+        "nameEn": "Crispy Red Rice Noodle Rolls",
+        "category": "经典点心",
+        "desc": "天然红曲米研磨拉制丝滑拉肠，内层裹以金黄香脆网皮与饱满虾仁，三层质感三重享受。",
+        "image": "media/dining/guangzhou_restaurant/dish_02_red_rice_roll.jpg"
+      },
+      {
+        "nameZh": "豉汁蒸排骨",
+        "nameEn": "Steamed Spare Ribs in Black Bean Sauce",
+        "category": "经典点心",
+        "desc": "精选一字肋排以阳江黑豆豉、蒜蓉腌制，垫以粉糯荔浦芋头高温快蒸，肉质嫩滑多汁。",
+        "image": "media/dining/guangzhou_restaurant/dish_03_spare_ribs.jpg"
+      },
+      {
+        "nameZh": "梅子叉烧包",
+        "nameEn": "Plum-Glazed BBQ Pork Buns",
+        "category": "经典点心",
+        "desc": "松软若棉花般的开花老面馒头，包裹肥瘦相间秘制蜜汁叉烧，融入岭南酸甜乌梅酱生津解腻。",
+        "image": "media/dining/guangzhou_restaurant/dish_04_char_siu_bun.jpg"
+      },
+      {
+        "nameZh": "松露小笼包",
+        "nameEn": "Black Truffle Xiao Long Bao",
+        "category": "经典点心",
+        "desc": "薄如蝉翼的精巧褶皮，内裹浓郁黑松露茸与黑猪肉馅，滚烫一口爆汁、蕈香馥郁。",
+        "image": "media/dining/guangzhou_restaurant/dish_05_xiao_long_bao.jpg"
+      },
+      {
+        "nameZh": "香煎萝卜糕",
+        "nameEn": "Pan-Fried Daikon Radish Cake",
+        "category": "经典点心",
+        "desc": "手切冬头水嫩萝卜丝融和广式皇上皇腊味粒与生晒虾米，慢火两面双煎至外焦里嫩酥香。",
+        "image": "media/dining/guangzhou_restaurant/dish_06_radish_cake.jpg"
+      },
+      {
+        "nameZh": "金丝姜茸爽皮鸡",
+        "nameEn": "Crispy-Skin Poached Chicken with Ginger Purée",
+        "category": "特色粤菜",
+        "desc": "精选180天山林走地鸡浸熟冰镇定型，皮脆肉嫩带皮冻，配上炸至金黄松酥的金丝沙姜与香油姜茸。",
+        "image": "media/dining/guangzhou_restaurant/dish_07_chicken.jpg"
+      },
+      {
+        "nameZh": "黄榄肉汁炖花胶",
+        "nameEn": "Double-Boiled Fish Maw Soup",
+        "category": "广府靓汤",
+        "desc": "深海鳘鱼厚花胶与慢火土猪瘦肉汁清炖4小时，配搭西关古法甘甘苦苦的野山青黄榄，汤清甘润回甜。",
+        "image": "media/dining/guangzhou_restaurant/dish_08_fish_maw_soup.jpg"
+      },
+      {
+        "nameZh": "红葱头淋生菜胆",
+        "nameEn": "Poached Lettuce with Shallot Oil",
+        "category": "特色粤菜",
+        "desc": "清甜无筋的高山罗马生菜心滚水快灼，淋上镬气十足、焦香微甜的现炸红葱头头抽香油。",
+        "image": "media/dining/guangzhou_restaurant/dish_09_lettuce.jpg"
+      },
+      {
+        "nameZh": "燕窝双皮奶",
+        "nameEn": "Double-Skin Milk Pudding with Bird's Nest",
+        "category": "广式甜品",
+        "desc": "顺德纯正水牛奶古法文火慢蒸形成醇厚奶皮，上覆精炖通透的印尼极品金丝官燕窝，奶香醇厚细腻。",
+        "image": "media/dining/guangzhou_restaurant/dish_10_milk_pudding.jpg"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-6",
+    "name": "Yuan Ji Rice Noodle Rolls (源记肠粉)",
+    "city": "Guangzhou",
+    "district": "Liwan",
+    "category": "Street",
+    "cuisine": "Old Town Street Changfen & Congee (西关老字号布拉肠)",
+    "price": "$",
+    "schedule": "08:00 AM – 11:30 PM",
+    "address": "No. 92 Huagui Road, Liwan District, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=源记肠粉+广州市荔湾区华贵路92号",
+    "officialUrl": "https://www.dianping.com/shop/H2w3E4r5T6",
+    "coverImage": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "鲜虾牛肉布拉肠 (Shrimp & Beef Rolls)",
+      "传统荔湾艇仔粥 (Sampan Congee)",
+      "秘制豉油 (Sweet Seasoned Soy)"
+    ],
+    "dishes": "Fresh Shrimp Rice Rolls (鲜虾肠粉), Tender Beef Rice Rolls (牛肉肠粉), Traditional Sampan Congee (艇仔粥)",
+    "notes": "Beloved neighborhood Michelin Bib Gourmand street joint. Stone-ground silky smooth rice sheets freshly steamed with hot sweet soy sauce.",
+    "gallery": [
+      {
+        "title": "Huagui Road Street Front",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80",
+        "desc": "No-frills traditional noodle shop humming with local residents"
+      },
+      {
+        "title": "Stone Grinder & Steamers",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Fresh rice batter pouring continuously over cloth steamers"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "布拉鲜虾牛肉双拼肠",
+        "nameEn": "Cloth-Pulled Shrimp & Beef Rice Rolls",
+        "category": "经典点心",
+        "desc": "Paper-thin rice noodle sheets pulled off steaming cloth, folded with beef and fresh prawns.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "荔湾传统艇仔粥",
+        "nameEn": "Traditional Liwan Sampan Congee",
+        "category": "特色粤菜",
+        "desc": "Silky rice porridge simmered with cuttlefish, jellyfish slices, roasted peanuts, and scallions.",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-7",
+    "name": "Chua Lam's Dim Sum (蔡澜港式点心)",
+    "city": "Guangzhou",
+    "district": "Tianhe",
+    "category": "DimSum",
+    "cuisine": "Modern Gourmet Hong Kong Dim Sum (蔡澜港式精美点心)",
+    "price": "$$",
+    "schedule": "10:00 AM – 09:30 PM",
+    "address": "Parc Central / TeeMall area, Tianhe CBD, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=蔡澜港式点心+广州天环广场",
+    "officialUrl": "https://www.dianping.com/shop/H4j5K6l7M8",
+    "coverImage": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "酥皮山楂叉烧包 (Hawthorn BBQ Buns)",
+      "赛螃蟹凤眼饺 (Egg White Dumplings)",
+      "流心奶黄包 (Lava Custard Buns)"
+    ],
+    "dishes": "Crispy Hawthorn BBQ Pork Buns (酥皮山楂叉烧包), Egg White & Shrimp Dumplings (赛螃蟹凤眼饺), Lava Custard Buns (流心奶黄包)",
+    "notes": "Created by legendary food critic Chua Lam. Famous for combining sweet-and-sour candied hawthorn into baked crispy BBQ pork buns.",
+    "gallery": [
+      {
+        "title": "Parc Central CBD Entrance",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Modern architectural mall setting with bright wooden accents"
+      },
+      {
+        "title": "Open Dim Sum Craft Kitchen",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Chefs rolling and baking signature crispy pastry buns to order"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "酥皮山楂叉烧包",
+        "nameEn": "Crispy Hawthorn BBQ Pork Buns",
+        "category": "经典点心",
+        "desc": "Golden crumbly pastry crust filled with savory char siu balanced by tangy candied mountain hawthorn.",
+        "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "赛螃蟹凤眼饺",
+        "nameEn": "Egg White & Shrimp Phoenix Eye Dumplings",
+        "category": "经典点心",
+        "desc": "Silky wok-whipped egg whites folded with tender shrimp meat resembling fresh crab flesh.",
+        "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "金沙流心奶黄包",
+        "nameEn": "Molten Salted Egg Lava Custard Buns",
+        "category": "经典点心",
+        "desc": "Piping-hot yellow bun that oozes rich sweet and savory salted duck egg yolk lava.",
+        "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-8",
+    "name": "Min Ji Claypot Rice (民记煲仔饭)",
+    "city": "Guangzhou",
+    "district": "Yuexiu",
+    "category": "Street",
+    "cuisine": "Traditional Charcoal Claypot Rice (老字号炭火煲仔饭)",
+    "price": "$",
+    "schedule": "10:30 AM – 08:30 PM",
+    "address": "Yuexiu South Road, near Beijing Road core, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=民记煲仔饭+广州市越秀南路",
+    "officialUrl": "https://www.dianping.com/shop/H6b7N8m9K0",
+    "coverImage": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "皇上皇腊味煲仔饭 (Cured Sausage Rice)",
+      "排骨窝蛋牛肉饭 (Ribs & Beef Rice)",
+      "香脆金黄锅巴 (Crispy Golden Crust)"
+    ],
+    "dishes": "Cured Sausage Claypot Rice (腊味煲仔饭), Pork Rib Rice (排骨煲仔饭), Raw Egg & Minced Beef Claypot Rice (窝蛋牛肉煲仔饭)",
+    "notes": "Legendary 40-year claypot stalwart. Cooked to order over raw heat with an irresistible crispy golden bottom rice crust (锅巴).",
+    "gallery": [
+      {
+        "title": "Yuexiu South Road Classic Shophouse",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Time-honored Old Guangzhou storefront with aroma of sizzling sausage"
+      },
+      {
+        "title": "Roaring Charcoal Claypot Rows",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Dozens of claypots sizzling together with sweet soy sauce drizzles"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "广式皇上皇腊味煲仔饭",
+        "nameEn": "Cantonese Cured Sausage Claypot Rice",
+        "category": "特色粤菜",
+        "desc": "Wind-dried lap cheong sausage rendering its sweet wine fat deep into crispy-bottomed jasmine rice.",
+        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "窝蛋牛肉煲仔饭",
+        "nameEn": "Raw Farm Egg & Tender Beef Claypot Rice",
+        "category": "特色粤菜",
+        "desc": "Tender beef slices topped with a fresh orange egg yolk mixed vigorously into smoking hot rice.",
+        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-9",
+    "name": "Ming Shao Chicken Specialty Restaurant (铭少食鸡专门店)",
+    "city": "Guangzhou",
+    "district": "Yuexiu",
+    "category": "Roast",
+    "cuisine": "Guangdong Free-Range Chicken Feast (正宗粤式吃鸡名店)",
+    "price": "$$",
+    "schedule": "11:00 AM – 02:30 PM, 05:00 PM – 09:30 PM",
+    "address": "Beijing Road / Dongshan dining core, Yuexiu District, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=铭少食鸡专门店+广州市",
+    "officialUrl": "https://www.dianping.com/shop/H8v9B0n1M2",
+    "coverImage": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "金牌手撕鸡 (Hand-Shredded Chicken)",
+      "头抽豉油鸡 (Soy Sauce Chicken)",
+      "鲜沙姜局走地鸡 (Sand Ginger Chicken)"
+    ],
+    "dishes": "Signature Hand-Shredded Chicken (招牌鸡), Fragrant Soy Sauce Chicken (豉油鸡), Stir-Fried Chicken Giblets (鸡杂)",
+    "notes": "Revered local saying: 'No banquet without chicken' (无鸡不成宴). Tender silky chicken skins and rich natural meat sweetness.",
+    "gallery": [
+      {
+        "title": "Ming Shao Restaurant Front",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Vibrant yellow poultry emblem showcasing Cantonese chicken mastery"
+      },
+      {
+        "title": "Carving & Chopping Station",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Master butcher slicing golden free-range chickens with swift cleaver strokes"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "铭少招牌金牌手撕鸡",
+        "nameEn": "Signature Golden Hand-Shredded Chicken",
+        "category": "特色粤菜",
+        "desc": "Free-range pasture chicken hand-shredded with crispy skins, sesame oil, and crunchy peanuts.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "头抽慢火豉油鸡",
+        "nameEn": "First-Draw Soy Sauce Poached Chicken",
+        "category": "特色粤菜",
+        "desc": "Simmered in premium aged sweet soy with star anise, rock sugar, and ginger slices.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-gz-10",
+    "name": "Li Fang Four Seasons Dessert Shop (荔芳四季糖水店)",
+    "city": "Guangzhou",
+    "district": "Liwan",
+    "category": "Dessert",
+    "cuisine": "Authentic Cantonese Traditional Tong Sui (西华路传统糖水)",
+    "price": "$",
+    "schedule": "11:30 AM – 11:30 PM",
+    "address": "Xihua Road Food Street, Liwan District, Guangzhou",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=荔芳四季糖水+广州市西华路",
+    "officialUrl": "https://www.dianping.com/shop/H1q2W3e4R5",
+    "coverImage": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "新会十年陈皮红豆沙 (Aged Tangerine Red Bean)",
+      "顺德手造双皮奶 (Double-Skin Milk)",
+      "浓醇金芒杨枝甘露 (Mango Pomelo Sago)"
+    ],
+    "dishes": "Mango Pomelo Sago (杨枝甘露), Shunde Double-Skin Milk (双皮奶), Aged Tangerine Peel Red Bean Soup (陈皮红豆沙)",
+    "notes": "Guangzhou dessert institution on bustling Xihua food street. Made with genuine 15-year Xinhui dried tangerine peel and rich buffalo milk.",
+    "gallery": [
+      {
+        "title": "Xihua Road Nostalgic Shopfront",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Quaint tile-lined shop on the famous foodie strip of Xihua Road"
+      },
+      {
+        "title": "Simmering Sweet Soup Pots",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Earthenware pots slow-cooking red bean and lotus seed dessert soups"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "新会陈皮十年红豆沙",
+        "nameEn": "10-Year Aged Tangerine Peel Red Bean Soup",
+        "category": "广式甜品",
+        "desc": "Silky sand-textured red bean broth scented with precious citrus peel oils.",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "顺德手造双皮奶",
+        "nameEn": "Shunde Handmade Double-Skin Buffalo Milk",
+        "category": "广式甜品",
+        "desc": "Rich and custard-like curd produced with local water buffalo milk.",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "浓醇金芒杨枝甘露",
+        "nameEn": "Alphonso Mango Pomelo Sago",
+        "category": "广式甜品",
+        "desc": "Fresh sweet mango purée, coconut milk, chewy tapioca pearls, and ruby pomelo pulps.",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-5",
+    "name": "Qingyuan Mountain Farmhouse (古龙峡土菜馆)",
+    "city": "Guangzhou",
+    "district": "Qingyuan Excursion",
+    "category": "Roast",
+    "cuisine": "Mountain Farmhouse Feasts (清远正宗农家走地鸡)",
+    "price": "$$",
+    "schedule": "11:00 AM – 08:30 PM",
+    "address": "Base of Gulong Gorge scenic entry, Qingyuan",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=古龙峡土菜馆+清远市",
+    "officialUrl": "https://www.dianping.com/shop/H5t6Y7u8I9",
+    "coverImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "清远正宗白切鸡 (Qingyuan White Cut Chicken)",
+      "古龙峡山泉水豆腐 (Spring Water Tofu)",
+      "鲜焖山竹笋 (Wild Bamboo Shoots)"
+    ],
+    "dishes": "Authentic Qingyuan Free-Range White Cut Chicken (清远正宗白切鸡), mountain spring tofu, bamboo shoots",
+    "notes": "Qingyuan chicken is world-famous across Guangdong for its tender texture and natural sweetness.",
+    "gallery": [
+      {
+        "title": "Gulong Gorge Mountain Gate Entry",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Breathtaking canyon backdrop right below cascading waterfall streams"
+      },
+      {
+        "title": "Rustic Riverside Farmhouse Deck",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Bamboo dining tables beside rushing mountain streams"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "正宗清远走地白切鸡",
+        "nameEn": "Authentic Qingyuan Free-Range White Cut Chicken",
+        "category": "特色粤菜",
+        "desc": "Tender mountain chicken poached in fragrant herb court-bouillon served with scallion-ginger oil.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "古龙峡山泉水豆腐",
+        "nameEn": "Gulong Mountain Spring Water Tofu",
+        "category": "特色粤菜",
+        "desc": "Handcrafted tofu curd made using pristine canyon spring water, pan-seared to golden crust.",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-6",
+    "name": "Baheli Chaoshan Beef Hotpot (八合里牛肉火锅 • 南头店)",
+    "city": "Shenzhen",
+    "district": "Nanshan",
+    "category": "Roast",
+    "cuisine": "Chaoshan Fresh Beef Hotpot (潮汕鲜牛肉火锅)",
+    "price": "$$",
+    "schedule": "11:00 AM – 11:00 PM",
+    "address": "Nantou Ancient City / High-Tech Park, Nanshan District, Shenzhen",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=八合里牛肉火锅+深圳市南山区南头",
+    "officialUrl": "http://www.baheli.com/",
+    "coverImage": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "手切鲜吊龙 (Hand-Sliced Ribeye Beef)",
+      "纯正手打鲜牛肉丸 (Hand-Pounded Meatballs)",
+      "牛骨清汤原汁 (Clear Beef Bone Broth)"
+    ],
+    "dishes": "Freshly sliced beef brisket, hand-pounded beef meatballs, satay dip",
+    "notes": "Beef slaughtered and delivered within 4 hours. Clear broth brings out pristine beef tenderness.",
+    "gallery": [
+      {
+        "title": "Nanshan Tech Park Restaurant Front",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Spacious contemporary hotpot venue near Shenzhen High-Tech Zone"
+      },
+      {
+        "title": "Glass Window Beef Butchery Counter",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Master carvers thinly slicing prime cuts of yellow cattle beef to order"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "手切鲜吊龙牛肉",
+        "nameEn": "Hand-Sliced Ribeye Beef (Diao Long)",
+        "category": "特色粤菜",
+        "desc": "Prime rib-eye slice that flash-blanches to butter tenderness in clear beef bone broth in 8 seconds.",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "纯正手打鲜牛肉丸",
+        "nameEn": "Hand-Pounded Chaoshan Beef Meatballs",
+        "category": "特色粤菜",
+        "desc": "Beaten rhythmically with heavy iron rods for ultimate bouncy crunch and rich beef juices.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-sz-2",
+    "name": "Run Yuan Four Seasons (润园四季椰子鸡 • 华侨城店)",
+    "city": "Shenzhen",
+    "district": "OCT / Nanshan",
+    "category": "Roast",
+    "cuisine": "Hainan Fresh Coconut Chicken Hotpot (深圳招牌椰子鸡)",
+    "price": "$$",
+    "schedule": "11:00 AM – 10:00 PM",
+    "address": "OCT-LOFT Cultural Park / Xiangshan Middle St, Nanshan, Shenzhen",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=润园四季椰子鸡+华侨城创意园+深圳",
+    "officialUrl": "https://www.dianping.com/shop/H7u8I9o0P1",
+    "coverImage": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "鲜榨纯椰青鸡 (Fresh Coconut Broth Chicken)",
+      "特级腊味煲仔饭 (Cured Meat Claypot Rice)",
+      "响铃竹荪吸汁 (Crispy Bean Curd)"
+    ],
+    "dishes": "Fresh Wenchang chicken simmered in 100% natural coconut water, served with calamansi sand ginger dip",
+    "notes": "Shenzhen's definitive local icon. Pure sweet coconut water with tender Wenchang chicken and fragrant claypot rice.",
+    "gallery": [
+      {
+        "title": "OCT Garden Courtyard Terrace",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Lush tropical green terrace dining inside OCT-LOFT creative district"
+      },
+      {
+        "title": "Steaming Coconut Pot Counter",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Fresh coconut cracking counter and steaming hotpots"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "竹荪正宗文昌椰子鸡",
+        "nameEn": "Bamboo Fungus Wenchang Coconut Chicken",
+        "category": "特色粤菜",
+        "desc": "Three fresh whole Thai coconut juices boiled with free-range Hainan chicken for 4 minutes flat.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "一级腊味煲仔饭",
+        "nameEn": "Premier Cantonese Cured Sausage Claypot Rice",
+        "category": "特色粤菜",
+        "desc": "Tossed tableside with golden crunchy scorched rice and scallions.",
+        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-sz-3",
+    "name": "Sea World Shekou Promenade Dining (海上世界明华轮海鲜广场)",
+    "city": "Shenzhen",
+    "district": "Shekou / Nanshan",
+    "category": "Street",
+    "cuisine": "Coastal Seafood & International Promenade (海滨海鲜与精酿)",
+    "price": "$$",
+    "schedule": "11:00 AM – Midnight",
+    "address": "Sea World Plaza, Wanghai Road, Shekou, Nanshan, Shenzhen",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=海上世界+深圳市南山区蛇口",
+    "officialUrl": "https://www.dianping.com/shop/H9i0O1p2Q3",
+    "coverImage": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "避风塘炒大蟹 (Typhoon Shelter Crab)",
+      "清蒸深海石斑 (Steamed Grouper)",
+      "蛇口精酿鲜啤 (Shekou Craft Beer)"
+    ],
+    "dishes": "Typhoon Shelter garlic crab, steamed coastal clams with glass noodles, and cold draft beers overlooking Minghua ship",
+    "notes": "Outdoor seaside dining plaza adjacent to the illuminated Minghua cruise liner and Shekou water fountain show.",
+    "gallery": [
+      {
+        "title": "Minghua Cruise Ship Illuminated Promenade",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Vibrant night waterfront boardwalk with live music and fountains"
+      },
+      {
+        "title": "Seafood Tank Display & Beer Bar",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Live ocean tanks featuring local South China Sea catches"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "避风塘金蒜炒青蟹",
+        "nameEn": "Typhoon Shelter Golden Garlic Mud Crab",
+        "category": "特色粤菜",
+        "desc": "Fresh mud crab wok-fried vigorously with toasted golden garlic crisps, fermented black beans, and chili.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "蒜蓉粉丝蒸大元贝",
+        "nameEn": "Steamed Jumbo Scallops w/ Garlic Glass Noodles",
+        "category": "特色粤菜",
+        "desc": "Plump king scallops bathed in first-draw sweet soy and smoking scallion oil.",
+        "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-7",
+    "name": "Kam Wah Cafe (金华冰厅 • 香港菠萝油冠军)",
+    "city": "Hong Kong",
+    "district": "Prince Edward / Mong Kok",
+    "category": "DimSum",
+    "cuisine": "Hong Kong Cha Chaan Teng (香港金牌茶餐厅)",
+    "price": "$",
+    "schedule": "06:30 AM – 09:00 PM",
+    "address": "No. 47 Bute Street, Prince Edward / Mong Kok (5 mins walk from Royal Plaza Hotel)",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=金华冰厅+香港九龙太子弼街47号",
+    "officialUrl": "https://www.openrice.com/zh/hongkong/r-%E9%87%91%E8%8F%AF%E5%86%B0%E5%BB%B3-%E5%A4%AA%E5%AD%90-%E6%B8%AF%E5%BC%8F-%E7%B2%89%E9%BA%B5-%E7%B1%B3%E7%B7%9A-r11531",
+    "coverImage": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "得奖冰火菠萝油 (Champion Pineapple Bun)",
+      "驰名丝袜冻奶茶 (Silk Stocking Milk Tea)",
+      "酥皮热蛋挞 (Flaky Hot Egg Tart)"
+    ],
+    "dishes": "Award-winning Crispy Pineapple Bun with slab of cold butter (菠萝油), Silk Stocking Milk Tea, Egg Tart",
+    "notes": "Crowned champion pineapple buns of Hong Kong. Piping hot crust with frozen butter melts instantly.",
+    "gallery": [
+      {
+        "title": "Bute Street Mong Kok Neon Shophouse",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Classic neon sign and bustling Mong Kok street scene"
+      },
+      {
+        "title": "Cozy Green Booth Dining Room",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Nostalgic mosaic tiled walls and traditional tea diner booths"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "得奖金牌冰火菠萝油",
+        "nameEn": "Award-Winning Crispy Pineapple Butter Bun",
+        "category": "经典点心",
+        "desc": "Fresh-out-of-oven piping hot crumbly sweet bun split with a thick frozen slab of Anchor butter.",
+        "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "驰名丝袜冻奶茶",
+        "nameEn": "Chilled Hong Kong Silk Stocking Milk Tea",
+        "category": "广式甜品",
+        "desc": "Strong Ceylon black tea blend hand-strained through cloth sack and whipped with Black & White milk.",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-8",
+    "name": "Tim Ho Wan (添好运 • 米其林点心专卖店)",
+    "city": "Hong Kong",
+    "district": "Mong Kok / Sham Shui Po",
+    "category": "DimSum",
+    "cuisine": "Michelin Star Dim Sum (米其林星级点心专卖店)",
+    "price": "$$",
+    "schedule": "10:00 AM – 09:30 PM",
+    "address": "Olympian City / Fuk Wing Street, Sham Shui Po, Kowloon, Hong Kong",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=添好运点心专门店+香港九龙",
+    "officialUrl": "http://www.timhowan.com/",
+    "coverImage": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "酥皮焗叉烧包 (Baked BBQ Pork Buns)",
+      "香煎萝卜糕 (Pan-Fried Turnip Cake)",
+      "黄沙猪润肠 (Pork Liver Rice Rolls)"
+    ],
+    "dishes": "Baked BBQ Pork Buns (酥皮叉烧包), pan-fried turnip cake, steamed rice rolls",
+    "notes": "Renowned as the world's most accessible Michelin-starred dim sum. The signature crispy sugar-crusted barbecue pork buns are legendary.",
+    "gallery": [
+      {
+        "title": "Mong Kok Modern Hall",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Clean modern facade welcomes dim sum enthusiasts from around the world"
+      },
+      {
+        "title": "Bamboo Steamer Kitchen Bar",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Tiered bamboo steamers releasing clouds of fragrant sweet dough vapor"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "酥皮焗叉烧包",
+        "nameEn": "Baked BBQ Pork Buns (3 Pcs)",
+        "category": "经典点心",
+        "desc": "Signature golden crumbly sugar crust encasing sweet barbecue pork and savory sauce.",
+        "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "香煎萝卜糕",
+        "nameEn": "Pan-Fried Turnip Cake",
+        "category": "经典点心",
+        "desc": "Crispy browned surface with moist interior loaded with radish shreds and Chinese bacon.",
+        "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  {
+    "id": "rest-hk-3",
+    "name": "Mong Kok Night Food Stalls (旺角登打士街地道街头小食)",
+    "city": "Hong Kong",
+    "district": "Mong Kok",
+    "category": "Street",
+    "cuisine": "Hong Kong Street Snacks & Night Eats (香港经典街头小吃)",
+    "price": "$",
+    "schedule": "12:00 PM – Midnight",
+    "address": "Dundas Street & Sai Yeung Choi St South, Mong Kok, Kowloon",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=登打士街+香港九龙旺角",
+    "officialUrl": "https://www.openrice.com/zh/hongkong/restaurants/district/%E6%97%BA%E8%A7%92",
+    "coverImage": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+    "highlights": [
+      "咖喱秘制鱼蛋 (Curry Fish Balls)",
+      "原味香脆鸡蛋仔 (Egg Waffles)",
+      "脆皮臭豆腐 (Crispy Stinky Tofu)"
+    ],
+    "dishes": "Curry fishballs, piping-hot egg waffles, deep-fried pork intestines, stinky tofu, mango coconut sago drinks",
+    "notes": "Vibrant night market street snack heaven right in Mong Kok, steps away from MOKO and the ladies market.",
+    "gallery": [
+      {
+        "title": "Dundas Street Neon Alley",
+        "type": "exterior",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Classic neon signs and aromatic steam billowing from street stalls"
+      },
+      {
+        "title": "Sizzling Street Snack Woks",
+        "type": "interior",
+        "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+        "desc": "Boiling pots of spicy curry fishballs and waffle irons clacking in rhythm"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "香港地道咖喱鱼蛋",
+        "nameEn": "Hong Kong Spicy Curry Fish Balls",
+        "category": "特色粤菜",
+        "desc": "Bouncy deep-sea fish paste balls simmered in fiery Madras curry and satay paste.",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "nameZh": "蜂巢炭烤原味鸡蛋仔",
+        "nameEn": "Honeycomb Crispy Egg Waffles",
+        "category": "广式甜品",
+        "desc": "Golden spherical waffle puffs crisp on the outside and airy custardy inside.",
+        "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  }
+];
 
     // -------------------------------------------------------------
     // 3. NODE DETAILS DICTIONARY (For Drawer Inspector)

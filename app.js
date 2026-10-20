@@ -8,6 +8,8 @@ let isLightMode = false;
 let activeChinaView = 'flowchart';
 let activeChinaDayFilter = 'all';
 let activeDiningFilter = 'all';
+let activeDiningCityFilter = 'all';
+let activeDiningCategoryFilter = 'all';
 let activeMindmapFilter = 'all';
 let chinaDaysCompleted = JSON.parse(localStorage.getItem('mktravel_china_completed') || localStorage.getItem('spectravel_china_completed') || '{}');
 let chinaBudgetCurrency = 'SGD';
@@ -314,6 +316,9 @@ function loadRestaurants() {
             return {
               ...item,
               name: defaultItem.name || item.name,
+              city: defaultItem.city || item.city,
+              district: defaultItem.district || item.district,
+              category: defaultItem.category || item.category,
               address: defaultItem.address || item.address,
               mapUrl: defaultItem.mapUrl || item.mapUrl,
               officialUrl: defaultItem.officialUrl || item.officialUrl,
@@ -326,7 +331,8 @@ function loadRestaurants() {
               menu: defaultItem.menu || item.menu,
               mediaCards: defaultItem.mediaCards || item.mediaCards,
               visualTags: defaultItem.visualTags || item.visualTags,
-              schedule: defaultItem.schedule || item.schedule
+              schedule: defaultItem.schedule || item.schedule,
+              price: defaultItem.price || item.price
             };
           }
           return item;
@@ -351,15 +357,35 @@ function saveRestaurants(arr) {
   localStorage.setItem('mktravel_restaurants', JSON.stringify(arr));
 }
 
-function renderRestaurants(cityFilter = 'all') {
-  activeDiningFilter = cityFilter;
+function renderRestaurants(cityFilter = null, categoryFilter = null) {
+  if (cityFilter !== null) activeDiningCityFilter = cityFilter;
+  if (categoryFilter !== null) activeDiningCategoryFilter = categoryFilter;
+  activeDiningFilter = activeDiningCityFilter;
+
   const container = document.getElementById('diningGrid');
   if (!container) return;
 
   const list = loadRestaurants();
-  const filtered = cityFilter === 'all'
-    ? list
-    : list.filter(r => r.city.toLowerCase() === cityFilter.toLowerCase());
+  const filtered = list.filter(r => {
+    const matchCity = activeDiningCityFilter === 'all' || 
+      (r.city && r.city.toLowerCase() === activeDiningCityFilter.toLowerCase());
+    const matchCat = activeDiningCategoryFilter === 'all' || 
+      (r.category && r.category.toLowerCase() === activeDiningCategoryFilter.toLowerCase());
+    return matchCity && matchCat;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full py-16 text-center text-slate-400 bg-slate-900/40 rounded-3xl border border-white/5 space-y-3">
+        <i class="fa-solid fa-utensils text-4xl text-amber-400/40"></i>
+        <p class="text-sm font-bold text-white">No dining spots found matching your filter selection.</p>
+        <button onclick="filterDiningByCity('all'); filterDiningByCategory('all');" class="px-4 py-2 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold mono">
+          Reset Filter Selections
+        </button>
+      </div>
+    `;
+    return;
+  }
 
   container.innerHTML = filtered.map(r => {
     // Derive top 3 highlights
@@ -388,6 +414,7 @@ function renderRestaurants(cityFilter = 'all') {
           <!-- Badges on Cover -->
           <div class="absolute top-3 left-3 flex items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-black/60 backdrop-blur-md text-yellow-300 border border-yellow-500/40 mono uppercase">${r.city}</span>
+            ${r.district ? `<span class="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-black/60 backdrop-blur-md text-slate-300 border border-white/10 mono">${r.district}</span>` : ''}
             <span class="px-2.5 py-0.5 rounded-lg text-[10px] font-black bg-black/60 backdrop-blur-md text-amber-400 mono">${r.price || '$$'}</span>
           </div>
 
@@ -457,15 +484,22 @@ function renderRestaurants(cityFilter = 'all') {
               <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition text-[11px] font-bold">
                 <i class="fa-regular fa-copy"></i> Copy Details
               </button>
-              ${r.officialUrl ? `
-                <a href="${r.officialUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 font-bold text-[10px] flex items-center gap-1.5 transition">
-                  <i class="fa-solid fa-globe"></i> Official Site
-                </a>
-              ` : `
-                <span class="text-emerald-400 font-bold text-[10px] flex items-center gap-1">
-                  <i class="fa-solid fa-check"></i> Verified Spot
-                </span>
-              `}
+              <div class="flex items-center gap-2">
+                ${r.mapUrl ? `
+                  <a href="${r.mapUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="px-2 py-1 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold text-[10px] flex items-center gap-1 transition" title="Open in Maps">
+                    <i class="fa-solid fa-map-location-dot"></i> Maps
+                  </a>
+                ` : ''}
+                ${r.officialUrl ? `
+                  <a href="${r.officialUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="px-2 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 font-bold text-[10px] flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-globe"></i> Web
+                  </a>
+                ` : `
+                  <span class="text-emerald-400 font-bold text-[10px] flex items-center gap-1">
+                    <i class="fa-solid fa-check"></i> Verified
+                  </span>
+                `}
+              </div>
             </div>
           </div>
         </div>
@@ -701,14 +735,31 @@ function closeDishZoomModal() {
 }
 
 function filterRestaurants(city) {
-  document.querySelectorAll('.dining-filter-btn').forEach(btn => {
+  filterDiningByCity(city);
+}
+
+function filterDiningByCity(city) {
+  activeDiningCityFilter = city;
+  document.querySelectorAll('.dining-city-btn').forEach(btn => {
     if (btn.dataset.city.toLowerCase() === city.toLowerCase()) {
-      btn.className = "dining-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black shadow-md";
+      btn.className = "dining-city-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black shadow-md transition";
     } else {
-      btn.className = "dining-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
+      btn.className = "dining-city-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition";
     }
   });
-  renderRestaurants(city);
+  renderRestaurants(activeDiningCityFilter, activeDiningCategoryFilter);
+}
+
+function filterDiningByCategory(cat) {
+  activeDiningCategoryFilter = cat;
+  document.querySelectorAll('.dining-cat-btn').forEach(btn => {
+    if (btn.dataset.cat.toLowerCase() === cat.toLowerCase()) {
+      btn.className = "dining-cat-btn px-3 py-1.5 rounded-xl bg-amber-500/30 text-yellow-300 border border-yellow-500/60 font-black transition";
+    } else {
+      btn.className = "dining-cat-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition";
+    }
+  });
+  renderRestaurants(activeDiningCityFilter, activeDiningCategoryFilter);
 }
 
 function openAddRestaurantModal() {
