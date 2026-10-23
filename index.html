@@ -1887,15 +1887,6 @@ document.addEventListener("keydown", function(e) {
     </div>
   </footer>
 
-  <!-- SCRIPT LIBRARIES -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="china-data.js"></script>
-  <script>
-
-  </script>
-  
-
-
   <!-- Slide-Over Detail Drawer (Specs Modal) -->
   <div id="attraction-drawer-backdrop" onclick="window.closeAttractionDrawer()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none"></div>
   <aside id="attraction-detail-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-gray-900 border-l border-gray-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-hidden">
@@ -1919,7 +1910,6 @@ document.addEventListener("keydown", function(e) {
       </button>
     </div>
   </aside>
-  
 
   <!-- Floating Staged Route Pill -->
   <div id="floating-route-pill" onclick="window.toggleRouteDrawer()" class="fixed bottom-6 left-6 z-40 flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-gray-950 font-bold shadow-xl shadow-amber-500/25 hover:from-amber-400 hover:to-amber-500 cursor-pointer transition-all duration-200 hover:scale-105 select-none border border-amber-300/40">
@@ -1962,11 +1952,10 @@ document.addEventListener("keydown", function(e) {
       </button>
     </div>
   </aside>
-  
-</body>
-</html>
-  </script>
-  <script src="app.js"></script>
 
+  <!-- SCRIPT LIBRARIES -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="china-data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

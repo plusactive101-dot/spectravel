@@ -192,7 +192,18 @@ function switchChinaView(viewName, shouldScroll = false) {
   if (normalized === 'mindmap') {
     setTimeout(() => {
       initRegionalMap();
+      if (typeof window.syncAttractionsMap === 'function') {
+        window.syncAttractionsMap();
+      }
+      if (typeof window.updateRoutePolyline === 'function') {
+        window.updateRoutePolyline();
+      }
     }, 100);
+  }
+  if (normalized === 'attractions') {
+    if (typeof window.renderAttractionsGrid === 'function') {
+      window.renderAttractionsGrid();
+    }
   }
 
   // Smooth scroll to view if requested
@@ -1184,6 +1195,8 @@ function initRegionalMap() {
       scrollWheelZoom: true,
       attributionControl: false
     }).setView([22.95, 113.60], 9);
+    window.map = regionalMapInstance;
+    window.regionalMapInstance = regionalMapInstance;
 
     // Apply default base layer
     setMapBaseLayer(currentBaseLayerName);
@@ -1671,261 +1684,52 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Attractions Filtering
-function filterAttractionsCards(category) {
-  document.querySelectorAll('.attraction-filter-btn').forEach(btn => {
-    if (btn.dataset.category === category) {
-      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md";
-    } else {
-      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
-    }
-  });
-
-  document.querySelectorAll('.attraction-card').forEach(card => {
-    if (category === 'all' || card.dataset.category === category) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
-    }
-  });
-}
-
-function initApp() {
-  const rawHash = window.location.hash ? window.location.hash.replace('#', '') : '';
-  const hash = (rawHash === 'food' || rawHash === 'restaurant' || rawHash === 'restaurants') ? 'dining' : rawHash;
-  const validViews = ['flowchart', 'schedule', 'hotels', 'attractions', 'dining', 'mindmap', 'budget'];
-  const initialView = validViews.includes(hash) ? hash : 'flowchart';
-  
-  switchChinaView(initialView, Boolean(hash));
-
-  try { renderDailySchedule('all'); } catch (e) { console.error('China schedule err:', e); }
-  try { renderRestaurants('all'); } catch (e) { console.error('China dining err:', e); }
-  try { calculateChinaBudget(); } catch (e) { console.error('China budget err:', e); }
-  try { window.renderAttractionsGrid('All'); } catch (e) { console.error('Attractions render err:', e); }
-
-  window.addEventListener('hashchange', () => {
-    const raw = window.location.hash ? window.location.hash.replace('#', '') : '';
-    const currentHash = (raw === 'food' || raw === 'restaurant' || raw === 'restaurants') ? 'dining' : raw;
-    if (validViews.includes(currentHash) && currentHash !== activeChinaView) {
-      switchChinaView(currentHash, true);
-    }
-  });
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initApp);
-} else {
-  initApp();
-}
-
-// --- ATTRACTION DRAWER RENDERER ---
-window.openAttraction = function(id) {
-    if (typeof expeditionAttractions === 'undefined') return;
-    const att = expeditionAttractions.find(a => a.id === id);
-    if(!att) return;
-
-    const drawerTitle = document.getElementById('drawerTitle');
-    const drawerBadge = document.getElementById('drawerBadge');
-    const drawerDate = document.getElementById('drawerDate');
-    const drawerSubtitle = document.getElementById('drawerSubtitle');
-
-    if (drawerTitle) drawerTitle.innerHTML = '<i class="fa-solid fa-map-location-dot"></i> ' + att.name;
-    if (drawerSubtitle) drawerSubtitle.textContent = (att.category || '') + ' • ' + (att.timeAlloc || '');
-    if (drawerBadge) drawerBadge.textContent = att.category || 'ATTRACTION';
-    if (drawerDate) drawerDate.textContent = att.timeAlloc || '';
-
-    let html = '<div class="space-y-6 mt-4">';
-
-    if(att.photos && att.photos.length > 0) {
-        html += '<div class="flex overflow-x-auto gap-3 pb-2 snap-x">';
-        att.photos.forEach(img => {
-            html += '<img src="' + img + '" class="h-48 w-64 rounded-xl object-cover snap-center border border-white/10 shadow-lg flex-shrink-0">';
-        });
-        html += '</div>';
-    }
-
-    if(att.activities && att.activities.length > 0) {
-        html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Key Activities</h4><ul class="space-y-2 text-sm text-slate-300">';
-        att.activities.forEach(act => {
-            html += '<li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> <span>' + act + '</span></li>';
-        });
-        html += '</ul></div>';
-    }
-
-    if(att.areaMap) {
-        html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Transit & Access</h4><div class="bg-white/5 p-3 rounded-lg border border-white/10 text-sm text-slate-300 flex items-start gap-3"><i class="fa-solid fa-train-subway text-slate-400 mt-1"></i> <p>' + att.areaMap + '</p></div></div>';
-    }
-
-    if(att.nearbyRecs && att.nearbyRecs.length > 0) {
-         html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Nearby Explorations</h4><div class="flex flex-wrap gap-2">';
-         att.nearbyRecs.forEach(rec => {
-             html += '<span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 rounded-md text-xs font-medium border border-emerald-500/30">' + rec + '</span>';
-         });
-         html += '</div></div>';
-    }
-
-    if(att.reviews && att.reviews.length > 0) {
-         html += '<div><h4 class="text-sm font-bold text-rose-400 mb-2 uppercase tracking-wider">Video Reviews</h4><div class="flex flex-col gap-2">';
-         att.reviews.forEach(rev => {
-             html += '<a href="' + rev.url + '" target="_blank" class="inline-flex items-center gap-2 text-sm text-rose-300 hover:text-white hover:underline bg-rose-500/10 px-3 py-2 rounded border border-rose-500/20"><i class="fa-brands fa-youtube text-red-500"></i> ' + rev.title + '</a>';
-         });
-         html += '</div></div>';
-    }
-
-    if(att.guideUrls && att.guideUrls.length > 0) {
-         html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Reference Links</h4><div class="flex flex-col gap-2">';
-         att.guideUrls.forEach(url => {
-             html += '<a href="' + url + '" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 hover:underline"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Official Guide</a>';
-         });
-         html += '</div></div>';
-    }
-
-    html += '</div>';
-    const drawerBody = document.getElementById('drawerBody');
-    if (drawerBody) drawerBody.innerHTML = html;
-
-    const drawer = document.getElementById('inspectorDrawer');
-    const panel = document.getElementById('drawerPanel');
-    const overlay = document.getElementById('drawerOverlay');
-
-    if (drawer) {
-        drawer.style.display = 'block';
-        drawer.classList.remove('translate-x-full');
-        requestAnimationFrame(() => {
-            drawer.style.opacity = '1';
-            drawer.style.pointerEvents = 'auto';
-            if (panel) panel.style.transform = 'translateX(0)';
-        });
-        document.body.style.overflow = 'hidden';
-    }
-    if (overlay) {
-        overlay.classList.remove('hidden');
-        overlay.classList.add('opacity-100');
-    }
-};
-
-
-// --- DYNAMIC ATTRACTIONS GRID RENDERER ---
-window.renderAttractionsGrid = function(filterCategory) {
-  const container = document.getElementById('attractionsGridContainer') || 
-                    document.getElementById('attractions-grid') || 
-                    document.getElementById('attractions-container') || 
-                    document.querySelector('.attractions-grid');
-  
-  if (!container) {
-    console.warn('[-] Attractions grid container not found in DOM.');
-    return;
-  }
-
-  const rawAttractions = window.expeditionAttractions || [];
-  const activeFilter = filterCategory || 'All';
-
-  const categoryMap = {
-    'Guangzhou Panyu': ['panyu'],
-    'Chimelong Safari & Circus': ['chimelong'],
-    'Canton Heritage': ['canton heritage', 'canton'],
-    'Qingyuan Gulong Gorge': ['qingyuan'],
-    'Shenzhen Nanshan Tech': ['shenzhen'],
-    'Hong Kong Mong Kok & Harbour': ['hong kong', 'hongkong']
-  };
-
-  const filtered = rawAttractions.filter(item => {
-    if (!activeFilter || activeFilter === 'All' || activeFilter === 'all') return true;
-    
-    // Region / category exact match
-    if (item.region === activeFilter || item.category === activeFilter) return true;
-
-    // Pattern alias matching for base buttons
-    const patterns = categoryMap[activeFilter];
-    if (patterns) {
-      const regLower = (item.region || '').toLowerCase();
-      const catLower = (item.category || '').toLowerCase();
-      return patterns.some(p => regLower.includes(p) || catLower.includes(p));
-    }
-
-    if (activeFilter === 'Nature & Hiking') {
-      return item.category === 'Nature & Hiking' || item.category === 'Nature & Parks';
-    }
-    return item.region === activeFilter || item.category === activeFilter;
-  });
-
-  const cardsHtml = filtered.map(item => {
-    const nameZhDisplay = item.nameZh ? '<span class="ml-2 text-xs font-medium px-2 py-0.5 rounded bg-gray-800 text-amber-300 border border-amber-900/40">' + item.nameZh + '</span>' : '';
-    const regionBadge = item.region ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + item.region + '</span>' : '';
-    const categoryBadge = item.category ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">' + item.category + '</span>' : '';
-    const reviewText = item.review || item.desc || (item.activities ? item.activities.join(' • ') : '');
-    const reviewQuote = reviewText ? '<p class="mt-2 text-xs text-gray-300 italic border-l-2 border-amber-500/60 pl-2 line-clamp-2">"' + reviewText + '"</p>' : '';
-    const addressDisplay = item.address ? '<div class="mt-2 text-xs text-gray-400 flex items-start gap-1"><span>📍</span><span class="truncate">' + item.address + '</span></div>' : '';
-    const websiteBtn = item.website ? '<a href="' + item.website + '" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 text-xs font-semibold rounded bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 transition-colors">🌐 Site</a>' : '';
-    
-    // Taxi copy payload
-    const safeAddress = (item.address || '').replace(/'/g, "\\'");
-    const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
-    const safeId = (item.id || '').replace(/'/g, "\\'");
-
-    return '<div class="attraction-card bg-gray-900/90 border border-gray-800 rounded-xl p-4 flex flex-col justify-between hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-200">' +
-      '<div>' +
-        '<div class="flex items-center justify-between gap-2 flex-wrap mb-2">' +
-          '<div class="flex items-center gap-1.5 flex-wrap">' +
-            regionBadge +
-            categoryBadge +
-          '</div>' +
-          websiteBtn +
-        '</div>' +
-        '<h3 class="text-base font-bold text-white flex items-center flex-wrap mt-1 cursor-pointer hover:text-amber-400" onclick="window.openAttraction(\'' + safeId + '\')">' +
-          item.name +
-          nameZhDisplay +
-        '</h3>' +
-        addressDisplay +
-        reviewQuote +
-      '</div>' +
-      '<div class="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between gap-2 flex-wrap">' +
-        '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-colors">' +
-          '<span>🚕</span> Copy Didi Address' +
-        '</button>' +
-        '<div class="flex items-center gap-1.5">' +
-          '<button onclick="event.stopPropagation(); window.toggleStageAttraction(\'' + safeId + '\')" data-poi-id="' + safeId + '" class="route-stage-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 hover:border-amber-500/50 transition-colors"><span>+</span> Route</button>' +
-          '<button onclick="event.stopPropagation(); window.openAttractionDrawer(\'' + safeId + '\')" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-slate-950 border border-cyan-500/40 transition-colors"><span>ℹ️</span> Specs</button>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
-  }).join('');
-
-  container.innerHTML = cardsHtml;
-
-  const countBadge = document.getElementById('attractions-count');
-  if (countBadge) {
-    countBadge.textContent = filtered.length;
-  }
-};
-
-// Update filterAttractionsCards to trigger dynamic re-render
-window.filterAttractionsCards = function(category) {
-  const buttons = document.querySelectorAll('.attraction-filter-btn, .filter-btn, .region-tab-btn');
-  buttons.forEach(btn => {
-    const dataCat = btn.getAttribute('data-category') || btn.getAttribute('data-filter') || btn.textContent.trim();
-    if (dataCat === category) {
-      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md";
-    } else {
-      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
-    }
-  });
-
-  if (typeof window.renderAttractionsGrid === 'function') {
-    window.renderAttractionsGrid(category);
-  }
-};
-
-
 // ============================================================================
-// PHASE 4: MAP CANVAS SYNCHRONIZATION & BILINGUAL SEARCH ENGINE
+// PHASE 1-6 UNIFIED ATTRACTIONS, MAP SYNC, SPEC DRAWER & ROUTE BUILDER SUITE
 // ============================================================================
 
 window.__activeAttractionFilter = 'All';
 window.__attractionSearchQuery = '';
 window.__attractionMarkerMap = new Map();
 
-// Color definitions for map markers by category
+// --- 1. TOAST NOTIFICATIONS & TAXI COPY ---
+function showTaxiToast(label) {
+  let toast = document.getElementById('taxi-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'taxi-toast';
+    toast.className = 'fixed bottom-8 right-8 z-[9999] px-4 py-3 rounded-2xl bg-gray-900/95 text-amber-300 font-bold border border-amber-500/40 shadow-2xl backdrop-blur-md transition-all duration-300 transform translate-y-10 opacity-0 flex items-center gap-2.5 text-xs select-none';
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = '<span class="text-base">🚕</span> <span>Copied for Didi driver: <strong>' + (label || 'Destination') + '</strong></span>';
+  toast.classList.remove('translate-y-10', 'opacity-0');
+  toast.classList.add('translate-y-0', 'opacity-100');
+
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.classList.remove('translate-y-0', 'opacity-100');
+    toast.classList.add('translate-y-10', 'opacity-0');
+  }, 2500);
+}
+
+window.copyTaxiAddress = function(address, nameZh) {
+  const parts = [];
+  if (nameZh) parts.push(nameZh);
+  if (address) parts.push(address);
+  const text = parts.join(' - ');
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showTaxiToast(nameZh || address);
+    }).catch(() => {
+      prompt('Copy destination for Didi driver:', text);
+    });
+  } else {
+    prompt('Copy destination for Didi driver:', text);
+  }
+};
+
+// --- 2. MAP CANVAS MARKER STYLING ---
 function getMarkerColorByCategory(cat) {
   switch (cat) {
     case 'Heritage & Culture': return '#F59E0B'; // Amber
@@ -1939,17 +1743,12 @@ function getMarkerColorByCategory(cat) {
   }
 }
 
-// Sync Leaflet map with current filtered attractions
+// Synchronize Leaflet map with current filtered attractions
 window.syncAttractionsMap = function(items) {
-  if (typeof L === 'undefined') {
-    return; // Leaflet not loaded
-  }
+  if (typeof L === 'undefined') return;
 
-  // Detect Leaflet map instance on window
-  const map = window.map || window.leafletMap || window.mymap || (window.mapInstance ? window.mapInstance : null);
-  if (!map || typeof map.addLayer !== 'function') {
-    return;
-  }
+  const map = window.map || window.regionalMapInstance || (typeof regionalMapInstance !== 'undefined' ? regionalMapInstance : null);
+  if (!map || typeof map.addLayer !== 'function') return;
 
   if (!window.attractionsMarkerGroup) {
     window.attractionsMarkerGroup = L.layerGroup().addTo(map);
@@ -1958,9 +1757,10 @@ window.syncAttractionsMap = function(items) {
   }
   window.__attractionMarkerMap.clear();
 
+  const list = items || window.expeditionAttractions || [];
   const bounds = [];
 
-  items.forEach(item => {
+  list.forEach(item => {
     if (!item.coordinates || !Array.isArray(item.coordinates) || item.coordinates.length < 2) return;
     const lat = item.coordinates[0];
     const lng = item.coordinates[1];
@@ -1969,9 +1769,7 @@ window.syncAttractionsMap = function(items) {
     bounds.push([lat, lng]);
     const markerColor = getMarkerColorByCategory(item.category);
 
-    const iconHtml = `
-      <div style="background-color: ${markerColor}; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #ffffff; box-shadow: 0 0 6px rgba(0,0,0,0.5);"></div>
-    `;
+    const iconHtml = '<div style="background-color: ' + markerColor + '; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #ffffff; box-shadow: 0 0 6px rgba(0,0,0,0.5);"></div>';
     const customIcon = L.divIcon({
       className: 'custom-attraction-pin',
       html: iconHtml,
@@ -1980,19 +1778,21 @@ window.syncAttractionsMap = function(items) {
     });
 
     const marker = L.marker([lat, lng], { icon: customIcon });
-    
-    const nameZhLabel = item.nameZh ? ` (${item.nameZh})` : '';
+    const nameZhLabel = item.nameZh ? ' (' + item.nameZh + ')' : '';
     const safeAddress = (item.address || '').replace(/'/g, "\\'");
     const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
+    const safeId = (item.id || '').replace(/'/g, "\\'");
 
-    const popupHtml = `
-      <div style="font-family: inherit; font-size: 13px; line-height: 1.4; max-width: 240px; color: #111827;">
-        <strong style="color: #1F2937; display: block; font-size: 14px;">${item.name}${nameZhLabel}</strong>
-        <span style="display: inline-block; font-size: 11px; background: #E5E7EB; color: #374151; padding: 2px 6px; border-radius: 4px; margin: 4px 0;">${item.category || item.region}</span>
-        <p style="margin: 4px 0 6px; font-size: 12px; color: #4B5563;">${item.address || ''}</p>
-        <button onclick="window.copyTaxiAddress('${safeAddress}', '${safeNameZh}')" style="background: #F59E0B; color: #fff; border: none; border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 600; cursor: pointer;">🚕 Copy Taxi Address</button>
-      </div>
-    `;
+    const popupHtml = '<div style="font-family: inherit; font-size: 13px; line-height: 1.4; max-width: 250px; color: #111827;">' +
+      '<strong style="color: #1F2937; display: block; font-size: 14px;">' + item.name + nameZhLabel + '</strong>' +
+      '<span style="display: inline-block; font-size: 11px; background: #E5E7EB; color: #374151; padding: 2px 6px; border-radius: 4px; margin: 4px 0;">' + (item.category || item.region || 'Attraction') + '</span>' +
+      (item.address ? '<p style="margin: 4px 0 6px; font-size: 12px; color: #4B5563;">' + item.address + '</p>' : '') +
+      '<div style="display: flex; gap: 4px; margin-top: 6px;">' +
+        '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" style="background: #F59E0B; color: #fff; border: none; border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 600; cursor: pointer;">🚕 Taxi</button>' +
+        '<button onclick="window.openAttractionDrawer(\'' + safeId + '\')" style="background: #06B6D4; color: #fff; border: none; border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 600; cursor: pointer;">ℹ️ Specs</button>' +
+      '</div>' +
+    '</div>';
+
     marker.bindPopup(popupHtml);
 
     marker.on('click', () => {
@@ -2007,49 +1807,45 @@ window.syncAttractionsMap = function(items) {
     marker.addTo(window.attractionsMarkerGroup);
     window.__attractionMarkerMap.set(item.id, marker);
   });
-
-  if (bounds.length > 0 && typeof map.fitBounds === 'function') {
-    try {
-      map.fitBounds(bounds, { padding: [45, 45], maxZoom: 14 });
-    } catch (e) {
-      console.warn('Map fitBounds failed:', e);
-    }
-  }
 };
 
 window.focusAttractionOnMap = function(itemId) {
-  const marker = window.__attractionMarkerMap.get(itemId);
-  const map = window.map || window.leafletMap || window.mymap || (window.mapInstance ? window.mapInstance : null);
-  if (marker && map) {
-    map.panTo(marker.getLatLng(), { animate: true, duration: 0.5 });
-    marker.openPopup();
+  if (typeof activeChinaView !== 'undefined' && activeChinaView !== 'mindmap') {
+    if (typeof switchChinaView === 'function') {
+      switchChinaView('mindmap', true);
+    }
   }
+
+  setTimeout(() => {
+    const map = window.map || window.regionalMapInstance || (typeof regionalMapInstance !== 'undefined' ? regionalMapInstance : null);
+    const marker = window.__attractionMarkerMap.get(itemId);
+    if (marker && map) {
+      map.setView(marker.getLatLng(), 14, { animate: true, duration: 0.8 });
+      marker.openPopup();
+    }
+  }, 150);
 };
 
-// Upgraded render function integrating search query, regional filters & map sync
+// --- 3. DYNAMIC ATTRACTIONS GRID RENDERER ---
 window.renderAttractionsGrid = function(filterCategory) {
   const container = document.getElementById('attractionsGridContainer') || 
                     document.getElementById('attractions-grid') || 
                     document.getElementById('attractions-container') || 
                     document.querySelector('.attractions-grid');
   
-  if (!container) {
-    console.warn('[-] Attractions grid container not found in DOM.');
-    return;
-  }
+  if (!container) return;
 
   if (filterCategory !== undefined && filterCategory !== null) {
     window.__activeAttractionFilter = filterCategory;
   }
   const activeFilter = window.__activeAttractionFilter || 'All';
   const query = (window.__attractionSearchQuery || '').toLowerCase().trim();
-
   const rawAttractions = window.expeditionAttractions || [];
 
   const categoryMap = {
     'Guangzhou Panyu': ['panyu'],
     'Chimelong Safari & Circus': ['chimelong'],
-    'Canton Heritage': ['canton heritage', 'canton'],
+    'Canton Heritage': ['canton heritage', 'canton', 'guangzhou'],
     'Qingyuan Gulong Gorge': ['qingyuan'],
     'Shenzhen Nanshan Tech': ['shenzhen'],
     'Hong Kong Mong Kok & Harbour': ['hong kong', 'hongkong']
@@ -2066,8 +1862,8 @@ window.renderAttractionsGrid = function(filterCategory) {
       const regLower = (item.region || '').toLowerCase();
       const catLower = (item.category || '').toLowerCase();
       matchesCategory = categoryMap[activeFilter].some(p => regLower.includes(p) || catLower.includes(p));
-    } else if (activeFilter === 'Nature & Hiking') {
-      matchesCategory = (item.category === 'Nature & Hiking' || item.category === 'Nature & Parks');
+    } else {
+      matchesCategory = (item.region === activeFilter || item.category === activeFilter);
     }
 
     if (!matchesCategory) return false;
@@ -2086,7 +1882,16 @@ window.renderAttractionsGrid = function(filterCategory) {
   });
 
   const cardsHtml = filtered.map(item => {
+    const safeId = (item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/'/g, "\\'");
     const cardId = 'card-' + (item.id || item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+    const safeAddress = (item.address || '').replace(/'/g, "\\'");
+    const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
+
+    const imgUrl = item.image || (item.photos && item.photos[0]) || 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80';
+    const tag = item.tag || item.category || 'EXPEDITION SPOT';
+    const timeAlloc = item.timeAlloc || '';
+    const timeAllocBadge = timeAlloc ? '<span class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-cyan-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15"><i class="fa-solid fa-clock mr-1"></i> ' + timeAlloc + '</span>' : '';
+    
     const nameZhDisplay = item.nameZh ? '<span class="ml-2 text-xs font-medium px-2 py-0.5 rounded bg-gray-800 text-amber-300 border border-amber-900/40">' + item.nameZh + '</span>' : '';
     const regionBadge = item.region ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + item.region + '</span>' : '';
     const categoryBadge = item.category ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">' + item.category + '</span>' : '';
@@ -2094,36 +1899,53 @@ window.renderAttractionsGrid = function(filterCategory) {
     const reviewQuote = reviewText ? '<p class="mt-2 text-xs text-gray-300 italic border-l-2 border-amber-500/60 pl-2 line-clamp-2">"' + reviewText + '"</p>' : '';
     const addressDisplay = item.address ? '<div class="mt-2 text-xs text-gray-400 flex items-start gap-1"><span>📍</span><span class="truncate">' + item.address + '</span></div>' : '';
     const websiteBtn = item.website ? '<a href="' + item.website + '" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 text-xs font-semibold rounded bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 transition-colors">🌐 Site</a>' : '';
-    
-    const safeAddress = (item.address || '').replace(/'/g, "\\'");
-    const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
-    const safeId = (item.id || '').replace(/'/g, "\\'");
 
-    return '<div id="' + cardId + '" ' +
-           'onmouseenter="window.focusAttractionOnMap(\'' + safeId + '\')" ' +
-           'class="attraction-card bg-gray-900/90 border border-gray-800 rounded-xl p-4 flex flex-col justify-between hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-200 cursor-pointer">' +
+    const isStaged = (window.__stagedAttractions || []).includes(item.id);
+
+    return '<div id="' + cardId + '" class="attraction-card glass-card glow-cyan rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300">' +
       '<div>' +
-        '<div class="flex items-center justify-between gap-2 flex-wrap mb-2">' +
-          '<div class="flex items-center gap-1.5 flex-wrap">' +
-            regionBadge +
-            categoryBadge +
+        '<!-- Hero Image Banner -->' +
+        '<div class="relative h-48 sm:h-52 overflow-hidden group cursor-pointer" onclick="window.openAttractionDrawer(\'' + safeId + '\')">' +
+          '<img src="' + imgUrl + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="' + item.name + '" loading="lazy">' +
+          '<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent"></div>' +
+          '<span class="absolute top-3 left-3 bg-cyan-500 text-slate-950 font-black px-2.5 py-1 rounded-xl text-[11px] mono shadow-md">' + tag + '</span>' +
+          timeAllocBadge +
+          '<div class="absolute bottom-3 left-4 right-4">' +
+            '<h3 class="text-lg font-black text-white group-hover:text-cyan-300 transition flex items-center gap-1.5 flex-wrap">' +
+              item.name +
+              nameZhDisplay +
+            '</h3>' +
+            '<p class="text-xs text-cyan-300 font-mono mt-0.5">' + (item.category || item.region || '') + '</p>' +
           '</div>' +
-          websiteBtn +
         '</div>' +
-        '<h3 class="text-base font-bold text-white flex items-center flex-wrap mt-1 cursor-pointer hover:text-amber-400" onclick="window.openAttraction(\'' + safeId + '\')">' +
-          item.name +
-          nameZhDisplay +
-        '</h3>' +
-        addressDisplay +
-        reviewQuote +
+        '<!-- Card Body -->' +
+        '<div class="p-4 space-y-3 text-xs">' +
+          '<div class="flex items-center justify-between gap-2 flex-wrap">' +
+            '<div class="flex items-center gap-1.5 flex-wrap">' +
+              regionBadge +
+              categoryBadge +
+            '</div>' +
+            websiteBtn +
+          '</div>' +
+          addressDisplay +
+          reviewQuote +
+        '</div>' +
       '</div>' +
-      '<div class="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between gap-2 flex-wrap">' +
-        '<button onclick="event.stopPropagation(); window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-colors">' +
-          '<span>🚕</span> Copy Didi Address' +
+      '<!-- Card Footer -->' +
+      '<div class="p-4 pt-0 border-t border-white/5 flex items-center justify-between gap-2 flex-wrap mt-3">' +
+        '<button onclick="event.stopPropagation(); window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-colors">' +
+          '<span>🚕</span> Copy Didi' +
         '</button>' +
         '<div class="flex items-center gap-1.5">' +
-          '<button onclick="event.stopPropagation(); window.toggleStageAttraction(\'' + safeId + '\')" data-poi-id="' + safeId + '" class="route-stage-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 hover:border-amber-500/50 transition-colors"><span>+</span> Route</button>' +
-          '<button onclick="event.stopPropagation(); window.openAttractionDrawer(\'' + safeId + '\')" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-slate-950 border border-cyan-500/40 transition-colors"><span>ℹ️</span> Specs</button>' +
+          '<button onclick="event.stopPropagation(); window.toggleStageAttraction(\'' + safeId + '\')" data-poi-id="' + safeId + '" class="route-stage-btn flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium ' + (isStaged ? 'bg-amber-500 text-slate-950 font-bold border-amber-400' : 'bg-white/10 hover:bg-white/15 text-slate-300 border border-white/10') + ' transition-colors">' +
+            '<span>' + (isStaged ? '✓' : '+') + '</span> Route' +
+          '</button>' +
+          '<button onclick="event.stopPropagation(); window.focusAttractionOnMap(\'' + safeId + '\')" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium bg-white/10 hover:bg-white/20 text-slate-300 border border-white/10 transition-colors" title="Pin on Map">' +
+            '<span>🗺️</span>' +
+          '</button>' +
+          '<button onclick="event.stopPropagation(); window.openAttractionDrawer(\'' + safeId + '\')" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-slate-950 border border-cyan-500/40 transition-colors">' +
+            '<span>ℹ️</span> Specs' +
+          '</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -2136,11 +1958,10 @@ window.renderAttractionsGrid = function(filterCategory) {
     countBadge.textContent = filtered.length;
   }
 
-  // Trigger real-time map pin sync
   window.syncAttractionsMap(filtered);
 };
 
-// Attach search listener with debouncing
+// --- 4. BILINGUAL SEARCH LISTENER ---
 function initAttractionsSearch() {
   const searchInput = document.getElementById('attractions-search-input');
   if (!searchInput) return;
@@ -2151,67 +1972,112 @@ function initAttractionsSearch() {
     debounceTimer = setTimeout(() => {
       window.__attractionSearchQuery = e.target.value;
       window.renderAttractionsGrid(null);
-    }, 200);
+    }, 180);
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initAttractionsSearch);
-} else {
-  initAttractionsSearch();
-}
+// --- 5. REGIONAL FILTER BUTTONS ---
+window.filterAttractionsCards = function(category) {
+  const buttons = document.querySelectorAll('.attraction-filter-btn, .filter-btn, .region-tab-btn');
+  buttons.forEach(btn => {
+    const dataCat = btn.getAttribute('data-category') || btn.getAttribute('data-filter') || btn.textContent.trim();
+    if (dataCat === category) {
+      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md";
+    } else {
+      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
+    }
+  });
 
-// ============================================================================
-// PHASE 5: SLIDE-OVER DETAIL DRAWER CONTROLLER
-// ============================================================================
+  window.renderAttractionsGrid(category);
+};
 
+// --- 6. UNIFIED SLIDE-OVER DETAIL DRAWER ---
 window.openAttractionDrawer = function(itemId) {
   const attractions = window.expeditionAttractions || [];
   const item = attractions.find(p => p.id === itemId || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId);
-  if (!item) {
-    if (typeof window.openAttraction === 'function') {
-      window.openAttraction(itemId);
-    }
-    return;
-  }
+  if (!item) return;
 
   const drawer = document.getElementById('attraction-detail-drawer');
   const backdrop = document.getElementById('attraction-drawer-backdrop');
   const body = document.getElementById('attraction-drawer-body');
-  if (!drawer || !backdrop || !body) {
-    if (typeof window.openAttraction === 'function') {
-      window.openAttraction(itemId);
-    }
-    return;
-  }
+  if (!drawer || !backdrop || !body) return;
 
-  const nameZhDisplay = item.nameZh ? '<span class="ml-2 text-sm font-medium px-2.5 py-1 rounded-md bg-gray-800 text-amber-300 border border-amber-900/40">' + item.nameZh + '</span>' : '';
+  const nameZhDisplay = item.nameZh ? '<span class="text-amber-300 font-mono text-sm ml-2">(' + item.nameZh + ')</span>' : '';
   const regionBadge = item.region ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + item.region + '</span>' : '';
   const categoryBadge = item.category ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">' + item.category + '</span>' : '';
-  
+  const timeAllocBadge = item.timeAlloc ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-purple-900/40 text-purple-300 border border-purple-700/40">⏱️ ' + item.timeAlloc + '</span>' : '';
+
   const safeAddress = (item.address || '').replace(/'/g, "\\'");
   const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
-  
+  const safeId = (item.id || '').replace(/'/g, "\\'");
+
   const lat = item.coordinates && item.coordinates[0] ? item.coordinates[0] : null;
   const lng = item.coordinates && item.coordinates[1] ? item.coordinates[1] : null;
   const navGoogleUrl = (lat && lng) ? ('https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng) : '#';
   const navAmapUrl = (lat && lng) ? ('https://uri.amap.com/marker?position=' + lng + ',' + lat + '&name=' + encodeURIComponent(item.nameZh || item.name)) : '#';
 
-  const websiteLink = item.website ? ('<div class="pt-2"><a href="' + item.website + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-amber-300 border border-gray-700 transition-colors"><span>🌐</span> Visit Official Portal</a></div>') : '';
-
-  let reviewsHtml = '';
-  if (item.reviews && item.reviews.length > 0) {
-    reviewsHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2"><div class="text-xs text-rose-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>📺</span> Video Reviews</div><div class="flex flex-col gap-2">';
-    item.reviews.forEach(r => {
-      reviewsHtml += '<a href="' + r.url + '" target="_blank" class="inline-flex items-center gap-2 text-xs text-rose-300 hover:text-white hover:underline bg-rose-500/10 px-3 py-2 rounded border border-rose-500/20"><i class="fa-brands fa-youtube text-red-500"></i> ' + r.title + '</a>';
-    });
-    reviewsHtml += '</div></div>';
+  // Photo gallery
+  let photoGalleryHtml = '';
+  const photos = item.photos || (item.image ? [item.image] : []);
+  if (photos.length > 0) {
+    photoGalleryHtml = '<div class="flex overflow-x-auto gap-3 pb-2 snap-x rounded-xl">' +
+      photos.map(p => '<img src="' + p + '" class="h-44 w-60 rounded-xl object-cover snap-center border border-white/10 shadow-lg flex-shrink-0" loading="lazy">').join('') +
+    '</div>';
   }
 
-  body.innerHTML = '<div>' +
+  // Key Activities
+  let activitiesHtml = '';
+  if (item.activities && item.activities.length > 0) {
+    activitiesHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
+      '<div class="text-xs text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>✨</span> Key Activities</div>' +
+      '<ul class="space-y-1.5 text-xs text-gray-300">' +
+        item.activities.map(a => '<li class="flex items-start gap-2"><span class="text-emerald-400">✓</span><span>' + a + '</span></li>').join('') +
+      '</ul>' +
+    '</div>';
+  }
+
+  // Transit & Access
+  let accessHtml = '';
+  if (item.areaMap) {
+    accessHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
+      '<div class="text-xs text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>🚇</span> Transit & Access</div>' +
+      '<p class="text-xs text-gray-300 font-mono">' + item.areaMap + '</p>' +
+    '</div>';
+  }
+
+  // Video reviews
+  let reviewsHtml = '';
+  if (item.reviews && item.reviews.length > 0) {
+    reviewsHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
+      '<div class="text-xs text-rose-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>📺</span> Video Reviews</div>' +
+      '<div class="flex flex-col gap-2">' +
+        item.reviews.map(r => '<a href="' + r.url + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-rose-300 hover:text-white hover:underline bg-rose-500/10 px-3 py-2 rounded-xl border border-rose-500/20"><i class="fa-brands fa-youtube text-red-500 text-sm"></i> ' + r.title + '</a>').join('') +
+      '</div>' +
+    '</div>';
+  }
+
+  // Nearby recommendations
+  let nearbyHtml = '';
+  if (item.nearbyRecs && item.nearbyRecs.length > 0) {
+    nearbyHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
+      '<div class="text-xs text-emerald-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>🧭</span> Nearby Recommendations</div>' +
+      '<div class="flex flex-wrap gap-1.5">' +
+        item.nearbyRecs.map(rec => '<span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-300 rounded-lg text-[11px] border border-emerald-500/20">' + rec + '</span>').join('') +
+      '</div>' +
+    '</div>';
+  }
+
+  const websiteLink = item.website ? ('<div class="pt-2"><a href="' + item.website + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-amber-300 border border-gray-700 transition-colors"><span>🌐</span> Visit Official Portal</a></div>') : '';
+
+  const isStaged = (window.__stagedAttractions || []).includes(item.id);
+
+  body.innerHTML = '<div class="space-y-4">' +
+    photoGalleryHtml +
+    '<div>' +
       '<div class="flex items-center gap-2 flex-wrap mb-2">' +
         regionBadge +
         categoryBadge +
+        timeAllocBadge +
       '</div>' +
       '<h1 class="text-xl font-bold text-white flex items-center flex-wrap gap-1">' +
         item.name +
@@ -2235,6 +2101,9 @@ window.openAttractionDrawer = function(itemId) {
         '<p class="text-sm text-gray-300 leading-relaxed italic">"' + (item.review || item.desc) + '"</p>' +
       '</div>'
     ) : '') +
+    activitiesHtml +
+    accessHtml +
+    nearbyHtml +
     reviewsHtml +
     '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-3">' +
       '<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
@@ -2250,11 +2119,20 @@ window.openAttractionDrawer = function(itemId) {
           '</a>' +
           '<a href="' + navGoogleUrl + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 transition-colors">' +
             'Google Maps' +
-          '</a>'
+          '</a>' +
+          '<button onclick="window.focusAttractionOnMap(\'' + safeId + '\')" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-purple-900/40 hover:bg-purple-900/60 text-purple-300 border border-purple-800 transition-colors">' +
+            '📍 Pin on Live Map' +
+          '</button>'
         ) : '') +
       '</div>' +
       websiteLink +
-    '</div>';
+    '</div>' +
+    '<div class="pt-2">' +
+      '<button onclick="window.toggleStageAttraction(\'' + safeId + '\'); window.openAttractionDrawer(\'' + safeId + '\');" class="w-full py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 ' + (isStaged ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20' : 'bg-white/10 hover:bg-white/20 text-white border border-white/10') + '">' +
+        '<span>' + (isStaged ? '✓' : '+') + '</span> ' + (isStaged ? 'Remove from Staged Route' : 'Add to Staged Custom Route') +
+      '</button>' +
+    '</div>' +
+  '</div>';
 
   backdrop.classList.remove('opacity-0', 'pointer-events-none');
   backdrop.classList.add('opacity-100');
@@ -2273,17 +2151,20 @@ window.closeAttractionDrawer = function() {
   document.body.style.overflow = '';
 };
 
-// Global Escape Key Listener for modal dismissal
+// Backward-compatible alias
+window.openAttraction = function(id) {
+  window.openAttractionDrawer(id);
+};
+
+// Global Escape Key Listener for drawer dismissal
 window.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     window.closeAttractionDrawer();
+    window.closeRouteDrawer();
   }
 });
 
-// ============================================================================
-// PHASE 6: TRIP STAGING DRAWER & ROUTE POLYLINE BUILDER
-// ============================================================================
-
+// --- 7. PHASE 6 TRIP STAGING DRAWER & ROUTE BUILDER ---
 window.__stagedAttractions = (function() {
   try {
     return JSON.parse(localStorage.getItem('mktravel_staged_route') || '[]');
@@ -2293,9 +2174,7 @@ window.__stagedAttractions = (function() {
 })();
 
 window.__routePolylineLayer = null;
-window.__routeWaypointGroup = null;
 
-// Toggle attraction in custom staged route
 window.toggleStageAttraction = function(itemId) {
   const attractions = window.expeditionAttractions || [];
   const item = attractions.find(p => p.id === itemId || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId);
@@ -2326,7 +2205,6 @@ window.clearStagedRoute = function() {
   window.updateRouteUI();
 };
 
-// Update all UI elements related to route state
 window.updateRouteUI = function() {
   const count = window.__stagedAttractions.length;
   const badge = document.getElementById('staged-route-badge-count');
@@ -2337,10 +2215,10 @@ window.updateRouteUI = function() {
     const btnId = btn.getAttribute('data-poi-id');
     if (window.__stagedAttractions.includes(btnId)) {
       btn.innerHTML = '<span>✓</span> Staged';
-      btn.className = 'route-stage-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-500 text-gray-950 border border-amber-400 transition-colors';
+      btn.className = 'route-stage-btn flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-amber-500 text-gray-950 border border-amber-400 transition-colors';
     } else {
       btn.innerHTML = '<span>+</span> Route';
-      btn.className = 'route-stage-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 hover:border-amber-500/50 transition-colors';
+      btn.className = 'route-stage-btn flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium bg-white/10 hover:bg-white/15 text-slate-300 border border-white/10 transition-colors';
     }
   });
 
@@ -2348,7 +2226,6 @@ window.updateRouteUI = function() {
   window.updateRoutePolyline();
 };
 
-// Render staged attractions in the side drawer
 window.renderStagedRouteDrawer = function() {
   const container = document.getElementById('staged-route-items');
   if (!container) return;
@@ -2363,7 +2240,7 @@ window.renderStagedRouteDrawer = function() {
     container.innerHTML = '<div class="h-64 flex flex-col items-center justify-center text-center p-6 text-gray-500">' +
         '<span class="text-4xl mb-3">📍</span>' +
         '<p class="text-sm font-medium text-gray-400">Your route plan is empty.</p>' +
-        '<p class="text-xs text-gray-500 mt-1">Click \"+ Route\" on any attraction card to plot your custom journey.</p>' +
+        '<p class="text-xs text-gray-500 mt-1">Click "+ Route" on any attraction card to plot your custom journey.</p>' +
       '</div>';
     return;
   }
@@ -2376,15 +2253,16 @@ window.renderStagedRouteDrawer = function() {
 
     return '<div class="p-3.5 rounded-xl bg-gray-800/80 border border-gray-700/70 hover:border-amber-500/40 transition-colors flex items-start justify-between gap-3">' +
         '<div class="flex items-start gap-2.5">' +
-          '<span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-gray-950 text-xs font-bold font-mono">' +
+          '<span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-gray-950 font-black text-xs">' +
             sequence +
           '</span>' +
-          '<div>' +
-            '<div class="text-sm font-bold text-white flex items-center flex-wrap">' +
-              item.name + ' ' + nameZhDisplay +
-            '</div>' +
-            '<div class="text-xs text-gray-400 truncate max-w-[200px] mt-0.5">' + (item.address || item.region || '') + '</div>' +
-            '<div class="flex items-center gap-2 mt-2">' +
+          '<div class="space-y-1">' +
+            '<h4 class="text-sm font-bold text-white leading-tight cursor-pointer hover:text-amber-300" onclick="window.openAttractionDrawer(\'' + safeId + '\')">' +
+              item.name +
+              nameZhDisplay +
+            '</h4>' +
+            (item.address ? '<p class="text-xs text-gray-400 truncate max-w-[210px]">' + item.address + '</p>' : '') +
+            '<div class="flex items-center gap-1.5 pt-1">' +
               '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="text-[11px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 font-medium">' +
                 '🚕 Copy Didi' +
               '</button>' +
@@ -2401,10 +2279,9 @@ window.renderStagedRouteDrawer = function() {
   }).join('');
 };
 
-// Update Leaflet Route Polyline & Sequential Markers
 window.updateRoutePolyline = function() {
   if (typeof L === 'undefined') return;
-  const map = window.map || window.leafletMap || window.mymap || (window.mapInstance ? window.mapInstance : null);
+  const map = window.map || window.regionalMapInstance || (typeof regionalMapInstance !== 'undefined' ? regionalMapInstance : null);
   if (!map || typeof map.addLayer !== 'function') return;
 
   if (!window.__routePolylineLayer) {
@@ -2467,11 +2344,15 @@ window.copyStagedRouteSummary = function() {
 
   const itineraryText = "=== MY CHINA EXPEDITION DAY ROUTE ===\n\n" + staged.join("\n\n") + "\n\nGenerated via mktravel.pages.dev";
 
-  navigator.clipboard.writeText(itineraryText).then(() => {
-    alert("Day itinerary copied to clipboard!");
-  }).catch(err => {
-    console.error("Clipboard copy error:", err);
-  });
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(itineraryText).then(() => {
+      alert("Day itinerary copied to clipboard!");
+    }).catch(() => {
+      prompt("Copy day itinerary:", itineraryText);
+    });
+  } else {
+    prompt("Copy day itinerary:", itineraryText);
+  }
 };
 
 window.openRouteDrawer = function() {
@@ -2504,3 +2385,38 @@ window.toggleRouteDrawer = function() {
     window.closeRouteDrawer();
   }
 };
+
+// --- 8. GLOBAL APP INITIALIZATION ---
+function initApp() {
+  const rawHash = window.location.hash ? window.location.hash.replace('#', '') : '';
+  const hash = (rawHash === 'food' || rawHash === 'restaurant' || rawHash === 'restaurants') ? 'dining' : rawHash;
+  const validViews = ['flowchart', 'schedule', 'hotels', 'attractions', 'dining', 'mindmap', 'budget'];
+  const initialView = validViews.includes(hash) ? hash : 'flowchart';
+  
+  if (typeof switchChinaView === 'function') {
+    switchChinaView(initialView, Boolean(hash));
+  }
+
+  try { if (typeof renderDailySchedule === 'function') renderDailySchedule('all'); } catch (e) { console.error('China schedule err:', e); }
+  try { if (typeof renderRestaurants === 'function') renderRestaurants('all'); } catch (e) { console.error('China dining err:', e); }
+  try { if (typeof calculateChinaBudget === 'function') calculateChinaBudget(); } catch (e) { console.error('China budget err:', e); }
+  try { window.renderAttractionsGrid('All'); } catch (e) { console.error('Attractions render err:', e); }
+  try { window.updateRouteUI(); } catch (e) { console.error('Route UI err:', e); }
+  try { initAttractionsSearch(); } catch (e) { console.error('Search init err:', e); }
+
+  window.addEventListener('hashchange', () => {
+    const raw = window.location.hash ? window.location.hash.replace('#', '') : '';
+    const currentHash = (raw === 'food' || raw === 'restaurant' || raw === 'restaurants') ? 'dining' : raw;
+    if (validViews.includes(currentHash) && currentHash !== activeChinaView) {
+      if (typeof switchChinaView === 'function') {
+        switchChinaView(currentHash, true);
+      }
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}

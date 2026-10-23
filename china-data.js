@@ -251,6 +251,9 @@ const itinerarySchedule = [
         ]
       }
     ];
+if (typeof window !== 'undefined') window.itinerarySchedule = itinerarySchedule;
+if (typeof globalThis !== 'undefined') globalThis.itinerarySchedule = itinerarySchedule;
+
 
     // -------------------------------------------------------------
     // 2. DEFAULT RESTAURANTS DATABASE
@@ -1981,13 +1984,12 @@ const hotelRoomsData = [
 if (typeof window !== 'undefined') window.hotelRoomsData = hotelRoomsData;
 if (typeof globalThis !== 'undefined') globalThis.hotelRoomsData = hotelRoomsData;
 
-
 // --- EXPEDITION ATTRACTIONS DATASET ---
 const expeditionAttractions = [
   {
     "id": "shawan",
     "name": "Shawan Ancient Town",
-    "category": "Guangzhou Panyu",
+    "category": "Heritage & Culture",
     "timeAlloc": "Late Afternoon (3h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-landmark",
@@ -2005,7 +2007,7 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
       "https://images.unsplash.com/photo-1528644499231-15f1d8f8a846?w=800&q=80",
       "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "activities": [
       "Stroll 800-year-old stone alleys",
@@ -2034,7 +2036,7 @@ const expeditionAttractions = [
   {
     "id": "dafushan",
     "name": "Dafushan Forest Park",
-    "category": "Guangzhou Panyu",
+    "category": "Nature & Hiking",
     "timeAlloc": "Morning (4h)",
     "tag": "PANYU • NATURE",
     "tagIcon": "fa-tree",
@@ -2077,7 +2079,7 @@ const expeditionAttractions = [
   {
     "id": "baomo",
     "name": "Baomo Garden",
-    "category": "Guangzhou Panyu",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (3h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-fan",
@@ -2120,7 +2122,7 @@ const expeditionAttractions = [
   {
     "id": "safari",
     "name": "Chimelong Safari Park",
-    "category": "Chimelong Safari & Circus",
+    "category": "Theme Parks & Wildlife",
     "timeAlloc": "Full Day (6-8h)",
     "tag": "CHIMELONG • PARK",
     "tagIcon": "fa-ticket",
@@ -2178,7 +2180,7 @@ const expeditionAttractions = [
   {
     "id": "circus",
     "name": "Chimelong International Circus",
-    "category": "Chimelong Safari & Circus",
+    "category": "Heritage & Culture",
     "timeAlloc": "Night Show (2h)",
     "tag": "CHIMELONG • SHOW",
     "tagIcon": "fa-masks-theater",
@@ -2232,7 +2234,7 @@ const expeditionAttractions = [
   {
     "id": "cantontower",
     "name": "Canton Tower (Guangzhou Tower)",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Night (3h)",
     "tag": "CANTON • LANDMARK",
     "tagIcon": "fa-tower-observation",
@@ -2263,12 +2265,21 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.cantontower.com/"
     ],
-    "reviews": []
+    "reviews": [],
+    "nameZh": "广州塔",
+    "address": "No. 222 West Yuejiang Road, Haizhu District, Guangzhou",
+    "coordinates": [
+      23.1065,
+      113.3245
+    ],
+    "review": "Visitors praise the 360-degree panoramic views from the open-air observation deck and describe the Bubble Tram at sunset as an unforgettable experience.",
+    "website": "https://www.cantontower.com/",
+    "region": "Canton Heritage"
   },
   {
     "id": "chenclan",
     "name": "Chen Clan Ancestral Hall",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (2h)",
     "tag": "CANTON • HERITAGE",
     "tagIcon": "fa-gopuram",
@@ -2286,7 +2297,7 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
       "https://images.unsplash.com/photo-1551042718-d9d300eb2d8b?w=800&q=80",
       "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "activities": [
       "Examine intricate roof crest ceramics",
@@ -2316,7 +2327,7 @@ const expeditionAttractions = [
   {
     "id": "dongshankou",
     "name": "Dongshankou Mansions",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Afternoon (3h)",
     "tag": "CANTON • LOCAL",
     "tagIcon": "fa-mug-hot",
@@ -2345,12 +2356,13 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.trip.com/"
     ],
-    "reviews": []
+    "reviews": [],
+    "region": "Canton Heritage"
   },
   {
     "id": "shamian",
     "name": "Shamian Island",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (2-3h)",
     "tag": "CANTON • HERITAGE",
     "tagIcon": "fa-building",
@@ -2403,7 +2415,7 @@ const expeditionAttractions = [
   {
     "id": "gulong",
     "name": "Qingyuan Gulong Gorge",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Full Day (8h)",
     "tag": "QINGYUAN • ALPINE",
     "tagIcon": "fa-mountain",
@@ -2421,7 +2433,7 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80",
       "https://images.unsplash.com/photo-1470072551573-04dc32c32cc1?w=800&q=80",
       "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Walk the 520m Glass Skywalk over the waterfall",
@@ -2452,12 +2464,13 @@ const expeditionAttractions = [
         "title": "Day 2 in China | Gulong Gorge | Go Karting",
         "url": "https://www.youtube.com/watch?v=abXLd03OajE"
       }
-    ]
+    ],
+    "region": "Qingyuan"
   },
   {
     "id": "indoorski",
     "name": "Shenzhen Karoo Ice & Snow World",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Skyline & Modern",
     "timeAlloc": "Half Day (4h)",
     "tag": "SHENZHEN • ACTION",
     "tagIcon": "fa-snowflake",
@@ -2487,12 +2500,13 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.trip.com/"
     ],
-    "reviews": []
+    "reviews": [],
+    "region": "Shenzhen"
   },
   {
     "id": "dji",
     "name": "DJI Sky City Global HQ",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Skyline & Modern",
     "timeAlloc": "Afternoon (2h)",
     "tag": "SHENZHEN • TECH",
     "tagIcon": "fa-microchip",
@@ -2510,7 +2524,7 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
       "https://images.unsplash.com/photo-1551694291-76495db600ed?w=800&q=80",
       "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Walk the glass suspension bridge connecting the twin towers",
@@ -2546,7 +2560,7 @@ const expeditionAttractions = [
   {
     "id": "talentpark",
     "name": "Shenzhen Talent Park",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Nature & Hiking",
     "timeAlloc": "Evening (2h)",
     "tag": "SHENZHEN • NATURE",
     "tagIcon": "fa-water",
@@ -2586,49 +2600,9 @@ const expeditionAttractions = [
     ]
   },
   {
-    "id": "victoria",
-    "name": "Victoria Harbour",
-    "category": "Hong Kong Mong Kok & Harbour",
-    "timeAlloc": "Sunset (3h)",
-    "tag": "HONG KONG • HARBOUR",
-    "tagIcon": "fa-ferry",
-    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80",
-    "desc": "The iconic waterway separating Hong Kong Island and Kowloon, best experienced via the historic Star Ferry at sunset.",
-    "meta1": {
-      "label": "LANDMARK",
-      "value": "World Famous Skyline"
-    },
-    "meta2": {
-      "label": "CRUISE",
-      "value": "Star Ferry"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80",
-      "https://images.unsplash.com/photo-1513686861775-6e06b7cbab98?w=800&q=80"
-    ],
-    "activities": [
-      "Ride the historic Star Ferry from Tsim Sha Tsui to Central",
-      "Watch the 8 PM Symphony of Lights laser show",
-      "Stroll along the Avenue of Stars taking in the skyline"
-    ],
-    "areaMap": "MTR Tsim Sha Tsui -> Star Ferry Pier",
-    "nearbyRecs": [
-      "K11 Musea"
-    ],
-    "guideUrls": [
-      "https://www.discoverhongkong.com/"
-    ],
-    "reviews": [
-      {
-        "title": "Hong Kong Victoria Harbour Walking Tour",
-        "url": "https://www.youtube.com/watch?v=48ecd730"
-      }
-    ]
-  },
-  {
     "id": "shamshuipo",
     "name": "Sham Shui Po",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Skyline & Modern",
     "timeAlloc": "Afternoon (3h)",
     "tag": "HONG KONG • LOCAL",
     "tagIcon": "fa-store",
@@ -2657,12 +2631,13 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.discoverhongkong.com/"
     ],
-    "reviews": []
+    "reviews": [],
+    "region": "Hong Kong"
   },
   {
     "id": "lionrock",
     "name": "Lion Rock Country Park",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Skyline & Modern",
     "timeAlloc": "Morning (4-5h)",
     "tag": "HONG KONG • NATURE",
     "tagIcon": "fa-mountain-sun",
@@ -2701,12 +2676,20 @@ const expeditionAttractions = [
         "title": "Lion Rock Hike: from Wong Tai Sin and back",
         "url": "https://www.youtube.com/watch?v=YRJZsGRWnfk"
       }
-    ]
+    ],
+    "nameZh": "獅子山郊野公園",
+    "address": "Wong Tai Sin / Kowloon, Hong Kong",
+    "coordinates": [
+      22.3525,
+      114.1852
+    ],
+    "review": "An iconic hike with steep rock staircases leading to a dramatic summit overlooking all of Kowloon and Victoria Harbour.",
+    "region": "Hong Kong"
   },
   {
     "id": "nanyue",
     "name": "Nanyue Garden",
-    "category": "Guangzhou Panyu",
+    "category": "Heritage & Culture",
     "timeAlloc": "Afternoon (2h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-vihara",
@@ -2722,7 +2705,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1596426466989-13653199bc4b?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "activities": [
       "Architecture tour"
@@ -2745,7 +2728,7 @@ const expeditionAttractions = [
   {
     "id": "lotus",
     "name": "Lotus Hill (Lianhua Shan)",
-    "category": "Guangzhou Panyu",
+    "category": "Heritage & Culture",
     "timeAlloc": "Half Day (4h)",
     "tag": "PANYU • SCENIC",
     "tagIcon": "fa-mountain-sun",
@@ -2761,7 +2744,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1623869274213-911e38ddf592?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "activities": [
       "Climb ancient quarry",
@@ -2770,12 +2753,13 @@ const expeditionAttractions = [
     "areaMap": "Metro L4 (Shiqi) -> Bus",
     "nearbyRecs": [],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Panyu"
   },
   {
     "id": "panyu_museum",
     "name": "Panyu Museum",
-    "category": "Guangzhou Panyu",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (2h)",
     "tag": "PANYU • CULTURE",
     "tagIcon": "fa-building-columns",
@@ -2791,7 +2775,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "activities": [
       "View ancient ships"
@@ -2814,7 +2798,7 @@ const expeditionAttractions = [
   {
     "id": "shiqiao",
     "name": "Shiqiao Pedestrian Street",
-    "category": "Guangzhou Panyu",
+    "category": "Heritage & Culture",
     "timeAlloc": "Evening (2h)",
     "tag": "PANYU • LOCAL",
     "tagIcon": "fa-store",
@@ -2830,7 +2814,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1555529733-0e67056058e1?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "activities": [
       "Shop for local goods",
@@ -2854,7 +2838,7 @@ const expeditionAttractions = [
   {
     "id": "yuyin",
     "name": "Yuyin Shanfang",
-    "category": "Guangzhou Panyu",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (2h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-leaf",
@@ -2870,7 +2854,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "activities": [
       "Explore pavilions",
@@ -2881,12 +2865,13 @@ const expeditionAttractions = [
       "Wanbo CBD"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Panyu"
   },
   {
     "id": "birds_park",
     "name": "Chimelong Birds Park",
-    "category": "Chimelong Safari & Circus",
+    "category": "Nature & Hiking",
     "timeAlloc": "Half Day (3-4h)",
     "tag": "CHIMELONG • NATURE",
     "tagIcon": "fa-dove",
@@ -2902,7 +2887,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
       "https://images.unsplash.com/photo-1498673295982-fbbdf1c60b5f?w=800&q=80",
       "https://images.unsplash.com/photo-1549487532-a50d26850c95?w=800&q=80"
     ],
@@ -2941,7 +2926,7 @@ const expeditionAttractions = [
   {
     "id": "paradise",
     "name": "Chimelong Paradise",
-    "category": "Chimelong Safari & Circus",
+    "category": "Heritage & Culture",
     "timeAlloc": "Full Day (8h)",
     "tag": "CHIMELONG • THRILL",
     "tagIcon": "fa-roller-coaster",
@@ -2990,7 +2975,7 @@ const expeditionAttractions = [
   {
     "id": "water_park",
     "name": "Chimelong Water Park",
-    "category": "Chimelong Safari & Circus",
+    "category": "Heritage & Culture",
     "timeAlloc": "Full Day (5h)",
     "tag": "CHIMELONG • WATER",
     "tagIcon": "fa-water-ladder",
@@ -3006,7 +2991,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1582650625119-3a31f841836d?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
       "https://images.unsplash.com/photo-1582236166099-27a3c7e42d76?w=800&q=80"
     ],
     "activities": [
@@ -3040,7 +3025,7 @@ const expeditionAttractions = [
   {
     "id": "chimelong_gondola",
     "name": "Chimelong Sky Gondola",
-    "category": "Chimelong Safari & Circus",
+    "category": "Theme Parks & Wildlife",
     "timeAlloc": "Morning (1h)",
     "tag": "CHIMELONG • SCENIC",
     "tagIcon": "fa-cable-car",
@@ -3056,7 +3041,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80"
     ],
     "activities": [
       "Aerial safari viewing",
@@ -3067,12 +3052,13 @@ const expeditionAttractions = [
       "Safari Park"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Chimelong"
   },
   {
     "id": "panda_village",
     "name": "Panda Village & Nursery",
-    "category": "Chimelong Safari & Circus",
+    "category": "Theme Parks & Wildlife",
     "timeAlloc": "Morning (2h)",
     "tag": "CHIMELONG • WILDLIFE",
     "tagIcon": "fa-paw",
@@ -3088,7 +3074,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1527153857715-3908f2ae5e81?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80"
     ],
     "activities": [
       "Watch panda feeding",
@@ -3099,12 +3085,13 @@ const expeditionAttractions = [
       "Sky Gondola"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Chimelong"
   },
   {
     "id": "wanbo_cbd",
     "name": "Wanbo CBD Skyline",
-    "category": "Chimelong Safari & Circus",
+    "category": "Theme Parks & Wildlife",
     "timeAlloc": "Evening (2h)",
     "tag": "CHIMELONG • URBAN",
     "tagIcon": "fa-city",
@@ -3120,7 +3107,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80"
     ],
     "activities": [
       "CBD night walk",
@@ -3131,12 +3118,13 @@ const expeditionAttractions = [
       "Chimelong Resort"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Chimelong"
   },
   {
     "id": "beijing_road",
     "name": "Beijing Road & Dafo Temple",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Evening (3h)",
     "tag": "CANTON • HERITAGE",
     "tagIcon": "fa-gopuram",
@@ -3152,7 +3140,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "activities": [
       "See illuminated temple",
@@ -3163,12 +3151,13 @@ const expeditionAttractions = [
       "People’s Park"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Canton Heritage"
   },
   {
     "id": "yongqing_fang",
     "name": "Yongqing Fang & Cantonese Opera",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Afternoon (3h)",
     "tag": "CANTON • CULTURE",
     "tagIcon": "fa-guitar",
@@ -3184,7 +3173,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "activities": [
       "Explore Xiguan mansions",
@@ -3195,12 +3184,13 @@ const expeditionAttractions = [
       "Shamian Island"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Canton Heritage"
   },
   {
     "id": "canton_tower",
     "name": "Canton Tower & Haixin Bridge",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Evening (3h)",
     "tag": "CANTON • ICONIC",
     "tagIcon": "fa-tower-broadcast",
@@ -3216,7 +3206,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "activities": [
       "Cross Haixin Bridge",
@@ -3227,16 +3217,17 @@ const expeditionAttractions = [
       "Huacheng Square"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Canton Heritage"
   },
   {
     "id": "baiyun_mountain",
     "name": "Baiyun Mountain (White Cloud)",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (4h)",
     "tag": "CANTON • NATURE",
     "tagIcon": "fa-cloud-sun",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "desc": "Guangzhou’s scenic mountain lungs offering lush trail climbs and bird cage sanctuaries.",
     "meta1": {
       "label": "PEAK",
@@ -3247,8 +3238,8 @@ const expeditionAttractions = [
       "value": "Baiyun Ropeway"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "activities": [
       "Hike Moxing Ridge",
@@ -3259,12 +3250,13 @@ const expeditionAttractions = [
       "Yuntai Garden"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Canton Heritage"
   },
   {
     "id": "liwan_lake",
     "name": "Liwan Lake Park & Pantang",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (2h)",
     "tag": "CANTON • LOCAL",
     "tagIcon": "fa-water",
@@ -3280,7 +3272,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "activities": [
       "Paddle boating",
@@ -3291,12 +3283,13 @@ const expeditionAttractions = [
       "Yongqing Fang"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Canton Heritage"
   },
   {
     "id": "sacred_heart",
     "name": "Sacred Heart Cathedral (Stone House)",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Morning (1h)",
     "tag": "CANTON • HERITAGE",
     "tagIcon": "fa-church",
@@ -3312,7 +3305,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1548625361-16a75f0a28f4?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "activities": [
       "View stained glass",
@@ -3337,11 +3330,11 @@ const expeditionAttractions = [
   {
     "id": "gulong_glass",
     "name": "Gulong Glass Grand Canyon",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Morning (3h)",
     "tag": "QINGYUAN • SCENIC",
     "tagIcon": "fa-bridge-water",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
     "desc": "Transparent glass suspension bridge hanging hundreds of meters directly above roaring waterfalls.",
     "meta1": {
       "label": "SPAN",
@@ -3352,8 +3345,8 @@ const expeditionAttractions = [
       "value": "202m Drop"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80"
     ],
     "activities": [
       "Glass platform walk",
@@ -3364,12 +3357,20 @@ const expeditionAttractions = [
       "Gulong Coaster"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "nameZh": "古龙峡玻璃大峡谷",
+    "address": "Gulong Gorge Scenic Area, Qingxin District, Qingyuan",
+    "coordinates": [
+      23.7428,
+      112.9345
+    ],
+    "review": "A 520-meter transparent suspension bridge suspended high above a roaring canyon waterfall.",
+    "region": "Qingyuan"
   },
   {
     "id": "gulong_waterfall",
     "name": "Wanxian Waterfall Cascades",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Morning (2h)",
     "tag": "QINGYUAN • NATURE",
     "tagIcon": "fa-waterfall",
@@ -3385,7 +3386,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Rainforest canyon trekking",
@@ -3396,12 +3397,13 @@ const expeditionAttractions = [
       "Glass Canyon"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Qingyuan"
   },
   {
     "id": "gulong_coaster",
     "name": "Gulong Jungle Mountain Coaster",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Afternoon (1h)",
     "tag": "QINGYUAN • THRILL",
     "tagIcon": "fa-car-side",
@@ -3417,7 +3419,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
     ],
     "activities": [
       "High-speed downhill toboggan ride"
@@ -3427,16 +3429,17 @@ const expeditionAttractions = [
       "Rafting"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Qingyuan"
   },
   {
     "id": "yingxi_forest",
     "name": "Yingxi Peak Forest Corridor",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Full Day (6h)",
     "tag": "QINGYUAN • KARST",
     "tagIcon": "fa-mountain-city",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     "desc": "Guangdong’s picturesque mini-Guilin featuring thousands of limestone karst mountain peaks.",
     "meta1": {
       "label": "GEOLOGY",
@@ -3447,8 +3450,8 @@ const expeditionAttractions = [
       "value": "20km Corridor"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
     ],
     "activities": [
       "Bamboo raft on peaceful river",
@@ -3459,12 +3462,13 @@ const expeditionAttractions = [
       "Dongtian Cave"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Qingyuan"
   },
   {
     "id": "dongtian_cave",
     "name": "Dongtian Wonderland (Chuantian Yan)",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Afternoon (3h)",
     "tag": "QINGYUAN • NATURE",
     "tagIcon": "fa-icicles",
@@ -3480,7 +3484,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80"
     ],
     "activities": [
       "Underground boat cave cruise",
@@ -3491,12 +3495,13 @@ const expeditionAttractions = [
       "Yingxi Forest"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Qingyuan"
   },
   {
     "id": "feilai_temple",
     "name": "Feilai Temple & Beijiang River",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Morning (3h)",
     "tag": "QINGYUAN • HERITAGE",
     "tagIcon": "fa-ship",
@@ -3512,7 +3517,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1596426466989-13653199bc4b?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Scenic Beijiang cruise",
@@ -3523,12 +3528,13 @@ const expeditionAttractions = [
       "Gulong Gorge"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Qingyuan"
   },
   {
     "id": "qingyuan_hotspring",
     "name": "Yinzhan Forest Hot Springs",
-    "category": "Qingyuan Gulong Gorge",
+    "category": "Nature & Hiking",
     "timeAlloc": "Evening (3h)",
     "tag": "QINGYUAN • RELAX",
     "tagIcon": "fa-hot-tub-person",
@@ -3544,7 +3550,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
     ],
     "activities": [
       "Soak in mineral forest pools",
@@ -3555,12 +3561,13 @@ const expeditionAttractions = [
       "Gulong Gorge"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Qingyuan"
   },
   {
     "id": "tencent_hq",
     "name": "Tencent Binhai Mansion HQ",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Skyline & Modern",
     "timeAlloc": "Afternoon (1h)",
     "tag": "SHENZHEN • TECH",
     "tagIcon": "fa-laptop-code",
@@ -3576,7 +3583,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Exterior architecture photography",
@@ -3587,12 +3594,13 @@ const expeditionAttractions = [
       "DJI Sky City"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Shenzhen"
   },
   {
     "id": "oct_loft",
     "name": "OCT-LOFT Creative Park",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Skyline & Modern",
     "timeAlloc": "Afternoon (3h)",
     "tag": "SHENZHEN • ART",
     "tagIcon": "fa-palette",
@@ -3608,7 +3616,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "activities": [
       "Art gallery hops",
@@ -3619,12 +3627,13 @@ const expeditionAttractions = [
       "Splendid China"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Shenzhen"
   },
   {
     "id": "dasha_river",
     "name": "Dasha River Ecological Corridor",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Nature & Hiking",
     "timeAlloc": "Morning (2h)",
     "tag": "SHENZHEN • NATURE",
     "tagIcon": "fa-person-biking",
@@ -3640,7 +3649,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Riverside cycling",
@@ -3664,7 +3673,7 @@ const expeditionAttractions = [
   {
     "id": "sea_world",
     "name": "Shekou Sea World & Culture Center",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Skyline & Modern",
     "timeAlloc": "Evening (3h)",
     "tag": "SHENZHEN • EXPAT",
     "tagIcon": "fa-anchor",
@@ -3680,7 +3689,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "activities": [
       "Musical fountain show",
@@ -3691,12 +3700,13 @@ const expeditionAttractions = [
       "Dananshan"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Shenzhen"
   },
   {
     "id": "dananshan",
     "name": "Dananshan Park Hike",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Skyline & Modern",
     "timeAlloc": "Morning (3h)",
     "tag": "SHENZHEN • HIKE",
     "tagIcon": "fa-hiking",
@@ -3712,7 +3722,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Ascend stone stairway",
@@ -3723,12 +3733,13 @@ const expeditionAttractions = [
       "Shekou Sea World"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Shenzhen"
   },
   {
     "id": "pingan_finance",
     "name": "Ping An Finance Centre",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Heritage & Culture",
     "timeAlloc": "Sunset (2h)",
     "tag": "SHENZHEN • SKYSCRAPER",
     "tagIcon": "fa-building-ngo",
@@ -3744,7 +3755,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "activities": [
       "High-speed elevator",
@@ -3768,7 +3779,7 @@ const expeditionAttractions = [
   {
     "id": "shenzhen_bay",
     "name": "Shenzhen Bay Coastal Park",
-    "category": "Shenzhen Nanshan Tech",
+    "category": "Skyline & Modern",
     "timeAlloc": "Morning (2h)",
     "tag": "SHENZHEN • COASTAL",
     "tagIcon": "fa-feather",
@@ -3784,7 +3795,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80"
     ],
     "activities": [
       "Seaside cycling",
@@ -3795,12 +3806,13 @@ const expeditionAttractions = [
       "Talent Park"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Shenzhen"
   },
   {
     "id": "mongkok_markets",
     "name": "Mong Kok Ladies Market & Goldfish St",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Skyline & Modern",
     "timeAlloc": "Evening (3h)",
     "tag": "HONG KONG • SHOPPING",
     "tagIcon": "fa-bag-shopping",
@@ -3816,7 +3828,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "activities": [
       "Bargain hunt at Ladies Market",
@@ -3827,12 +3839,13 @@ const expeditionAttractions = [
       "Langham Place"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Hong Kong"
   },
   {
     "id": "k11_musea",
     "name": "K11 MUSEA & Avenue of Stars",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Skyline & Modern",
     "timeAlloc": "Afternoon (3h)",
     "tag": "HONG KONG • CULTURE",
     "tagIcon": "fa-gem",
@@ -3848,7 +3861,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "activities": [
       "Explore Opera Atrium design",
@@ -3859,16 +3872,17 @@ const expeditionAttractions = [
       "Star Ferry"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Hong Kong"
   },
   {
     "id": "victoria_peak",
     "name": "Victoria Peak & Peak Tram",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Skyline & Modern",
     "timeAlloc": "Sunset (3-4h)",
     "tag": "HONG KONG • PANORAMA",
     "tagIcon": "fa-train-subway",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
     "desc": "Hong Kong’s legendary hill vantage point reached via historic funicular Peak Tram railway.",
     "meta1": {
       "label": "TRANSIT",
@@ -3879,8 +3893,8 @@ const expeditionAttractions = [
       "value": "Sky Terrace 428"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "activities": [
       "Ride 6th-gen Peak Tram",
@@ -3891,12 +3905,20 @@ const expeditionAttractions = [
       "Central Escalator"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "nameZh": "太平山頂",
+    "address": "The Peak, Hong Kong Island, Hong Kong",
+    "coordinates": [
+      22.2758,
+      114.1455
+    ],
+    "review": "Accessible via the historic Peak Tram, providing the ultimate downward view of the Hong Kong Island skyscrapers.",
+    "region": "Hong Kong"
   },
   {
     "id": "central_escalator",
     "name": "Central Mid-Levels Escalator & Soho",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Skyline & Modern",
     "timeAlloc": "Afternoon (2h)",
     "tag": "HONG KONG • URBAN",
     "tagIcon": "fa-stairs",
@@ -3912,7 +3934,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80"
     ],
     "activities": [
       "Ride escalator through Soho",
@@ -3923,12 +3945,13 @@ const expeditionAttractions = [
       "Tai Kwun"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Hong Kong"
   },
   {
     "id": "tai_kwun",
     "name": "Tai Kwun Centre for Heritage & Arts",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Skyline & Modern",
     "timeAlloc": "Afternoon (2h)",
     "tag": "HONG KONG • HERITAGE",
     "tagIcon": "fa-landmark-dome",
@@ -3944,7 +3967,7 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "activities": [
       "Tour historic prison cells",
@@ -3955,12 +3978,13 @@ const expeditionAttractions = [
       "Mid-Levels Escalator"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [],
+    "region": "Hong Kong"
   },
   {
     "id": "victoria-harbour",
     "name": "Victoria Harbour (Star Ferry)",
-    "category": "Hong Kong Mong Kok & Harbour",
+    "category": "Heritage & Culture",
     "timeAlloc": "Sunset (3h)",
     "tag": "HONG KONG • HARBOUR",
     "tagIcon": "fa-ferry",
@@ -3976,7 +4000,9 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
+      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80",
+      "https://images.unsplash.com/photo-1513686861775-6e06b7cbab98?w=800&q=80"
     ],
     "activities": [
       "Ride the historic Star Ferry from Tsim Sha Tsui to Central",
@@ -4006,7 +4032,7 @@ const expeditionAttractions = [
   {
     "id": "beijingroad",
     "name": "Beijing Road Pedestrian Street",
-    "category": "Canton Heritage",
+    "category": "Heritage & Culture",
     "timeAlloc": "Evening (3h)",
     "tag": "CANTON • SHOPPING",
     "tagIcon": "fa-store",
@@ -4052,31 +4078,10 @@ const expeditionAttractions = [
     ]
   },
   {
-    "id": "poi-canton-tower",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
-    "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "tag": "CANTON HERITAGE • SKYLINE & MODERN",
-    "tagIcon": "fa-location-dot",
-    "desc": "Visitors praise the 360-degree panoramic views from the open-air observation deck and describe the Bubble Tram at sunset as an unforgettable experience.",
-    "name": "Canton Tower",
-    "nameZh": "广州塔",
-    "region": "Canton Heritage",
-    "category": "Skyline & Modern",
-    "address": "No. 222 West Yuejiang Road, Haizhu District, Guangzhou",
-    "website": "https://www.cantontower.com/",
-    "review": "Visitors praise the 360-degree panoramic views from the open-air observation deck and describe the Bubble Tram at sunset as an unforgettable experience.",
-    "coordinates": [
-      23.1065,
-      113.3245
-    ]
-  },
-  {
     "id": "poi-yongqing-fang",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4095,9 +4100,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-dafo-temple-big-buddha-temple",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4116,9 +4121,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-yuexiu-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -4137,9 +4142,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-museum-of-the-mausoleum-of-the-nanyue-king",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -4158,9 +4163,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-sun-yat-sen-memorial-hall",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4179,9 +4184,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-temple-of-the-six-banyan-trees",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4200,9 +4205,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-cantonese-opera-art-museum",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -4221,9 +4226,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangdong-museum",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -4242,9 +4247,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangzhou-opera-house",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4263,9 +4268,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-shangxiajiu-pedestrian-street",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MARKETS & WALKING STREETS",
     "tagIcon": "fa-location-dot",
@@ -4284,9 +4289,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-haixinsha-island",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4305,9 +4310,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-huacheng-square-flower-city-square",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4326,9 +4331,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangzhou-library",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4347,9 +4352,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-xiguan-custom-museum",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -4368,9 +4373,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-bruce-lee-s-ancestral-residence",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4389,9 +4394,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-qingping-herbal-medicine-market",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MARKETS & WALKING STREETS",
     "tagIcon": "fa-location-dot",
@@ -4410,9 +4415,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tianzi-wharf",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4431,9 +4436,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-dashatou-wharf",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4452,9 +4457,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-ersha-island",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -4473,9 +4478,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangdong-museum-of-art",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -4494,9 +4499,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-xinhai-revolution-memorial-museum",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4515,9 +4520,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-whampoa-military-academy-site",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4536,9 +4541,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-hualin-temple",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4557,9 +4562,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-renmin-park-people-s-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -4578,9 +4583,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangzhou-cultural-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4599,9 +4604,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-haiyin-bridge-area",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4620,9 +4625,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-xiguan-house-cluster-duo-bao-road",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4641,9 +4646,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangdong-provincial-people-s-stadium",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4662,9 +4667,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-anti-british-struggle-memorial-pavilion-sanyuanli",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4683,9 +4688,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-peasant-movement-training-institute",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4704,9 +4709,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-shisanhang-thirteen-factories-museum",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -4725,9 +4730,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-qiannian-gu-dao-ancient-road-museum",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4746,9 +4751,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangzhou-uprising-martyrs-cemetery",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4767,9 +4772,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-xiaozhou-village",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4788,9 +4793,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-huangpu-ancient-port",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4809,9 +4814,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-pazhou-pagoda",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4830,9 +4835,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-chigang-pagoda",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4851,9 +4856,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-titanium-creative-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4872,9 +4877,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-jiangnan-west-road",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MARKETS & WALKING STREETS",
     "tagIcon": "fa-location-dot",
@@ -4893,9 +4898,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-taigoo-hui-shopping-mall",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4914,9 +4919,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-k11-art-mall-guangzhou",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563384218386-9dcaf77ef0a8?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4935,9 +4940,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-teemall",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -4956,9 +4961,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tianhe-sports-center",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -4977,9 +4982,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-zhongshan-university-south-campus",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -4998,9 +5003,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangzhou-art-museum-new-hall",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80"
     ],
     "tag": "CANTON HERITAGE • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -5019,9 +5024,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-lianhuashan-lotus-hill",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "PANYU • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5039,9 +5044,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-yuyin-garden",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "PANYU • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5059,9 +5064,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangdong-science-center",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "tag": "PANYU • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -5079,9 +5084,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-lingnan-impression-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "PANYU • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5099,9 +5104,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-dishuiyan-forest-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
     ],
     "tag": "PANYU • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5119,9 +5124,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-haogang-island-haigou-dao",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
     ],
     "tag": "PANYU • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5139,9 +5144,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-shatian-waterway",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "PANYU • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5159,9 +5164,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-clifford-estates-zhongcun",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80"
     ],
     "tag": "PANYU • MARKETS & WALKING STREETS",
     "tagIcon": "fa-location-dot",
@@ -5179,9 +5184,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-panyu-square",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "tag": "PANYU • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -5199,9 +5204,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-xinghai-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "PANYU • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5219,9 +5224,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-shiji-town",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "PANYU • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5239,9 +5244,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-nancun-town",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "PANYU • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5259,9 +5264,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-guangzhou-university-city-hemc",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "PANYU • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5279,9 +5284,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-panyu-children-s-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "PANYU • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5299,9 +5304,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-panda-village",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5319,9 +5324,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-safari-on-wheels",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5339,9 +5344,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-sky-gondola",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5359,9 +5364,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-white-tiger-restaurant",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5379,9 +5384,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-jurassic-trail",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5399,9 +5404,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-swan-lake",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "CHIMELONG • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5419,9 +5424,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-neverending-fountain",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5439,9 +5444,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-koala-habitat",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5459,9 +5464,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-motorbike-coaster",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5479,9 +5484,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-stunt-show-arena",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5499,9 +5504,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-chimelong-resort-walkway",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "CHIMELONG • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5519,9 +5524,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-crocodile-island",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5539,9 +5544,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tornado-slide",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80"
     ],
     "tag": "CHIMELONG • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5559,9 +5564,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-dashi-riverside-greenway",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "tag": "CHIMELONG • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5579,9 +5584,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-hanxi-wetland-pocket-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "CHIMELONG • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5598,30 +5603,10 @@ const expeditionAttractions = [
     ]
   },
   {
-    "id": "poi-gulong-gorge-glass-skywalk",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
-    "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "tag": "QINGYUAN • NATURE & HIKING",
-    "tagIcon": "fa-location-dot",
-    "desc": "A 520-meter transparent suspension bridge suspended high above a roaring canyon waterfall.",
-    "name": "Gulong Gorge Glass Skywalk",
-    "nameZh": "古龙峡玻璃大峡谷",
-    "region": "Qingyuan",
-    "category": "Nature & Hiking",
-    "address": "Gulong Gorge Scenic Area, Qingxin District, Qingyuan",
-    "review": "A 520-meter transparent suspension bridge suspended high above a roaring canyon waterfall.",
-    "coordinates": [
-      23.7428,
-      112.9345
-    ]
-  },
-  {
     "id": "poi-gulong-gorge-forest-hiking-trail",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5639,9 +5624,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-huangteng-gorge-tianmen-corridor",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5659,9 +5644,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-huangteng-gorge-ecological-valley",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5679,9 +5664,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-yingxi-peak-forest-karst-trails",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5699,9 +5684,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-beijiang-river-cruise",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5719,9 +5704,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-xinyin-zhan-hot-spring-nature-resort",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -5739,9 +5724,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-feilai-temple",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "QINGYUAN • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5759,9 +5744,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-baojing-palace-of-yingde",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5779,9 +5764,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-niuyuzui-scenic-area",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5799,9 +5784,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tianzi-mountain-waterfall",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5819,9 +5804,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-jinzi-mountain",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5839,9 +5824,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-nangang-millennium-yao-pai",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "QINGYUAN • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5859,9 +5844,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-lianzhou-underground-river",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
     ],
     "tag": "QINGYUAN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5879,9 +5864,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-bijiashan-rafting",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80"
     ],
     "tag": "QINGYUAN • THEME PARKS & WILDLIFE",
     "tagIcon": "fa-location-dot",
@@ -5899,9 +5884,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-oct-loft-creative-culture-park",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "SHENZHEN • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -5919,9 +5904,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tencent-seafront-towers",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80"
     ],
     "tag": "SHENZHEN • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -5939,9 +5924,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-shenzhen-bay-park-coastal-promenade",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
     ],
     "tag": "SHENZHEN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5959,9 +5944,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-wutong-mountain-wutong-shan",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80"
     ],
     "tag": "SHENZHEN • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -5979,9 +5964,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-fairy-lake-botanical-garden-hongfa-temple",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "SHENZHEN • NATURE & PARKS",
     "tagIcon": "fa-location-dot",
@@ -6000,9 +5985,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-huaqiangbei-electronics-market",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80"
     ],
     "tag": "SHENZHEN • MARKETS & WALKING STREETS",
     "tagIcon": "fa-location-dot",
@@ -6020,9 +6005,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-nantou-ancient-city",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "SHENZHEN • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -6040,9 +6025,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-sea-world-shekou",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
     ],
     "tag": "SHENZHEN • MARKETS & WALKING STREETS",
     "tagIcon": "fa-location-dot",
@@ -6059,50 +6044,10 @@ const expeditionAttractions = [
     ]
   },
   {
-    "id": "poi-victoria-peak-the-peak",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
-    "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "tag": "HONG KONG • SKYLINE & MODERN",
-    "tagIcon": "fa-location-dot",
-    "desc": "Accessible via the historic Peak Tram, providing the ultimate downward view of the Hong Kong Island skyscrapers.",
-    "name": "Victoria Peak (The Peak)",
-    "nameZh": "太平山頂",
-    "region": "Hong Kong",
-    "category": "Skyline & Modern",
-    "address": "The Peak, Hong Kong Island, Hong Kong",
-    "review": "Accessible via the historic Peak Tram, providing the ultimate downward view of the Hong Kong Island skyscrapers.",
-    "coordinates": [
-      22.2758,
-      114.1455
-    ]
-  },
-  {
-    "id": "poi-lion-rock-country-park-ridge-trail",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
-    "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "tag": "HONG KONG • NATURE & HIKING",
-    "tagIcon": "fa-location-dot",
-    "desc": "An iconic hike with steep rock staircases leading to a dramatic summit overlooking all of Kowloon and Victoria Harbour.",
-    "name": "Lion Rock Country Park & Ridge Trail",
-    "nameZh": "獅子山郊野公園",
-    "region": "Hong Kong",
-    "category": "Nature & Hiking",
-    "address": "Wong Tai Sin / Kowloon, Hong Kong",
-    "review": "An iconic hike with steep rock staircases leading to a dramatic summit overlooking all of Kowloon and Victoria Harbour.",
-    "coordinates": [
-      22.3525,
-      114.1852
-    ]
-  },
-  {
     "id": "poi-dragon-s-back-trail",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80"
     ],
     "tag": "HONG KONG • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -6120,9 +6065,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tai-o-stilt-village-mangrove-boardwalk",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "tag": "HONG KONG • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -6140,9 +6085,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tian-tan-buddha-big-buddha",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1583095383794-09c3fa36d1b6?w=800&q=80"
     ],
     "tag": "HONG KONG • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -6160,9 +6105,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-tsim-sha-tsui-promenade-avenue-of-stars",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "tag": "HONG KONG • SKYLINE & MODERN",
     "tagIcon": "fa-location-dot",
@@ -6180,9 +6125,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-man-mo-temple",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "tag": "HONG KONG • HERITAGE & CULTURE",
     "tagIcon": "fa-location-dot",
@@ -6200,9 +6145,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-lantau-trail-section-3-wisdom-path",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
     ],
     "tag": "HONG KONG • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -6220,9 +6165,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-plover-cove-country-park-bride-s-pool",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
     ],
     "tag": "HONG KONG • NATURE & HIKING",
     "tagIcon": "fa-location-dot",
@@ -6240,9 +6185,9 @@ const expeditionAttractions = [
   },
   {
     "id": "poi-west-kowloon-cultural-district-m",
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "image": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80",
     "photos": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80"
     ],
     "tag": "HONG KONG • MUSEUMS & GALLERIES",
     "tagIcon": "fa-location-dot",
@@ -6263,5 +6208,9 @@ const expeditionAttractions = [
 if (typeof window !== 'undefined') window.expeditionAttractions = expeditionAttractions;
 if (typeof globalThis !== 'undefined') globalThis.expeditionAttractions = expeditionAttractions;
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { expeditionAttractions: expeditionAttractions };
+  module.exports = {
+    expeditionAttractions: expeditionAttractions,
+    hotelRoomsData: (typeof hotelRoomsData !== 'undefined' ? hotelRoomsData : undefined),
+    itinerarySchedule: (typeof itinerarySchedule !== 'undefined' ? itinerarySchedule : undefined)
+  };
 }
