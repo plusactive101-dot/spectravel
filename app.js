@@ -1,27 +1,62 @@
 
+
+// === UNIFIED DINING REGIONAL FILTER BAR WITH LIVE COUNTS ===
 window.renderDiningRegionTabs = function() {
-  const container = document.getElementById('dining-region-tabs-container');
+  const container = document.getElementById('dining-unified-region-bar') 
+                 || document.getElementById('dining-region-tabs-container');
+
   if (!container) return;
 
+  // Get active restaurant dataset
+  const restaurantList = (typeof defaultRestaurants !== 'undefined' && Array.isArray(defaultRestaurants)) 
+    ? defaultRestaurants 
+    : (window.restaurants || []);
+
+  const totalCount = restaurantList.length;
+
+  const countFor = (regionName) => {
+    return restaurantList.filter(r => {
+      const reg = (r.region || 'Guangzhou').toLowerCase();
+      return reg === regionName.toLowerCase();
+    }).length;
+  };
+
   const regions = [
-    { id: 'all', label: 'All Regions' },
-    { id: 'Panyu', label: 'Panyu' },
-    { id: 'Chimelong', label: 'Chimelong' },
-    { id: 'Guangzhou', label: 'Guangzhou' },
-    { id: 'Qingyuan', label: 'Qingyuan' },
-    { id: 'Shenzhen', label: 'Shenzhen' },
-    { id: 'Hong Kong', label: 'Hong Kong' }
+    { id: 'all', label: 'All Regions', count: totalCount },
+    { id: 'Panyu', label: 'Panyu', count: countFor('Panyu') },
+    { id: 'Chimelong', label: 'Chimelong', count: countFor('Chimelong') },
+    { id: 'Guangzhou', label: 'Guangzhou', count: countFor('Guangzhou') },
+    { id: 'Qingyuan', label: 'Qingyuan', count: countFor('Qingyuan') },
+    { id: 'Shenzhen', label: 'Shenzhen', count: countFor('Shenzhen') },
+    { id: 'Hong Kong', label: 'Hong Kong', count: countFor('Hong Kong') }
   ];
 
-  let html = '<div class="dining-region-pill-bar" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; margin-bottom: 8px;">';
+  let html = '<div class="unified-dining-pills" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 4px 0;">';
+  html += '<span style="font-size: 11px; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px; margin-right: 2px;"><i class="fa-solid fa-location-dot"></i> REGION:</span>';
+
   regions.forEach(reg => {
-    const isActive = (currentDiningRegion.toLowerCase() === reg.id.toLowerCase() || (reg.id === 'all' && currentDiningRegion === 'all'));
-    const activeStyle = isActive 
-      ? 'background: #e11d48; color: #ffffff; border-color: #e11d48; font-weight: 700;' 
+    const isActive = (currentDiningRegion.toLowerCase() === reg.id.toLowerCase() || (reg.id === 'all' && (!currentDiningRegion || currentDiningRegion === 'all')));
+    
+    const activeStyle = isActive
+      ? 'background: #e11d48; color: #ffffff; border-color: #e11d48; font-weight: 700; box-shadow: 0 0 14px rgba(225, 29, 72, 0.4);'
       : 'background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border-color: rgba(255, 255, 255, 0.1); font-weight: 500;';
 
-    html += `<button type="button" class="dining-region-tab" data-region="${reg.id}" onclick="window.filterDiningByRegion('${reg.id}')" style="padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-family: ui-monospace, monospace; border: 1px solid; cursor: pointer; transition: all 0.2s; ${activeStyle}">${reg.label}</button>`;
+    const badgeStyle = isActive
+      ? 'background: rgba(255, 255, 255, 0.25); color: #ffffff;'
+      : 'background: rgba(255, 255, 255, 0.1); color: #94a3b8;';
+
+    html += `
+      <button type="button" 
+              class="dining-pill-btn" 
+              data-region="${reg.id}" 
+              onclick="window.filterDiningByRegion('${reg.id}')" 
+              style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-family: ui-monospace, monospace; border: 1px solid; cursor: pointer; transition: all 0.2s ease; ${activeStyle}">
+        <span>${reg.label}</span>
+        <span style="font-size: 10px; padding: 1px 6px; border-radius: 9999px; font-weight: 700; ${badgeStyle}">${reg.count}</span>
+      </button>
+    `;
   });
+
   html += '</div>';
   container.innerHTML = html;
 };
@@ -29,8 +64,11 @@ window.renderDiningRegionTabs = function() {
 window.filterDiningByRegion = function(regionId) {
   currentDiningRegion = regionId;
   window.renderDiningRegionTabs();
-  if (typeof renderRestaurants === 'function') renderRestaurants();
+  if (typeof renderRestaurants === 'function') {
+    renderRestaurants();
+  }
 };
+
 
 
 // === VIEW MODE SWITCHER & 1-LINER MODULE ===

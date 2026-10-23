@@ -1196,16 +1196,8 @@
 
         <!-- DINING FILTER CONTROLS (CITY & CATEGORY) -->
         <div class="space-y-3 bg-slate-900/50 p-4 rounded-2xl border border-white/5 backdrop-blur-sm">
-          <!-- City Filter Chips -->
-          <div class="flex items-center gap-2 flex-wrap text-xs mono">
-            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1 mr-1">
-              <i class="fa-solid fa-location-dot text-amber-400"></i> Region:
-            </span>
-            <button onclick="filterDiningByCity('all')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 font-black shadow-md transition" data-city="all">All (21)</button>
-            <button onclick="filterDiningByCity('Guangzhou')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-city="Guangzhou">📍 Guangzhou (15)</button>
-            <button onclick="filterDiningByCity('Shenzhen')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-city="Shenzhen">📍 Shenzhen (3)</button>
-            <button onclick="filterDiningByCity('Hong Kong')" class="dining-city-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15 transition" data-city="Hong Kong">📍 Hong Kong (3)</button>
-          </div>
+          <!-- Unified Regional Filter Bar -->
+          <div id="dining-unified-region-bar" class="overflow-x-auto"></div>
 
           <!-- Category Filter Chips -->
           <div class="flex items-center gap-2 flex-wrap text-xs mono pt-2 border-t border-white/5">
