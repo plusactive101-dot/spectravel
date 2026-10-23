@@ -3420,7 +3420,17 @@
             <div class="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2.5">
               <h4 class="text-xs font-black text-cyan-400 mono uppercase tracking-wider">${sec.title}</h4>
               <ul class="text-xs space-y-2 text-slate-300">
-                ${sec.items.map(it => `<li class="flex items-start gap-2.5"><i class="fa-solid fa-angle-right text-cyan-400 mt-1 shrink-0"></i><span>${it}</span></li>`).join('')}
+                ${sec.items.map(it => {
+              let extraBtn = '';
+              if (typeof it === 'string' && it.includes('Seats Selected: 47H') && sec.title.includes('CX714')) {
+                extraBtn = '<div class="seatmap-preview-wrap" style="margin: 10px 0 14px 0;"><button type="button" onclick="window.openSeatmapModal ? window.openSeatmapModal(\'cx714\') : alert(\'CX714: 47H, 47K, 48H, 48K\')" style="display: inline-flex; align-items: center; gap: 6px; background: #006564; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer;"><span>💺</span> View CX714 Seat Selection Map</button></div>';
+              } else if (typeof it === 'string' && (it.includes('Seats Selected: 47H') || it.includes('Baggage allowance')) && sec.title.includes('CX982')) {
+                extraBtn = '<div class="seatmap-preview-wrap" style="margin: 10px 0 14px 0;"><button type="button" onclick="window.openSeatmapModal ? window.openSeatmapModal(\'cx982\') : alert(\'CX982: 47H, 47K, 48H, 48K\')" style="display: inline-flex; align-items: center; gap: 6px; background: #006564; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer;"><span>💺</span> View CX982 Seat Selection Map</button></div>';
+              } else if (typeof it === 'string' && it.includes('Seats Selected: 48D')) {
+                extraBtn = '<div class="seatmap-preview-wrap" style="margin: 10px 0 14px 0;"><button type="button" onclick="window.openSeatmapModal ? window.openSeatmapModal(\'cx657\') : alert(\'CX657: 48D-48G\')" style="display: inline-flex; align-items: center; gap: 6px; background: #006564; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer;"><span>💺</span> View CX657 Seat Selection Map</button></div>';
+              }
+              return `<li class="flex flex-col gap-1"><div class="flex items-start gap-2.5"><i class="fa-solid fa-angle-right text-cyan-400 mt-1 shrink-0"></i><span>${it}</span></div>${extraBtn}</li>`;
+            }).join('')}
               </ul>
             </div>
           `).join('')}

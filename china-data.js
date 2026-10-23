@@ -1481,6 +1481,7 @@ const nodeDetails = {
               'Departure: 01:25 AM SGT | Arrival: HKG T1 at 05:20 AM HKT',
               'Aircraft: Airbus A330-300 (2-4-2 twin aisle)',
               'Seats Selected: 47H, 47K, 48H, 48K (Family window & aisle cluster)',
+              `<div class="seatmap-preview-wrap" style="margin: 10px 0 14px 0;"><button type="button" onclick="window.openSeatmapModal ? window.openSeatmapModal(\'cx714\') : alert(\'CX714: 47H, 47K, 48H, 48K\')" style="display: inline-flex; align-items: center; gap: 6px; background: #006564; color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer;"><span>💺</span> View CX714 Seat Selection Map</button></div>`,
               `<div style="margin-top: 8px;">
                 <button onclick="openSeatmapModal('cx714')" style="background: #006564; color: #fff; padding: 7px 14px; border-radius: 8px; cursor: pointer; border: none; font-size: 12px; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
                   💺 View CX714 Official Seating Map Photo
