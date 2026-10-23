@@ -71,8 +71,9 @@ window.filterDiningByRegion = function(regionId) {
 
 
 
-// === VIEW MODE SWITCHER & 1-LINER MODULE ===
-let currentViewMode = localStorage.getItem('mktravel_view_mode') || 'grid'; // 'grid' | 'compact'
+
+// === 3-WAY VIEW MODE SWITCHER (CARDS | TILES | ONE-LINER) ===
+let currentViewMode = localStorage.getItem('mktravel_view_mode') || 'tiles'; // default to mobile-friendly 'tiles'
 let currentDiningRegion = 'all';
 
 window.setViewMode = function(mode) {
@@ -91,77 +92,158 @@ function updateViewModeButtons() {
       btn.style.background = '#e11d48';
       btn.style.color = '#ffffff';
       btn.style.borderColor = '#e11d48';
+      btn.style.boxShadow = '0 0 10px rgba(225, 29, 72, 0.4)';
     } else {
       btn.style.background = 'rgba(255, 255, 255, 0.05)';
       btn.style.color = '#94a3b8';
       btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+      btn.style.boxShadow = 'none';
     }
   });
 }
 
 window.renderViewSwitcher = function(targetContainerId) {
   const container = document.getElementById(targetContainerId) || document.querySelector(targetContainerId);
-  if (!container || container.querySelector('.view-mode-toggle-container')) return;
+  if (!container) return;
+
+  let existing = container.querySelector('.view-mode-toggle-container');
+  if (existing) existing.remove();
 
   const toggle = document.createElement('div');
   toggle.className = 'view-mode-toggle-container';
   toggle.style.display = 'inline-flex';
   toggle.style.alignItems = 'center';
-  toggle.style.gap = '4px';
-  toggle.style.background = 'rgba(15, 23, 42, 0.8)';
+  toggle.style.gap = '3px';
+  toggle.style.background = 'rgba(15, 23, 42, 0.85)';
   toggle.style.padding = '3px';
   toggle.style.borderRadius = '8px';
-  toggle.style.border = '1px solid rgba(255, 255, 255, 0.15)';
+  toggle.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+  toggle.style.backdropFilter = 'blur(10px)';
 
   toggle.innerHTML = `
-    <button type="button" class="view-mode-btn" data-mode="grid" onclick="window.setViewMode('grid')" title="Detailed Card Grid View" style="padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px;">
-      <i class="fa-solid fa-table-cells-large"></i> Cards
+    <button type="button" class="view-mode-btn" data-mode="grid" onclick="window.setViewMode('grid')" title="Detailed Cards with Full Imagery" style="padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 4px;">
+      <i class="fa-solid fa-table-cells-large"></i> <span class="hidden sm:inline">Cards</span>
     </button>
-    <button type="button" class="view-mode-btn" data-mode="compact" onclick="window.setViewMode('compact')" title="Minimized One-Liner View" style="padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px;">
-      <i class="fa-solid fa-list-ul"></i> One-Liner
+    <button type="button" class="view-mode-btn" data-mode="tiles" onclick="window.setViewMode('tiles')" title="Compact 2-Column Photo & Name Tiles" style="padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 4px;">
+      <i class="fa-solid fa-grip"></i> <span>Tiles</span>
+    </button>
+    <button type="button" class="view-mode-btn" data-mode="compact" onclick="window.setViewMode('compact')" title="Compact One-Liner List" style="padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 4px;">
+      <i class="fa-solid fa-list-ul"></i> <span class="hidden sm:inline">One-Liner</span>
     </button>
   `;
   container.appendChild(toggle);
   updateViewModeButtons();
 };
 
+// === 2-COLUMN MICRO-TILE RENDERERS (OPTION 1) ===
+window.renderAttractionTile = function(a) {
+  const id = a.id || '';
+  const name = a.name || '';
+  const nameZh = a.nameZh || '';
+  const region = a.region || 'Guangzhou';
+  const category = a.category || 'Sight';
+  const img = a.image || (a.photos && a.photos[0]) || '/assets/attractions/cantontower.jpg';
+
+  return `
+    <div class="micro-tile attraction-tile" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}')" style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='rgba(225, 29, 72, 0.5)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)';">
+      <div style="position: relative; width: 100%; height: 96px; background: #0f172a; overflow: hidden;">
+        <img src="${img}" alt="${name}" loading="lazy" onerror="this.src='/assets/attractions/cantontower.jpg'" style="width: 100%; height: 100%; object-fit: cover;">
+        <span style="position: absolute; top: 6px; right: 6px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #fb7185; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(225, 29, 72, 0.3);">${region}</span>
+      </div>
+      <div style="padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; flex: 1;">
+        <div style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3;" title="${name}">${name}</div>
+        <div style="font-size: 11px; font-weight: 500; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${nameZh}">${nameZh}</div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px; font-size: 10px; color: #64748b;">
+          <span>${category}</span>
+          <span style="color: #38bdf8;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Info</span>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+window.renderRestaurantTile = function(r) {
+  const id = r.id || '';
+  const name = r.name || '';
+  const nameZh = r.nameZh || '';
+  const region = r.region || 'Guangzhou';
+  const cuisine = r.cuisine || 'Cantonese';
+  const price = r.price || '¥50/人';
+  const img = r.coverImage || (r.gallery && r.gallery[0] ? r.gallery[0].image : '/assets/dining/dongshan-creative-district-cafe.jpg');
+
+  return `
+    <div class="micro-tile restaurant-tile" onclick="if(window.openRestaurantDetail) window.openRestaurantDetail('${id}')" style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='rgba(245, 158, 11, 0.5)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)';">
+      <div style="position: relative; width: 100%; height: 96px; background: #0f172a; overflow: hidden;">
+        <img src="${img}" alt="${name}" loading="lazy" onerror="this.src='/assets/dining/dongshan-creative-district-cafe.jpg'" style="width: 100%; height: 100%; object-fit: cover;">
+        <span style="position: absolute; top: 6px; right: 6px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #fbbf24; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">${region}</span>
+      </div>
+      <div style="padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; flex: 1;">
+        <div style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3;" title="${name}">${name}</div>
+        <div style="font-size: 11px; font-weight: 500; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${nameZh}">${nameZh}</div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px; font-size: 10px; color: #64748b;">
+          <span>${cuisine}</span>
+          <span style="color: #fbbf24;">${price}</span>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+// Open detailed drawer for dining when micro-tile or row is tapped
+window.openRestaurantDetail = function(id) {
+  const list = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : (window.restaurants || []);
+  const item = list.find(r => r.id === id);
+  if (!item) return;
+
+  if (window.openAttractionDrawer) {
+    const syntheticAttraction = {
+      ...item,
+      category: item.cuisine || 'Dining',
+      time: item.price || 'Dining',
+      officialUrl: item.links?.official || item.officialUrl,
+      sourceUrl: item.links?.sourceUrl || item.sourceUrl,
+      review: item.review || (item.dishes ? 'Signature Dishes: ' + item.dishes.join(', ') : 'Specialty venue.')
+    };
+    window.openAttractionDrawer(id, syntheticAttraction);
+  } else if (window.openDiningPhotoModal) {
+    window.openDiningPhotoModal(id);
+  }
+};
+
+// === MOBILE-OPTIMIZED ONE-LINER ROWS ===
 window.renderCompactAttractionRow = function(attraction) {
   const id = attraction.id || '';
   const name = attraction.name || '';
   const nameZh = attraction.nameZh || '';
   const region = attraction.region || 'Guangzhou';
   const category = attraction.category || 'Sight';
-  const time = attraction.timeAlloc || attraction.time || '1-2h';
   const img = attraction.image || (attraction.photos && attraction.photos[0]) || '/assets/attractions/cantontower.jpg';
   const copyAddress = (attraction.address || nameZh || name).replace(/'/g, "\\'");
   const copyZh = (nameZh || name).replace(/'/g, "\\'");
   const isStaged = (window.__stagedAttractions || []).includes(id);
 
   return `
-    <div class="compact-row attraction-compact-row" data-id="${id}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; margin-bottom: 8px; transition: all 0.2s ease;">
-      <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1;">
-        <img src="${img}" alt="${name}" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0;" loading="lazy" onerror="this.src='/assets/attractions/cantontower.jpg'">
+    <div class="compact-row attraction-compact-row" data-id="${id}" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 8px; margin-bottom: 4px;">
+      <div style="display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; cursor: pointer;" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}')">
+        <img src="${img}" alt="${name}" style="width: 34px; height: 34px; border-radius: 6px; object-fit: cover; flex-shrink: 0;" loading="lazy" onerror="this.src='/assets/attractions/cantontower.jpg'">
         <div style="min-width: 0; flex: 1;">
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-size: 14px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}')">${name}</span>
-            ${nameZh ? `<span style="font-size: 12px; font-weight: 500; color: #fbbf24;">${nameZh}</span>` : ''}
-            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(225, 29, 72, 0.15); color: #fb7185; border: 1px solid rgba(225, 29, 72, 0.3); font-weight: 600;">${region}</span>
-            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(255, 255, 255, 0.06); color: #cbd5e1;">${category}${time ? ' • ' + time : ''}</span>
+          <div style="display: flex; align-items: center; gap: 6px; overflow: hidden;">
+            <span style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${name}</span>
+            <span style="font-size: 11px; font-weight: 500; color: #fbbf24; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${nameZh}</span>
           </div>
-          ${attraction.address ? `<div style="font-size: 11px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px;"><i class="fa-solid fa-location-dot" style="color: #fbbf24; margin-right: 4px;"></i>${attraction.address}</div>` : ''}
+          <div style="font-size: 10px; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            <span style="color: #fb7185;">${region}</span> • ${category}
+          </div>
         </div>
       </div>
-      <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
-        <div class="compact-socials" style="transform: scale(0.9); transform-origin: right center;">
-          ${window.renderSocialLinks ? window.renderSocialLinks(attraction) : ""}
-        </div>
-        <button type="button" onclick="window.copyTaxiAddress('${copyAddress}', '${copyZh}')" title="Copy Chinese destination for Didi" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 5px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+      <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+        <button type="button" onclick="window.copyTaxiAddress('${copyAddress}', '${copyZh}')" title="Copy Chinese address for Didi" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px 7px; border-radius: 6px; font-size: 10px; font-weight: 600; cursor: pointer;">
           <i class="fa-solid fa-taxi"></i>
         </button>
-        <button type="button" onclick="if(window.toggleStageAttraction) window.toggleStageAttraction('${id}')" title="Add / Remove Route" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 5px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+        <button type="button" onclick="if(window.toggleStageAttraction) window.toggleStageAttraction('${id}')" title="Add / Remove Route" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 7px; border-radius: 6px; font-size: 10px; font-weight: 600; cursor: pointer;">
           <i class="fa-solid ${isStaged ? 'fa-check' : 'fa-plus'}"></i>
         </button>
-        <button type="button" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}')" title="View Details" style="background: rgba(255, 255, 255, 0.08); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.15); padding: 5px 9px; border-radius: 8px; font-size: 11px; cursor: pointer;">
+        <button type="button" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}')" title="Inspect details" style="background: rgba(255, 255, 255, 0.08); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.15); padding: 4px 7px; border-radius: 6px; font-size: 10px; cursor: pointer;">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
@@ -176,41 +258,35 @@ window.renderCompactRestaurantRow = function(r) {
   const region = r.region || 'Guangzhou';
   const cuisine = r.cuisine || 'Cantonese';
   const price = r.price || '¥50/人';
-  const metro = r.metro || r.area || '';
   const img = r.coverImage || (r.gallery && r.gallery[0] ? r.gallery[0].image : '/assets/dining/dongshan-creative-district-cafe.jpg');
   const copyAddress = (r.address || nameZh || name).replace(/'/g, "\\'");
   const copyZh = (nameZh || name).replace(/'/g, "\\'");
 
   return `
-    <div class="compact-row restaurant-compact-row" data-id="${id}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; margin-bottom: 8px; transition: all 0.2s ease;">
-      <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1;">
-        <img src="${img}" alt="${name}" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0;" loading="lazy" onerror="this.src='/assets/dining/dongshan-creative-district-cafe.jpg'">
+    <div class="compact-row restaurant-compact-row" data-id="${id}" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 8px; margin-bottom: 4px;">
+      <div style="display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; cursor: pointer;" onclick="if(window.openDiningPhotoModal) window.openDiningPhotoModal('${id}')">
+        <img src="${img}" alt="${name}" style="width: 34px; height: 34px; border-radius: 6px; object-fit: cover; flex-shrink: 0;" loading="lazy" onerror="this.src='/assets/dining/dongshan-creative-district-cafe.jpg'">
         <div style="min-width: 0; flex: 1;">
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-size: 14px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;" onclick="if(window.openDiningPhotoModal) window.openDiningPhotoModal('${id}')">${name}</span>
-            ${nameZh ? `<span style="font-size: 12px; font-weight: 500; color: #fbbf24;">${nameZh}</span>` : ''}
-            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(225, 29, 72, 0.15); color: #fb7185; border: 1px solid rgba(225, 29, 72, 0.3); font-weight: 600;">${region}</span>
-            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(255, 255, 255, 0.06); color: #cbd5e1;">${cuisine} • ${price}</span>
-            ${metro ? `<span style="font-size: 10px; color: #64748b;"><i class="fa-solid fa-train-subway"></i> ${metro}</span>` : ''}
+          <div style="display: flex; align-items: center; gap: 6px; overflow: hidden;">
+            <span style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${name}</span>
+            <span style="font-size: 11px; font-weight: 500; color: #fbbf24; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${nameZh}</span>
           </div>
-          ${r.address ? `<div style="font-size: 11px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px;"><i class="fa-solid fa-location-dot" style="color: #fbbf24; margin-right: 4px;"></i>${r.address}</div>` : ''}
+          <div style="font-size: 10px; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            <span style="color: #fbbf24;">${region}</span> • ${cuisine} • ${price}
+          </div>
         </div>
       </div>
-      <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
-        <div class="compact-socials" style="transform: scale(0.9); transform-origin: right center;">
-          ${window.renderSocialLinks ? window.renderSocialLinks(r) : ""}
-        </div>
-        <button type="button" onclick="window.copyTaxiAddress('${copyAddress}', '${copyZh}')" title="Copy Chinese address for Didi" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 5px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+      <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+        <button type="button" onclick="window.copyTaxiAddress('${copyAddress}', '${copyZh}')" title="Copy Chinese address for Didi" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px 7px; border-radius: 6px; font-size: 10px; font-weight: 600; cursor: pointer;">
           <i class="fa-solid fa-taxi"></i>
         </button>
-        <button type="button" onclick="if(window.openDiningPhotoModal) window.openDiningPhotoModal('${id}')" title="View Menu & Photos" style="background: rgba(255, 255, 255, 0.08); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.15); padding: 5px 9px; border-radius: 8px; font-size: 11px; cursor: pointer;">
+        <button type="button" onclick="if(window.openDiningPhotoModal) window.openDiningPhotoModal('${id}')" title="Inspect details" style="background: rgba(255, 255, 255, 0.08); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.15); padding: 4px 7px; border-radius: 6px; font-size: 10px; cursor: pointer;">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
     </div>
   `;
 };
-
 
 
 // === RESILIENT SOCIAL MEDIA & WEB LINKS COMPONENT ===
@@ -757,8 +833,13 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
     return;
   }
 
+  if (currentViewMode === 'tiles') {
+    container.className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-4 col-span-full';
+    container.innerHTML = filtered.map(r => window.renderRestaurantTile ? window.renderRestaurantTile(r) : '').join('');
+    return;
+  }
   if (currentViewMode === 'compact') {
-    container.className = 'space-y-2 col-span-full';
+    container.className = 'flex flex-col gap-1 col-span-full';
     container.innerHTML = filtered.map(r => window.renderCompactRestaurantRow ? window.renderCompactRestaurantRow(r) : '').join('');
     return;
   }
@@ -2215,8 +2296,11 @@ window.renderAttractionsGrid = function(filterCategory) {
     '</div>';
   }).join('');
 
-  if (currentViewMode === 'compact') {
-    container.className = 'space-y-2 col-span-full';
+  if (currentViewMode === 'tiles') {
+    container.className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-4 col-span-full';
+    container.innerHTML = filtered.map(item => window.renderAttractionTile ? window.renderAttractionTile(item) : '').join('');
+  } else if (currentViewMode === 'compact') {
+    container.className = 'flex flex-col gap-1 col-span-full';
     container.innerHTML = filtered.map(item => window.renderCompactAttractionRow ? window.renderCompactAttractionRow(item) : '').join('');
   } else {
     container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
