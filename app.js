@@ -2473,3 +2473,115 @@ if (document.readyState === 'loading') {
 } else {
   initApp();
 }
+
+
+// === MK TRAVEL MANUAL OFFLINE SYNC MODULE ===
+(function initManualOfflineSync() {
+  function createSyncWidget() {
+    if (document.getElementById('mk-offline-sync-widget')) return;
+
+    const widget = document.createElement('div');
+    widget.id = 'mk-offline-sync-widget';
+    widget.style.position = 'fixed';
+    widget.style.bottom = '85px';
+    widget.style.right = '20px';
+    widget.style.zIndex = '9998';
+    widget.style.display = 'flex';
+    widget.style.flexDirection = 'column';
+    widget.style.alignItems = 'flex-end';
+    widget.style.gap = '8px';
+
+    const lastSync = localStorage.getItem('mktravel_offline_synced_at');
+    const syncBtn = document.createElement('button');
+    syncBtn.id = 'mk-sync-offline-btn';
+    syncBtn.innerHTML = lastSync ? '<i class="fa-solid fa-cloud-arrow-down"></i> Offline Ready' : '<i class="fa-solid fa-cloud-arrow-down"></i> Sync Offline Pack';
+    syncBtn.style.background = 'rgba(15, 23, 42, 0.85)';
+    syncBtn.style.color = '#38bdf8';
+    syncBtn.style.border = '1px solid rgba(56, 189, 248, 0.4)';
+    syncBtn.style.backdropFilter = 'blur(10px)';
+    syncBtn.style.padding = '8px 14px';
+    syncBtn.style.borderRadius = '9999px';
+    syncBtn.style.fontSize = '12px';
+    syncBtn.style.fontWeight = '600';
+    syncBtn.style.cursor = 'pointer';
+    syncBtn.style.boxShadow = '0 4px 14px rgba(0,0,0,0.35)';
+    syncBtn.style.transition = 'all 0.2s ease';
+
+    const progressBanner = document.createElement('div');
+    progressBanner.id = 'mk-sync-progress-banner';
+    progressBanner.style.display = 'none';
+    progressBanner.style.background = 'rgba(15, 23, 42, 0.95)';
+    progressBanner.style.color = '#f8fafc';
+    progressBanner.style.border = '1px solid #38bdf8';
+    progressBanner.style.borderRadius = '8px';
+    progressBanner.style.padding = '6px 12px';
+    progressBanner.style.fontSize = '11px';
+    progressBanner.style.maxWidth = '240px';
+    progressBanner.style.textAlign = 'right';
+
+    widget.appendChild(progressBanner);
+    widget.appendChild(syncBtn);
+    document.body.appendChild(widget);
+
+    let isSyncing = false;
+
+    syncBtn.addEventListener('click', async () => {
+      if (isSyncing) return;
+      isSyncing = true;
+      syncBtn.disabled = true;
+      syncBtn.style.opacity = '0.7';
+      progressBanner.style.display = 'block';
+      progressBanner.innerHTML = 'Fetching image manifest...';
+
+      try {
+        const res = await fetch('/assets/image-manifest.json?ts=' + Date.now());
+        if (!res.ok) throw new Error('Manifest not found');
+        const images = await res.json();
+        const total = images.length;
+        let completed = 0;
+        const cache = await caches.open('mktravel-images-v1');
+
+        progressBanner.innerHTML = 'Syncing 0 / ' + total + ' (0%)...';
+
+        // Download in parallel batches of 6
+        const batchSize = 6;
+        for (let i = 0; i < images.length; i += batchSize) {
+          const batch = images.slice(i, i + batchSize);
+          await Promise.allSettled(batch.map(async url => {
+            try {
+              const match = await cache.match(url);
+              if (!match) {
+                const response = await fetch(url);
+                if (response.ok) await cache.put(url, response);
+              }
+            } catch (e) {}
+            completed++;
+            const pct = Math.round((completed / total) * 100);
+            progressBanner.innerHTML = 'Syncing ' + completed + ' / ' + total + ' (' + pct + '%)...';
+          }));
+        }
+
+        const now = new Date().toLocaleDateString();
+        localStorage.setItem('mktravel_offline_synced_at', now);
+        syncBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + total + ' Offline Photos Ready';
+        syncBtn.style.color = '#4ade80';
+        syncBtn.style.borderColor = 'rgba(74, 222, 128, 0.4)';
+        progressBanner.innerHTML = '✓ All ' + total + ' photos cached locally!';
+        setTimeout(() => { progressBanner.style.display = 'none'; }, 4000);
+      } catch (err) {
+        progressBanner.innerHTML = '⚠️ Sync failed: ' + err.message;
+        setTimeout(() => { progressBanner.style.display = 'none'; }, 4000);
+      } finally {
+        isSyncing = false;
+        syncBtn.disabled = false;
+        syncBtn.style.opacity = '1';
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createSyncWidget);
+  } else {
+    createSyncWidget();
+  }
+})();

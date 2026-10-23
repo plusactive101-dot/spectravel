@@ -5,6 +5,7 @@ const repoDir = path.resolve(__dirname, '..');
 const attractionsDir = path.join(repoDir, 'assets', 'attractions');
 const diningDir = path.join(repoDir, 'assets', 'dining');
 const swFile = path.join(repoDir, 'sw.js');
+const manifestFile = path.join(repoDir, 'assets', 'image-manifest.json');
 
 let imageFiles = [];
 
@@ -23,12 +24,14 @@ if (fs.existsSync(diningDir)) {
 }
 
 imageFiles.sort();
-console.log(`[*] Pre-caching total of ${imageFiles.length} images (${imageFiles.filter(i => i.includes('dining')).length} dining, ${imageFiles.filter(i => i.includes('attractions')).length} attractions).`);
+fs.mkdirSync(path.dirname(manifestFile), { recursive: true });
+fs.writeFileSync(manifestFile, JSON.stringify(imageFiles, null, 2), 'utf8');
+console.log(`[+] Wrote ${imageFiles.length} photo paths to ${manifestFile}`);
 
+// Generate sw.js with static versioning (NO dynamic date stamp)
 const swContent = `/**
  * Service Worker for MK Travel (mktravel.pages.dev)
- * Version: 2.1.0 (Pre-cached Attractions & Dining Assets)
- * Generated: ${new Date().toISOString()}
+ * Version: 2.2.0 (Runtime Caching + On-Demand Offline Sync)
  */
 
 const CORE_CACHE = 'mktravel-core-v2';
@@ -39,29 +42,15 @@ const CORE_ASSETS = [
   '/index.html',
   '/app.js',
   '/china-data.js',
-  '/manifest.json'
+  '/manifest.json',
+  '/assets/image-manifest.json'
 ];
-
-const PRECACHE_IMAGES = ${JSON.stringify(imageFiles, null, 2)};
 
 self.addEventListener('install', event => {
   self.skipWaiting();
+  // Only cache core application shell files. Do NOT bulk-fetch images on install.
   event.waitUntil(
-    (async () => {
-      const coreCache = await caches.open(CORE_CACHE);
-      await coreCache.addAll(CORE_ASSETS);
-
-      const imageCache = await caches.open(IMAGE_CACHE);
-      const cachePromises = PRECACHE_IMAGES.map(async url => {
-        try {
-          const response = await fetch(url);
-          if (response && response.ok) {
-            await imageCache.put(url, response);
-          }
-        } catch (err) {}
-      });
-      await Promise.allSettled(cachePromises);
-    })()
+    caches.open(CORE_CACHE).then(cache => cache.addAll(CORE_ASSETS))
   );
 });
 
@@ -85,7 +74,7 @@ self.addEventListener('fetch', event => {
 
   if (event.request.method !== 'GET') return;
 
-  // Cache-first for all local assets
+  // Runtime On-Demand Caching for all local assets
   if (url.pathname.startsWith('/assets/')) {
     event.respondWith(
       caches.open(IMAGE_CACHE).then(async cache => {
@@ -105,7 +94,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Cache-first for external CDN assets
+  // Cache-first for external CDN libraries
   if (url.origin.includes('unpkg.com') || url.origin.includes('cdnjs.cloudflare.com') || url.origin.includes('cdn.')) {
     event.respondWith(
       caches.match(event.request).then(cached => {
@@ -122,7 +111,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Stale-while-revalidate for core app
+  // Stale-While-Revalidate for app code
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       const fetchPromise = fetch(event.request).then(networkResponse => {
@@ -140,4 +129,4 @@ self.addEventListener('fetch', event => {
 `;
 
 fs.writeFileSync(swFile, swContent, 'utf8');
-console.log('[+] sw.js regenerated with combined image precache.');
+console.log('[+] sw.js regenerated with Runtime On-Demand Caching.');
