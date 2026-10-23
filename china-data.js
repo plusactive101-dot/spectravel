@@ -2003,12 +2003,16 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
-      "https://images.unsplash.com/photo-1528644499231-15f1d8f8a846?w=800&q=80"
+      "https://images.unsplash.com/photo-1528644499231-15f1d8f8a846?w=800&q=80",
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     ],
     "activities": [
       "Stroll 800-year-old stone alleys",
       "Taste authentic Ginger Milk Curd",
-      "Visit Liugeng Hall"
+      "Visit Liugeng Hall",
+      "Stroll alleys",
+      "Eat ginger curd"
     ],
     "areaMap": "Metro Line 3 (Shiqiao) -> Bus Fan 67 to South Gate",
     "nearbyRecs": [
@@ -2109,12 +2113,16 @@ const expeditionAttractions = [
     "photos": [
       "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
       "https://images.unsplash.com/photo-1536605234-8c8577eb0c7b?w=800&q=80",
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80"
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80",
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"
     ],
     "activities": [
       "Ride 40-min open-air Safari Train",
       "Take transparent Sky Gondola",
-      "Panda Village"
+      "Panda Village",
+      "Ride Safari Train",
+      "Take Sky Gondola"
     ],
     "areaMap": "Metro Line 3/7 (Hanxi Changlong) -> Free Shuttle",
     "nearbyRecs": [
@@ -2234,12 +2242,16 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1523627064379-994c6536b996?w=800&q=80",
-      "https://images.unsplash.com/photo-1551042718-d9d300eb2d8b?w=800&q=80"
+      "https://images.unsplash.com/photo-1551042718-d9d300eb2d8b?w=800&q=80",
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     ],
     "activities": [
       "Examine intricate roof crest ceramics",
       "View ivory and jade carvings",
-      "Courtyard photography"
+      "Courtyard photography",
+      "Admire roof ridge pottery",
+      "Folk art exhibits"
     ],
     "areaMap": "Metro Line 1 (Chen Clan Academy) -> Exit D",
     "nearbyRecs": [
@@ -2347,7 +2359,9 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80",
-      "https://images.unsplash.com/photo-1470072551573-04dc32c32cc1?w=800&q=80"
+      "https://images.unsplash.com/photo-1470072551573-04dc32c32cc1?w=800&q=80",
+      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     ],
     "activities": [
       "Walk the 520m Glass Skywalk over the waterfall",
@@ -2434,7 +2448,9 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
-      "https://images.unsplash.com/photo-1551694291-76495db600ed?w=800&q=80"
+      "https://images.unsplash.com/photo-1551694291-76495db600ed?w=800&q=80",
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     ],
     "activities": [
       "Walk the glass suspension bridge connecting the twin towers",
@@ -2786,18 +2802,32 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+      "https://images.unsplash.com/photo-1498673295982-fbbdf1c60b5f?w=800&q=80",
+      "https://images.unsplash.com/photo-1549487532-a50d26850c95?w=800&q=80"
     ],
     "activities": [
       "Wetland boat ride",
-      "Pelican feeding"
+      "Pelican feeding",
+      "Feed the hungry hippos",
+      "Watch the massive crocodile enclosure",
+      "See the Flamingo free-flight"
     ],
     "areaMap": "Resort Shuttle Bus",
     "nearbyRecs": [
       "Safari Park"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "Birds Park & Hippo Feeding POV",
+        "url": "https://www.youtube.com/watch?v=uUvuE9sWNsM"
+      },
+      {
+        "title": "Zoo & Bird Park VLOG",
+        "url": "https://www.youtube.com/watch?v=Zbx1ooA7odk"
+      }
+    ]
   },
   {
     "id": "paradise",
@@ -2858,18 +2888,27 @@ const expeditionAttractions = [
     },
     "photos": [
       "https://images.unsplash.com/photo-1582650625119-3a31f841836d?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+      "https://images.unsplash.com/photo-1582236166099-27a3c7e42d76?w=800&q=80"
     ],
     "activities": [
       "Tornado slide",
-      "Wave pool concert"
+      "Wave pool concert",
+      "Ride the high-speed slides",
+      "Relax in the Lazy River",
+      "Play at the Neverending Fountain"
     ],
     "areaMap": "Chimelong Resort Core",
     "nearbyRecs": [
       "Paradise"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "Family Waterpark Adventure",
+        "url": "https://www.youtube.com/watch?v=ZSYW1VKwLd8"
+      }
+    ]
   },
   {
     "id": "chimelong_gondola",
@@ -2995,38 +3034,6 @@ const expeditionAttractions = [
     "areaMap": "Metro L1/2 (Gongyuanqian)",
     "nearbyRecs": [
       "People’s Park"
-    ],
-    "guideUrls": [],
-    "reviews": []
-  },
-  {
-    "id": "chen_clan",
-    "name": "Chen Clan Ancestral Hall",
-    "category": "Canton Heritage",
-    "timeAlloc": "Morning (2h)",
-    "tag": "CANTON • HERITAGE",
-    "tagIcon": "fa-archway",
-    "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800",
-    "desc": "Masterpiece of Lingnan architecture adorned with wood, stone, brick, and pottery carvings.",
-    "meta1": {
-      "label": "CRAFT",
-      "value": "Folk Carvings"
-    },
-    "meta2": {
-      "label": "FOUNDED",
-      "value": "1894"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "activities": [
-      "Admire roof ridge pottery",
-      "Folk art exhibits"
-    ],
-    "areaMap": "Metro L1 (Chen Clan Academy)",
-    "nearbyRecs": [
-      "Liwan Lake"
     ],
     "guideUrls": [],
     "reviews": []
@@ -3799,167 +3806,6 @@ const expeditionAttractions = [
     "reviews": []
   },
   {
-    "id": "chimelong-safari",
-    "name": "Chimelong Safari Park",
-    "category": "Chimelong Safari & Circus",
-    "timeAlloc": "Full Day (6-8h)",
-    "tag": "GUANGZHOU • CHIMELONG",
-    "tagIcon": "fa-ticket",
-    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800",
-    "desc": "World-renowned animal theme park featuring open-air self-drive train and panda triplets.",
-    "meta1": {
-      "label": "TIME REQUIRED",
-      "value": "Full Day (6-8h)"
-    },
-    "meta2": {
-      "label": "HIGHLIGHT",
-      "value": "Panda Triplets"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800",
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"
-    ],
-    "activities": [
-      "Ride Safari Train",
-      "Take Sky Gondola",
-      "Panda Village"
-    ],
-    "areaMap": "Metro L3/7 (Hanxi Changlong) -> Free Shuttle",
-    "nearbyRecs": [
-      "Circus"
-    ],
-    "guideUrls": [
-      "https://www.chimelong.com/"
-    ],
-    "reviews": []
-  },
-  {
-    "id": "gulong-gorge",
-    "name": "Qingyuan Gulong Gorge",
-    "category": "Qingyuan Gulong Gorge",
-    "timeAlloc": "Full Day (8h)",
-    "tag": "QINGYUAN • ALPINE",
-    "tagIcon": "fa-mountain",
-    "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800",
-    "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, towering waterfalls, gravity-driven QQ Speed Go-Karts, and a thrilling Cliff Roller Coaster.",
-    "meta1": {
-      "label": "RECORD",
-      "value": "12 World Records"
-    },
-    "meta2": {
-      "label": "RIDE",
-      "value": "Canyon Coaster"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "activities": [
-      "Walk the 520m Glass Skywalk over the waterfall",
-      "Race down the mountain on QQ Speed Go-Karts",
-      "Ride the Cliff Roller Coaster"
-    ],
-    "areaMap": "Private Charter (1.5h drive from Canton)",
-    "nearbyRecs": [
-      "Yingxi Peak Forest"
-    ],
-    "guideUrls": [],
-    "reviews": [
-      {
-        "title": "I Survived China’s CRAZIEST Glass Bridge & Cliff Coaster!",
-        "url": "https://www.youtube.com/watch?v=tNAdBOZdXxs"
-      },
-      {
-        "title": "Gulong Canyon POV & Mario Kart Style Racing",
-        "url": "https://www.youtube.com/watch?v=CGj8EX-8hgc"
-      },
-      {
-        "title": "China Guangzhou Tour: Gulong Gorge",
-        "url": "https://www.youtube.com/watch?v=Hn6WIGYYTdM"
-      },
-      {
-        "title": "Day 2 in China | Gulong Gorge | Go Karting",
-        "url": "https://www.youtube.com/watch?v=abXLd03OajE"
-      }
-    ]
-  },
-  {
-    "id": "shawan-ancient-town",
-    "name": "Shawan Ancient Town",
-    "category": "Guangzhou Panyu",
-    "timeAlloc": "Afternoon (3h)",
-    "tag": "PANYU • HERITAGE",
-    "tagIcon": "fa-landmark",
-    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800",
-    "desc": "Lingnan water village celebrated for ancestral shrines and ginger curd.",
-    "meta1": {
-      "label": "HISTORY",
-      "value": "800+ Years"
-    },
-    "meta2": {
-      "label": "FOOD",
-      "value": "Ginger Curd"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "activities": [
-      "Stroll alleys",
-      "Eat ginger curd"
-    ],
-    "areaMap": "Metro L3 (Shiqiao) -> Bus Fan 67",
-    "nearbyRecs": [
-      "Baomo Garden"
-    ],
-    "guideUrls": [],
-    "reviews": []
-  },
-  {
-    "id": "dji-sky-city",
-    "name": "DJI Sky City Global HQ",
-    "category": "Shenzhen Nanshan Tech",
-    "timeAlloc": "Afternoon (2h)",
-    "tag": "SHENZHEN • TECH",
-    "tagIcon": "fa-microchip",
-    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
-    "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners. Features an outdoor drone flight test bridge suspended high in the air and a futuristic showroom.",
-    "meta1": {
-      "label": "ARCHITECTURE",
-      "value": "Suspension Towers"
-    },
-    "meta2": {
-      "label": "EXPERIENCE",
-      "value": "Drone Demo"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "activities": [
-      "Walk the glass suspension bridge connecting the twin towers",
-      "Watch indoor drone flight tests in the flagship store",
-      "Experience the asymmetric architectural design"
-    ],
-    "areaMap": "Metro L5 (Liuxiandong)",
-    "nearbyRecs": [
-      "Tencent HQ"
-    ],
-    "guideUrls": [
-      "https://www.dji.com/"
-    ],
-    "reviews": [
-      {
-        "title": "Welcome to DJI Sky City (Official Reveal)",
-        "url": "https://www.youtube.com/watch?v=RGsa_bpkVpU"
-      },
-      {
-        "title": "Futuristic DJI Headquarters Walking Tour",
-        "url": "https://www.youtube.com/watch?v=OMbgdGUn3-s"
-      }
-    ]
-  },
-  {
     "id": "victoria-harbour",
     "name": "Victoria Harbour & Star Ferry",
     "category": "Hong Kong Mong Kok & Harbour",
@@ -3994,121 +3840,6 @@ const expeditionAttractions = [
       {
         "title": "Hong Kong Victoria Harbour Walking Tour",
         "url": "https://www.youtube.com/watch?v=48ecd730"
-      }
-    ]
-  },
-  {
-    "id": "chimelong-birds",
-    "name": "Chimelong Birds Park",
-    "category": "Chimelong Safari & Circus",
-    "timeAlloc": "Half Day (3-4h)",
-    "tag": "CHIMELONG • NATURE",
-    "tagIcon": "fa-dove",
-    "image": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800",
-    "desc": "Expansive ecological wetland sanctuary home to thousands of rare birds and wetlands.",
-    "meta1": {
-      "label": "SPECIES",
-      "value": "Rare Wetlands"
-    },
-    "meta2": {
-      "label": "HIGHLIGHT",
-      "value": "Flight Demonstrations"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
-    ],
-    "activities": [
-      "Wetland boat ride",
-      "Pelican feeding"
-    ],
-    "areaMap": "Resort Shuttle Bus",
-    "nearbyRecs": [
-      "Safari Park"
-    ],
-    "guideUrls": [],
-    "reviews": []
-  },
-  {
-    "id": "waterpark",
-    "name": "Chimelong Water Park",
-    "category": "Chimelong Safari & Circus",
-    "timeAlloc": "Half Day (4h)",
-    "tag": "CHIMELONG • WATER",
-    "tagIcon": "fa-water-ladder",
-    "image": "https://images.unsplash.com/photo-1582236166099-27a3c7e42d76?w=800&q=80",
-    "desc": "The most visited water park in the world, featuring massive wave pools, high-speed water slides, and the Neverending Fountain.",
-    "meta1": {
-      "label": "SEASON",
-      "value": "Summer Top Pick"
-    },
-    "meta2": {
-      "label": "ATTRACTION",
-      "value": "Wave Pool & Slides"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1582236166099-27a3c7e42d76?w=800&q=80"
-    ],
-    "activities": [
-      "Ride the high-speed slides",
-      "Relax in the Lazy River",
-      "Play at the Neverending Fountain"
-    ],
-    "areaMap": "Metro Line 3/7 (Hanxi Changlong)",
-    "nearbyRecs": [
-      "Circus"
-    ],
-    "guideUrls": [
-      "https://www.chimelong.com/"
-    ],
-    "reviews": [
-      {
-        "title": "Family Waterpark Adventure",
-        "url": "https://www.youtube.com/watch?v=ZSYW1VKwLd8"
-      }
-    ]
-  },
-  {
-    "id": "birdpark",
-    "name": "Chimelong Birds Park",
-    "category": "Chimelong Safari & Circus",
-    "timeAlloc": "Morning (3h)",
-    "tag": "CHIMELONG • NATURE",
-    "tagIcon": "fa-dove",
-    "image": "https://images.unsplash.com/photo-1498673295982-fbbdf1c60b5f?w=800&q=80",
-    "desc": "A vast ecological wetland 15 minutes from the main resort, home to over 100,000 crocodiles, hippos, and spectacular free-flight bird shows.",
-    "meta1": {
-      "label": "WILDLIFE",
-      "value": "Hippos & Crocodiles"
-    },
-    "meta2": {
-      "label": "SHOW",
-      "value": "Free-Flight Pelicans"
-    },
-    "photos": [
-      "https://images.unsplash.com/photo-1498673295982-fbbdf1c60b5f?w=800&q=80",
-      "https://images.unsplash.com/photo-1549487532-a50d26850c95?w=800&q=80"
-    ],
-    "activities": [
-      "Feed the hungry hippos",
-      "Watch the massive crocodile enclosure",
-      "See the Flamingo free-flight"
-    ],
-    "areaMap": "Metro Line 2 (Huijiang) -> Exit C -> Free Shuttle",
-    "nearbyRecs": [
-      "Safari Park"
-    ],
-    "guideUrls": [
-      "https://www.chimelong.com/"
-    ],
-    "reviews": [
-      {
-        "title": "Birds Park & Hippo Feeding POV",
-        "url": "https://www.youtube.com/watch?v=uUvuE9sWNsM"
-      },
-      {
-        "title": "Zoo & Bird Park VLOG",
-        "url": "https://www.youtube.com/watch?v=Zbx1ooA7odk"
       }
     ]
   },
