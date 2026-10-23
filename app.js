@@ -1,4 +1,49 @@
 
+// === HIGH-CONTRAST MAP POPUP RENDERER ===
+window.createBrightMapPopupHtml = function(item) {
+  if (!item) return '';
+  const id = item.id || '';
+  const name = item.name || '';
+  const nameZh = item.nameZh || '';
+  const region = item.region || 'Guangzhou';
+  const category = item.category || item.cuisine || 'Spot';
+  const timeOrPrice = item.time || item.price || '';
+  const address = item.address || nameZh || name;
+  const metro = item.metro || item.area || '';
+  const img = item.image || '/assets/attractions/cantontower.jpg';
+  const copyAddress = (address || nameZh || name).replace(/'/g, "\\'");
+  const copyZh = (nameZh || name).replace(/'/g, "\\'");
+
+  return `
+    <div class="map-popup-card" style="min-width: 220px; max-width: 260px; font-family: inherit;">
+      <div style="position: relative; width: 100%; height: 90px; border-radius: 8px; overflow: hidden; margin-bottom: 8px; background: #0f172a;">
+        <img src="${img}" alt="${name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='/assets/attractions/cantontower.jpg'">
+        <span style="position: absolute; top: 6px; right: 6px; background: rgba(15, 23, 42, 0.9); color: #fb7185; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 5px; border: 1px solid rgba(225, 29, 72, 0.4);">${region}</span>
+      </div>
+      <div class="map-popup-title" style="font-size: 14px; font-weight: 700; color: #ffffff; line-height: 1.25;">${name}</div>
+      <div class="map-popup-title-zh" style="font-size: 12px; font-weight: 600; color: #fde047; margin-top: 2px;">${nameZh}</div>
+      
+      <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 5px;">
+        <span style="font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px; background: rgba(56, 189, 248, 0.2); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.4);">${category}</span>
+        ${timeOrPrice ? `<span style="font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); color: #f1f5f9;">${timeOrPrice}</span>` : ''}
+      </div>
+
+      ${metro ? `<div style="font-size: 11px; font-weight: 500; color: #38bdf8; margin-top: 6px; display: flex; align-items: center; gap: 4px;"><i class="fa-solid fa-train-subway"></i> ${metro}</div>` : ''}
+      ${address ? `<div style="font-size: 11px; font-weight: 400; color: #e2e8f0; margin-top: 4px; line-height: 1.35; word-break: break-all;">${address}</div>` : ''}
+
+      <div style="display: flex; gap: 6px; margin-top: 10px;">
+        <button type="button" onclick="if(window.copyTaxiAddress){window.copyTaxiAddress('${copyAddress}','${copyZh}');}else{navigator.clipboard.writeText('${copyAddress}');if(window.showToast)window.showToast('Copied: ${copyAddress}');}" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 8px; border-radius: 6px; background: rgba(245, 158, 11, 0.25); color: #fef08a; border: 1px solid rgba(245, 158, 11, 0.5); font-size: 11px; font-weight: 700; cursor: pointer;">
+          <i class="fa-solid fa-taxi"></i> Didi
+        </button>
+        <button type="button" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}');" style="flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 8px; border-radius: 6px; background: #e11d48; color: #ffffff; border: none; font-size: 11px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4);">
+          <i class="fa-solid fa-circle-info"></i> Details
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+
 
 // === UNIFIED DINING REGIONAL FILTER BAR WITH LIVE COUNTS ===
 window.renderDiningRegionTabs = function() {
@@ -658,7 +703,7 @@ function renderDailySchedule(filterCity = 'all') {
               <h3 class="text-lg font-black text-white flex items-center gap-2">
                 <span>Day ${item.day}: ${item.region}</span>
               </h3>
-              <span class="text-xs text-slate-400 mono font-bold">${item.weekday}, ${item.date}</span>
+              <span class="text-xs text-slate-200 mono font-bold">${item.weekday}, ${item.date}</span>
             </div>
           </div>
           
@@ -820,7 +865,7 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="col-span-full py-16 text-center text-slate-400 bg-slate-900/40 rounded-3xl border border-white/5 space-y-3">
+      <div class="col-span-full py-16 text-center text-slate-200 bg-slate-900/40 rounded-3xl border border-white/5 space-y-3">
         <i class="fa-solid fa-utensils text-4xl text-amber-400/40"></i>
         <p class="text-sm font-bold text-white">No dining spots found matching your filter selection.</p>
         <button onclick="filterDiningByCity('all'); filterDiningByCategory('all');" class="px-4 py-2 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold mono">
@@ -901,7 +946,7 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
                 </div>
               ` : ''}
               ${r.address ? `
-                <div class="text-slate-400 flex items-start gap-1.5 text-[11px]">
+                <div class="text-slate-200 flex items-start gap-1.5 text-[11px]">
                   <i class="fa-solid fa-location-dot mt-0.5 text-yellow-400 shrink-0"></i>
                   ${r.mapUrl ? `
                     <a href="${r.mapUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="hover:text-amber-300 hover:underline line-clamp-1 transition flex items-center gap-1">
@@ -917,7 +962,7 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
 
             <!-- Top 3 Highlights Badges -->
             <div class="pt-1">
-              <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mono mb-1.5 flex items-center gap-1">
+              <div class="text-[10px] font-bold uppercase tracking-wider text-slate-200 mono mb-1.5 flex items-center gap-1">
                 <i class="fa-solid fa-fire text-amber-400"></i> Must-Try Highlights:
               </div>
               <div class="flex flex-wrap gap-1.5">
@@ -937,7 +982,7 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
               <i class="fa-solid fa-book-open"></i> View Full Menu & Interior Photos
             </button>
             <div class="flex items-center justify-between text-xs mono pt-1">
-              <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition text-[11px] font-bold">
+              <button onclick="copyToClipboard('${r.name} ${r.address || ''}')" class="text-slate-200 hover:text-white flex items-center gap-1.5 transition text-[11px] font-bold">
                 <i class="fa-regular fa-copy"></i> Copy Details
               </button>
               <div class="flex items-center gap-2">
@@ -1038,7 +1083,7 @@ function openDiningPhotoModal(restaurantId) {
             <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
               <i class="fa-solid fa-camera-retro text-amber-400"></i> Ambience & Architecture Gallery
             </h3>
-            <p class="text-xs text-slate-400 mt-0.5">Explore classical courtyard architecture, Manchu stained-glass windows, and dining halls.</p>
+            <p class="text-xs text-slate-200 mt-0.5">Explore classical courtyard architecture, Manchu stained-glass windows, and dining halls.</p>
           </div>
           <div class="flex items-center gap-2 text-xs mono">
             <button onclick="setGalleryFilter('all')" data-type="all" class="gallery-tab-btn px-3 py-1 rounded-xl bg-amber-500 text-slate-950 font-black text-xs transition">All Views</button>
@@ -1052,11 +1097,11 @@ function openDiningPhotoModal(restaurantId) {
             <div data-type="${g.type || 'interior'}" class="gallery-item-card bg-white/5 border border-white/10 rounded-2xl overflow-hidden group hover:border-yellow-500/40 transition">
               <div class="h-52 relative overflow-hidden bg-slate-950 flex items-center justify-center cursor-pointer" onclick="openDishZoomModal('${g.image || ''}', '${g.title}', 'Architecture & Ambience', '${g.desc || ''}')">
                 ${g.image ? `
-                  <img src="${g.image}" alt="${g.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full p-6 flex flex-col items-center justify-center text-center bg-slate-900 border border-white/5\'><i class=\'fa-solid fa-image text-4xl text-amber-400/60 mb-2\'></i><span class=\'text-xs font-bold text-slate-400\'>Photo Reference</span><span class=\'text-sm font-black text-white mt-1\'>${g.title}</span></div>';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                  <img src="${g.image}" alt="${g.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full p-6 flex flex-col items-center justify-center text-center bg-slate-900 border border-white/5\'><i class=\'fa-solid fa-image text-4xl text-amber-400/60 mb-2\'></i><span class=\'text-xs font-bold text-slate-200\'>Photo Reference</span><span class=\'text-sm font-black text-white mt-1\'>${g.title}</span></div>';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 ` : `
                   <div class="w-full h-full p-6 flex flex-col items-center justify-center text-center bg-gradient-to-br from-slate-900 to-amber-950/40">
                     <i class="fa-solid fa-utensils text-4xl text-amber-400/60 mb-2"></i>
-                    <span class="text-xs font-bold text-slate-400 mono">Asset Reference</span>
+                    <span class="text-xs font-bold text-slate-200 mono">Asset Reference</span>
                     <span class="text-sm font-black text-white mt-1">${g.title}</span>
                   </div>
                 `}
@@ -1083,7 +1128,7 @@ function openDiningPhotoModal(restaurantId) {
             <h3 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
               <i class="fa-solid fa-bowl-food text-yellow-400"></i> Complete Dish Menu & Flavor Showcase
             </h3>
-            <p class="text-xs text-slate-400 mt-0.5">Click any dish photo to zoom in on authentic texture & plating presentation.</p>
+            <p class="text-xs text-slate-200 mt-0.5">Click any dish photo to zoom in on authentic texture & plating presentation.</p>
           </div>
           ${menu.length > 0 ? `
             <span class="px-3 py-1 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono font-bold w-fit">
@@ -1111,7 +1156,7 @@ function openDiningPhotoModal(restaurantId) {
                     <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase mono bg-amber-500/20 text-amber-300 border border-amber-500/30 shrink-0">
                       ${dish.category || 'Specialty'}
                     </span>
-                    <button onclick="openDishZoomModal('${dish.image}', '${dish.nameZh} (${dish.nameEn})', '${dish.category}', '${dish.desc}')" class="text-slate-400 hover:text-amber-300 text-[10px] mono flex items-center gap-1 transition">
+                    <button onclick="openDishZoomModal('${dish.image}', '${dish.nameZh} (${dish.nameEn})', '${dish.category}', '${dish.desc}')" class="text-slate-200 hover:text-amber-300 text-[10px] mono flex items-center gap-1 transition">
                       <i class="fa-solid fa-expand"></i> Zoom
                     </button>
                   </div>
@@ -1121,7 +1166,7 @@ function openDiningPhotoModal(restaurantId) {
                   <div class="text-xs font-bold text-slate-300 line-clamp-1">
                     ${dish.nameEn}
                   </div>
-                  <p class="text-[11px] text-slate-400 leading-relaxed line-clamp-2 pt-0.5">
+                  <p class="text-[11px] text-slate-200 leading-relaxed line-clamp-2 pt-0.5">
                     ${dish.desc}
                   </p>
                 </div>
@@ -1143,7 +1188,7 @@ function openDiningPhotoModal(restaurantId) {
       ${(rest.notes || rest.address) ? `
         <div class="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2 text-xs">
           ${rest.notes ? `<div class="text-slate-300 leading-relaxed"><strong class="text-amber-300 mono">Insider Guide:</strong> ${rest.notes}</div>` : ''}
-          ${rest.address ? `<div class="text-slate-400 flex items-center gap-2 pt-2 border-t border-white/10"><i class="fa-solid fa-location-dot text-amber-400"></i> <span>${rest.address}</span></div>` : ''}
+          ${rest.address ? `<div class="text-slate-200 flex items-center gap-2 pt-2 border-t border-white/10"><i class="fa-solid fa-location-dot text-amber-400"></i> <span>${rest.address}</span></div>` : ''}
         </div>
       ` : ''}
     </div>
@@ -1591,7 +1636,7 @@ function initRegionalMap() {
         <div class="space-y-2 text-xs">
           <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1.5">
             <span class="px-2 py-0.5 rounded text-[10px] font-black mono text-white" style="background:${loc.color}">${loc.badge}</span>
-            <span class="text-[10px] mono text-slate-400 uppercase">${loc.category}</span>
+            <span class="text-[10px] mono text-slate-200 uppercase">${loc.category}</span>
           </div>
           <div>
             <h4 class="font-black text-sm text-white">${loc.title}</h4>
@@ -1602,7 +1647,7 @@ function initRegionalMap() {
             <button onclick="openDrawer('${loc.nodeKey}')" class="px-2.5 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-slate-950 font-bold mono text-[11px] transition flex items-center gap-1 cursor-pointer">
               <span>View Specs</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </button>
-            <span class="text-[10px] mono text-slate-400">${loc.coords[0].toFixed(2)}°N, ${loc.coords[1].toFixed(2)}°E</span>
+            <span class="text-[10px] mono text-slate-200">${loc.coords[0].toFixed(2)}°N, ${loc.coords[1].toFixed(2)}°E</span>
           </div>
         </div>
       `;
@@ -1639,7 +1684,7 @@ function renderRegionalLocationsSidebar() {
         <span class="px-2 py-0.5 rounded font-black text-white" style="background:${loc.color}">
           ${loc.badge}
         </span>
-        <span class="text-slate-400 group-hover:text-cyan-400 transition flex items-center gap-1">
+        <span class="text-slate-200 group-hover:text-cyan-400 transition flex items-center gap-1">
           <span>Point Map</span> <i class="fa-solid fa-crosshairs"></i>
         </span>
       </div>
@@ -1948,13 +1993,13 @@ function renderHotelRoomModalContent(hotel, photoIdx) {
       <!-- Room Specs Card -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mono">
         <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
-          <span class="text-slate-400 block text-[10px] font-bold tracking-wider">BED CONFIGURATION</span>
+          <span class="text-slate-200 block text-[10px] font-bold tracking-wider">BED CONFIGURATION</span>
           <span class="text-slate-100 font-bold flex items-center gap-2">
             <i class="fa-solid fa-bed text-orange-400 text-sm"></i> ${room.beds}
           </span>
         </div>
         <div class="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
-          <span class="text-slate-400 block text-[10px] font-bold tracking-wider">ROOM AMENITIES & HIGHLIGHTS</span>
+          <span class="text-slate-200 block text-[10px] font-bold tracking-wider">ROOM AMENITIES & HIGHLIGHTS</span>
           <span class="text-slate-200 font-medium flex items-center gap-2">
             <i class="fa-solid fa-wand-magic-sparkles text-amber-400 text-sm"></i> ${room.perks}
           </span>
@@ -1967,7 +2012,7 @@ function renderHotelRoomModalContent(hotel, photoIdx) {
           <span class="text-slate-200 font-bold flex items-center gap-1.5">
             <i class="fa-solid fa-layer-group text-cyan-400"></i> ALL ROOM ANGLES & DETAILS (${photos.length})
           </span>
-          <span class="text-slate-400 text-[11px]">Click any photo to zoom in • Arrow keys to flip</span>
+          <span class="text-slate-200 text-[11px]">Click any photo to zoom in • Arrow keys to flip</span>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
@@ -1988,7 +2033,7 @@ function renderHotelRoomModalContent(hotel, photoIdx) {
 
     <!-- Modal Footer -->
     <div class="p-4 sm:p-5 border-t border-white/10 bg-black/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs mono">
-      <div class="flex items-center gap-2 text-slate-400 text-[11px]">
+      <div class="flex items-center gap-2 text-slate-200 text-[11px]">
         <i class="fa-solid fa-camera text-cyan-400"></i> Verified photography linked strictly to your booked room
       </div>
       <div class="flex items-center gap-2.5 w-full sm:w-auto">
@@ -2125,15 +2170,7 @@ window.syncAttractionsMap = function(items) {
     const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
     const safeId = (item.id || '').replace(/'/g, "\\'");
 
-    const popupHtml = '<div style="font-family: inherit; font-size: 13px; line-height: 1.4; max-width: 250px; color: #111827;">' +
-      '<strong style="color: #1F2937; display: block; font-size: 14px;">' + item.name + nameZhLabel + '</strong>' +
-      '<span style="display: inline-block; font-size: 11px; background: #E5E7EB; color: #374151; padding: 2px 6px; border-radius: 4px; margin: 4px 0;">' + (item.category || item.region || 'Attraction') + '</span>' +
-      (item.address ? '<p style="margin: 4px 0 6px; font-size: 12px; color: #4B5563;">' + item.address + '</p>' : '') +
-      '<div style="display: flex; gap: 4px; margin-top: 6px;">' +
-        '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" style="background: #F59E0B; color: #fff; border: none; border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 600; cursor: pointer;">🚕 Taxi</button>' +
-        '<button onclick="window.openAttractionDrawer(\'' + safeId + '\')" style="background: #06B6D4; color: #fff; border: none; border-radius: 4px; padding: 4px 8px; font-size: 11px; font-weight: 600; cursor: pointer;">ℹ️ Specs</button>' +
-      '</div>' +
-    '</div>';
+    const popupHtml = (window.createBrightMapPopupHtml ? window.createBrightMapPopupHtml(item) : "");
 
     marker.bindPopup(popupHtml);
 
@@ -2239,7 +2276,7 @@ window.renderAttractionsGrid = function(filterCategory) {
     const categoryBadge = item.category ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">' + item.category + '</span>' : '';
     const reviewText = item.review || item.desc || (item.activities ? item.activities.join(' • ') : '');
     const reviewQuote = reviewText ? '<p class="mt-2 text-xs text-gray-300 italic border-l-2 border-amber-500/60 pl-2 line-clamp-2">"' + reviewText + '"</p>' : '';
-    const addressDisplay = item.address ? '<div class="mt-2 text-xs text-gray-400 flex items-start gap-1"><span>📍</span><span class="truncate">' + item.address + '</span></div>' : '';
+    const addressDisplay = item.address ? '<div class="mt-2 text-xs text-gray-200 flex items-start gap-1"><span>📍</span><span class="truncate">' + item.address + '</span></div>' : '';
     const websiteBtn = item.website ? '<a href="' + item.website + '" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 text-xs font-semibold rounded bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 transition-colors">🌐 Site</a>' : '';
 
     const isStaged = (window.__stagedAttractions || []).includes(item.id);
@@ -2419,7 +2456,7 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
     let thumbStripHtml = '';
     if (photos.length > 1) {
       thumbStripHtml = '<div class="space-y-1.5 pt-1">' +
-        '<div class="flex items-center justify-between text-[11px] mono text-slate-400">' +
+        '<div class="flex items-center justify-between text-[11px] mono text-slate-200">' +
           '<span class="text-cyan-400 font-bold flex items-center gap-1.5">' +
             '<i class="fa-solid fa-camera-retro"></i> PHOTO GALLERY (' + photos.length + ')' +
           '</span>' +
@@ -2529,7 +2566,7 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
     '</div>' +
     (item.address ? (
       '<div class="bg-gray-800/60 p-3.5 rounded-xl border border-gray-700/60 space-y-2">' +
-        '<div class="text-xs text-gray-400 font-medium uppercase tracking-wider">Address / 详细地址</div>' +
+        '<div class="text-xs text-gray-200 font-medium uppercase tracking-wider">Address / 详细地址</div>' +
         '<div class="text-sm text-gray-200 select-all font-mono">' + item.address + '</div>' +
         '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="mt-2 w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-colors">' +
           '<span>🚕</span> Copy Bilingual Address for Taxi / Didi' +
@@ -2551,7 +2588,7 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
         '<div class="text-xs text-rose-400 font-bold uppercase tracking-wider flex items-center gap-1.5">' +
           '<i class="fa-solid fa-share-nodes"></i> 社交平台与实时攻略 (Social & Live Intel)' +
         '</div>' +
-        '<div class="text-[11px] text-slate-400 mb-1">Click any chip for real-time crowd photos, menus, and guides:</div>' +
+        '<div class="text-[11px] text-slate-200 mb-1">Click any chip for real-time crowd photos, menus, and guides:</div>' +
         window.renderSocialLinks(item) +
       '</div>'
     ) : '') +
@@ -2559,10 +2596,10 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
     nearbyHtml +
     reviewsHtml +
     '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-3">' +
-      '<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
+      '<div class="text-xs text-gray-200 font-semibold uppercase tracking-wider flex items-center gap-1">' +
         '<span>🧭</span> Navigation & Map Coordinates' +
       '</div>' +
-      '<div class="text-xs text-gray-400 font-mono">' +
+      '<div class="text-xs text-gray-200 font-mono">' +
         'Latitude: ' + (lat || 'N/A') + ', Longitude: ' + (lng || 'N/A') +
       '</div>' +
       '<div class="flex items-center gap-2 flex-wrap pt-1">' +
@@ -2695,7 +2732,7 @@ window.renderStagedRouteDrawer = function() {
   if (stagedItems.length === 0) {
     container.innerHTML = '<div class="h-64 flex flex-col items-center justify-center text-center p-6 text-gray-500">' +
         '<span class="text-4xl mb-3">📍</span>' +
-        '<p class="text-sm font-medium text-gray-400">Your route plan is empty.</p>' +
+        '<p class="text-sm font-medium text-gray-200">Your route plan is empty.</p>' +
         '<p class="text-xs text-gray-500 mt-1">Click "+ Route" on any attraction card to plot your custom journey.</p>' +
       '</div>';
     return;
@@ -2717,7 +2754,7 @@ window.renderStagedRouteDrawer = function() {
               item.name +
               nameZhDisplay +
             '</h4>' +
-            (item.address ? '<p class="text-xs text-gray-400 truncate max-w-[210px]">' + item.address + '</p>' : '') +
+            (item.address ? '<p class="text-xs text-gray-200 truncate max-w-[210px]">' + item.address + '</p>' : '') +
             '<div class="flex items-center gap-1.5 pt-1">' +
               '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="text-[11px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 font-medium">' +
                 '🚕 Copy Didi' +
