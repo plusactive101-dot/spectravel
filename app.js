@@ -1,4 +1,128 @@
 
+// === CANONICAL MAP PIN PALETTE & RESOLVER ===
+window.MAP_PALETTE = {
+  hotel: {
+    key: 'hotel',
+    name: 'Hotel',
+    bg: '#10b981',       // Emerald
+    border: '#059669',
+    glow: '0 0 10px rgba(16, 185, 129, 0.5)',
+    icon: 'fa-solid fa-hotel',
+    iconColor: '#ffffff'
+  },
+  transport: {
+    key: 'transport',
+    name: 'Transport',
+    bg: '#8b5cf6',       // Royal Purple
+    border: '#7c3aed',
+    glow: '0 0 10px rgba(139, 92, 246, 0.5)',
+    icon: 'fa-solid fa-train-subway',
+    iconColor: '#ffffff'
+  },
+  attraction: {
+    key: 'attraction',
+    name: 'Attraction',
+    bg: '#0284c7',       // Sky Blue
+    border: '#0369a1',
+    glow: '0 0 10px rgba(2, 132, 199, 0.5)',
+    icon: 'fa-solid fa-landmark',
+    iconColor: '#ffffff'
+  },
+  dining: {
+    key: 'dining',
+    name: 'Dining',
+    bg: '#f97316',       // Coral Orange
+    border: '#ea580c',
+    glow: '0 0 10px rgba(249, 115, 22, 0.5)',
+    icon: 'fa-solid fa-utensils',
+    iconColor: '#ffffff'
+  },
+  mustdo: {
+    key: 'mustdo',
+    name: 'Must Do/Eat',
+    bg: '#e11d48',       // Crimson Red with Luminous Gold
+    border: '#fde047',
+    glow: '0 0 14px rgba(225, 29, 72, 0.8), 0 0 4px #fde047',
+    icon: 'fa-solid fa-star',
+    iconColor: '#fde047'
+  }
+};
+
+// Must Do strictly overwrites attraction or dining if marked or curated
+window.resolveMarkerCategory = function(item, explicitCategory = '') {
+  if (!item) return 'attraction';
+  
+  // 1. MUST-DO OVERWRITE RULE (Highest Precedence)
+  const isCuratedMustDo = [
+    'canton-tower', 'chimelong-safari', 'chimelong-birds-park', 'chimelong-international-circus',
+    'chen-clan-ancestral-hall', 'hong-kong-disneyland', 'ocean-park', 'wisca-binjiang-mansion',
+    'bingsheng-taste', 'taotao-ju', 'guangzhou-restaurant', 'gulong-gorge-glass-grand-canyon',
+    'dongshankou-mansions', 'shenzhen-ping-an-finance-centre', 'victoria-peak'
+  ].includes(item.id || item.nodeKey);
+
+  if (item.mustDo === true || item.mustEat === true || explicitCategory === 'mustdo' || isCuratedMustDo) {
+    return 'mustdo';
+  }
+
+  // 2. Hotel
+  if (explicitCategory === 'hotel' || item.type === 'hotel' || item.category === 'hotel' || (item.category && item.category.toLowerCase().includes('hotel')) || item.nights || item.checkIn) {
+    return 'hotel';
+  }
+
+  // 3. Transport
+  if (explicitCategory === 'transport' || item.type === 'transport' || item.category === 'transport' || (item.category && item.category.toLowerCase().includes('transit')) || item.rail || item.flight) {
+    return 'transport';
+  }
+
+  // 4. Dining
+  if (explicitCategory === 'dining' || item.type === 'dining' || item.cuisine || (item.dishes && item.dishes.length > 0)) {
+    return 'dining';
+  }
+
+  // 5. Default Attraction
+  return 'attraction';
+};
+
+// Generates an interactive L.divIcon using the unified palette
+window.createUnifiedMapPinIcon = function(item, explicitCategory = '') {
+  const catKey = window.resolveMarkerCategory(item, explicitCategory);
+  const cfg = window.MAP_PALETTE[catKey] || window.MAP_PALETTE.attraction;
+  const isMustDo = (catKey === 'mustdo');
+  const itemName = (item.title || item.name || '').replace(/'/g, "\\'");
+
+  const html = `
+    <div class="mktravel-map-pin ${isMustDo ? 'must-do-pin' : ''}" style="
+      position: relative;
+      width: ${isMustDo ? '34px' : '28px'};
+      height: ${isMustDo ? '34px' : '28px'};
+      background: ${cfg.bg};
+      border: 2px solid ${cfg.border};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: ${cfg.glow};
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    " onmouseover="this.style.transform='scale(1.2)';" onmouseout="this.style.transform='scale(1)';" title="${itemName} (${cfg.name})">
+      <i class="${cfg.icon}" style="color: ${cfg.iconColor}; font-size: ${isMustDo ? '14px' : '11px'};"></i>
+      ${isMustDo ? '<span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background: #fde047; border-radius: 50%; border: 1px solid #000;"></span>' : ''}
+    </div>
+  `;
+
+  if (typeof L !== 'undefined' && L.divIcon) {
+    return L.divIcon({
+      className: 'mktravel-div-icon',
+      html: html,
+      iconSize: [isMustDo ? 34 : 28, isMustDo ? 34 : 28],
+      iconAnchor: [isMustDo ? 17 : 14, isMustDo ? 17 : 14],
+      popupAnchor: [0, isMustDo ? -18 : -15]
+    });
+  }
+  return null;
+};
+
+
 // === MUST DO / EAT SECTION ENGINE ===
 let currentMustDoSubFilter = 'all';
 
@@ -1814,7 +1938,7 @@ function initRegionalMap() {
         </div>
       `;
 
-      const marker = L.marker(loc.coords, { icon: customIcon })
+      const marker = L.marker(loc.coords, { icon: (window.createUnifiedMapPinIcon ? window.createUnifiedMapPinIcon(loc) : customIcon) })
         .addTo(regionalMapInstance)
         .bindPopup(popupHtml);
 
@@ -2326,7 +2450,7 @@ window.syncAttractionsMap = function(items) {
       iconAnchor: [7, 7]
     });
 
-    const marker = L.marker([lat, lng], { icon: customIcon });
+    const marker = L.marker([lat, lng], { icon: (window.createUnifiedMapPinIcon ? window.createUnifiedMapPinIcon(item) : customIcon) });
     const nameZhLabel = item.nameZh ? ' (' + item.nameZh + ')' : '';
     const safeAddress = (item.address || '').replace(/'/g, "\\'");
     const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");

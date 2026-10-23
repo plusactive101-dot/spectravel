@@ -1353,7 +1353,29 @@
               </div>
             </div>
             
-            <div id="regionalLeafletMap" class="w-full h-[520px] sm:h-[600px] rounded-2xl overflow-hidden relative z-10 border border-white/10"></div>
+            <div class="relative w-full">
+<div id="regionalLeafletMap" class="w-full h-[520px] sm:h-[600px] rounded-2xl overflow-hidden relative z-10 border border-white/10"></div>
+
+      <!-- Dynamic Floating Map Color Legend -->
+      <div id="mktravel-map-legend" class="absolute bottom-5 left-1/2 -translate-x-1/2 z-[400] flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-white/20 backdrop-blur-md shadow-2xl text-[11px] font-semibold text-white overflow-x-auto max-w-[95%] pointer-events-auto">
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span> Hotel
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md" style="background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4);">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #8b5cf6;"></span> Transport
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8; border: 1px solid rgba(2, 132, 199, 0.4);">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #0284c7;"></span> Attraction
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md" style="background: rgba(249, 115, 22, 0.2); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4);">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #f97316;"></span> Dining
+        </span>
+        <span class="flex items-center gap-1.5 px-2 py-0.5 rounded-md font-bold" style="background: rgba(225, 29, 72, 0.25); color: #fde047; border: 1px solid #fde047; box-shadow: 0 0 8px rgba(225, 29, 72, 0.5);">
+          <i class="fa-solid fa-star text-amber-300 text-[10px]"></i> Must Do/Eat
+        </span>
+      </div>
+
+</div>
             
             <div class="mt-3 px-3 py-2 rounded-xl bg-white/5 border border-white/10 flex flex-wrap items-center justify-between text-xs mono text-slate-400 gap-2">
               <span class="flex items-center gap-1.5"><i class="fa-solid fa-train text-cyan-400"></i> Bullet Rail & Airport links visualized with zero API key</span>
