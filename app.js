@@ -1992,6 +1992,24 @@ window.filterAttractionsCards = function(category) {
 };
 
 // --- 6. UNIFIED SLIDE-OVER DETAIL DRAWER ---
+window.selectDrawerPhoto = function(url, index, total, thumbElement) {
+  const mainImg = document.getElementById("drawer-main-photo");
+  const counter = document.getElementById("drawer-photo-counter");
+  if (mainImg) {
+    mainImg.style.opacity = "0.4";
+    mainImg.src = url;
+    setTimeout(() => { mainImg.style.opacity = "1"; }, 120);
+  }
+  if (counter) counter.textContent = index;
+
+  document.querySelectorAll(".drawer-thumb-btn").forEach(btn => {
+    btn.className = "drawer-thumb-btn flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden cursor-pointer border-2 border-white/10 hover:border-white/30 transition-all snap-start relative";
+  });
+  if (thumbElement) {
+    thumbElement.className = "drawer-thumb-btn flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden cursor-pointer border-2 border-amber-400 ring-2 ring-amber-400/30 transition-all snap-start relative";
+  }
+};
+
 window.openAttractionDrawer = function(itemId) {
   const attractions = window.expeditionAttractions || [];
   const item = attractions.find(p => p.id === itemId || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId);
@@ -2016,22 +2034,57 @@ window.openAttractionDrawer = function(itemId) {
   const navGoogleUrl = (lat && lng) ? ('https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng) : '#';
   const navAmapUrl = (lat && lng) ? ('https://uri.amap.com/marker?position=' + lng + ',' + lat + '&name=' + encodeURIComponent(item.nameZh || item.name)) : '#';
 
-  // Photo gallery
+  // Interactive Photo Library & Experience Gallery
   let photoGalleryHtml = '';
   const photos = item.photos || (item.image ? [item.image] : []);
   if (photos.length > 0) {
-    photoGalleryHtml = '<div class="flex overflow-x-auto gap-3 pb-2 snap-x rounded-xl">' +
-      photos.map(p => '<img src="' + p + '" class="h-44 w-60 rounded-xl object-cover snap-center border border-white/10 shadow-lg flex-shrink-0" loading="lazy">').join('') +
+    const mainPhoto = photos[0];
+    let thumbStripHtml = '';
+    if (photos.length > 1) {
+      thumbStripHtml = '<div class="space-y-1.5 pt-1">' +
+        '<div class="flex items-center justify-between text-[11px] mono text-slate-400">' +
+          '<span class="text-cyan-400 font-bold flex items-center gap-1.5">' +
+            '<i class="fa-solid fa-camera-retro"></i> PHOTO GALLERY & WHAT TO DO (' + photos.length + ')' +
+          '</span>' +
+          '<span class="text-slate-500">Click angle to view</span>' +
+        '</div>' +
+        '<div class="flex gap-2 overflow-x-auto pb-1.5 snap-x">';
+
+      photos.forEach((p, idx) => {
+        const safeP = (p || '').replace(/'/g, "\\'");
+        thumbStripHtml += '<div onclick="window.selectDrawerPhoto(\'' + safeP + '\', ' + (idx + 1) + ', ' + photos.length + ', this)" ' +
+             'class="drawer-thumb-btn flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden cursor-pointer border-2 ' + (idx === 0 ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-white/10 hover:border-white/30') + ' transition-all snap-start relative">' +
+          '<img src="' + p + '" class="w-full h-full object-cover" loading="lazy" alt="Angle ' + (idx + 1) + '">' +
+          '<span class="absolute bottom-1 right-1 bg-black/80 text-[9px] font-mono font-bold text-white px-1 rounded">#' + (idx + 1) + '</span>' +
+        '</div>';
+      });
+
+      thumbStripHtml += '</div></div>';
+    }
+
+    photoGalleryHtml = '<div class="space-y-2">' +
+      '<div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">' +
+        '<img id="drawer-main-photo" src="' + mainPhoto + '" class="w-full h-full object-cover transition-opacity duration-200" alt="' + item.name + '" loading="lazy">' +
+        '<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>' +
+        '<div class="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-xl text-xs font-mono text-cyan-300 border border-white/15">' +
+          '<span id="drawer-photo-counter">1</span> / ' + photos.length + ' Photos' +
+        '</div>' +
+        '<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">' +
+          '<span class="text-xs text-white/90 font-medium drop-shadow flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-amber-400"></i> ' + item.name + '</span>' +
+          '<span class="text-[11px] mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">Experience Gallery</span>' +
+        '</div>' +
+      '</div>' +
+      thumbStripHtml +
     '</div>';
   }
 
-  // Key Activities
+  // Key Activities / What to Do
   let activitiesHtml = '';
   if (item.activities && item.activities.length > 0) {
     activitiesHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
-      '<div class="text-xs text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>✨</span> Key Activities</div>' +
+      '<div class="text-xs text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>✨</span> What to Do & Key Activities</div>' +
       '<ul class="space-y-1.5 text-xs text-gray-300">' +
-        item.activities.map(a => '<li class="flex items-start gap-2"><span class="text-emerald-400">✓</span><span>' + a + '</span></li>').join('') +
+        item.activities.map(a => '<li class="flex items-start gap-2"><span class="text-emerald-400 font-bold">✓</span><span>' + a + '</span></li>').join('') +
       '</ul>' +
     '</div>';
   }
@@ -2093,6 +2146,7 @@ window.openAttractionDrawer = function(itemId) {
         '</button>' +
       '</div>'
     ) : '') +
+    activitiesHtml +
     (item.review || item.desc ? (
       '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
         '<div class="text-xs text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
@@ -2101,7 +2155,6 @@ window.openAttractionDrawer = function(itemId) {
         '<p class="text-sm text-gray-300 leading-relaxed italic">"' + (item.review || item.desc) + '"</p>' +
       '</div>'
     ) : '') +
-    activitiesHtml +
     accessHtml +
     nearbyHtml +
     reviewsHtml +
