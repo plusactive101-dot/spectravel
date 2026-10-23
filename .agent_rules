@@ -15,3 +15,8 @@
      curl -s "https://mktravel.pages.dev/?ts=$(date +%s)" | grep -F "<target_string_or_element>"
    - The matched line from the live HTTP response MUST be printed in the final output.
    - If the live verification fails or returns empty, the task is NOT done—troubleshoot and fix until the live URL returns the expected content.
+
+4. IMMUTABLE ZONES (DO NOT TOUCH):
+   - HOTELS: The hotel UI, data structures, tabs, and layout are considered perfect and locked. Do not modify anything related to accommodations.
+   - FLIGHTS: The flight UI, seating arrangements, modals, and data are considered perfect and locked. Do not modify anything related to flights or transit phases (e.g., Phase 01, Phase 10).
+   - If a prompt asks to modify these areas, REJECT the request unless explicitly overridden by the user stating "OVERRIDE IMMUTABLE ZONE".
