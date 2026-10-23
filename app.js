@@ -1,4 +1,110 @@
 
+// === REGIONAL MAP UNIVERSAL MARKER ENGINE & INTERACTIVE LEGEND ===
+window.activeMapFilters = {
+  hotel: true,
+  transport: true,
+  attraction: true,
+  dining: true,
+  mustdo: true
+};
+
+window.allMapMarkersList = [];
+
+// Toggle filter when user clicks a legend chip
+window.toggleMapCategoryFilter = function(categoryKey) {
+  if (window.activeMapFilters[categoryKey] !== undefined) {
+    window.activeMapFilters[categoryKey] = !window.activeMapFilters[categoryKey];
+  }
+
+  // Update visual state of legend chips
+  const legendBtn = document.querySelector(`[data-legend-cat="${categoryKey}"]`);
+  if (legendBtn) {
+    if (window.activeMapFilters[categoryKey]) {
+      legendBtn.style.opacity = '1';
+      legendBtn.style.filter = 'grayscale(0%)';
+      legendBtn.style.transform = 'scale(1)';
+    } else {
+      legendBtn.style.opacity = '0.35';
+      legendBtn.style.filter = 'grayscale(80%)';
+      legendBtn.style.transform = 'scale(0.92)';
+    }
+  }
+
+  // Show/Hide markers on both map instances
+  if (window.allMapMarkersList && window.allMapMarkersList.length > 0) {
+    window.allMapMarkersList.forEach(entry => {
+      const isVisible = window.activeMapFilters[entry.category];
+      const activeMap = entry.mapInstance || window.map || window.regionalMapInstance || window.routeMap || window.attractionsMap;
+      if (activeMap) {
+        if (isVisible) {
+          if (!activeMap.hasLayer(entry.marker)) {
+            activeMap.addLayer(entry.marker);
+          }
+        } else {
+          if (activeMap.hasLayer(entry.marker)) {
+            activeMap.removeLayer(entry.marker);
+          }
+        }
+      }
+    });
+  }
+};
+
+// Universal map populator that works on ANY Leaflet map instance (main regional map OR attractions map)
+window.populateUniversalMapMarkers = function(targetMap) {
+  const map = targetMap || window.map || window.regionalMapInstance;
+  if (!map || typeof L === 'undefined') return;
+
+  // Clear existing tracked markers
+  window.allMapMarkersList = window.allMapMarkersList.filter(m => m.mapInstance !== map);
+
+  const attractions = (typeof expeditionAttractions !== 'undefined') ? expeditionAttractions : [];
+  const restaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : [];
+  const hotels = (typeof routeData !== 'undefined' && routeData.hotels) ? routeData.hotels : [];
+
+  const addMarkerToMap = (item, baseCategory, coords) => {
+    if (!coords || !Array.isArray(coords) || coords.length < 2) return;
+    const resolvedCat = window.resolveMarkerCategory(item, baseCategory);
+    const pinIcon = window.createUnifiedMapPinIcon(item, baseCategory);
+
+    const marker = L.marker([coords[0], coords[1]], { icon: pinIcon });
+    if (window.createBrightMapPopupHtml) {
+      marker.bindPopup(window.createBrightMapPopupHtml(item));
+    }
+
+    const isVisible = window.activeMapFilters[resolvedCat] !== false;
+    if (isVisible) {
+      map.addLayer(marker);
+    }
+
+    window.allMapMarkersList.push({
+      item,
+      category: resolvedCat,
+      marker,
+      mapInstance: map
+    });
+  };
+
+  // 1. Plot Hotels (Emerald Green)
+  hotels.forEach(h => {
+    const coords = h.coordinates || (h.lat && h.lng ? [h.lat, h.lng] : null);
+    addMarkerToMap(h, 'hotel', coords);
+  });
+
+  // 2. Plot Attractions (Sky Blue or Must-Do Crimson/Gold)
+  attractions.forEach(a => {
+    const coords = a.coordinates || (a.lat && a.lng ? [a.lat, a.lng] : null);
+    addMarkerToMap(a, 'attraction', coords);
+  });
+
+  // 3. Plot Dining Spots (Vivid Orange or Must-Do Crimson/Gold)
+  restaurants.forEach(r => {
+    const coords = r.coordinates || (r.lat && r.lng ? [r.lat, r.lng] : null);
+    addMarkerToMap(r, 'dining', coords);
+  });
+};
+
+
 // === COMPREHENSIVE MAP PIN COLOR & ICON PALETTE ===
 window.MAP_PALETTE = {
   hotel: {
@@ -1951,6 +2057,9 @@ function initRegionalMap() {
     });
 
     renderRegionalLocationsSidebar();
+    if (window.populateUniversalMapMarkers) {
+      window.populateUniversalMapMarkers(regionalMapInstance);
+    }
   }
 
   // Invalidate size to ensure proper tile rendering in tab views
