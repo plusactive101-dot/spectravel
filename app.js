@@ -319,45 +319,70 @@ window.renderCompactRestaurantRow = function(r) {
 
 
 
-// === RESILIENT SOCIAL MEDIA & WEB LINKS COMPONENT ===
+
+// === SOCIAL MEDIA KEYWORD SEARCH & OFFICIAL WEBSITE ENGINE ===
+window.openSocialAppOrWeb = function(appScheme, webUrl) {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile && appScheme) {
+    const tStart = Date.now();
+    window.location.href = appScheme;
+    setTimeout(() => {
+      if (Date.now() - tStart < 1600 && document.hasFocus()) {
+        window.open(webUrl, '_blank', 'noopener,noreferrer');
+      }
+    }, 1200);
+  } else {
+    window.open(webUrl, '_blank', 'noopener,noreferrer');
+  }
+};
+
 window.renderSocialLinks = function(item) {
   try {
     if (!item || typeof item !== 'object') return '';
-    const nameQuery = encodeURIComponent(item.nameZh || item.name || '');
-    if (!nameQuery) return '';
+    const nameZh = item.nameZh || '';
+    const nameEn = item.name || '';
+    const zhQuery = nameZh || nameEn;
+    const globalQuery = nameEn || nameZh;
+    if (!zhQuery && !globalQuery) return '';
 
-    const links = item.links || {};
-    const xhsUrl = links.xhs || ('https://www.xiaohongshu.com/search_result?keyword=' + nameQuery);
-    const dpUrl = links.dianping || ('https://www.dianping.com/search/keyword/4/0_' + nameQuery);
-    const tripUrl = links.trip || ('https://m.ctrip.com/webapp/you/sight/search?keyword=' + nameQuery);
-    const official = links.official || item.officialUrl;
-    const source = links.sourceUrl || item.sourceUrl;
+    const encZh = encodeURIComponent(zhQuery);
+    const encGlobal = encodeURIComponent(globalQuery);
 
-    let html = '<div class="social-links-bar" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 6px;">';
-    
-    // Xiaohongshu (RED)
-    html += '<a href="' + xhsUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip xhs-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,36,66,0.15);color:#ff2442;border:1px solid rgba(255,36,66,0.4);transition:all 0.2s;"><i class="fa-solid fa-camera"></i> 小红书</a>';
-    
-    // Dianping
-    html += '<a href="' + dpUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip dp-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,102,0,0.15);color:#ff6600;border:1px solid rgba(255,102,0,0.4);transition:all 0.2s;"><i class="fa-solid fa-utensils"></i> 大众点评</a>';
-    
-    // Trip.com Guide
-    html += '<a href="' + tripUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip trip-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(14,116,244,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);transition:all 0.2s;"><i class="fa-solid fa-compass"></i> 携程攻略</a>';
+    // 1. Xiaohongshu (XHS) Keyword Search
+    const xhsApp = `xhsdiscover://search/result?keyword=${encZh}`;
+    const xhsWeb = `https://www.xiaohongshu.com/search_result?keyword=${encZh}`;
 
-    // Official Portal
-    if (official) {
-      html += '<a href="' + official + '" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(192,132,252,0.4);transition:all 0.2s;"><i class="fa-solid fa-globe"></i> 官网</a>';
-    }
+    // 2. TikTok Keyword Search
+    const tiktokWeb = `https://www.tiktok.com/search?q=${encGlobal}`;
 
-    // Social Source Post
-    if (source) {
-      const isInsta = source.includes('instagram.com');
-      const isTiktok = source.includes('tiktok.com');
-      const isXhs = source.includes('xiaohongshu.com') || source.includes('xhslink.com');
-      const label = isInsta ? 'Instagram 原帖' : (isTiktok ? 'TikTok 原帖' : (isXhs ? '小红书原帖' : '原链接'));
-      const icon = isInsta ? 'fa-brands fa-instagram' : (isTiktok ? 'fa-brands fa-tiktok' : 'fa-solid fa-link');
-      const col = isInsta ? '#f43f5e' : (isTiktok ? '#22d3ee' : '#a3e635');
-      html += '<a href="' + source + '" target="_blank" rel="noopener noreferrer" class="social-chip source-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,255,255,0.08);color:' + col + ';border:1px solid ' + col + ';transition:all 0.2s;"><i class="' + icon + '"></i> ' + label + '</a>';
+    // 3. Instagram Keyword Search
+    const instaWeb = `https://www.instagram.com/explore/search/keyword/?q=${encGlobal}`;
+
+    // 4. Official Website Portal (if defined)
+    const officialUrl = item.links?.official || item.officialUrl || item.website || '';
+
+    let html = '<div class="social-links-bar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; margin-bottom: 4px;">';
+
+    // Xiaohongshu Chip
+    html += `<button type="button" onclick="window.openSocialAppOrWeb('${xhsApp}', '${xhsWeb}')" class="social-chip xhs-chip" title="Search on Xiaohongshu" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(255,36,66,0.15);color:#ff2442;border:1px solid rgba(255,36,66,0.4);cursor:pointer;transition:all 0.15s ease;">
+      <i class="fa-solid fa-camera"></i> 小红书
+    </button>`;
+
+    // TikTok Chip
+    html += `<a href="${tiktokWeb}" target="_blank" rel="noopener noreferrer" class="social-chip tiktok-chip" title="Search on TikTok" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(0,242,254,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);transition:all 0.15s ease;">
+      <i class="fa-brands fa-tiktok"></i> TikTok
+    </a>`;
+
+    // Instagram Chip
+    html += `<a href="${instaWeb}" target="_blank" rel="noopener noreferrer" class="social-chip insta-chip" title="Search on Instagram" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(225,48,108,0.15);color:#f43f5e;border:1px solid rgba(244,63,94,0.4);transition:all 0.15s ease;">
+      <i class="fa-brands fa-instagram"></i> Instagram
+    </a>`;
+
+    // Official Website Chip (Rendered if available)
+    if (officialUrl) {
+      html += `<a href="${officialUrl}" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" title="Official Website" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(192,132,252,0.4);transition:all 0.15s ease;">
+        <i class="fa-solid fa-globe"></i> 官网 (Official)
+      </a>`;
     }
 
     html += '</div>';
@@ -367,6 +392,7 @@ window.renderSocialLinks = function(item) {
     return '';
   }
 };
+
 
 
 // --- Taxi / Didi Bilingual Address Clipboard Utility ---
