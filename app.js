@@ -191,23 +191,7 @@ window.renderRestaurantTile = function(r) {
 
 // Open detailed drawer for dining when micro-tile or row is tapped
 window.openRestaurantDetail = function(id) {
-  const list = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : (window.restaurants || []);
-  const item = list.find(r => r.id === id);
-  if (!item) return;
-
-  if (window.openAttractionDrawer) {
-    const syntheticAttraction = {
-      ...item,
-      category: item.cuisine || 'Dining',
-      time: item.price || 'Dining',
-      officialUrl: item.links?.official || item.officialUrl,
-      sourceUrl: item.links?.sourceUrl || item.sourceUrl,
-      review: item.review || (item.dishes ? 'Signature Dishes: ' + item.dishes.join(', ') : 'Specialty venue.')
-    };
-    window.openAttractionDrawer(id, syntheticAttraction);
-  } else if (window.openDiningPhotoModal) {
-    window.openDiningPhotoModal(id);
-  }
+  window.openAttractionDrawer(id);
 };
 
 // === MOBILE-OPTIMIZED ONE-LINER ROWS ===
@@ -289,6 +273,7 @@ window.renderCompactRestaurantRow = function(r) {
 };
 
 
+
 // === RESILIENT SOCIAL MEDIA & WEB LINKS COMPONENT ===
 window.renderSocialLinks = function(item) {
   try {
@@ -303,24 +288,37 @@ window.renderSocialLinks = function(item) {
     const official = links.official || item.officialUrl;
     const source = links.sourceUrl || item.sourceUrl;
 
-    let html = '<div class="social-links-bar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; margin-bottom: 4px;">';
-    html += '<a href="' + xhsUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip xhs-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(255,36,66,0.12);color:#ff2442;border:1px solid rgba(255,36,66,0.35);"><i class="fa-solid fa-camera"></i> 小红书</a>';
-    html += '<a href="' + dpUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip dp-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(255,102,0,0.12);color:#ff6600;border:1px solid rgba(255,102,0,0.35);"><i class="fa-solid fa-utensils"></i> 大众点评</a>';
-    html += '<a href="' + tripUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip trip-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(14,116,244,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.35);"><i class="fa-solid fa-compass"></i> 携程攻略</a>';
+    let html = '<div class="social-links-bar" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 6px;">';
+    
+    // Xiaohongshu (RED)
+    html += '<a href="' + xhsUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip xhs-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,36,66,0.15);color:#ff2442;border:1px solid rgba(255,36,66,0.4);transition:all 0.2s;"><i class="fa-solid fa-camera"></i> 小红书</a>';
+    
+    // Dianping
+    html += '<a href="' + dpUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip dp-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,102,0,0.15);color:#ff6600;border:1px solid rgba(255,102,0,0.4);transition:all 0.2s;"><i class="fa-solid fa-utensils"></i> 大众点评</a>';
+    
+    // Trip.com Guide
+    html += '<a href="' + tripUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip trip-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(14,116,244,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);transition:all 0.2s;"><i class="fa-solid fa-compass"></i> 携程攻略</a>';
 
+    // Official Portal
     if (official) {
-      html += '<a href="' + official + '" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(168,85,247,0.12);color:#c084fc;border:1px solid rgba(192,132,252,0.35);"><i class="fa-solid fa-globe"></i> 官网</a>';
+      html += '<a href="' + official + '" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(192,132,252,0.4);transition:all 0.2s;"><i class="fa-solid fa-globe"></i> 官网</a>';
     }
+
+    // Social Source Post
     if (source) {
       const isInsta = source.includes('instagram.com');
-      const badgeLabel = isInsta ? 'Instagram' : '原链接';
-      const iconClass = isInsta ? 'fa-brands fa-instagram' : 'fa-solid fa-link';
-      html += '<a href="' + source + '" target="_blank" rel="noopener noreferrer" class="social-chip source-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(255,255,255,0.08);color:#f43f5e;border:1px solid #f43f5e;"><i class="' + iconClass + '"></i> ' + badgeLabel + '</a>';
+      const isTiktok = source.includes('tiktok.com');
+      const isXhs = source.includes('xiaohongshu.com') || source.includes('xhslink.com');
+      const label = isInsta ? 'Instagram 原帖' : (isTiktok ? 'TikTok 原帖' : (isXhs ? '小红书原帖' : '原链接'));
+      const icon = isInsta ? 'fa-brands fa-instagram' : (isTiktok ? 'fa-brands fa-tiktok' : 'fa-solid fa-link');
+      const col = isInsta ? '#f43f5e' : (isTiktok ? '#22d3ee' : '#a3e635');
+      html += '<a href="' + source + '" target="_blank" rel="noopener noreferrer" class="social-chip source-chip" style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,255,255,0.08);color:' + col + ';border:1px solid ' + col + ';transition:all 0.2s;"><i class="' + icon + '"></i> ' + label + '</a>';
     }
+
     html += '</div>';
     return html;
   } catch (err) {
-    console.warn("[renderSocialLinks] Non-fatal render error:", err);
+    console.warn("[renderSocialLinks] Error:", err);
     return '';
   }
 };
@@ -2364,22 +2362,37 @@ window.selectDrawerPhoto = function(url, index, total, thumbElement) {
   }
 };
 
-window.openAttractionDrawer = function(itemId) {
-  const attractions = window.expeditionAttractions || [];
-  const item = attractions.find(p => p.id === itemId || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId);
-  if (!item) return;
+window.openAttractionDrawer = function(itemId, directItem = null) {
+  let item = directItem;
+  if (!item) {
+    const attractions = window.expeditionAttractions || [];
+    item = attractions.find(p => p.id === itemId || (p.name && p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId));
+  }
+  if (!item) {
+    const restaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : (window.restaurants || []);
+    item = restaurants.find(p => p.id === itemId || (p.name && p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId));
+  }
+  if (!item && typeof loadRestaurants === 'function') {
+    const loaded = loadRestaurants();
+    item = loaded.find(p => p.id === itemId || (p.name && p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId));
+  }
+  if (!item) {
+    console.warn("Could not find venue for ID:", itemId);
+    return;
+  }
 
   const drawer = document.getElementById('attraction-detail-drawer');
   const backdrop = document.getElementById('attraction-drawer-backdrop');
   const body = document.getElementById('attraction-drawer-body');
   if (!drawer || !backdrop || !body) return;
 
+  const isDining = !!(item.cuisine || item.dishes || (item.price && item.price.includes('¥')));
   const nameZhDisplay = item.nameZh ? '<span class="text-amber-300 font-mono text-sm ml-2">(' + item.nameZh + ')</span>' : '';
   const regionBadge = item.region ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + item.region + '</span>' : '';
-  const categoryBadge = item.category ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">' + item.category + '</span>' : '';
-  const timeAllocBadge = item.timeAlloc ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-purple-900/40 text-purple-300 border border-purple-700/40">⏱️ ' + item.timeAlloc + '</span>' : '';
+  const categoryBadge = '<span class="text-xs px-2.5 py-1 rounded-full font-medium ' + (isDining ? 'bg-amber-900/40 text-amber-300 border border-amber-700/40' : 'bg-emerald-900/40 text-emerald-300 border border-emerald-700/40') + '">' + (isDining ? '🍴 ' + (item.cuisine || item.category || 'Dining') : (item.category || 'Attraction')) + '</span>';
+  const timeAllocBadge = (item.timeAlloc || item.time || item.price) ? ('<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-purple-900/40 text-purple-300 border border-purple-700/40">' + (isDining ? '💰 ' + item.price : '⏱️ ' + (item.timeAlloc || item.time)) + '</span>') : '';
 
-  const safeAddress = (item.address || '').replace(/'/g, "\\'");
+  const safeAddress = (item.address || item.nameZh || item.name || '').replace(/'/g, "\\'");
   const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
   const safeId = (item.id || '').replace(/'/g, "\\'");
 
@@ -2390,7 +2403,17 @@ window.openAttractionDrawer = function(itemId) {
 
   // Interactive Photo Library & Experience Gallery
   let photoGalleryHtml = '';
-  const photos = item.photos || (item.image ? [item.image] : []);
+  let photos = [];
+  if (Array.isArray(item.photos) && item.photos.length > 0) {
+    photos = item.photos;
+  } else if (Array.isArray(item.gallery) && item.gallery.length > 0) {
+    photos = item.gallery.map(g => (typeof g === 'string' ? g : (g.image || g.url))).filter(Boolean);
+  } else if (item.image) {
+    photos = [item.image];
+  } else if (item.coverImage) {
+    photos = [item.coverImage];
+  }
+
   if (photos.length > 0) {
     const mainPhoto = photos[0];
     let thumbStripHtml = '';
@@ -2398,7 +2421,7 @@ window.openAttractionDrawer = function(itemId) {
       thumbStripHtml = '<div class="space-y-1.5 pt-1">' +
         '<div class="flex items-center justify-between text-[11px] mono text-slate-400">' +
           '<span class="text-cyan-400 font-bold flex items-center gap-1.5">' +
-            '<i class="fa-solid fa-camera-retro"></i> PHOTO GALLERY & WHAT TO DO (' + photos.length + ')' +
+            '<i class="fa-solid fa-camera-retro"></i> PHOTO GALLERY (' + photos.length + ')' +
           '</span>' +
           '<span class="text-slate-500">Click angle to view</span>' +
         '</div>' +
@@ -2425,14 +2448,26 @@ window.openAttractionDrawer = function(itemId) {
         '</div>' +
         '<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">' +
           '<span class="text-xs text-white/90 font-medium drop-shadow flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-amber-400"></i> ' + item.name + '</span>' +
-          '<span class="text-[11px] mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">Experience Gallery</span>' +
+          '<span class="text-[11px] mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">' + (isDining ? 'Culinary Radar' : 'Experience Gallery') + '</span>' +
         '</div>' +
       '</div>' +
       thumbStripHtml +
     '</div>';
   }
 
-  // Key Activities / What to Do
+  // Signature Dishes (for dining)
+  let dishesHtml = '';
+  const dishes = Array.isArray(item.dishes) ? item.dishes : (typeof item.dishes === 'string' ? item.dishes.split(',').map(s => s.trim()) : []);
+  if (dishes.length > 0) {
+    dishesHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
+      '<div class="text-xs text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-utensils"></i> Signature Dishes & Highlights (招牌菜推荐)</div>' +
+      '<div class="flex flex-wrap gap-1.5 pt-1">' +
+        dishes.map(d => '<span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-500/15 text-amber-200 border border-amber-500/30">' + d + '</span>').join('') +
+      '</div>' +
+    '</div>';
+  }
+
+  // Key Activities / What to Do (for attractions)
   let activitiesHtml = '';
   if (item.activities && item.activities.length > 0) {
     activitiesHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
@@ -2445,10 +2480,11 @@ window.openAttractionDrawer = function(itemId) {
 
   // Transit & Access
   let accessHtml = '';
-  if (item.areaMap) {
+  const accessText = item.areaMap || item.metro || '';
+  if (accessText) {
     accessHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
       '<div class="text-xs text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>🚇</span> Transit & Access</div>' +
-      '<p class="text-xs text-gray-300 font-mono">' + item.areaMap + '</p>' +
+      '<p class="text-xs text-gray-300 font-mono">' + accessText + '</p>' +
     '</div>';
   }
 
@@ -2474,7 +2510,7 @@ window.openAttractionDrawer = function(itemId) {
     '</div>';
   }
 
-  const websiteLink = item.website ? ('<div class="pt-2"><a href="' + item.website + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-amber-300 border border-gray-700 transition-colors"><span>🌐</span> Visit Official Portal</a></div>') : '';
+  const websiteLink = (item.website || item.officialUrl) ? ('<div class="pt-2"><a href="' + (item.website || item.officialUrl) + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-amber-300 border border-gray-700 transition-colors"><span>🌐</span> Visit Official Portal</a></div>') : '';
 
   const isStaged = (window.__stagedAttractions || []).includes(item.id);
 
@@ -2500,16 +2536,25 @@ window.openAttractionDrawer = function(itemId) {
         '</button>' +
       '</div>'
     ) : '') +
+    dishesHtml +
     activitiesHtml +
-    (item.review || item.desc ? (
+    (item.review || item.desc || item.notes ? (
       '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
         '<div class="text-xs text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
-          '<span>💬</span> What Travelers Say' +
+          '<span>💬</span> ' + (isDining ? 'What Diners Say' : 'What Travelers Say') +
         '</div>' +
-        '<p class="text-sm text-gray-300 leading-relaxed italic">"' + (item.review || item.desc) + '"</p>' +
+        '<p class="text-sm text-gray-300 leading-relaxed italic">"' + (item.review || item.desc || item.notes) + '"</p>' +
       '</div>'
     ) : '') +
-    (window.renderSocialLinks ? ("<div class=\"bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2\"><div class=\"text-xs text-slate-400 font-semibold uppercase tracking-wider mb-2\">社交平台与实时攻略</div>" + window.renderSocialLinks(item) + "</div>") : "") +
+    (window.renderSocialLinks ? (
+      '<div class="bg-gray-800/50 p-4 rounded-xl border border-rose-500/30 space-y-2">' +
+        '<div class="text-xs text-rose-400 font-bold uppercase tracking-wider flex items-center gap-1.5">' +
+          '<i class="fa-solid fa-share-nodes"></i> 社交平台与实时攻略 (Social & Live Intel)' +
+        '</div>' +
+        '<div class="text-[11px] text-slate-400 mb-1">Click any chip for real-time crowd photos, menus, and guides:</div>' +
+        window.renderSocialLinks(item) +
+      '</div>'
+    ) : '') +
     accessHtml +
     nearbyHtml +
     reviewsHtml +
@@ -2535,11 +2580,13 @@ window.openAttractionDrawer = function(itemId) {
       '</div>' +
       websiteLink +
     '</div>' +
-    '<div class="pt-2">' +
-      '<button onclick="window.toggleStageAttraction(\'' + safeId + '\'); window.openAttractionDrawer(\'' + safeId + '\');" class="w-full py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 ' + (isStaged ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20' : 'bg-white/10 hover:bg-white/20 text-white border border-white/10') + '">' +
-        '<span>' + (isStaged ? '✓' : '+') + '</span> ' + (isStaged ? 'Remove from Staged Route' : 'Add to Staged Custom Route') +
-      '</button>' +
-    '</div>' +
+    (!isDining ? (
+      '<div class="pt-2">' +
+        '<button onclick="window.toggleStageAttraction(\'' + safeId + '\'); window.openAttractionDrawer(\'' + safeId + '\');" class="w-full py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 ' + (isStaged ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20' : 'bg-white/10 hover:bg-white/20 text-white border border-white/10') + '">' +
+          '<span>' + (isStaged ? '✓' : '+') + '</span> ' + (isStaged ? 'Remove from Staged Route' : 'Add to Staged Custom Route') +
+        '</button>' +
+      '</div>'
+    ) : '') +
   '</div>';
 
   backdrop.classList.remove('opacity-0', 'pointer-events-none');
@@ -2547,6 +2594,7 @@ window.openAttractionDrawer = function(itemId) {
   drawer.classList.remove('translate-x-full');
   document.body.style.overflow = 'hidden';
 };
+
 
 window.closeAttractionDrawer = function() {
   const drawer = document.getElementById('attraction-detail-drawer');
