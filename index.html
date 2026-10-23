@@ -1923,50 +1923,108 @@
 
   
 <!-- Flight Details & Cabin Seating Arrangements Card -->
-<div class="flight-seating-container" style="margin: 24px 0; padding: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
-  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 2px solid #006564; padding-bottom: 8px;">
-    <h3 style="margin: 0; color: #006564; font-size: 1.25rem; font-weight: 700;">✈️ Flight Arrangements & Cabin Seating (Cathay Pacific)</h3>
-    <span style="background: #e6f4f2; color: #006564; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">2-4-2 Config</span>
+<div class="flight-seating-container" style="margin: 24px 0; padding: 24px; background: #ffffff; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;">
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid #006564; padding-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+    <div>
+      <h3 style="margin: 0; color: #006564; font-size: 1.35rem; font-weight: 700;">✈️ Flight Arrangements & Cabin Seating (Cathay Pacific)</h3>
+      <p style="margin: 4px 0 0 0; color: #64748b; font-size: 0.88rem;">Confirmed Bookings: P1 Tan Moh Keat, P2, P3, P4 • Verified Cathay Pacific App Seat Selections</p>
+    </div>
+    <span style="background: #e6f4f2; color: #006564; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Cathay Pacific Verified</span>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-    <!-- Outbound Flights Card -->
-    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px;">
-      <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 1rem;">🛫 Outbound: CX714 / CX982</h4>
-      <p style="margin: 4px 0; font-size: 0.85rem; color: #64748b;"><strong>Configuration:</strong> Window Pairs (Rows 47 & 48)</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+    
+    <!-- Leg 1: SIN -> HKG CX714 -->
+    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 18px; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <h4 style="margin: 0; color: #1e293b; font-size: 1.05rem;">🛫 Leg 1: CX714 (SIN → HKG)</h4>
+        <span style="background: #e2e8f0; color: #334155; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">A330-300</span>
+      </div>
+      <p style="margin: 2px 0 10px 0; font-size: 0.85rem; color: #64748b;"><strong>Date:</strong> Sun 29 Nov 2026 | <strong>Seating:</strong> Right Window Pairs (2-4-2)</p>
       
       <!-- Visual Seat Graphic -->
-      <div style="margin-top: 12px; background: #ffffff; border: 1px dashed #94a3b8; border-radius: 6px; padding: 12px; text-align: center;">
-        <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 6px;">[ Left Window | Aisle | Center | Aisle | Right Window ]</div>
-        <div style="display: flex; justify-content: center; gap: 8px; margin-bottom: 6px;">
-          <span style="background: #0284c7; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">47A (Window)</span>
-          <span style="background: #0284c7; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">47C (Aisle)</span>
+      <div style="background: #ffffff; border: 1px dashed #94a3b8; border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 14px;">
+        <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">[ Right Window Pair • Aisle | <strong>H</strong> | <strong>K</strong> ]</div>
+        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 8px;">
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">47H (P1)</span>
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">47K (P3 - Window)</span>
         </div>
-        <div style="display: flex; justify-content: center; gap: 8px;">
-          <span style="background: #0284c7; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">48A (Window)</span>
-          <span style="background: #0284c7; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">48C (Aisle)</span>
+        <div style="display: flex; justify-content: center; gap: 10px;">
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48H (P2)</span>
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48K (P4 - Window)</span>
         </div>
-        <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #0369a1; font-weight: 600;">Seated in 2 x Window Pairs</p>
+        <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #0369a1; font-weight: 600;">Row 47 & 48 Window & Aisle Pairs</p>
+      </div>
+
+      <!-- Screenshot Preview -->
+      <div style="margin-top: auto;">
+        <p style="margin: 0 0 6px 0; font-size: 0.78rem; font-weight: 600; color: #475569;">Official Seatmap Confirmation:</p>
+        <a href="assets/cx714_seatmap.png" target="_blank" title="Click to view full image">
+          <img src="assets/cx714_seatmap.png" alt="CX714 Seat Selection" style="width: 100%; max-height: 280px; object-fit: contain; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        </a>
       </div>
     </div>
 
-    <!-- Inbound Flight Card -->
-    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px;">
-      <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 1rem;">🛬 Inbound: CX657</h4>
-      <p style="margin: 4px 0; font-size: 0.85rem; color: #64748b;"><strong>Configuration:</strong> Center Quad Together (Row 48)</p>
+    <!-- Leg 2: HKG -> CAN CX982 -->
+    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 18px; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <h4 style="margin: 0; color: #1e293b; font-size: 1.05rem;">🛫 Leg 2: CX982 (HKG → CAN)</h4>
+        <span style="background: #e2e8f0; color: #334155; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">A330-300</span>
+      </div>
+      <p style="margin: 2px 0 10px 0; font-size: 0.85rem; color: #64748b;"><strong>Date:</strong> Sun 29 Nov 2026 | <strong>Seating:</strong> Right Window Pairs (2-4-2)</p>
       
       <!-- Visual Seat Graphic -->
-      <div style="margin-top: 12px; background: #ffffff; border: 1px dashed #94a3b8; border-radius: 6px; padding: 12px; text-align: center;">
-        <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 6px;">[ Center Quad Section ]</div>
-        <div style="display: flex; justify-content: center; gap: 6px;">
-          <span style="background: #059669; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">48D</span>
-          <span style="background: #059669; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">48E</span>
-          <span style="background: #059669; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">48F</span>
-          <span style="background: #059669; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">48G</span>
+      <div style="background: #ffffff; border: 1px dashed #94a3b8; border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 14px;">
+        <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">[ Right Window Pair • Aisle | <strong>H</strong> | <strong>K</strong> ]</div>
+        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 8px;">
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">47H (P2)</span>
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">47K (P3 - Window)</span>
         </div>
-        <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #047857; font-weight: 600;">Family of 4 Seated Together in One Row</p>
+        <div style="display: flex; justify-content: center; gap: 10px;">
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48H (P1)</span>
+          <span style="background: #0284c7; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48K (P4 - Window)</span>
+        </div>
+        <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #0369a1; font-weight: 600;">Row 47 & 48 Window & Aisle Pairs</p>
+      </div>
+
+      <!-- Screenshot Preview -->
+      <div style="margin-top: auto;">
+        <p style="margin: 0 0 6px 0; font-size: 0.78rem; font-weight: 600; color: #475569;">Official Seatmap Confirmation:</p>
+        <a href="assets/cx982_seatmap.png" target="_blank" title="Click to view full image">
+          <img src="assets/cx982_seatmap.png" alt="CX982 Seat Selection" style="width: 100%; max-height: 280px; object-fit: contain; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        </a>
       </div>
     </div>
+
+    <!-- Return Leg: HKG -> SIN CX657 -->
+    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 18px; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+        <h4 style="margin: 0; color: #1e293b; font-size: 1.05rem;">🛬 Return: CX657 (HKG → SIN)</h4>
+        <span style="background: #e2e8f0; color: #334155; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">Boeing 777-300</span>
+      </div>
+      <p style="margin: 2px 0 10px 0; font-size: 0.85rem; color: #64748b;"><strong>Date:</strong> Sat 12 Dec 2026 | <strong>Seating:</strong> Center Quad (3-4-3)</p>
+      
+      <!-- Visual Seat Graphic -->
+      <div style="background: #ffffff; border: 1px dashed #94a3b8; border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 14px;">
+        <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">[ Center Quad Section • Aisle | <strong>D</strong> | <strong>E</strong> | <strong>F</strong> | <strong>G</strong> | Aisle ]</div>
+        <div style="display: flex; justify-content: center; gap: 8px;">
+          <span style="background: #059669; color: #fff; padding: 5px 10px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48D (P4)</span>
+          <span style="background: #059669; color: #fff; padding: 5px 10px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48E (P1)</span>
+          <span style="background: #059669; color: #fff; padding: 5px 10px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48F (P2)</span>
+          <span style="background: #059669; color: #fff; padding: 5px 10px; border-radius: 6px; font-size: 0.82rem; font-weight: bold;">48G (P3)</span>
+        </div>
+        <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #047857; font-weight: 600;">Family of 4 Seated Together in Center Row 48</p>
+      </div>
+
+      <!-- Screenshot Preview -->
+      <div style="margin-top: auto;">
+        <p style="margin: 0 0 6px 0; font-size: 0.78rem; font-weight: 600; color: #475569;">Official Seatmap Confirmation:</p>
+        <a href="assets/cx657_seatmap.png" target="_blank" title="Click to view full image">
+          <img src="assets/cx657_seatmap.png" alt="CX657 Seat Selection" style="width: 100%; max-height: 280px; object-fit: contain; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 <!-- End Flight Details Card -->
