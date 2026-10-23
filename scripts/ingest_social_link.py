@@ -12,6 +12,7 @@ import re
 import time
 import subprocess
 import urllib.request
+import urllib.parse
 import ssl
 
 REPO_DIR = "/home/mk/mktravel"
@@ -142,7 +143,14 @@ def main():
                 "metro": "Metro accessible",
                 "dishes": ["Signature Special"],
                 "review": effective_review or "Curated via social link.",
-                "coordinates": [23.1205, 113.2928]
+                "coordinates": [23.1205, 113.2928],
+                "sourceUrl": url,
+                "links": {
+                    "xhs": f"https://www.xiaohongshu.com/search_result?keyword={urllib.parse.quote(name_zh or name_en)}",
+                    "dianping": f"https://www.dianping.com/search/keyword/4/0_{urllib.parse.quote(name_zh or name_en)}",
+                    "trip": f"https://m.ctrip.com/webapp/you/sight/search?keyword={urllib.parse.quote(name_zh or name_en)}",
+                    "sourceUrl": url
+                }
             }
         else:
             new_record = {
@@ -155,7 +163,14 @@ def main():
                 "address": name_zh or name_en,
                 "review": effective_review or "Curated via social link.",
                 "image": local_photo if os.path.exists(disk_photo) else "/assets/attractions/cantontower.jpg",
-                "coordinates": [23.1291, 113.2644]
+                "coordinates": [23.1291, 113.2644],
+                "sourceUrl": url,
+                "links": {
+                    "xhs": f"https://www.xiaohongshu.com/search_result?keyword={urllib.parse.quote(name_zh or name_en)}",
+                    "dianping": f"https://www.dianping.com/search/keyword/4/0_{urllib.parse.quote(name_zh or name_en)}",
+                    "trip": f"https://m.ctrip.com/webapp/you/sight/search?keyword={urllib.parse.quote(name_zh or name_en)}",
+                    "sourceUrl": url
+                }
             }
         if entity_type == "dining":
             items.insert(0, new_record)

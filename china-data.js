@@ -282,7 +282,14 @@ const defaultRestaurants = [
     "coordinates": [
       23.1205,
       113.2928
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%9C%E5%B1%B1%E5%8F%A3%E6%96%87%E8%89%BA%E8%A1%97%E5%8C%BA%20%26%20%E5%92%96%E5%95%A1",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%B8%9C%E5%B1%B1%E5%8F%A3%E6%96%87%E8%89%BA%E8%A1%97%E5%8C%BA%20%26%20%E5%92%96%E5%95%A1",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%B8%9C%E5%B1%B1%E5%8F%A3%E6%96%87%E8%89%BA%E8%A1%97%E5%8C%BA%20%26%20%E5%92%96%E5%95%A1",
+      "sourceUrl": "https://www.instagram.com/p/DezCs7Xjtuv/"
+    },
+    "sourceUrl": "https://www.instagram.com/p/DezCs7Xjtuv/"
   },
   {
     "id": "rest-1",
@@ -340,7 +347,12 @@ const defaultRestaurants = [
         "desc": "Golden waffle pastry rolls infused with rich farm eggs and pure lard, baked fresh daily.",
         "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)"
+    }
   },
   {
     "id": "rest-2",
@@ -398,7 +410,12 @@ const defaultRestaurants = [
         "desc": "Airy sweet bread crown crusted with sugar butter cookie, served with farm fresh butter.",
         "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)"
+    }
   },
   {
     "id": "rest-3",
@@ -456,7 +473,12 @@ const defaultRestaurants = [
         "desc": "Golden caramel seared cubes of Liwan water chestnut flour packed with crunchy fresh water chestnuts.",
         "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)"
+    }
   },
   {
     "id": "rest-4",
@@ -514,7 +536,12 @@ const defaultRestaurants = [
         "desc": "Simmered for 6 hours with red dates, lotus roots, and wolfberries for wholesome nourishment.",
         "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)"
+    }
   },
   {
     "id": "rest-gz-1",
@@ -572,7 +599,12 @@ const defaultRestaurants = [
         "desc": "Red yeast rice noodles wrapped around crunchy deep-fried netting and whole prawns.",
         "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)"
+    }
   },
   {
     "id": "rest-gz-2",
@@ -630,7 +662,12 @@ const defaultRestaurants = [
         "desc": "Deep-fried squab legs tossed with crispy shallots, minced garlic, and pepper salt.",
         "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)"
+    }
   },
   {
     "id": "rest-gz-3",
@@ -688,7 +725,12 @@ const defaultRestaurants = [
         "desc": "Delicate pleated dumplings filled with piping-hot savory crab roe broth.",
         "image": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)"
+    }
   },
   {
     "id": "rest-gz-4",
@@ -746,7 +788,12 @@ const defaultRestaurants = [
         "desc": "Snow-white steamed buns blooming open to reveal sweet honey barbecue pork.",
         "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)"
+    }
   },
   {
     "id": "rest-gz-5",
@@ -859,7 +906,12 @@ const defaultRestaurants = [
         "desc": "顺德纯正水牛奶古法文火慢蒸形成醇厚奶皮，上覆精炖通透的印尼极品金丝官燕窝，奶香醇厚细腻。",
         "image": "media/dining/guangzhou_restaurant/dish_10_milk_pudding.jpg"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89"
+    }
   },
   {
     "id": "rest-gz-6",
@@ -910,7 +962,12 @@ const defaultRestaurants = [
         "desc": "Silky rice porridge simmered with cuttlefish, jellyfish slices, roasted peanuts, and scallions.",
         "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)"
+    }
   },
   {
     "id": "rest-gz-7",
@@ -968,7 +1025,12 @@ const defaultRestaurants = [
         "desc": "Piping-hot yellow bun that oozes rich sweet and savory salted duck egg yolk lava.",
         "image": "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)"
+    }
   },
   {
     "id": "rest-gz-8",
@@ -1019,7 +1081,12 @@ const defaultRestaurants = [
         "desc": "Tender beef slices topped with a fresh orange egg yolk mixed vigorously into smoking hot rice.",
         "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)"
+    }
   },
   {
     "id": "rest-gz-9",
@@ -1070,7 +1137,12 @@ const defaultRestaurants = [
         "desc": "Simmered in premium aged sweet soy with star anise, rock sugar, and ginger slices.",
         "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)"
+    }
   },
   {
     "id": "rest-gz-10",
@@ -1128,7 +1200,12 @@ const defaultRestaurants = [
         "desc": "Fresh sweet mango purée, coconut milk, chewy tapioca pearls, and ruby pomelo pulps.",
         "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)"
+    }
   },
   {
     "id": "rest-5",
@@ -1179,7 +1256,12 @@ const defaultRestaurants = [
         "desc": "Handcrafted tofu curd made using pristine canyon spring water, pan-seared to golden crust.",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)"
+    }
   },
   {
     "id": "rest-6",
@@ -1230,7 +1312,12 @@ const defaultRestaurants = [
         "desc": "Beaten rhythmically with heavy iron rods for ultimate bouncy crunch and rich beef juices.",
         "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)"
+    }
   },
   {
     "id": "rest-sz-2",
@@ -1281,7 +1368,12 @@ const defaultRestaurants = [
         "desc": "Tossed tableside with golden crunchy scorched rice and scallions.",
         "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)"
+    }
   },
   {
     "id": "rest-sz-3",
@@ -1332,7 +1424,12 @@ const defaultRestaurants = [
         "desc": "Plump king scallops bathed in first-draw sweet soy and smoking scallion oil.",
         "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)"
+    }
   },
   {
     "id": "rest-7",
@@ -1383,7 +1480,12 @@ const defaultRestaurants = [
         "desc": "Strong Ceylon black tea blend hand-strained through cloth sack and whipped with Black & White milk.",
         "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)"
+    }
   },
   {
     "id": "rest-8",
@@ -1434,7 +1536,12 @@ const defaultRestaurants = [
         "desc": "Crispy browned surface with moist interior loaded with radish shreds and Chinese bacon.",
         "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)"
+    }
   },
   {
     "id": "rest-hk-3",
@@ -1485,7 +1592,12 @@ const defaultRestaurants = [
         "desc": "Golden spherical waffle puffs crisp on the outside and airy custardy inside.",
         "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
       }
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)"
+    }
   }
 ];
 
@@ -2058,7 +2170,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9051,
       113.3308
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B2%99%E6%B9%BE%E5%8F%A4%E9%95%87",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B2%99%E6%B9%BE%E5%8F%A4%E9%95%87",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B2%99%E6%B9%BE%E5%8F%A4%E9%95%87"
+    }
   },
   {
     "id": "dafushan",
@@ -2104,7 +2221,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9572,
       113.3142
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E5%A4%AB%E5%B1%B1%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E5%A4%AB%E5%B1%B1%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E5%A4%AB%E5%B1%B1%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "baomo",
@@ -2150,7 +2272,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.8988,
       113.2882
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%AE%9D%E5%A2%A8%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%AE%9D%E5%A2%A8%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%AE%9D%E5%A2%A8%E5%9B%AD"
+    }
   },
   {
     "id": "safari",
@@ -2211,7 +2338,13 @@ const expeditionAttractions = [
     "coordinates": [
       23.0035,
       113.3285
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E9%9A%86%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%95%BF%E9%9A%86%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C",
+      "official": "https://www.chimelong.com/gz/chimelongsafari/"
+    }
   },
   {
     "id": "circus",
@@ -2268,7 +2401,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9982,
       113.3325
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E9%9A%86%E5%9B%BD%E9%99%85%E5%A4%A7%E9%A9%AC%E6%88%8F",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%95%BF%E9%9A%86%E5%9B%BD%E9%99%85%E5%A4%A7%E9%A9%AC%E6%88%8F",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E5%9B%BD%E9%99%85%E5%A4%A7%E9%A9%AC%E6%88%8F"
+    }
   },
   {
     "id": "cantontower",
@@ -2316,7 +2454,13 @@ const expeditionAttractions = [
     ],
     "review": "Visitors praise the 360-degree panoramic views from the open-air observation deck and describe the Bubble Tram at sunset as an unforgettable experience.",
     "website": "https://www.cantontower.com/",
-    "region": "Canton Heritage"
+    "region": "Canton Heritage",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E5%A1%94",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E5%A1%94",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E5%A1%94",
+      "official": "https://www.cantontower.com/"
+    }
   },
   {
     "id": "chenclan",
@@ -2367,7 +2511,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1278,
       113.2458
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%99%88%E5%AE%B6%E7%A5%A0",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%99%88%E5%AE%B6%E7%A5%A0",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%99%88%E5%AE%B6%E7%A5%A0"
+    }
   },
   {
     "id": "dongshankou",
@@ -2403,7 +2552,12 @@ const expeditionAttractions = [
       "https://www.trip.com/"
     ],
     "reviews": [],
-    "region": "Canton Heritage"
+    "region": "Canton Heritage",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dongshankou%20Mansions",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Dongshankou%20Mansions",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dongshankou%20Mansions"
+    }
   },
   {
     "id": "shamian",
@@ -2459,7 +2613,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1075,
       113.2431
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B2%99%E9%9D%A2%E5%B2%9B",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B2%99%E9%9D%A2%E5%B2%9B",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B2%99%E9%9D%A2%E5%B2%9B"
+    }
   },
   {
     "id": "gulong",
@@ -2517,7 +2676,12 @@ const expeditionAttractions = [
         "url": "https://www.youtube.com/watch?v=abXLd03OajE"
       }
     ],
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Qingyuan%20Gulong%20Gorge",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Qingyuan%20Gulong%20Gorge",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Qingyuan%20Gulong%20Gorge"
+    }
   },
   {
     "id": "indoorski",
@@ -2556,7 +2720,12 @@ const expeditionAttractions = [
       "https://www.trip.com/"
     ],
     "reviews": [],
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Shenzhen%20Karoo%20Ice%20%26%20Snow%20World",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Shenzhen%20Karoo%20Ice%20%26%20Snow%20World",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Shenzhen%20Karoo%20Ice%20%26%20Snow%20World"
+    }
   },
   {
     "id": "dji",
@@ -2613,7 +2782,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5765,
       113.9482
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%96%86%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E7%96%86%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E7%96%86%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E"
+    }
   },
   {
     "id": "talentpark",
@@ -2658,7 +2832,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5152,
       113.9488
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B7%B1%E5%9C%B3%E4%BA%BA%E6%89%8D%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B7%B1%E5%9C%B3%E4%BA%BA%E6%89%8D%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B7%B1%E5%9C%B3%E4%BA%BA%E6%89%8D%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "shamshuipo",
@@ -2696,7 +2875,12 @@ const expeditionAttractions = [
       "https://www.discoverhongkong.com/"
     ],
     "reviews": [],
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Sham%20Shui%20Po",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Sham%20Shui%20Po",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Sham%20Shui%20Po"
+    }
   },
   {
     "id": "lionrock",
@@ -2751,7 +2935,12 @@ const expeditionAttractions = [
       114.1852
     ],
     "review": "An iconic hike with steep rock staircases leading to a dramatic summit overlooking all of Kowloon and Victoria Harbour.",
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%8D%85%E5%AD%90%E5%B1%B1%E9%83%8A%E9%87%8E%E5%85%AC%E5%9C%92",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%8D%85%E5%AD%90%E5%B1%B1%E9%83%8A%E9%87%8E%E5%85%AC%E5%9C%92",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%8D%85%E5%AD%90%E5%B1%B1%E9%83%8A%E9%87%8E%E5%85%AC%E5%9C%92"
+    }
   },
   {
     "id": "nanyue",
@@ -2791,7 +2980,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.8955,
       113.2912
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E7%B2%A4%E8%8B%91",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%97%E7%B2%A4%E8%8B%91",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%97%E7%B2%A4%E8%8B%91"
+    }
   },
   {
     "id": "lotus",
@@ -2823,7 +3017,12 @@ const expeditionAttractions = [
     "nearbyRecs": [],
     "guideUrls": [],
     "reviews": [],
-    "region": "Panyu"
+    "region": "Panyu",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Lotus%20Hill%20(Lianhua%20Shan)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Lotus%20Hill%20(Lianhua%20Shan)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Lotus%20Hill%20(Lianhua%20Shan)"
+    }
   },
   {
     "id": "panyu_museum",
@@ -2865,7 +3064,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9238,
       113.3685
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%95%AA%E7%A6%BA%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%95%AA%E7%A6%BA%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%95%AA%E7%A6%BA%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86"
+    }
   },
   {
     "id": "shiqiao",
@@ -2905,7 +3109,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9412,
       113.3582
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B8%82%E6%A1%A5%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B8%82%E6%A1%A5%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B8%82%E6%A1%A5%E6%AD%A5%E8%A1%8C%E8%A1%97"
+    }
   },
   {
     "id": "yuyin",
@@ -2941,7 +3150,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Panyu"
+    "region": "Panyu",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Yuyin%20Shanfang",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Yuyin%20Shanfang",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Yuyin%20Shanfang"
+    }
   },
   {
     "id": "birds_park",
@@ -2996,7 +3210,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0325,
       113.2752
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E9%9A%86%E9%A3%9E%E9%B8%9F%E4%B9%90%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%95%BF%E9%9A%86%E9%A3%9E%E9%B8%9F%E4%B9%90%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E9%A3%9E%E9%B8%9F%E4%B9%90%E5%9B%AD"
+    }
   },
   {
     "id": "paradise",
@@ -3048,7 +3267,13 @@ const expeditionAttractions = [
     "coordinates": [
       22.9995,
       113.3342
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E9%9A%86%E6%AC%A2%E4%B9%90%E4%B8%96%E7%95%8C",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%95%BF%E9%9A%86%E6%AC%A2%E4%B9%90%E4%B8%96%E7%95%8C",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E6%AC%A2%E4%B9%90%E4%B8%96%E7%95%8C",
+      "official": "https://www.chimelong.com/gz/chimelongparadise/"
+    }
   },
   {
     "id": "water_park",
@@ -3099,7 +3324,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0028,
       113.3298
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E9%9A%86%E6%B0%B4%E4%B8%8A%E4%B9%90%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%95%BF%E9%9A%86%E6%B0%B4%E4%B8%8A%E4%B9%90%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E6%B0%B4%E4%B8%8A%E4%B9%90%E5%9B%AD"
+    }
   },
   {
     "id": "chimelong_gondola",
@@ -3135,7 +3365,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Chimelong"
+    "region": "Chimelong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Chimelong%20Sky%20Gondola",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Chimelong%20Sky%20Gondola",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Chimelong%20Sky%20Gondola"
+    }
   },
   {
     "id": "panda_village",
@@ -3169,7 +3404,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Chimelong"
+    "region": "Chimelong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Panda%20Village%20%26%20Nursery",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Panda%20Village%20%26%20Nursery",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Panda%20Village%20%26%20Nursery"
+    }
   },
   {
     "id": "wanbo_cbd",
@@ -3203,7 +3443,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Chimelong"
+    "region": "Chimelong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Wanbo%20CBD%20Skyline",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Wanbo%20CBD%20Skyline",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Wanbo%20CBD%20Skyline"
+    }
   },
   {
     "id": "beijing_road",
@@ -3237,7 +3482,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage"
+    "region": "Canton Heritage",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Beijing%20Road%20%26%20Dafo%20Temple",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Beijing%20Road%20%26%20Dafo%20Temple",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Beijing%20Road%20%26%20Dafo%20Temple"
+    }
   },
   {
     "id": "yongqing_fang",
@@ -3271,7 +3521,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage"
+    "region": "Canton Heritage",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Yongqing%20Fang%20%26%20Cantonese%20Opera",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Yongqing%20Fang%20%26%20Cantonese%20Opera",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Yongqing%20Fang%20%26%20Cantonese%20Opera"
+    }
   },
   {
     "id": "canton_tower",
@@ -3307,7 +3562,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage"
+    "region": "Canton Heritage",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Canton%20Tower%20%26%20Haixin%20Bridge",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Canton%20Tower%20%26%20Haixin%20Bridge",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Canton%20Tower%20%26%20Haixin%20Bridge"
+    }
   },
   {
     "id": "baiyun_mountain",
@@ -3340,7 +3600,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage"
+    "region": "Canton Heritage",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Baiyun%20Mountain%20(White%20Cloud)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Baiyun%20Mountain%20(White%20Cloud)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Baiyun%20Mountain%20(White%20Cloud)"
+    }
   },
   {
     "id": "liwan_lake",
@@ -3374,7 +3639,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage"
+    "region": "Canton Heritage",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Liwan%20Lake%20Park%20%26%20Pantang",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Liwan%20Lake%20Park%20%26%20Pantang",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Liwan%20Lake%20Park%20%26%20Pantang"
+    }
   },
   {
     "id": "sacred_heart",
@@ -3418,7 +3688,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1168,
       113.2562
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%9F%B3%E5%AE%A4%E5%9C%A3%E5%BF%83%E5%A4%A7%E6%95%99%E5%A0%82",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%9F%B3%E5%AE%A4%E5%9C%A3%E5%BF%83%E5%A4%A7%E6%95%99%E5%A0%82",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%9F%B3%E5%AE%A4%E5%9C%A3%E5%BF%83%E5%A4%A7%E6%95%99%E5%A0%82"
+    }
   },
   {
     "id": "gulong_glass",
@@ -3457,7 +3732,12 @@ const expeditionAttractions = [
       112.9345
     ],
     "review": "A 520-meter transparent suspension bridge suspended high above a roaring canyon waterfall.",
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8F%A4%E9%BE%99%E5%B3%A1%E7%8E%BB%E7%92%83%E5%A4%A7%E5%B3%A1%E8%B0%B7",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8F%A4%E9%BE%99%E5%B3%A1%E7%8E%BB%E7%92%83%E5%A4%A7%E5%B3%A1%E8%B0%B7",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8F%A4%E9%BE%99%E5%B3%A1%E7%8E%BB%E7%92%83%E5%A4%A7%E5%B3%A1%E8%B0%B7"
+    }
   },
   {
     "id": "gulong_waterfall",
@@ -3491,7 +3771,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Wanxian%20Waterfall%20Cascades",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Wanxian%20Waterfall%20Cascades",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Wanxian%20Waterfall%20Cascades"
+    }
   },
   {
     "id": "gulong_coaster",
@@ -3524,7 +3809,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Gulong%20Jungle%20Mountain%20Coaster",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Gulong%20Jungle%20Mountain%20Coaster",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Gulong%20Jungle%20Mountain%20Coaster"
+    }
   },
   {
     "id": "yingxi_forest",
@@ -3557,7 +3847,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Yingxi%20Peak%20Forest%20Corridor",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Yingxi%20Peak%20Forest%20Corridor",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Yingxi%20Peak%20Forest%20Corridor"
+    }
   },
   {
     "id": "dongtian_cave",
@@ -3591,7 +3886,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dongtian%20Wonderland%20(Chuantian%20Yan)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Dongtian%20Wonderland%20(Chuantian%20Yan)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dongtian%20Wonderland%20(Chuantian%20Yan)"
+    }
   },
   {
     "id": "feilai_temple",
@@ -3625,7 +3925,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Feilai%20Temple%20%26%20Beijiang%20River",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Feilai%20Temple%20%26%20Beijiang%20River",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Feilai%20Temple%20%26%20Beijiang%20River"
+    }
   },
   {
     "id": "qingyuan_hotspring",
@@ -3659,7 +3964,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Yinzhan%20Forest%20Hot%20Springs",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Yinzhan%20Forest%20Hot%20Springs",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Yinzhan%20Forest%20Hot%20Springs"
+    }
   },
   {
     "id": "tencent_hq",
@@ -3693,7 +4003,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Tencent%20Binhai%20Mansion%20HQ",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Tencent%20Binhai%20Mansion%20HQ",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tencent%20Binhai%20Mansion%20HQ"
+    }
   },
   {
     "id": "oct_loft",
@@ -3727,7 +4042,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=OCT-LOFT%20Creative%20Park",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_OCT-LOFT%20Creative%20Park",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=OCT-LOFT%20Creative%20Park"
+    }
   },
   {
     "id": "dasha_river",
@@ -3769,7 +4089,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5485,
       113.9552
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E6%B2%99%E6%B2%B3%E7%94%9F%E6%80%81%E9%95%BF%E5%BB%8A",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E6%B2%99%E6%B2%B3%E7%94%9F%E6%80%81%E9%95%BF%E5%BB%8A",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E6%B2%99%E6%B2%B3%E7%94%9F%E6%80%81%E9%95%BF%E5%BB%8A"
+    }
   },
   {
     "id": "sea_world",
@@ -3805,7 +4130,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Shekou%20Sea%20World%20%26%20Culture%20Center",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Shekou%20Sea%20World%20%26%20Culture%20Center",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Shekou%20Sea%20World%20%26%20Culture%20Center"
+    }
   },
   {
     "id": "dananshan",
@@ -3839,7 +4169,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dananshan%20Park%20Hike",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Dananshan%20Park%20Hike",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dananshan%20Park%20Hike"
+    }
   },
   {
     "id": "pingan_finance",
@@ -3882,7 +4217,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5332,
       114.0558
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%B3%E5%AE%89%E9%87%91%E8%9E%8D%E4%B8%AD%E5%BF%83",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%B3%E5%AE%89%E9%87%91%E8%9E%8D%E4%B8%AD%E5%BF%83",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%B3%E5%AE%89%E9%87%91%E8%9E%8D%E4%B8%AD%E5%BF%83"
+    }
   },
   {
     "id": "shenzhen_bay",
@@ -3918,7 +4258,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Shenzhen%20Bay%20Coastal%20Park",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Shenzhen%20Bay%20Coastal%20Park",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Shenzhen%20Bay%20Coastal%20Park"
+    }
   },
   {
     "id": "mongkok_markets",
@@ -3952,7 +4297,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Mong%20Kok%20Ladies%20Market%20%26%20Goldfish%20St",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Mong%20Kok%20Ladies%20Market%20%26%20Goldfish%20St",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Mong%20Kok%20Ladies%20Market%20%26%20Goldfish%20St"
+    }
   },
   {
     "id": "k11_musea",
@@ -3986,7 +4336,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=K11%20MUSEA%20%26%20Avenue%20of%20Stars",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_K11%20MUSEA%20%26%20Avenue%20of%20Stars",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=K11%20MUSEA%20%26%20Avenue%20of%20Stars"
+    }
   },
   {
     "id": "victoria_peak",
@@ -4028,7 +4383,12 @@ const expeditionAttractions = [
       114.1455
     ],
     "review": "Accessible via the historic Peak Tram, providing the ultimate downward view of the Hong Kong Island skyscrapers.",
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%AA%E5%B9%B3%E5%B1%B1%E9%A0%82",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%AA%E5%B9%B3%E5%B1%B1%E9%A0%82",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%AA%E5%B9%B3%E5%B1%B1%E9%A0%82"
+    }
   },
   {
     "id": "central_escalator",
@@ -4064,7 +4424,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Central%20Mid-Levels%20Escalator%20%26%20Soho",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Central%20Mid-Levels%20Escalator%20%26%20Soho",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Central%20Mid-Levels%20Escalator%20%26%20Soho"
+    }
   },
   {
     "id": "tai_kwun",
@@ -4098,7 +4463,12 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=Tai%20Kwun%20Centre%20for%20Heritage%20%26%20Arts",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_Tai%20Kwun%20Centre%20for%20Heritage%20%26%20Arts",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tai%20Kwun%20Centre%20for%20Heritage%20%26%20Arts"
+    }
   },
   {
     "id": "victoria-harbour",
@@ -4149,7 +4519,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.2938,
       114.1688
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%B6%AD%E5%A4%9A%E5%88%A9%E4%BA%9E%E6%B8%AF%20(%E5%A4%A9%E6%98%9F%E5%B0%8F%E8%BC%AA)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%B6%AD%E5%A4%9A%E5%88%A9%E4%BA%9E%E6%B8%AF%20(%E5%A4%A9%E6%98%9F%E5%B0%8F%E8%BC%AA)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%B6%AD%E5%A4%9A%E5%88%A9%E4%BA%9E%E6%B8%AF%20(%E5%A4%A9%E6%98%9F%E5%B0%8F%E8%BC%AA)"
+    }
   },
   {
     "id": "beijingroad",
@@ -4200,7 +4575,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1255,
       113.2687
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8C%97%E4%BA%AC%E8%B7%AF%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8C%97%E4%BA%AC%E8%B7%AF%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8C%97%E4%BA%AC%E8%B7%AF%E6%AD%A5%E8%A1%8C%E8%A1%97"
+    }
   },
   {
     "id": "poi-yongqing-fang",
@@ -4224,7 +4604,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1165,
       113.2384
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B0%B8%E5%BA%86%E5%9D%8A",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B0%B8%E5%BA%86%E5%9D%8A",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B0%B8%E5%BA%86%E5%9D%8A"
+    }
   },
   {
     "id": "poi-dafo-temple-big-buddha-temple",
@@ -4248,7 +4633,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1245,
       113.2662
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E4%BD%9B%E5%AF%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E4%BD%9B%E5%AF%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E4%BD%9B%E5%AF%BA"
+    }
   },
   {
     "id": "poi-yuexiu-park",
@@ -4272,7 +4662,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1415,
       113.2628
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%B6%8A%E7%A7%80%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%B6%8A%E7%A7%80%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%B6%8A%E7%A7%80%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "poi-museum-of-the-mausoleum-of-the-nanyue-king",
@@ -4296,7 +4691,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1396,
       113.2592
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E8%B6%8A%E7%8E%8B%E5%8D%9A%E7%89%A9%E9%99%A2",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%97%E8%B6%8A%E7%8E%8B%E5%8D%9A%E7%89%A9%E9%99%A2",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%97%E8%B6%8A%E7%8E%8B%E5%8D%9A%E7%89%A9%E9%99%A2"
+    }
   },
   {
     "id": "poi-sun-yat-sen-memorial-hall",
@@ -4320,7 +4720,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1347,
       113.2625
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E5%B1%B1%E7%BA%AA%E5%BF%B5%E5%A0%82",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%B8%AD%E5%B1%B1%E7%BA%AA%E5%BF%B5%E5%A0%82",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%B8%AD%E5%B1%B1%E7%BA%AA%E5%BF%B5%E5%A0%82"
+    }
   },
   {
     "id": "poi-temple-of-the-six-banyan-trees",
@@ -4344,7 +4749,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1322,
       113.2589
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%85%AD%E6%A6%95%E5%AF%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%85%AD%E6%A6%95%E5%AF%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%85%AD%E6%A6%95%E5%AF%BA"
+    }
   },
   {
     "id": "poi-cantonese-opera-art-museum",
@@ -4368,7 +4778,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1158,
       113.2371
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%B2%A4%E5%89%A7%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%B2%A4%E5%89%A7%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%B2%A4%E5%89%A7%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%A6%86"
+    }
   },
   {
     "id": "poi-guangdong-museum",
@@ -4392,7 +4807,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1189,
       113.3275
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%8D%9A%E7%89%A9%E9%A6%86"
+    }
   },
   {
     "id": "poi-guangzhou-opera-house",
@@ -4416,7 +4836,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1182,
       113.3218
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%89%A7%E9%99%A2",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%89%A7%E9%99%A2",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%89%A7%E9%99%A2"
+    }
   },
   {
     "id": "poi-shangxiajiu-pedestrian-street",
@@ -4440,7 +4865,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1153,
       113.2464
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%8A%E4%B8%8B%E4%B9%9D%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%B8%8A%E4%B8%8B%E4%B9%9D%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%B8%8A%E4%B8%8B%E4%B9%9D%E6%AD%A5%E8%A1%8C%E8%A1%97"
+    }
   },
   {
     "id": "poi-haixinsha-island",
@@ -4464,7 +4894,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1118,
       113.3242
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E5%BF%83%E6%B2%99",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B5%B7%E5%BF%83%E6%B2%99",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B5%B7%E5%BF%83%E6%B2%99"
+    }
   },
   {
     "id": "poi-huacheng-square-flower-city-square",
@@ -4488,7 +4923,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1205,
       113.3235
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%8A%B1%E5%9F%8E%E5%B9%BF%E5%9C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%8A%B1%E5%9F%8E%E5%B9%BF%E5%9C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%8A%B1%E5%9F%8E%E5%B9%BF%E5%9C%BA"
+    }
   },
   {
     "id": "poi-guangzhou-library",
@@ -4512,7 +4952,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1192,
       113.3259
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E5%9B%BE%E4%B9%A6%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E5%9B%BE%E4%B9%A6%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E5%9B%BE%E4%B9%A6%E9%A6%86"
+    }
   },
   {
     "id": "poi-xiguan-custom-museum",
@@ -4534,7 +4979,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1172,
       113.2388
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%85%B3%E6%B0%91%E4%BF%97%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%A5%BF%E5%85%B3%E6%B0%91%E4%BF%97%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%A5%BF%E5%85%B3%E6%B0%91%E4%BF%97%E9%A6%86"
+    }
   },
   {
     "id": "poi-bruce-lee-s-ancestral-residence",
@@ -4557,7 +5007,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1161,
       113.2378
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%9D%8E%E5%B0%8F%E9%BE%99%E7%A5%96%E5%B1%85",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%9D%8E%E5%B0%8F%E9%BE%99%E7%A5%96%E5%B1%85",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%9D%8E%E5%B0%8F%E9%BE%99%E7%A5%96%E5%B1%85"
+    }
   },
   {
     "id": "poi-qingping-herbal-medicine-market",
@@ -4578,7 +5033,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1102,
       113.2451
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%85%E5%B9%B3%E4%B8%AD%E8%8D%AF%E6%9D%90%E5%B8%82%E5%9C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B8%85%E5%B9%B3%E4%B8%AD%E8%8D%AF%E6%9D%90%E5%B8%82%E5%9C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B8%85%E5%B9%B3%E4%B8%AD%E8%8D%AF%E6%9D%90%E5%B8%82%E5%9C%BA"
+    }
   },
   {
     "id": "poi-tianzi-wharf",
@@ -4602,7 +5062,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1158,
       113.2685
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A9%E5%AD%97%E7%A0%81%E5%A4%B4",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A9%E5%AD%97%E7%A0%81%E5%A4%B4",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A9%E5%AD%97%E7%A0%81%E5%A4%B4"
+    }
   },
   {
     "id": "poi-dashatou-wharf",
@@ -4625,7 +5090,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1147,
       113.2842
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E6%B2%99%E5%A4%B4%E7%A0%81%E5%A4%B4",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E6%B2%99%E5%A4%B4%E7%A0%81%E5%A4%B4",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E6%B2%99%E5%A4%B4%E7%A0%81%E5%A4%B4"
+    }
   },
   {
     "id": "poi-ersha-island",
@@ -4649,7 +5119,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1112,
       113.2985
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%BA%8C%E6%B2%99%E5%B2%9B",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%BA%8C%E6%B2%99%E5%B2%9B",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%BA%8C%E6%B2%99%E5%B2%9B"
+    }
   },
   {
     "id": "poi-guangdong-museum-of-art",
@@ -4672,7 +5147,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1105,
       113.3032
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E4%B8%9C%E7%BE%8E%E6%9C%AF%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E4%B8%9C%E7%BE%8E%E6%9C%AF%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E4%B8%9C%E7%BE%8E%E6%9C%AF%E9%A6%86"
+    }
   },
   {
     "id": "poi-xinhai-revolution-memorial-museum",
@@ -4696,7 +5176,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0812,
       113.4182
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%BE%9B%E4%BA%A5%E9%9D%A9%E5%91%BD%E7%BA%AA%E5%BF%B5%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%BE%9B%E4%BA%A5%E9%9D%A9%E5%91%BD%E7%BA%AA%E5%BF%B5%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%BE%9B%E4%BA%A5%E9%9D%A9%E5%91%BD%E7%BA%AA%E5%BF%B5%E9%A6%86"
+    }
   },
   {
     "id": "poi-whampoa-military-academy-site",
@@ -4720,7 +5205,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0885,
       113.4215
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%BB%84%E5%9F%94%E5%86%9B%E6%A0%A1%E6%97%A7%E5%9D%80",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%BB%84%E5%9F%94%E5%86%9B%E6%A0%A1%E6%97%A7%E5%9D%80",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%BB%84%E5%9F%94%E5%86%9B%E6%A0%A1%E6%97%A7%E5%9D%80"
+    }
   },
   {
     "id": "poi-hualin-temple",
@@ -4744,7 +5234,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1192,
       113.2455
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%8E%E6%9E%97%E5%AF%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%8E%E6%9E%97%E5%AF%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%8E%E6%9E%97%E5%AF%BA"
+    }
   },
   {
     "id": "poi-renmin-park-people-s-park",
@@ -4766,7 +5261,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1285,
       113.2621
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "poi-guangzhou-cultural-park",
@@ -4790,7 +5290,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1115,
       113.2498
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E6%96%87%E5%8C%96%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E6%96%87%E5%8C%96%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E6%96%87%E5%8C%96%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "poi-haiyin-bridge-area",
@@ -4811,7 +5316,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1132,
       113.2825
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E5%8D%B0%E5%A4%A7%E6%A1%A5%E8%A7%82%E6%99%AF%E5%8C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B5%B7%E5%8D%B0%E5%A4%A7%E6%A1%A5%E8%A7%82%E6%99%AF%E5%8C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B5%B7%E5%8D%B0%E5%A4%A7%E6%A1%A5%E8%A7%82%E6%99%AF%E5%8C%BA"
+    }
   },
   {
     "id": "poi-xiguan-house-cluster-duo-bao-road",
@@ -4832,7 +5342,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1185,
       113.2365
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E5%85%B3%E5%A4%A7%E5%B1%8B%E5%BB%BA%E7%AD%91%E4%BF%9D%E6%8A%A4%E5%8C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%A5%BF%E5%85%B3%E5%A4%A7%E5%B1%8B%E5%BB%BA%E7%AD%91%E4%BF%9D%E6%8A%A4%E5%8C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%A5%BF%E5%85%B3%E5%A4%A7%E5%B1%8B%E5%BB%BA%E7%AD%91%E4%BF%9D%E6%8A%A4%E5%8C%BA"
+    }
   },
   {
     "id": "poi-guangdong-provincial-people-s-stadium",
@@ -4855,7 +5370,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1278,
       113.2801
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E4%B8%9C%E7%9C%81%E4%BA%BA%E6%B0%91%E4%BD%93%E8%82%B2%E5%9C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E4%B8%9C%E7%9C%81%E4%BA%BA%E6%B0%91%E4%BD%93%E8%82%B2%E5%9C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E4%B8%9C%E7%9C%81%E4%BA%BA%E6%B0%91%E4%BD%93%E8%82%B2%E5%9C%BA"
+    }
   },
   {
     "id": "poi-anti-british-struggle-memorial-pavilion-sanyuanli",
@@ -4876,7 +5396,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1582,
       113.2565
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%89%E5%85%83%E9%87%8C%E4%BA%BA%E6%B0%91%E6%8A%97%E8%8B%B1%E6%96%97%E4%BA%89%E7%BA%AA%E5%BF%B5%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%B8%89%E5%85%83%E9%87%8C%E4%BA%BA%E6%B0%91%E6%8A%97%E8%8B%B1%E6%96%97%E4%BA%89%E7%BA%AA%E5%BF%B5%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%B8%89%E5%85%83%E9%87%8C%E4%BA%BA%E6%B0%91%E6%8A%97%E8%8B%B1%E6%96%97%E4%BA%89%E7%BA%AA%E5%BF%B5%E9%A6%86"
+    }
   },
   {
     "id": "poi-peasant-movement-training-institute",
@@ -4900,7 +5425,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1288,
       113.2721
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%86%9C%E8%AE%B2%E6%89%80%E6%97%A7%E5%9D%80",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%86%9C%E8%AE%B2%E6%89%80%E6%97%A7%E5%9D%80",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%86%9C%E8%AE%B2%E6%89%80%E6%97%A7%E5%9D%80"
+    }
   },
   {
     "id": "poi-shisanhang-thirteen-factories-museum",
@@ -4921,7 +5451,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1118,
       113.2492
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%81%E4%B8%89%E8%A1%8C%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%81%E4%B8%89%E8%A1%8C%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%81%E4%B8%89%E8%A1%8C%E5%8D%9A%E7%89%A9%E9%A6%86"
+    }
   },
   {
     "id": "poi-qiannian-gu-dao-ancient-road-museum",
@@ -4945,7 +5480,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1262,
       113.2688
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%83%E5%B9%B4%E5%8F%A4%E9%81%93%E9%81%97%E5%9D%80",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%83%E5%B9%B4%E5%8F%A4%E9%81%93%E9%81%97%E5%9D%80",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%83%E5%B9%B4%E5%8F%A4%E9%81%93%E9%81%97%E5%9D%80"
+    }
   },
   {
     "id": "poi-guangzhou-uprising-martyrs-cemetery",
@@ -4969,7 +5509,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1292,
       113.2818
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E8%B5%B7%E4%B9%89%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E8%B5%B7%E4%B9%89%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E8%B5%B7%E4%B9%89%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD"
+    }
   },
   {
     "id": "poi-xiaozhou-village",
@@ -4991,7 +5536,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0562,
       113.3654
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B0%8F%E6%B4%B2%E6%9D%91",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B0%8F%E6%B4%B2%E6%9D%91",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B0%8F%E6%B4%B2%E6%9D%91"
+    }
   },
   {
     "id": "poi-huangpu-ancient-port",
@@ -5015,7 +5565,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0915,
       113.3882
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%BB%84%E5%9F%94%E5%8F%A4%E6%B8%AF",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%BB%84%E5%9F%94%E5%8F%A4%E6%B8%AF",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%BB%84%E5%9F%94%E5%8F%A4%E6%B8%AF"
+    }
   },
   {
     "id": "poi-pazhou-pagoda",
@@ -5039,7 +5594,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0988,
       113.3745
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%90%B6%E6%B4%B2%E5%A1%94",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%90%B6%E6%B4%B2%E5%A1%94",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%90%B6%E6%B4%B2%E5%A1%94"
+    }
   },
   {
     "id": "poi-chigang-pagoda",
@@ -5063,7 +5623,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1012,
       113.3288
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%B5%A4%E5%B2%97%E5%A1%94",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%B5%A4%E5%B2%97%E5%A1%94",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%B5%A4%E5%B2%97%E5%A1%94"
+    }
   },
   {
     "id": "poi-titanium-creative-park",
@@ -5085,7 +5650,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0975,
       113.3512
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%92%9B%E5%88%9B%E6%98%93%E6%96%87%E5%8C%96%E5%88%9B%E6%84%8F%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%92%9B%E5%88%9B%E6%98%93%E6%96%87%E5%8C%96%E5%88%9B%E6%84%8F%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%92%9B%E5%88%9B%E6%98%93%E6%96%87%E5%8C%96%E5%88%9B%E6%84%8F%E5%9B%AD"
+    }
   },
   {
     "id": "poi-jiangnan-west-road",
@@ -5107,7 +5677,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0982,
       113.2745
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B1%9F%E5%8D%97%E8%A5%BF%E5%95%86%E4%B8%9A%E8%A1%97",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B1%9F%E5%8D%97%E8%A5%BF%E5%95%86%E4%B8%9A%E8%A1%97",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B1%9F%E5%8D%97%E8%A5%BF%E5%95%86%E4%B8%9A%E8%A1%97"
+    }
   },
   {
     "id": "poi-taigoo-hui-shopping-mall",
@@ -5129,7 +5704,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1342,
       113.3328
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%AA%E5%8F%A4%E6%B1%87",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%AA%E5%8F%A4%E6%B1%87",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%AA%E5%8F%A4%E6%B1%87"
+    }
   },
   {
     "id": "poi-k11-art-mall-guangzhou",
@@ -5151,7 +5731,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1181,
       113.3262
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9EK11%E8%B4%AD%E7%89%A9%E8%89%BA%E6%9C%AF%E4%B8%AD%E5%BF%83",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9EK11%E8%B4%AD%E7%89%A9%E8%89%BA%E6%9C%AF%E4%B8%AD%E5%BF%83",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9EK11%E8%B4%AD%E7%89%A9%E8%89%BA%E6%9C%AF%E4%B8%AD%E5%BF%83"
+    }
   },
   {
     "id": "poi-teemall",
@@ -5173,7 +5758,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1338,
       113.3225
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A9%E6%B2%B3%E5%9F%8E",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A9%E6%B2%B3%E5%9F%8E",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A9%E6%B2%B3%E5%9F%8E"
+    }
   },
   {
     "id": "poi-tianhe-sports-center",
@@ -5197,7 +5787,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.1375,
       113.3238
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A9%E6%B2%B3%E4%BD%93%E8%82%B2%E4%B8%AD%E5%BF%83",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A9%E6%B2%B3%E4%BD%93%E8%82%B2%E4%B8%AD%E5%BF%83",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A9%E6%B2%B3%E4%BD%93%E8%82%B2%E4%B8%AD%E5%BF%83"
+    }
   },
   {
     "id": "poi-zhongshan-university-south-campus",
@@ -5221,7 +5816,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0968,
       113.2982
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%20(%E5%8D%97%E6%A0%A1%E5%8C%BA)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%20(%E5%8D%97%E6%A0%A1%E5%8C%BA)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%20(%E5%8D%97%E6%A0%A1%E5%8C%BA)"
+    }
   },
   {
     "id": "poi-guangzhou-art-museum-new-hall",
@@ -5243,7 +5843,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0955,
       113.3188
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%99%A2%20(%E5%B9%BF%E5%B7%9E%E7%BE%8E%E6%9C%AF%E9%A6%86%E6%96%B0%E9%A6%86)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%99%A2%20(%E5%B9%BF%E5%B7%9E%E7%BE%8E%E6%9C%AF%E9%A6%86%E6%96%B0%E9%A6%86)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E8%89%BA%E6%9C%AF%E5%8D%9A%E7%89%A9%E9%99%A2%20(%E5%B9%BF%E5%B7%9E%E7%BE%8E%E6%9C%AF%E9%A6%86%E6%96%B0%E9%A6%86)"
+    }
   },
   {
     "id": "poi-lianhuashan-lotus-hill",
@@ -5266,7 +5871,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9858,
       113.5042
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%8E%B2%E8%8A%B1%E5%B1%B1",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%8E%B2%E8%8A%B1%E5%B1%B1",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%8E%B2%E8%8A%B1%E5%B1%B1"
+    }
   },
   {
     "id": "poi-yuyin-garden",
@@ -5289,7 +5899,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0078,
       113.3905
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%BD%99%E8%8D%AB%E5%B1%B1%E6%88%BF",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%BD%99%E8%8D%AB%E5%B1%B1%E6%88%BF",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%BD%99%E8%8D%AB%E5%B1%B1%E6%88%BF"
+    }
   },
   {
     "id": "poi-guangdong-science-center",
@@ -5312,7 +5927,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0392,
       113.3648
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E4%B8%9C%E7%A7%91%E5%AD%A6%E4%B8%AD%E5%BF%83",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E4%B8%9C%E7%A7%91%E5%AD%A6%E4%B8%AD%E5%BF%83",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E4%B8%9C%E7%A7%91%E5%AD%A6%E4%B8%AD%E5%BF%83"
+    }
   },
   {
     "id": "poi-lingnan-impression-park",
@@ -5335,7 +5955,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0428,
       113.4072
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B2%AD%E5%8D%97%E5%8D%B0%E8%B1%A1%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B2%AD%E5%8D%97%E5%8D%B0%E8%B1%A1%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B2%AD%E5%8D%97%E5%8D%B0%E8%B1%A1%E5%9B%AD"
+    }
   },
   {
     "id": "poi-dishuiyan-forest-park",
@@ -5355,7 +5980,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9152,
       113.3155
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%BB%B4%E6%B0%B4%E5%B2%A9%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%BB%B4%E6%B0%B4%E5%B2%A9%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%BB%B4%E6%B0%B4%E5%B2%A9%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "poi-haogang-island-haigou-dao",
@@ -5378,7 +6008,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9325,
       113.5612
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E9%B8%A5%E5%B2%9B",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B5%B7%E9%B8%A5%E5%B2%9B",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B5%B7%E9%B8%A5%E5%B2%9B"
+    }
   },
   {
     "id": "poi-shatian-waterway",
@@ -5400,7 +6035,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.8942,
       113.3255
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B2%99%E6%B9%BE%E6%B0%B4%E9%81%93",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B2%99%E6%B9%BE%E6%B0%B4%E9%81%93",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B2%99%E6%B9%BE%E6%B0%B4%E9%81%93"
+    }
   },
   {
     "id": "poi-clifford-estates-zhongcun",
@@ -5423,7 +6063,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9732,
       113.3285
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%A5%88%E7%A6%8F%E6%96%B0%E9%82%A8",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%A5%88%E7%A6%8F%E6%96%B0%E9%82%A8",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%A5%88%E7%A6%8F%E6%96%B0%E9%82%A8"
+    }
   },
   {
     "id": "poi-panyu-square",
@@ -5446,7 +6091,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9362,
       113.3842
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%95%AA%E7%A6%BA%E5%B9%BF%E5%9C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%95%AA%E7%A6%BA%E5%B9%BF%E5%9C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%95%AA%E7%A6%BA%E5%B9%BF%E5%9C%BA"
+    }
   },
   {
     "id": "poi-xinghai-park",
@@ -5469,7 +6119,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9465,
       113.3621
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%98%9F%E6%B5%B7%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%98%9F%E6%B5%B7%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%98%9F%E6%B5%B7%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "poi-shiji-town",
@@ -5490,7 +6145,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9515,
       113.4382
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%9F%B3%E7%A2%81%E9%95%87",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%9F%B3%E7%A2%81%E9%95%87",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%9F%B3%E7%A2%81%E9%95%87"
+    }
   },
   {
     "id": "poi-nancun-town",
@@ -5513,7 +6173,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0025,
       113.3852
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E6%9D%91%E9%95%87",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%97%E6%9D%91%E9%95%87",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%97%E6%9D%91%E9%95%87"
+    }
   },
   {
     "id": "poi-guangzhou-university-city-hemc",
@@ -5536,7 +6201,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0512,
       113.3912
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%9F%8E",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%9F%8E",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%9F%8E"
+    }
   },
   {
     "id": "poi-panyu-children-s-park",
@@ -5556,7 +6226,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9642,
       113.3642
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%95%AA%E7%A6%BA%E5%84%BF%E7%AB%A5%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%95%AA%E7%A6%BA%E5%84%BF%E7%AB%A5%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%95%AA%E7%A6%BA%E5%84%BF%E7%AB%A5%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "poi-panda-village",
@@ -5579,7 +6254,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0048,
       113.3275
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%86%8A%E7%8C%AB%E5%9F%BA%E5%9C%B0",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E7%86%8A%E7%8C%AB%E5%9F%BA%E5%9C%B0",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E7%86%8A%E7%8C%AB%E5%9F%BA%E5%9C%B0"
+    }
   },
   {
     "id": "poi-safari-on-wheels",
@@ -5602,7 +6282,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0062,
       113.3255
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B0%8F%E7%81%AB%E8%BD%A6%E6%B8%B8%E8%A7%88%E5%8C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B0%8F%E7%81%AB%E8%BD%A6%E6%B8%B8%E8%A7%88%E5%8C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B0%8F%E7%81%AB%E8%BD%A6%E6%B8%B8%E8%A7%88%E5%8C%BA"
+    }
   },
   {
     "id": "poi-sky-gondola",
@@ -5623,7 +6308,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0051,
       113.3291
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E9%9A%86%E7%A9%BA%E4%B8%AD%E7%BC%86%E8%BD%A6",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%95%BF%E9%9A%86%E7%A9%BA%E4%B8%AD%E7%BC%86%E8%BD%A6",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E7%A9%BA%E4%B8%AD%E7%BC%86%E8%BD%A6"
+    }
   },
   {
     "id": "poi-white-tiger-restaurant",
@@ -5644,7 +6334,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9975,
       113.3312
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%99%BD%E8%99%8E%E9%A4%90%E5%8E%85",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%99%BD%E8%99%8E%E9%A4%90%E5%8E%85",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%99%BD%E8%99%8E%E9%A4%90%E5%8E%85"
+    }
   },
   {
     "id": "poi-jurassic-trail",
@@ -5665,7 +6360,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0039,
       113.3262
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%BE%8F%E7%BD%97%E7%BA%AA%E6%A3%AE%E6%9E%97",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%BE%8F%E7%BD%97%E7%BA%AA%E6%A3%AE%E6%9E%97",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%BE%8F%E7%BD%97%E7%BA%AA%E6%A3%AE%E6%9E%97"
+    }
   },
   {
     "id": "poi-swan-lake",
@@ -5686,7 +6386,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0335,
       113.2765
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A9%E9%B9%85%E6%B9%96",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A9%E9%B9%85%E6%B9%96",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A9%E9%B9%85%E6%B9%96"
+    }
   },
   {
     "id": "poi-neverending-fountain",
@@ -5706,7 +6411,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0018,
       113.3288
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A5%E6%B5%81%E5%8B%87%E8%BF%9B%E4%B8%8E%E5%96%B7%E6%B3%89%E5%8C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%80%A5%E6%B5%81%E5%8B%87%E8%BF%9B%E4%B8%8E%E5%96%B7%E6%B3%89%E5%8C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%80%A5%E6%B5%81%E5%8B%87%E8%BF%9B%E4%B8%8E%E5%96%B7%E6%B3%89%E5%8C%BA"
+    }
   },
   {
     "id": "poi-koala-habitat",
@@ -5727,7 +6437,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0042,
       113.3281
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%80%83%E6%8B%89%E9%A6%86",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%80%83%E6%8B%89%E9%A6%86",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%80%83%E6%8B%89%E9%A6%86"
+    }
   },
   {
     "id": "poi-motorbike-coaster",
@@ -5749,7 +6464,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9988,
       113.3355
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%91%A9%E6%89%98%E8%BF%87%E5%B1%B1%E8%BD%A6",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%91%A9%E6%89%98%E8%BF%87%E5%B1%B1%E8%BD%A6",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%91%A9%E6%89%98%E8%BF%87%E5%B1%B1%E8%BD%A6"
+    }
   },
   {
     "id": "poi-stunt-show-arena",
@@ -5770,7 +6490,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0002,
       113.3362
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%83%8A%E7%88%86%E5%8D%B1%E6%9C%BA%E5%B2%9B%E7%89%B9%E6%8A%80%E5%89%A7%E5%9C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%83%8A%E7%88%86%E5%8D%B1%E6%9C%BA%E5%B2%9B%E7%89%B9%E6%8A%80%E5%89%A7%E5%9C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%83%8A%E7%88%86%E5%8D%B1%E6%9C%BA%E5%B2%9B%E7%89%B9%E6%8A%80%E5%89%A7%E5%9C%BA"
+    }
   },
   {
     "id": "poi-chimelong-resort-walkway",
@@ -5790,7 +6515,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9985,
       113.3315
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%95%BF%E9%9A%86%E5%BA%A6%E5%81%87%E5%8C%BA%E5%A4%A7%E9%81%93",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%95%BF%E9%9A%86%E5%BA%A6%E5%81%87%E5%8C%BA%E5%A4%A7%E9%81%93",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E5%BA%A6%E5%81%87%E5%8C%BA%E5%A4%A7%E9%81%93"
+    }
   },
   {
     "id": "poi-crocodile-island",
@@ -5813,7 +6543,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0315,
       113.2742
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%B3%84%E9%B1%BC%E5%B2%9B",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%B3%84%E9%B1%BC%E5%B2%9B",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%B3%84%E9%B1%BC%E5%B2%9B"
+    }
   },
   {
     "id": "poi-tornado-slide",
@@ -5834,7 +6569,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0031,
       113.3305
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E5%96%87%E5%8F%AD%E6%BB%91%E9%81%93",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E5%96%87%E5%8F%AD%E6%BB%91%E9%81%93",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E5%96%87%E5%8F%AD%E6%BB%91%E9%81%93"
+    }
   },
   {
     "id": "poi-dashi-riverside-greenway",
@@ -5854,7 +6594,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.0185,
       113.3125
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E7%9F%B3%E6%BB%A8%E6%B1%9F%E7%BB%BF%E9%81%93",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E7%9F%B3%E6%BB%A8%E6%B1%9F%E7%BB%BF%E9%81%93",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E7%9F%B3%E6%BB%A8%E6%B1%9F%E7%BB%BF%E9%81%93"
+    }
   },
   {
     "id": "poi-hanxi-wetland-pocket-park",
@@ -5874,7 +6619,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.9935,
       113.3321
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B1%89%E6%BA%AA%E6%B9%BF%E5%9C%B0%E5%8F%A3%E8%A2%8B%E5%85%AC%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B1%89%E6%BA%AA%E6%B9%BF%E5%9C%B0%E5%8F%A3%E8%A2%8B%E5%85%AC%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B1%89%E6%BA%AA%E6%B9%BF%E5%9C%B0%E5%8F%A3%E8%A2%8B%E5%85%AC%E5%9B%AD"
+    }
   },
   {
     "id": "poi-gulong-gorge-forest-hiking-trail",
@@ -5894,7 +6644,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.7452,
       112.9328
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8F%A4%E9%BE%99%E5%B3%A1%E6%A3%AE%E6%9E%97%E5%BE%92%E6%AD%A5%E5%BE%84",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8F%A4%E9%BE%99%E5%B3%A1%E6%A3%AE%E6%9E%97%E5%BE%92%E6%AD%A5%E5%BE%84",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8F%A4%E9%BE%99%E5%B3%A1%E6%A3%AE%E6%9E%97%E5%BE%92%E6%AD%A5%E5%BE%84"
+    }
   },
   {
     "id": "poi-huangteng-gorge-tianmen-corridor",
@@ -5914,7 +6669,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.7655,
       113.0842
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%BB%84%E8%85%BE%E5%B3%A1%E5%A4%A9%E9%97%A8%E6%82%AC%E5%BB%8A",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%BB%84%E8%85%BE%E5%B3%A1%E5%A4%A9%E9%97%A8%E6%82%AC%E5%BB%8A",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%BB%84%E8%85%BE%E5%B3%A1%E5%A4%A9%E9%97%A8%E6%82%AC%E5%BB%8A"
+    }
   },
   {
     "id": "poi-huangteng-gorge-ecological-valley",
@@ -5934,7 +6694,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.7672,
       113.0865
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%BB%84%E8%85%BE%E5%B3%A1%E7%94%9F%E6%80%81%E5%B3%A1%E8%B0%B7",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%BB%84%E8%85%BE%E5%B3%A1%E7%94%9F%E6%80%81%E5%B3%A1%E8%B0%B7",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%BB%84%E8%85%BE%E5%B3%A1%E7%94%9F%E6%80%81%E5%B3%A1%E8%B0%B7"
+    }
   },
   {
     "id": "poi-yingxi-peak-forest-karst-trails",
@@ -5954,7 +6719,12 @@ const expeditionAttractions = [
     "coordinates": [
       24.1285,
       112.9152
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%B1%E8%A5%BF%E5%B3%B0%E6%9E%97%E8%B5%B0%E5%BB%8A%E5%BE%92%E6%AD%A5%E5%BE%84",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%8B%B1%E8%A5%BF%E5%B3%B0%E6%9E%97%E8%B5%B0%E5%BB%8A%E5%BE%92%E6%AD%A5%E5%BE%84",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%8B%B1%E8%A5%BF%E5%B3%B0%E6%9E%97%E8%B5%B0%E5%BB%8A%E5%BE%92%E6%AD%A5%E5%BE%84"
+    }
   },
   {
     "id": "poi-beijiang-river-cruise",
@@ -5974,7 +6744,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.8245,
       113.1952
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8C%97%E6%B1%9F%E5%B0%8F%E4%B8%89%E5%B3%A1%E6%B8%B8%E8%88%B9",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8C%97%E6%B1%9F%E5%B0%8F%E4%B8%89%E5%B3%A1%E6%B8%B8%E8%88%B9",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8C%97%E6%B1%9F%E5%B0%8F%E4%B8%89%E5%B3%A1%E6%B8%B8%E8%88%B9"
+    }
   },
   {
     "id": "poi-xinyin-zhan-hot-spring-nature-resort",
@@ -5994,7 +6769,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.5852,
       113.1245
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%96%B0%E9%93%B6%E7%9B%8F%E6%B8%A9%E6%B3%89%E5%BA%A6%E5%81%87%E6%9D%91",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%96%B0%E9%93%B6%E7%9B%8F%E6%B8%A9%E6%B3%89%E5%BA%A6%E5%81%87%E6%9D%91",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%96%B0%E9%93%B6%E7%9B%8F%E6%B8%A9%E6%B3%89%E5%BA%A6%E5%81%87%E6%9D%91"
+    }
   },
   {
     "id": "poi-feilai-temple",
@@ -6017,7 +6797,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.8182,
       113.1895
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%A3%9E%E6%9D%A5%E5%AF%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%A3%9E%E6%9D%A5%E5%AF%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%A3%9E%E6%9D%A5%E5%AF%BA"
+    }
   },
   {
     "id": "poi-baojing-palace-of-yingde",
@@ -6040,7 +6825,12 @@ const expeditionAttractions = [
     "coordinates": [
       24.1528,
       113.3885
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%8B%B1%E5%BE%B7%E5%AE%9D%E6%99%B6%E5%AE%AB",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%8B%B1%E5%BE%B7%E5%AE%9D%E6%99%B6%E5%AE%AB",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%8B%B1%E5%BE%B7%E5%AE%9D%E6%99%B6%E5%AE%AB"
+    }
   },
   {
     "id": "poi-niuyuzui-scenic-area",
@@ -6060,7 +6850,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.7745,
       113.1582
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%89%9B%E9%B1%BC%E5%98%B4%E5%8E%9F%E5%A7%8B%E7%94%9F%E6%80%81%E9%A3%8E%E6%99%AF%E5%8C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%89%9B%E9%B1%BC%E5%98%B4%E5%8E%9F%E5%A7%8B%E7%94%9F%E6%80%81%E9%A3%8E%E6%99%AF%E5%8C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%89%9B%E9%B1%BC%E5%98%B4%E5%8E%9F%E5%A7%8B%E7%94%9F%E6%80%81%E9%A3%8E%E6%99%AF%E5%8C%BA"
+    }
   },
   {
     "id": "poi-tianzi-mountain-waterfall",
@@ -6080,7 +6875,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.8825,
       113.2345
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A9%E5%AD%90%E5%B1%B1%E7%80%91%E5%B8%83",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A9%E5%AD%90%E5%B1%B1%E7%80%91%E5%B8%83",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A9%E5%AD%90%E5%B1%B1%E7%80%91%E5%B8%83"
+    }
   },
   {
     "id": "poi-jinzi-mountain",
@@ -6100,7 +6900,12 @@ const expeditionAttractions = [
     "coordinates": [
       24.7125,
       112.0852
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%87%91%E5%AD%90%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%87%91%E5%AD%90%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%87%91%E5%AD%90%E5%B1%B1%E9%A3%8E%E6%99%AF%E5%8C%BA"
+    }
   },
   {
     "id": "poi-nangang-millennium-yao-pai",
@@ -6123,7 +6928,12 @@ const expeditionAttractions = [
     "coordinates": [
       24.5125,
       112.3125
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E5%B2%97%E5%8D%83%E5%B9%B4%E7%91%B6%E5%AF%A8",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%97%E5%B2%97%E5%8D%83%E5%B9%B4%E7%91%B6%E5%AF%A8",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%97%E5%B2%97%E5%8D%83%E5%B9%B4%E7%91%B6%E5%AF%A8"
+    }
   },
   {
     "id": "poi-lianzhou-underground-river",
@@ -6143,7 +6953,12 @@ const expeditionAttractions = [
     "coordinates": [
       24.9652,
       112.3852
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%9E%E5%B7%9E%E5%9C%B0%E4%B8%8B%E6%B2%B3",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%BF%9E%E5%B7%9E%E5%9C%B0%E4%B8%8B%E6%B2%B3",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%BF%9E%E5%B7%9E%E5%9C%B0%E4%B8%8B%E6%B2%B3"
+    }
   },
   {
     "id": "poi-bijiashan-rafting",
@@ -6163,7 +6978,12 @@ const expeditionAttractions = [
     "coordinates": [
       23.7925,
       113.0425
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E7%AC%94%E6%9E%B6%E5%B1%B1%E6%BC%82%E6%B5%81",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E7%AC%94%E6%9E%B6%E5%B1%B1%E6%BC%82%E6%B5%81",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E7%AC%94%E6%9E%B6%E5%B1%B1%E6%BC%82%E6%B5%81"
+    }
   },
   {
     "id": "poi-oct-loft-creative-culture-park",
@@ -6186,7 +7006,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5385,
       113.9925
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%88%9B%E6%84%8F%E6%96%87%E5%8C%96%E5%9B%AD",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%88%9B%E6%84%8F%E6%96%87%E5%8C%96%E5%9B%AD",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%88%9B%E6%84%8F%E6%96%87%E5%8C%96%E5%9B%AD"
+    }
   },
   {
     "id": "poi-tencent-seafront-towers",
@@ -6208,7 +7033,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5275,
       113.9355
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%85%BE%E8%AE%AF%E6%BB%A8%E6%B5%B7%E5%A4%A7%E5%8E%A6",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%85%BE%E8%AE%AF%E6%BB%A8%E6%B5%B7%E5%A4%A7%E5%8E%A6",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%85%BE%E8%AE%AF%E6%BB%A8%E6%B5%B7%E5%A4%A7%E5%8E%A6"
+    }
   },
   {
     "id": "poi-shenzhen-bay-park-coastal-promenade",
@@ -6228,7 +7058,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5185,
       113.9782
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B7%B1%E5%9C%B3%E6%B9%BE%E5%85%AC%E5%9B%AD%E6%BB%A8%E6%B5%B7%E9%95%BF%E5%BB%8A",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B7%B1%E5%9C%B3%E6%B9%BE%E5%85%AC%E5%9B%AD%E6%BB%A8%E6%B5%B7%E9%95%BF%E5%BB%8A",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B7%B1%E5%9C%B3%E6%B9%BE%E5%85%AC%E5%9B%AD%E6%BB%A8%E6%B5%B7%E9%95%BF%E5%BB%8A"
+    }
   },
   {
     "id": "poi-wutong-mountain-wutong-shan",
@@ -6251,7 +7086,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5852,
       114.2045
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%A2%A7%E6%A1%90%E5%B1%B1",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%A2%A7%E6%A1%90%E5%B1%B1",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%A2%A7%E6%A1%90%E5%B1%B1"
+    }
   },
   {
     "id": "poi-fairy-lake-botanical-garden-hongfa-temple",
@@ -6272,7 +7112,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5785,
       114.1685
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E4%BB%99%E6%B9%96%E6%A4%8D%E7%89%A9%E5%9B%AD%E4%B8%8E%E5%BC%98%E6%B3%95%E5%AF%BA",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E4%BB%99%E6%B9%96%E6%A4%8D%E7%89%A9%E5%9B%AD%E4%B8%8E%E5%BC%98%E6%B3%95%E5%AF%BA",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%BB%99%E6%B9%96%E6%A4%8D%E7%89%A9%E5%9B%AD%E4%B8%8E%E5%BC%98%E6%B3%95%E5%AF%BA"
+    }
   },
   {
     "id": "poi-huaqiangbei-electronics-market",
@@ -6295,7 +7140,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5452,
       114.0862
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%8E%E5%BC%BA%E5%8C%97%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%8E%E5%BC%BA%E5%8C%97%E6%AD%A5%E8%A1%8C%E8%A1%97",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%8E%E5%BC%BA%E5%8C%97%E6%AD%A5%E8%A1%8C%E8%A1%97"
+    }
   },
   {
     "id": "poi-nantou-ancient-city",
@@ -6318,7 +7168,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.5395,
       113.9182
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%97%E5%A4%B4%E5%8F%A4%E5%9F%8E",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%8D%97%E5%A4%B4%E5%8F%A4%E5%9F%8E",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%8D%97%E5%A4%B4%E5%8F%A4%E5%9F%8E"
+    }
   },
   {
     "id": "poi-sea-world-shekou",
@@ -6341,7 +7196,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.4845,
       113.9152
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%20(%E8%9B%87%E5%8F%A3)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%20(%E8%9B%87%E5%8F%A3)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%20(%E8%9B%87%E5%8F%A3)"
+    }
   },
   {
     "id": "poi-dragon-s-back-trail",
@@ -6364,7 +7224,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.2452,
       114.2402
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%BE%8D%E8%84%8A",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%BE%8D%E8%84%8A",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%BE%8D%E8%84%8A"
+    }
   },
   {
     "id": "poi-tai-o-stilt-village-mangrove-boardwalk",
@@ -6387,7 +7252,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.2538,
       113.8625
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A7%E6%BE%B3%E6%BC%81%E6%9D%91",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A7%E6%BE%B3%E6%BC%81%E6%9D%91",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A7%E6%BE%B3%E6%BC%81%E6%9D%91"
+    }
   },
   {
     "id": "poi-tian-tan-buddha-big-buddha",
@@ -6410,7 +7280,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.2539,
       113.9051
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A9%E5%A3%87%E5%A4%A7%E4%BD%9B",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%A4%A9%E5%A3%87%E5%A4%A7%E4%BD%9B",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%A4%A9%E5%A3%87%E5%A4%A7%E4%BD%9B"
+    }
   },
   {
     "id": "poi-tsim-sha-tsui-promenade-avenue-of-stars",
@@ -6433,7 +7308,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.2931,
       114.1738
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%98%9F%E5%85%89%E5%A4%A7%E9%81%93",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%98%9F%E5%85%89%E5%A4%A7%E9%81%93",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%98%9F%E5%85%89%E5%A4%A7%E9%81%93"
+    }
   },
   {
     "id": "poi-man-mo-temple",
@@ -6456,7 +7336,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.2839,
       114.1502
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%96%87%E6%AD%A6%E5%BB%9F",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%96%87%E6%AD%A6%E5%BB%9F",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%96%87%E6%AD%A6%E5%BB%9F"
+    }
   },
   {
     "id": "poi-lantau-trail-section-3-wisdom-path",
@@ -6476,7 +7361,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.2552,
       113.9115
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E9%B3%B3%E5%87%B0%E5%BE%91%E8%88%87%E5%BF%83%E7%B6%93%E7%B0%A1%E6%9E%97",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E9%B3%B3%E5%87%B0%E5%BE%91%E8%88%87%E5%BF%83%E7%B6%93%E7%B0%A1%E6%9E%97",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%B3%B3%E5%87%B0%E5%BE%91%E8%88%87%E5%BF%83%E7%B6%93%E7%B0%A1%E6%9E%97"
+    }
   },
   {
     "id": "poi-plover-cove-country-park-bride-s-pool",
@@ -6499,7 +7389,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.4885,
       114.2385
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%96%B0%E5%A8%98%E6%BD%AD%E8%87%AA%E7%84%B6%E6%95%99%E8%82%B2%E5%BE%91",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%96%B0%E5%A8%98%E6%BD%AD%E8%87%AA%E7%84%B6%E6%95%99%E8%82%B2%E5%BE%91",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%96%B0%E5%A8%98%E6%BD%AD%E8%87%AA%E7%84%B6%E6%95%99%E8%82%B2%E5%BE%91"
+    }
   },
   {
     "id": "poi-west-kowloon-cultural-district-m",
@@ -6522,7 +7417,12 @@ const expeditionAttractions = [
     "coordinates": [
       22.3005,
       114.1588
-    ]
+    ],
+    "links": {
+      "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E8%A5%BF%E4%B9%9D%E6%96%87%E5%8C%96%E5%8D%80%20(M%2B)",
+      "dianping": "https://www.dianping.com/search/keyword/4/0_%E8%A5%BF%E4%B9%9D%E6%96%87%E5%8C%96%E5%8D%80%20(M%2B)",
+      "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E8%A5%BF%E4%B9%9D%E6%96%87%E5%8C%96%E5%8D%80%20(M%2B)"
+    }
   }
 ];
 
