@@ -1980,3 +1980,348 @@ const hotelRoomsData = [
 
 if (typeof window !== 'undefined') window.hotelRoomsData = hotelRoomsData;
 if (typeof globalThis !== 'undefined') globalThis.hotelRoomsData = hotelRoomsData;
+
+
+// --- ATTRACTIONS DATASET ---
+const attractions = [
+  {
+    "id": "shawan-ancient-town",
+    "name": "Shawan Ancient Town (\u6c99\u6e7e\u53e4\u9547)",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Late Afternoon (2-3 hours)",
+    "dayAssigned": "Flexible Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/e/e6/Guangzhou_Shawan_Town.jpg"
+    ],
+    "activities": [
+      "Stroll 800-year-old stone alleys",
+      "Taste authentic Ginger Milk Curd",
+      "Visit ancestral halls"
+    ],
+    "areaMap": "Metro Line 3 (Shiqiao) -> Bus Fan 67 to South Gate.",
+    "guideUrls": [
+      "https://sg.trip.com/travel-guide/attraction/guangzhou/shawan-ancient-town-10524178/"
+    ],
+    "nearbyRecs": [
+      "Baomo Garden",
+      "Dafushan Forest"
+    ]
+  },
+  {
+    "id": "dafushan-forest",
+    "name": "Dafushan Forest Park (\u5927\u592b\u5c71\u68ee\u6797\u516c\u56ed)",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Morning (3-4 hours)",
+    "dayAssigned": "Flexible Nature Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Baomo_Garden_Lake.jpg/800px-Baomo_Garden_Lake.jpg"
+    ],
+    "activities": [
+      "Rent tandem bikes around the lakes",
+      "Join locals for morning tai chi",
+      "Picnic under the banyan trees"
+    ],
+    "areaMap": "Metro Line 3 (Hanxi Changlong) -> Bus 10A.",
+    "guideUrls": [
+      "https://www.travelchinaguide.com/attraction/guangdong/guangzhou/dafushan-forest-park.htm"
+    ],
+    "nearbyRecs": [
+      "Panyu Shiqiao Local Market"
+    ]
+  },
+  {
+    "id": "chimelong-safari",
+    "name": "Chimelong Safari Park (\u957f\u9686\u91ce\u751f\u52a8\u7269\u4e16\u754c)",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Full Day (09:30 - 18:00)",
+    "dayAssigned": "Primary Itinerary",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chimelong_Safari_Park_Panda.jpg/800px-Chimelong_Safari_Park_Panda.jpg"
+    ],
+    "activities": [
+      "Ride the 40-min open-air Safari Train",
+      "Take the transparent Sky Gondola",
+      "See Giant Panda triplets"
+    ],
+    "areaMap": "Metro Line 3/7 (Hanxi Changlong) -> Free Park Shuttle.",
+    "guideUrls": [
+      "https://www.chimelong.com/"
+    ],
+    "nearbyRecs": [
+      "Chimelong International Circus"
+    ]
+  },
+  {
+    "id": "chimelong-birds",
+    "name": "Chimelong Birds Park & Wetlands (\u957f\u9686\u98de\u9e1f\u4e50\u56ed)",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Half Day (Morning)",
+    "dayAssigned": "Flexible Nature Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Baomo_Garden.jpg/800px-Baomo_Garden.jpg"
+    ],
+    "activities": [
+      "Explore the vast ecological wetlands",
+      "Pelican feeding and bird flight shows",
+      "Boat ride through swan lakes"
+    ],
+    "areaMap": "Metro Line 2 (Huijiang) -> Exit C -> Free Shuttle.",
+    "guideUrls": [
+      "https://www.chimelong.com/"
+    ],
+    "nearbyRecs": [
+      "Safari Park"
+    ]
+  },
+  {
+    "id": "dongshankou",
+    "name": "Dongshankou Local Heritage (\u4e1c\u5c71\u53e3)",
+    "category": "Canton Heritage (Dongshankou)",
+    "timeAlloc": "Afternoon (3 hours)",
+    "dayAssigned": "Flexible Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dongshankou_Guangzhou.jpg/800px-Dongshankou_Guangzhou.jpg"
+    ],
+    "activities": [
+      "Explore 1920s Republican-era brick mansions",
+      "Cafe hopping in the indie arts district",
+      "Photography at Kuiyuan Gallery"
+    ],
+    "areaMap": "Metro Line 1/6 (Dongshankou) -> Exit E or F.",
+    "guideUrls": [
+      "https://www.trip.com/travel-guide/attraction/guangzhou/dongshankou-10558739/"
+    ],
+    "nearbyRecs": [
+      "Ersha Island",
+      "Peasant Movement Institute"
+    ]
+  },
+  {
+    "id": "baiyun-mountain",
+    "name": "Baiyun Mountain (\u767d\u4e91\u5c71)",
+    "category": "Canton Heritage (Dongshankou)",
+    "timeAlloc": "Morning (4 hours)",
+    "dayAssigned": "Flexible Nature Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/f/f3/Canton_Tower_night_view.jpg"
+    ],
+    "activities": [
+      "Take the cable car to the peak",
+      "Drink local tea at Moxing Ridge",
+      "Hike the lush trails overlooking the city skyline"
+    ],
+    "areaMap": "Metro Line 2 (Baiyun Park) -> Walk or bus to West Gate.",
+    "guideUrls": [
+      "https://www.travelchinaguide.com/attraction/guangdong/guangzhou/white_cloud.htm"
+    ],
+    "nearbyRecs": [
+      "Yuntai Garden",
+      "Luhu Lake"
+    ]
+  },
+  {
+    "id": "liwan-lake",
+    "name": "Liwan Lake Park & Pantang (\u8354\u6e7e\u6e56\u516c\u56ed)",
+    "category": "Canton Heritage (Dongshankou)",
+    "timeAlloc": "Late Afternoon (2-3 hours)",
+    "dayAssigned": "Flexible Local Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Baomo_Garden.jpg/800px-Baomo_Garden.jpg"
+    ],
+    "activities": [
+      "Listen to local seniors singing Cantonese Opera",
+      "Rent a rowboat on the lake",
+      "Eat traditional Pantang water chestnut cake"
+    ],
+    "areaMap": "Metro Line 5 (Zhongshanba).",
+    "guideUrls": [
+      "https://www.travelchinaguide.com/"
+    ],
+    "nearbyRecs": [
+      "Shamian Island",
+      "Enning Road Arcades"
+    ]
+  },
+  {
+    "id": "gulong-gorge",
+    "name": "Qingyuan Gulong Gorge (\u6e05\u8fdc\u53e4\u9f99\u5ce1)",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Full Day Charter (08:00 - 18:00)",
+    "dayAssigned": "Primary Itinerary",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qingyuan_Gulong_Gorge.jpg/800px-Qingyuan_Gulong_Gorge.jpg"
+    ],
+    "activities": [
+      "Walk the 520m suspended Glass Skywalk",
+      "Ride the Jungle Canyon Coaster",
+      "Feast on authentic Qingyuan Chicken"
+    ],
+    "areaMap": "Private Charter recommended (1.5 hrs drive from GZ).",
+    "guideUrls": [
+      "https://www.trip.com/"
+    ],
+    "nearbyRecs": [
+      "Huangteng Gorge",
+      "Beijiang River"
+    ]
+  },
+  {
+    "id": "yingxi-forest",
+    "name": "Yingxi Peak Forest Corridor (\u82f1\u897f\u5cf0\u6797)",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Full Day Charter",
+    "dayAssigned": "Flexible Nature Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qingyuan_Gulong_Gorge.jpg/800px-Qingyuan_Gulong_Gorge.jpg"
+    ],
+    "activities": [
+      "Hike through the 'Little Guilin' karst landscape",
+      "Explore Chuanlong Cave",
+      "Visit rural Hakka stone villages"
+    ],
+    "areaMap": "Private Charter (Yingde region).",
+    "guideUrls": [
+      "https://www.travelchinaguide.com/"
+    ],
+    "nearbyRecs": [
+      "Baojing Palace"
+    ]
+  },
+  {
+    "id": "dji-sky-city",
+    "name": "DJI Sky City & Tencent HQ (\u5927\u7586\u5929\u7a7a\u4e4b\u57ce)",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Afternoon (2 hours)",
+    "dayAssigned": "Primary Itinerary",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg"
+    ],
+    "activities": [
+      "Tour the futuristic asymmetric architecture",
+      "Test fly drones in the indoor cage",
+      "Tech campus walking tour"
+    ],
+    "areaMap": "Metro Line 5 (Liuxiandong) -> Walk 10 mins.",
+    "guideUrls": [
+      "https://www.dji.com/company/skycity"
+    ],
+    "nearbyRecs": [
+      "Shenzhen Talent Park"
+    ]
+  },
+  {
+    "id": "dasha-river",
+    "name": "Dasha River Ecological Corridor (\u5927\u6c99\u6cb3\u751f\u6001\u957f\u5eca)",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Late Afternoon (1-2 hours)",
+    "dayAssigned": "Flexible Nature Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg"
+    ],
+    "activities": [
+      "Walk/bike the lush river trails cutting through the tech hub",
+      "Watch local rowing teams practice",
+      "Bird watching in the urban wetland"
+    ],
+    "areaMap": "Metro Line 1 (Hi-Tech Park).",
+    "guideUrls": [
+      "https://www.trip.com/"
+    ],
+    "nearbyRecs": [
+      "Shenzhen Bay Park",
+      "OCT Harbour"
+    ]
+  },
+  {
+    "id": "oct-loft",
+    "name": "OCT-LOFT Creative Culture Park (\u534e\u4fa8\u57ce\u521b\u610f\u6587\u5316\u56ed)",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Evening (3 hours)",
+    "dayAssigned": "Flexible Local Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dongshankou_Guangzhou.jpg/800px-Dongshankou_Guangzhou.jpg"
+    ],
+    "activities": [
+      "Explore indie art galleries in old factories",
+      "Live music at B10 Live",
+      "Coffee at local roasteries"
+    ],
+    "areaMap": "Metro Line 1 (Qiaocheng East).",
+    "guideUrls": [
+      "https://www.shenzhenparty.com/"
+    ],
+    "nearbyRecs": [
+      "Window of the World"
+    ]
+  },
+  {
+    "id": "victoria-harbour",
+    "name": "Victoria Harbour & Star Ferry (\u7ef4\u591a\u5229\u4e9a\u6e2f)",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Sunset/Night (2-3 hours)",
+    "dayAssigned": "Primary Itinerary",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg"
+    ],
+    "activities": [
+      "Ride the iconic Star Ferry to Central",
+      "Watch Symphony of Lights at 8 PM",
+      "Walk the Avenue of Stars"
+    ],
+    "areaMap": "Tsim Sha Tsui MTR (Exit L6) to Star Ferry Pier.",
+    "guideUrls": [
+      "https://www.discoverhongkong.com/"
+    ],
+    "nearbyRecs": [
+      "K11 Musea",
+      "Hong Kong Museum of Art"
+    ]
+  },
+  {
+    "id": "lion-rock",
+    "name": "Lion Rock Country Park (\u7345\u5b50\u5c71)",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Morning (4 hours)",
+    "dayAssigned": "Flexible Nature Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg"
+    ],
+    "activities": [
+      "Hike the MacLehose Trail",
+      "Reach the peak for panoramic views of Kowloon and HK Island",
+      "Encounter wild macaques"
+    ],
+    "areaMap": "MTR Wong Tai Sin -> Minibus 18M.",
+    "guideUrls": [
+      "https://www.discoverhongkong.com/"
+    ],
+    "nearbyRecs": [
+      "Wong Tai Sin Temple"
+    ]
+  },
+  {
+    "id": "sham-shui-po",
+    "name": "Sham Shui Po Neighborhood (\u6df1\u6c34\u57d7)",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Afternoon (3 hours)",
+    "dayAssigned": "Flexible Local Option",
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dongshankou_Guangzhou.jpg/800px-Dongshankou_Guangzhou.jpg"
+    ],
+    "activities": [
+      "Hunt for vintage electronics at Ap Liu Street",
+      "Eat Michelin-recommended street food (Cheung Fun)",
+      "Explore local textile markets"
+    ],
+    "areaMap": "MTR Sham Shui Po (Tsuen Wan Line).",
+    "guideUrls": [
+      "https://www.discoverhongkong.com/"
+    ],
+    "nearbyRecs": [
+      "Mong Kok Ladies Market",
+      "Prince Edward Flower Market"
+    ]
+  }
+];
+if (typeof window !== 'undefined') window.attractions = attractions;
+if (typeof globalThis !== 'undefined') globalThis.attractions = attractions;

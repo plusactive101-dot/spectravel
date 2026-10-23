@@ -1680,3 +1680,81 @@ if (document.readyState === 'loading') {
 } else {
   initApp();
 }
+
+// --- ATTRACTION DRAWER RENDERER ---
+window.openAttraction = function(id) {
+    if (typeof attractions === 'undefined') return;
+    const att = attractions.find(a => a.id === id);
+    if(!att) return;
+
+    const drawerTitle = document.getElementById('drawerTitle');
+    const drawerBadge = document.getElementById('drawerBadge');
+    const drawerDate = document.getElementById('drawerDate');
+    const drawerSubtitle = document.getElementById('drawerSubtitle');
+
+    if (drawerTitle) drawerTitle.innerHTML = '<i class="fa-solid fa-map-location-dot"></i> ' + att.name;
+    if (drawerSubtitle) drawerSubtitle.textContent = (att.category || '') + ' • ' + (att.timeAlloc || '');
+    if (drawerBadge) drawerBadge.textContent = att.category || 'ATTRACTION';
+    if (drawerDate) drawerDate.textContent = att.timeAlloc || '';
+
+    let html = '<div class="space-y-6 mt-4">';
+
+    if(att.photos && att.photos.length > 0) {
+        html += '<div class="flex overflow-x-auto gap-3 pb-2 snap-x">';
+        att.photos.forEach(img => {
+            html += '<img src="' + img + '" class="h-48 w-64 rounded-xl object-cover snap-center border border-white/10 shadow-lg flex-shrink-0">';
+        });
+        html += '</div>';
+    }
+
+    if(att.activities && att.activities.length > 0) {
+        html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Key Activities</h4><ul class="space-y-2 text-sm text-slate-300">';
+        att.activities.forEach(act => {
+            html += '<li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> <span>' + act + '</span></li>';
+        });
+        html += '</ul></div>';
+    }
+
+    if(att.areaMap) {
+        html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Transit & Access</h4><div class="bg-white/5 p-3 rounded-lg border border-white/10 text-sm text-slate-300 flex items-start gap-3"><i class="fa-solid fa-train-subway text-slate-400 mt-1"></i> <p>' + att.areaMap + '</p></div></div>';
+    }
+
+    if(att.nearbyRecs && att.nearbyRecs.length > 0) {
+         html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Nearby Explorations</h4><div class="flex flex-wrap gap-2">';
+         att.nearbyRecs.forEach(rec => {
+             html += '<span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 rounded-md text-xs font-medium border border-emerald-500/30">' + rec + '</span>';
+         });
+         html += '</div></div>';
+    }
+
+    if(att.guideUrls && att.guideUrls.length > 0) {
+         html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Reference Links</h4><div class="flex flex-col gap-2">';
+         att.guideUrls.forEach(url => {
+             html += '<a href="' + url + '" target="_blank" class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 hover:underline"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Official Guide</a>';
+         });
+         html += '</div></div>';
+    }
+
+    html += '</div>';
+    const drawerBody = document.getElementById('drawerBody');
+    if (drawerBody) drawerBody.innerHTML = html;
+
+    const drawer = document.getElementById('inspectorDrawer');
+    const panel = document.getElementById('drawerPanel');
+    const overlay = document.getElementById('drawerOverlay');
+
+    if (drawer) {
+        drawer.style.display = 'block';
+        drawer.classList.remove('translate-x-full');
+        requestAnimationFrame(() => {
+            drawer.style.opacity = '1';
+            drawer.style.pointerEvents = 'auto';
+            if (panel) panel.style.transform = 'translateX(0)';
+        });
+        document.body.style.overflow = 'hidden';
+    }
+    if (overlay) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('opacity-100');
+    }
+};
