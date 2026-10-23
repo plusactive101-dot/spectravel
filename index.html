@@ -1339,16 +1339,16 @@
                 <span class="text-slate-500">•</span>
                 <span class="text-slate-400">GBA Corridor</span>
               </div>
-              <!-- MAP LAYER TOGGLE (Free Esri / High-Detail AutoNavi Amap / Satellite) -->
-              <div class="flex items-center gap-1.5 bg-black/40 p-1 rounded-xl border border-white/10 shrink-0">
-                <button onclick="setMapBaseLayer('esri-dark')" id="map-style-btn-esri" class="px-2.5 py-1 rounded-lg bg-purple-500 text-white font-bold transition flex items-center gap-1 text-[11px]">
-                  <i class="fa-solid fa-moon"></i> Dark Canvas
+                            <!-- PERMANENT IMMUTABLE MAP TILE CONTROLS (LOCKED) -->
+              <div id="map-tile-controls" class="flex items-center gap-1.5 p-1 rounded-lg bg-slate-900/90 border border-white/10 backdrop-blur-md z-[1000] pointer-events-auto select-none" onclick="event.stopPropagation();">
+                <button type="button" id="btn-tile-dark" onclick="window.switchMapTileSource('dark')" class="px-3 py-1 rounded-md text-xs font-semibold bg-indigo-600 text-white shadow-sm transition">
+                  <i class="fa-solid fa-moon text-indigo-300 mr-1"></i> Dark Canvas
                 </button>
-                <button onclick="setMapBaseLayer('amap-detail')" id="map-style-btn-amap" class="px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1 text-[11px]">
-                  <i class="fa-solid fa-map"></i> High-Detail AutoNavi (高德)
+                <button type="button" id="btn-tile-autonavi" onclick="window.switchMapTileSource('autonavi')" class="px-3 py-1 rounded-md text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 transition">
+                  <i class="fa-solid fa-map text-emerald-400 mr-1"></i> High-Detail AutoNavi (高德)
                 </button>
-                <button onclick="setMapBaseLayer('satellite')" id="map-style-btn-sat" class="px-2.5 py-1 rounded-lg text-slate-300 hover:text-white transition flex items-center gap-1 text-[11px]">
-                  <i class="fa-solid fa-satellite"></i> Satellite
+                <button type="button" id="btn-tile-satellite" onclick="window.switchMapTileSource('satellite')" class="px-3 py-1 rounded-md text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 transition">
+                  <i class="fa-solid fa-satellite text-sky-400 mr-1"></i> Satellite
                 </button>
               </div>
             </div>
@@ -2042,6 +2042,6 @@ document.addEventListener("keydown", function(e) {
   <!-- SCRIPT LIBRARIES -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="china-data.js"></script>
-  <script src="app.js?v=20261024_1792772045119"></script>
+  <script src="app.js?v=20261024_tilelock_1792772231318"></script>
 </body>
 </html>

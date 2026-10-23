@@ -1,3 +1,95 @@
+
+// =========================================================================
+// === PERMANENT IMMUTABLE MAP TILE REGISTRY (PROTECTED CORE ENGINE) ===
+// =========================================================================
+// DO NOT REMOVE: These 3 map sources are canonical and locked across all builds.
+window.CANONICAL_TILE_PROVIDERS = Object.freeze({
+  dark: {
+    key: 'dark',
+    name: 'Dark Canvas',
+    url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    options: {
+      subdomains: 'abcd',
+      maxZoom: 19,
+      attribution: '&copy; CartoDB Dark Matter'
+    }
+  },
+  autonavi: {
+    key: 'autonavi',
+    name: 'High-Detail AutoNavi (高德)',
+    url: 'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+    options: {
+      subdomains: ['1', '2', '3', '4'],
+      maxZoom: 18,
+      attribution: '&copy; AutoNavi (高德地图)'
+    }
+  },
+  satellite: {
+    key: 'satellite',
+    name: 'Satellite',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    options: {
+      subdomains: ['server'],
+      maxZoom: 19,
+      attribution: '&copy; Esri World Imagery'
+    }
+  }
+});
+
+// Retrieve user preference from storage or fallback to 'dark'
+window.getActiveTileMode = function() {
+  try {
+    return localStorage.getItem('mktravel_active_tile_mode') || 'dark';
+  } catch(e) {
+    return 'dark';
+  }
+};
+
+window.currentTileLayer = null;
+
+// Persistent Switcher Function
+window.switchMapTileSource = function(mode) {
+  const provider = window.CANONICAL_TILE_PROVIDERS[mode];
+  if (!provider) return;
+
+  const map = window.regionalLeafletMapInstance || window.regionalMapInstance || window.regionalMap || window.map;
+  if (map && typeof L !== 'undefined') {
+    if (window.currentTileLayer) {
+      try { map.removeLayer(window.currentTileLayer); } catch(e){}
+    }
+    window.currentTileLayer = L.tileLayer(provider.url, provider.options).addTo(map);
+    if (window.currentTileLayer.bringToBack) {
+      window.currentTileLayer.bringToBack();
+    }
+  }
+
+  // Persist user selection
+  try {
+    localStorage.setItem('mktravel_active_tile_mode', mode);
+  } catch(e){}
+
+  // Update Button Active States
+  ['dark', 'autonavi', 'satellite'].forEach(m => {
+    const btn = document.getElementById('btn-tile-' + m);
+    if (btn) {
+      if (m === mode) {
+        btn.className = 'px-3 py-1 rounded-md text-xs font-semibold bg-indigo-600 text-white shadow-sm transition';
+      } else {
+        btn.className = 'px-3 py-1 rounded-md text-xs font-semibold bg-white/5 text-slate-300 hover:bg-white/10 transition';
+      }
+    }
+  });
+};
+
+// Backwards compatibility for setMapBaseLayer
+window.setMapBaseLayer = function(layerName) {
+  if (layerName === 'esri-dark') window.switchMapTileSource('dark');
+  else if (layerName === 'amap-detail') window.switchMapTileSource('autonavi');
+  else if (layerName === 'satellite') window.switchMapTileSource('satellite');
+  else window.switchMapTileSource(layerName);
+};
+
+// === END PERMANENT TILE REGISTRY ===
 // =========================================================================
 // === UNIFIED MAP PIN ENGINE & LAYERGROUP CONTROLLER ===
 // =========================================================================
@@ -2380,14 +2472,7 @@ function initRegionalMap() {
     window.regionalLeafletMap = regionalMapInstance;
 
     // Apply CartoDB Dark Matter / default base layer
-    if (typeof setMapBaseLayer === 'function') {
-      setMapBaseLayer(currentBaseLayerName);
-    } else {
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; CartoDB',
-        maxZoom: 19
-      }).addTo(regionalMapInstance);
-    }
+    window.switchMapTileSource(window.getActiveTileMode());
 
     // Draw Transit Polyline linking major hubs
     const corridorPath = [
