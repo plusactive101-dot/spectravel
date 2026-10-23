@@ -19,34 +19,25 @@ window.MAP_LAYER_VISIBILITY = {
   mustdo: true
 };
 
+// === STRICT MAP MARKER CLASSIFIER (ZERO HEURISTICS) ===
 window.resolveMarkerCategory = function(item, explicitCat = '') {
   if (!item) return 'attraction';
 
-  const id = (item.id || item.nodeKey || '').toLowerCase().replace(/[-_]/g, '');
-  const name = (item.name || item.title || '').toLowerCase();
-  const nameZh = (item.nameZh || item.titleZh || '');
-  const cat = (item.category || item.cuisine || item.type || '').toLowerCase();
-
-  // 1. MUST-DO OVERWRITE (Highest Priority: Overwrites Attraction or Dining)
-  const isCuratedMustDo = (
-    item.mustDo === true ||
-    item.mustEat === true ||
-    explicitCat === 'mustdo' ||
-    (item.rating && parseFloat(item.rating) >= 4.9) ||
-    /cantontower|chimelong|wisca|bingsheng|chenclan|disney|oceanpark|gulong|dongshan|victoriapeak|pingan/.test(id) ||
-    /广州塔|长隆|惠食佳|炳胜|陈家祠|迪士尼|海洋公园|古龙峡|东山口|太平山顶|平安金融/.test(nameZh) ||
-    /canton tower|chimelong|wisca|bingsheng|chen clan|disneyland|ocean park|gulong gorge|victoria peak/.test(name)
-  );
-
-  if (isCuratedMustDo) return 'mustdo';
+  // 1. MUST-DO: STRICT MATCH ONLY (Explicit property or explicit hint)
+  if (item.mustDo === true || item.mustEat === true || explicitCat === 'mustdo') {
+    return 'mustdo';
+  }
 
   // 2. Hotel
+  const cat = (item.category || item.cuisine || item.type || '').toLowerCase();
+  const name = (item.name || item.title || '').toLowerCase();
   if (explicitCat === 'hotel' || cat.includes('hotel') || item.nights || item.checkIn || /hotel|resort|lodge/.test(name) || (item.badge && item.badge.includes('Hotel'))) {
     return 'hotel';
   }
 
   // 3. Transport
-  if (explicitCat === 'transport' || cat.includes('transport') || cat.includes('transit') || cat.includes('rail') || cat.includes('speed rail') ||
+  const nameZh = (item.nameZh || item.titleZh || '');
+  if (explicitCat === 'transport' || cat.includes('transport') || cat.includes('transit') || cat.includes('rail') ||
       /station|railway|airport|ferry|terminal|bullet|subway|metro/.test(name) ||
       /站|高铁|机场|码头|火车站|客运/.test(nameZh) ||
       (item.badge && item.badge.includes('Transit'))) {
@@ -460,8 +451,8 @@ window.renderMustDoEatSection = function() {
   const allRestaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : [];
 
   // Filter top must-dos (highlighted items, ratings >= 4.9, or curated items)
-  let topSights = allAttractions.filter(a => a.mustDo || a.rating >= 4.9 || ['canton-tower', 'chimelong-safari', 'chen-clan-ancestral-hall', 'hong-kong-disneyland'].includes(a.id)).slice(0, 6);
-  let topEats = allRestaurants.filter(r => r.mustEat || r.rating >= 4.9 || ['wisca-binjiang-mansion', 'bingsheng-taste', 'taotao-ju', 'guangzhou-restaurant'].includes(r.id)).slice(0, 6);
+  let topSights = allAttractions.filter(a => a.mustDo === true);
+  let topEats = allRestaurants.filter(r => r.mustEat === true);
 
   let cards = [];
 
@@ -2259,7 +2250,17 @@ function initRegionalMap() {
     });
 
     renderRegionalLocationsSidebar();
-    if (window.setupAllMapLayers) { window.setupAllMapLayers(regionalMapInstance); }
+    // Bind global map instance and disable Leaflet propagation on legend
+  window.regionalMapInstance = regionalMapInstance;
+  window.regionalLeafletMap = regionalMapInstance;
+  const legendElem = document.getElementById('mktravel-map-legend');
+  if (legendElem && typeof L !== 'undefined' && L.DomEvent) {
+    L.DomEvent.disableClickPropagation(legendElem);
+    L.DomEvent.disableScrollPropagation(legendElem);
+  }
+  if (window.setupAllMapLayers) {
+    window.setupAllMapLayers(regionalMapInstance);
+  }
     if (window.populateUniversalMapMarkers) {
       window.populateUniversalMapMarkers(regionalMapInstance);
     }

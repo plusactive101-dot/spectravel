@@ -356,7 +356,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)"
     },
-    "region": "Panyu"
+    "region": "Panyu",
+    "nameZh": "沁芳园甜品"
   },
   {
     "id": "rest-2",
@@ -420,7 +421,9 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)"
     },
-    "region": "Chimelong"
+    "region": "Chimelong",
+    "mustEat": true,
+    "nameZh": "炳胜品味 • 时代E-PARK店"
   },
   {
     "id": "rest-3",
@@ -484,7 +487,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "泮溪酒家"
   },
   {
     "id": "rest-4",
@@ -548,7 +552,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "大佛寺素食阁"
   },
   {
     "id": "rest-gz-1",
@@ -612,7 +617,9 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "mustEat": true,
+    "nameZh": "陶陶居 • 百年老字号"
   },
   {
     "id": "rest-gz-2",
@@ -676,7 +683,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "大鸽饭 • 招牌红烧乳鸽"
   },
   {
     "id": "rest-gz-3",
@@ -740,7 +748,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "蟹叁宝 • 蟹黄捞饭"
   },
   {
     "id": "rest-gz-4",
@@ -804,7 +813,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "点都德 • 非遗广式早茶"
   },
   {
     "id": "rest-gz-5",
@@ -923,7 +933,9 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "mustEat": true,
+    "nameZh": "Longjin West Branch"
   },
   {
     "id": "rest-gz-6",
@@ -980,7 +992,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "源记肠粉"
   },
   {
     "id": "rest-gz-7",
@@ -1044,7 +1057,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "蔡澜港式点心"
   },
   {
     "id": "rest-gz-8",
@@ -1101,7 +1115,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "民记煲仔饭"
   },
   {
     "id": "rest-gz-9",
@@ -1158,7 +1173,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "铭少食鸡专门店"
   },
   {
     "id": "rest-gz-10",
@@ -1222,7 +1238,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)"
     },
-    "region": "Guangzhou"
+    "region": "Guangzhou",
+    "nameZh": "荔芳四季糖水店"
   },
   {
     "id": "rest-5",
@@ -1279,7 +1296,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)"
     },
-    "region": "Qingyuan"
+    "region": "Qingyuan",
+    "nameZh": "古龙峡土菜馆"
   },
   {
     "id": "rest-6",
@@ -1336,7 +1354,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)"
     },
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "nameZh": "八合里牛肉火锅 • 南头店"
   },
   {
     "id": "rest-sz-2",
@@ -1393,7 +1412,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)"
     },
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "nameZh": "润园四季椰子鸡 • 华侨城店"
   },
   {
     "id": "rest-sz-3",
@@ -1450,7 +1470,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)"
     },
-    "region": "Shenzhen"
+    "region": "Shenzhen",
+    "nameZh": "海上世界明华轮海鲜广场"
   },
   {
     "id": "rest-7",
@@ -1507,7 +1528,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)"
     },
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "nameZh": "金华冰厅 • 香港菠萝油冠军"
   },
   {
     "id": "rest-8",
@@ -1564,7 +1586,9 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)"
     },
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "mustEat": true,
+    "nameZh": "添好运 • 米其林点心专卖店"
   },
   {
     "id": "rest-hk-3",
@@ -1621,7 +1645,8 @@ const defaultRestaurants = [
       "dianping": "https://www.dianping.com/search/keyword/4/0_Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)"
     },
-    "region": "Hong Kong"
+    "region": "Hong Kong",
+    "nameZh": "旺角登打士街地道街头小食"
   },
   {
     "id": "wisca-binjiang-mansion",
@@ -1680,7 +1705,8 @@ const defaultRestaurants = [
         "image": "/assets/dining/wisca-binjiang-mansion.jpg"
       }
     ],
-    "officialUrl": "http://www.huishijia.com.cn"
+    "officialUrl": "http://www.huishijia.com.cn",
+    "mustEat": true
   }
 ];
 
@@ -2428,7 +2454,8 @@ const expeditionAttractions = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C",
       "official": "https://www.chimelong.com"
     },
-    "officialUrl": "https://www.chimelong.com"
+    "officialUrl": "https://www.chimelong.com",
+    "mustDo": true
   },
   {
     "id": "circus",
@@ -2492,7 +2519,8 @@ const expeditionAttractions = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E5%9B%BD%E9%99%85%E5%A4%A7%E9%A9%AC%E6%88%8F",
       "official": "https://www.chimelong.com"
     },
-    "officialUrl": "https://www.chimelong.com"
+    "officialUrl": "https://www.chimelong.com",
+    "mustDo": true
   },
   {
     "id": "cantontower",
@@ -2547,7 +2575,8 @@ const expeditionAttractions = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E5%B9%BF%E5%B7%9E%E5%A1%94",
       "official": "https://www.cantontower.com"
     },
-    "officialUrl": "https://www.cantontower.com"
+    "officialUrl": "https://www.cantontower.com",
+    "mustDo": true
   },
   {
     "id": "chenclan",
@@ -2605,7 +2634,8 @@ const expeditionAttractions = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%99%88%E5%AE%B6%E7%A5%A0",
       "official": "http://www.gzchenjiaci.com"
     },
-    "officialUrl": "http://www.gzchenjiaci.com"
+    "officialUrl": "http://www.gzchenjiaci.com",
+    "mustDo": true
   },
   {
     "id": "dongshankou",
@@ -2774,7 +2804,8 @@ const expeditionAttractions = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Qingyuan%20Gulong%20Gorge",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Qingyuan%20Gulong%20Gorge",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Qingyuan%20Gulong%20Gorge"
-    }
+    },
+    "mustDo": true
   },
   {
     "id": "indoorski",
