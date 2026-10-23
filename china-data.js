@@ -1988,35 +1988,31 @@ const expeditionAttractions = [
     "id": "shawan",
     "name": "Shawan Ancient Town",
     "category": "Guangzhou Panyu",
-    "timeAlloc": "Late Afternoon (3h)",
+    "timeAlloc": "Afternoon (3h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-landmark",
-    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
-    "desc": "Picturesque Lingnan water village celebrated for ancestral brick shrines, oyster-shell boundary walls, and freshly made ginger water-buffalo curd.",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800",
+    "desc": "Lingnan water village celebrated for ancestral shrines and ginger curd.",
     "meta1": {
       "label": "HISTORY",
-      "value": "800+ Years Old"
+      "value": "800+ Years"
     },
     "meta2": {
-      "label": "DELICACY",
-      "value": "Water-Buffalo Milk"
+      "label": "FOOD",
+      "value": "Ginger Curd"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800"
     ],
     "activities": [
-      "Stroll 800-year-old stone alleys",
-      "Taste authentic Ginger Milk Curd",
-      "Visit Liugeng Hall"
+      "Stroll alleys",
+      "Eat ginger curd"
     ],
-    "areaMap": "Metro Line 3 (Shiqiao) -> Bus Fan 67 to South Gate",
+    "areaMap": "Metro L3 (Shiqiao) -> Bus Fan 67",
     "nearbyRecs": [
-      "Baomo Garden",
-      "Dafushan Forest"
+      "Baomo Garden"
     ],
-    "guideUrls": [
-      "https://sg.trip.com/travel-guide/attraction/guangzhou/shawan-ancient-town-10524178/"
-    ]
+    "guideUrls": []
   },
   {
     "id": "dafushan",
@@ -2025,31 +2021,202 @@ const expeditionAttractions = [
     "timeAlloc": "Morning (4h)",
     "tag": "PANYU • NATURE",
     "tagIcon": "fa-tree",
-    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
-    "desc": "An expansive natural oasis favored by locals, featuring lush banyan trees, tandem biking around serene lakes, and morning tai chi.",
+    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800",
+    "desc": "Expansive natural oasis favored by locals for tandem biking.",
     "meta1": {
       "label": "LANDSCAPE",
-      "value": "Lakes & Forest"
+      "value": "Lakes"
     },
     "meta2": {
       "label": "VIBE",
       "value": "Local Leisure"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80"
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800"
     ],
     "activities": [
-      "Rent tandem bikes",
-      "Picnic under banyan trees",
-      "Hike to the peak pavilion"
+      "Tandem bikes",
+      "Picnic"
     ],
-    "areaMap": "Metro Line 3 (Hanxi Changlong) -> Bus 10A",
+    "areaMap": "Metro L3 (Hanxi Changlong)",
+    "nearbyRecs": [],
+    "guideUrls": []
+  },
+  {
+    "id": "baomo",
+    "name": "Baomo Garden",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Morning (3h)",
+    "tag": "PANYU • HERITAGE",
+    "tagIcon": "fa-fan",
+    "image": "https://images.unsplash.com/photo-1543013313-162788cba6fc?w=800",
+    "desc": "Stunning Lingnan-style garden with massive koi ponds and intricate pavilions.",
+    "meta1": {
+      "label": "STYLE",
+      "value": "Lingnan Garden"
+    },
+    "meta2": {
+      "label": "FEATURE",
+      "value": "Koi Ponds"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1543013313-162788cba6fc?w=800"
+    ],
+    "activities": [
+      "Feed Koi",
+      "Hanfu photography"
+    ],
+    "areaMap": "Bus 67 to Sanshan",
     "nearbyRecs": [
-      "Shiqiao Local Market"
+      "Shawan"
     ],
-    "guideUrls": [
-      "https://www.travelchinaguide.com/attraction/guangdong/guangzhou/dafushan-forest-park.htm"
-    ]
+    "guideUrls": []
+  },
+  {
+    "id": "nanyue",
+    "name": "Nanyue Garden",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Afternoon (2h)",
+    "tag": "PANYU • HERITAGE",
+    "tagIcon": "fa-vihara",
+    "image": "https://images.unsplash.com/photo-1596426466989-13653199bc4b?w=800",
+    "desc": "Companion to Baomo Garden, featuring royal-style Lingnan architecture.",
+    "meta1": {
+      "label": "STYLE",
+      "value": "Royal Lingnan"
+    },
+    "meta2": {
+      "label": "VIBE",
+      "value": "Tranquil"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1596426466989-13653199bc4b?w=800"
+    ],
+    "activities": [
+      "Architecture tour"
+    ],
+    "areaMap": "Adjacent to Baomo Garden",
+    "nearbyRecs": [
+      "Baomo Garden"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "lotus",
+    "name": "Lotus Hill (Lianhua Shan)",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Half Day (4h)",
+    "tag": "PANYU • SCENIC",
+    "tagIcon": "fa-mountain-sun",
+    "image": "https://images.unsplash.com/photo-1623869274213-911e38ddf592?w=800",
+    "desc": "Ancient quarry site featuring a massive golden Guanyin statue overlooking the sea.",
+    "meta1": {
+      "label": "MONUMENT",
+      "value": "Golden Guanyin"
+    },
+    "meta2": {
+      "label": "VIEW",
+      "value": "Sea Cliffs"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1623869274213-911e38ddf592?w=800"
+    ],
+    "activities": [
+      "Climb ancient quarry",
+      "Pray at statue"
+    ],
+    "areaMap": "Metro L4 (Shiqi) -> Bus",
+    "nearbyRecs": [],
+    "guideUrls": []
+  },
+  {
+    "id": "panyu_museum",
+    "name": "Panyu Museum",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Morning (2h)",
+    "tag": "PANYU • CULTURE",
+    "tagIcon": "fa-building-columns",
+    "image": "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800",
+    "desc": "Local history museum showcasing Panyu’s maritime and agricultural heritage.",
+    "meta1": {
+      "label": "TYPE",
+      "value": "Museum"
+    },
+    "meta2": {
+      "label": "FOCUS",
+      "value": "Maritime History"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800"
+    ],
+    "activities": [
+      "View ancient ships"
+    ],
+    "areaMap": "Shiqiao Town Center",
+    "nearbyRecs": [
+      "Shiqiao Market"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "shiqiao",
+    "name": "Shiqiao Pedestrian Street",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Evening (2h)",
+    "tag": "PANYU • LOCAL",
+    "tagIcon": "fa-store",
+    "image": "https://images.unsplash.com/photo-1555529733-0e67056058e1?w=800",
+    "desc": "The bustling commercial heart of old Panyu, full of local street food and shops.",
+    "meta1": {
+      "label": "VIBE",
+      "value": "Bustling Market"
+    },
+    "meta2": {
+      "label": "FOOD",
+      "value": "Street Snacks"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1555529733-0e67056058e1?w=800"
+    ],
+    "activities": [
+      "Shop for local goods",
+      "Eat street food"
+    ],
+    "areaMap": "Metro L3 (Shiqiao)",
+    "nearbyRecs": [
+      "Dafushan Forest"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "yuyin",
+    "name": "Yuyin Shanfang",
+    "category": "Guangzhou Panyu",
+    "timeAlloc": "Morning (2h)",
+    "tag": "PANYU • HERITAGE",
+    "tagIcon": "fa-leaf",
+    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800",
+    "desc": "One of Guangdong’s four great historic classical gardens, built in 1867.",
+    "meta1": {
+      "label": "HERITAGE",
+      "value": "Classical Garden"
+    },
+    "meta2": {
+      "label": "YEAR",
+      "value": "1867"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800"
+    ],
+    "activities": [
+      "Explore pavilions",
+      "Courtyard walks"
+    ],
+    "areaMap": "Metro L7 (Nancun Wanbo)",
+    "nearbyRecs": [
+      "Wanbo CBD"
+    ],
+    "guideUrls": []
   },
   {
     "id": "safari",
@@ -2058,8 +2225,8 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (6-8h)",
     "tag": "GUANGZHOU • CHIMELONG",
     "tagIcon": "fa-ticket",
-    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
-    "desc": "World-renowned animal theme park featuring open-air self-drive savannah train, scenic sky gondola over safari enclosures, and giant panda triplets.",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800",
+    "desc": "World-renowned animal theme park featuring open-air self-drive train and panda triplets.",
     "meta1": {
       "label": "TIME REQUIRED",
       "value": "Full Day (6-8h)"
@@ -2069,22 +2236,233 @@ const expeditionAttractions = [
       "value": "Panda Triplets"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"
     ],
     "activities": [
-      "Ride 40-min open-air Safari Train",
-      "Take transparent Sky Gondola",
+      "Ride Safari Train",
+      "Take Sky Gondola",
       "Panda Village"
     ],
-    "areaMap": "Metro Line 3/7 (Hanxi Changlong) -> Free Shuttle",
+    "areaMap": "Metro L3/7 (Hanxi Changlong) -> Free Shuttle",
     "nearbyRecs": [
-      "International Circus",
-      "Birds Park"
+      "Circus"
     ],
     "guideUrls": [
       "https://www.chimelong.com/"
     ]
+  },
+  {
+    "id": "circus",
+    "name": "Chimelong International Circus",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Evening (2h)",
+    "tag": "GUANGZHOU • CHIMELONG",
+    "tagIcon": "fa-masks-theater",
+    "image": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800",
+    "desc": "World’s premier permanent circus theater featuring elite global acrobats and horses.",
+    "meta1": {
+      "label": "SHOWTIME",
+      "value": "19:30 Daily"
+    },
+    "meta2": {
+      "label": "SCALE",
+      "value": "300+ Cast"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800"
+    ],
+    "activities": [
+      "Watch aerial trapeze",
+      "Laser acrobatic show"
+    ],
+    "areaMap": "Chimelong Resort Shuttle",
+    "nearbyRecs": [
+      "Safari Park"
+    ],
+    "guideUrls": [
+      "https://www.chimelong.com/"
+    ]
+  },
+  {
+    "id": "birds_park",
+    "name": "Chimelong Birds Park",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Half Day (3-4h)",
+    "tag": "CHIMELONG • NATURE",
+    "tagIcon": "fa-dove",
+    "image": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800",
+    "desc": "Expansive ecological wetland sanctuary home to thousands of rare birds and wetlands.",
+    "meta1": {
+      "label": "SPECIES",
+      "value": "Rare Wetlands"
+    },
+    "meta2": {
+      "label": "HIGHLIGHT",
+      "value": "Flight Demonstrations"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800"
+    ],
+    "activities": [
+      "Wetland boat ride",
+      "Pelican feeding"
+    ],
+    "areaMap": "Resort Shuttle Bus",
+    "nearbyRecs": [
+      "Safari Park"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "paradise",
+    "name": "Chimelong Paradise",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Full Day (6h)",
+    "tag": "CHIMELONG • THRILL",
+    "tagIcon": "fa-roller-coaster",
+    "image": "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800",
+    "desc": "Massive amusement theme park featuring the 10-inversion roller coaster and dive coasters.",
+    "meta1": {
+      "label": "RIDES",
+      "value": "Dive Coaster"
+    },
+    "meta2": {
+      "label": "RECORD",
+      "value": "10-Loop Coaster"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800"
+    ],
+    "activities": [
+      "Roller coasters",
+      "Stunt shows"
+    ],
+    "areaMap": "Metro L3/7 (Hanxi Changlong Exit E)",
+    "nearbyRecs": [
+      "Water Park"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "water_park",
+    "name": "Chimelong Water Park",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Full Day (5h)",
+    "tag": "CHIMELONG • WATER",
+    "tagIcon": "fa-water-ladder",
+    "image": "https://images.unsplash.com/photo-1582650625119-3a31f841836d?w=800",
+    "desc": "World-ranking outdoor water park with mega wave pools and aquatic night parties.",
+    "meta1": {
+      "label": "FEATURE",
+      "value": "Mega Wave Pool"
+    },
+    "meta2": {
+      "label": "SEASON",
+      "value": "Summer / Heated"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1582650625119-3a31f841836d?w=800"
+    ],
+    "activities": [
+      "Tornado slide",
+      "Wave pool concert"
+    ],
+    "areaMap": "Chimelong Resort Core",
+    "nearbyRecs": [
+      "Paradise"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "chimelong_gondola",
+    "name": "Chimelong Sky Gondola",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Morning (1h)",
+    "tag": "CHIMELONG • SCENIC",
+    "tagIcon": "fa-cable-car",
+    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800",
+    "desc": "Transparent-floor aerial cable car gliding silently above wild animals and savannahs.",
+    "meta1": {
+      "label": "PERSPECTIVE",
+      "value": "Bird’s Eye View"
+    },
+    "meta2": {
+      "label": "ROUTE",
+      "value": "Circular Loop"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800"
+    ],
+    "activities": [
+      "Aerial safari viewing",
+      "Landscape photography"
+    ],
+    "areaMap": "Inside Safari Park",
+    "nearbyRecs": [
+      "Safari Park"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "panda_village",
+    "name": "Panda Village & Nursery",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Morning (2h)",
+    "tag": "CHIMELONG • WILDLIFE",
+    "tagIcon": "fa-paw",
+    "image": "https://images.unsplash.com/photo-1527153857715-3908f2ae5e81?w=800",
+    "desc": "Dedicated giant panda conservation habitat and bamboo garden featuring panda triplets.",
+    "meta1": {
+      "label": "EXHIBIT",
+      "value": "Panda Triplets"
+    },
+    "meta2": {
+      "label": "HABITAT",
+      "value": "Climate Controlled"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1527153857715-3908f2ae5e81?w=800"
+    ],
+    "activities": [
+      "Watch panda feeding",
+      "Interactive learning lab"
+    ],
+    "areaMap": "Safari Park Central Zone",
+    "nearbyRecs": [
+      "Sky Gondola"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "wanbo_cbd",
+    "name": "Wanbo CBD Skyline",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Evening (2h)",
+    "tag": "CHIMELONG • URBAN",
+    "tagIcon": "fa-city",
+    "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800",
+    "desc": "Ultra-modern skyscraper business district bordering Chimelong, packed with trendy dining.",
+    "meta1": {
+      "label": "VIBE",
+      "value": "Modern CBD"
+    },
+    "meta2": {
+      "label": "FOOD",
+      "value": "Fine Dining Hub"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800"
+    ],
+    "activities": [
+      "CBD night walk",
+      "Mall dining"
+    ],
+    "areaMap": "Metro L7 (Nancun Wanbo)",
+    "nearbyRecs": [
+      "Chimelong Resort"
+    ],
+    "guideUrls": []
   },
   {
     "id": "dongshankou",
@@ -2093,8 +2471,8 @@ const expeditionAttractions = [
     "timeAlloc": "Afternoon (3h)",
     "tag": "CANTON • LOCAL",
     "tagIcon": "fa-mug-hot",
-    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
-    "desc": "A historic neighborhood of 1920s Republican-era red brick mansions, now transformed into Guangzhou’s premier indie arts and cafe district.",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800",
+    "desc": "1920s Republican-era red brick mansions transformed into an arts and cafe district.",
     "meta1": {
       "label": "ARCHITECTURE",
       "value": "1920s Villas"
@@ -2104,21 +2482,17 @@ const expeditionAttractions = [
       "value": "Indie Arts & Cafes"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800"
     ],
     "activities": [
-      "Cafe hopping in historic villas",
-      "Photography at Kuiyuan Gallery",
-      "Explore local boutiques"
+      "Cafe hopping",
+      "Gallery visits"
     ],
-    "areaMap": "Metro Line 1/6 (Dongshankou) -> Exit E/F",
+    "areaMap": "Metro L1/6 (Dongshankou)",
     "nearbyRecs": [
-      "Beijing Road",
-      "Ersha Island"
+      "Beijing Road"
     ],
-    "guideUrls": [
-      "https://www.trip.com/travel-guide/attraction/guangzhou/dongshankou-10558739/"
-    ]
+    "guideUrls": []
   },
   {
     "id": "shamian",
@@ -2127,8 +2501,8 @@ const expeditionAttractions = [
     "timeAlloc": "Morning (2-3h)",
     "tag": "CANTON • HERITAGE",
     "tagIcon": "fa-building",
-    "image": "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800&q=80",
-    "desc": "A tranquil sandbank island steeped in history, featuring meticulously preserved European colonial architecture, banyan-lined avenues, and waterfront views.",
+    "image": "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800",
+    "desc": "Tranquil sandbank island with preserved European colonial mansions and banyan boulevards.",
     "meta1": {
       "label": "ERA",
       "value": "Colonial 19th Century"
@@ -2138,21 +2512,227 @@ const expeditionAttractions = [
       "value": "European Enclave"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800&q=80"
+      "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800"
     ],
     "activities": [
-      "Walk colonial tree-lined boulevards",
-      "Visit Our Lady of Lourdes Chapel",
-      "Relax by the Pearl River"
+      "Tree-lined walk",
+      "Colonial photography"
     ],
-    "areaMap": "Metro Line 1 (Huangsha) -> Exit F",
+    "areaMap": "Metro L1 (Huangsha)",
     "nearbyRecs": [
-      "Liwan Lake Park",
       "Yongqing Fang"
     ],
-    "guideUrls": [
-      "https://www.travelchinaguide.com/attraction/guangdong/guangzhou/shamian.htm"
-    ]
+    "guideUrls": []
+  },
+  {
+    "id": "beijing_road",
+    "name": "Beijing Road & Dafo Temple",
+    "category": "Canton Heritage",
+    "timeAlloc": "Evening (3h)",
+    "tag": "CANTON • HERITAGE",
+    "tagIcon": "fa-gopuram",
+    "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+    "desc": "Historic pedestrian street showcasing ancient glass-paved road ruins and glowing Dafo Temple.",
+    "meta1": {
+      "label": "TEMPLE",
+      "value": "Dafo Night Lights"
+    },
+    "meta2": {
+      "label": "RUINS",
+      "value": "Song Dynasty Road"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1548013146-72479768bada?w=800"
+    ],
+    "activities": [
+      "See illuminated temple",
+      "Sample Cantonese street snacks"
+    ],
+    "areaMap": "Metro L1/2 (Gongyuanqian)",
+    "nearbyRecs": [
+      "People’s Park"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "chen_clan",
+    "name": "Chen Clan Ancestral Hall",
+    "category": "Canton Heritage",
+    "timeAlloc": "Morning (2h)",
+    "tag": "CANTON • HERITAGE",
+    "tagIcon": "fa-archway",
+    "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800",
+    "desc": "Masterpiece of Lingnan architecture adorned with wood, stone, brick, and pottery carvings.",
+    "meta1": {
+      "label": "CRAFT",
+      "value": "Folk Carvings"
+    },
+    "meta2": {
+      "label": "FOUNDED",
+      "value": "1894"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800"
+    ],
+    "activities": [
+      "Admire roof ridge pottery",
+      "Folk art exhibits"
+    ],
+    "areaMap": "Metro L1 (Chen Clan Academy)",
+    "nearbyRecs": [
+      "Liwan Lake"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "yongqing_fang",
+    "name": "Yongqing Fang & Cantonese Opera",
+    "category": "Canton Heritage",
+    "timeAlloc": "Afternoon (3h)",
+    "tag": "CANTON • CULTURE",
+    "tagIcon": "fa-guitar",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
+    "desc": "Revitalized historic alley district featuring Bruce Lee’s ancestral home and Opera Museum.",
+    "meta1": {
+      "label": "HIGHLIGHT",
+      "value": "Bruce Lee Ancestral House"
+    },
+    "meta2": {
+      "label": "CULTURE",
+      "value": "Opera Museum"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800"
+    ],
+    "activities": [
+      "Explore Xiguan mansions",
+      "Hear water-stage opera"
+    ],
+    "areaMap": "Metro L1/6 (Huangsha Exit B)",
+    "nearbyRecs": [
+      "Shamian Island"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "canton_tower",
+    "name": "Canton Tower & Haixin Bridge",
+    "category": "Canton Heritage",
+    "timeAlloc": "Evening (3h)",
+    "tag": "CANTON • ICONIC",
+    "tagIcon": "fa-tower-broadcast",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
+    "desc": "600m twist-silhouette broadcast tower paired with curved pedestrian Haixin Bridge.",
+    "meta1": {
+      "label": "HEIGHT",
+      "value": "600m Pinnacle"
+    },
+    "meta2": {
+      "label": "SKYLINE",
+      "value": "Zhujiang New Town"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800"
+    ],
+    "activities": [
+      "Cross Haixin Bridge",
+      "View Zhujiang skyline lights"
+    ],
+    "areaMap": "Metro L3 / APM (Canton Tower)",
+    "nearbyRecs": [
+      "Huacheng Square"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "baiyun_mountain",
+    "name": "Baiyun Mountain (White Cloud)",
+    "category": "Canton Heritage",
+    "timeAlloc": "Morning (4h)",
+    "tag": "CANTON • NATURE",
+    "tagIcon": "fa-cloud-sun",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "desc": "Guangzhou’s scenic mountain lungs offering lush trail climbs and bird cage sanctuaries.",
+    "meta1": {
+      "label": "PEAK",
+      "value": "Moxing Ridge"
+    },
+    "meta2": {
+      "label": "CABLE CAR",
+      "value": "Baiyun Ropeway"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800"
+    ],
+    "activities": [
+      "Hike Moxing Ridge",
+      "Ride Baiyun Cable Car"
+    ],
+    "areaMap": "Metro L2 (Baiyun Park) -> Bus",
+    "nearbyRecs": [
+      "Yuntai Garden"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "liwan_lake",
+    "name": "Liwan Lake Park & Pantang",
+    "category": "Canton Heritage",
+    "timeAlloc": "Morning (2h)",
+    "tag": "CANTON • LOCAL",
+    "tagIcon": "fa-water",
+    "image": "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800",
+    "desc": "Classic Canton park with stone bridges, weeping willows, and water chestnut snack vendors.",
+    "meta1": {
+      "label": "PARK",
+      "value": "Lingnan Lake"
+    },
+    "meta2": {
+      "label": "SNACK",
+      "value": "Pantang Water Chestnut"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1528164344705-475426879c0d?w=800"
+    ],
+    "activities": [
+      "Paddle boating",
+      "Taste fresh water chestnut cake"
+    ],
+    "areaMap": "Metro L5 (Zhongshanba)",
+    "nearbyRecs": [
+      "Yongqing Fang"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "sacred_heart",
+    "name": "Sacred Heart Cathedral (Stone House)",
+    "category": "Canton Heritage",
+    "timeAlloc": "Morning (1h)",
+    "tag": "CANTON • HERITAGE",
+    "tagIcon": "fa-church",
+    "image": "https://images.unsplash.com/photo-1548625361-16a75f0a28f4?w=800",
+    "desc": "Magnificent twin-spire Gothic cathedral built entirely from solid granite blocks in 1888.",
+    "meta1": {
+      "label": "STYLE",
+      "value": "Gothic Granite"
+    },
+    "meta2": {
+      "label": "ERA",
+      "value": "Completed 1888"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1548625361-16a75f0a28f4?w=800"
+    ],
+    "activities": [
+      "View stained glass",
+      "Cathedral plaza walk"
+    ],
+    "areaMap": "Metro L2/6 (Haizhu Square)",
+    "nearbyRecs": [
+      "Pearl River Pier"
+    ],
+    "guideUrls": []
   },
   {
     "id": "gulong",
@@ -2161,8 +2741,8 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (8h)",
     "tag": "QINGYUAN • ALPINE",
     "tagIcon": "fa-mountain",
-    "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80",
-    "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, glass suspension bridge over roaring waterfalls, and alpine coaster descent.",
+    "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800",
+    "desc": "Massive alpine forest reserve with 520m suspended glass walkway and canyon coaster.",
     "meta1": {
       "label": "RECORD",
       "value": "12 World Records"
@@ -2172,52 +2752,258 @@ const expeditionAttractions = [
       "value": "Canyon Coaster"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80"
+      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800"
     ],
     "activities": [
-      "Walk 520m Glass Skywalk",
-      "Jungle Canyon Coaster",
+      "Walk Glass Skywalk",
+      "Canyon Coaster descent",
       "Eat Qingyuan Chicken"
     ],
-    "areaMap": "Private Charter recommended (1.5h drive)",
+    "areaMap": "Private Charter (1.5h drive from Canton)",
     "nearbyRecs": [
       "Yingxi Peak Forest"
     ],
-    "guideUrls": [
-      "https://www.trip.com/"
-    ]
+    "guideUrls": []
+  },
+  {
+    "id": "gulong_glass",
+    "name": "Gulong Glass Grand Canyon",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Morning (3h)",
+    "tag": "QINGYUAN • SCENIC",
+    "tagIcon": "fa-bridge-water",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "desc": "Transparent glass suspension bridge hanging hundreds of meters directly above roaring waterfalls.",
+    "meta1": {
+      "label": "SPAN",
+      "value": "329m Suspension"
+    },
+    "meta2": {
+      "label": "HEIGHT",
+      "value": "202m Drop"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800"
+    ],
+    "activities": [
+      "Glass platform walk",
+      "Waterfall mist photography"
+    ],
+    "areaMap": "Gulong Gorge Upper Area",
+    "nearbyRecs": [
+      "Gulong Coaster"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "gulong_waterfall",
+    "name": "Wanxian Waterfall Cascades",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Morning (2h)",
+    "tag": "QINGYUAN • NATURE",
+    "tagIcon": "fa-waterfall",
+    "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800",
+    "desc": "Nine-tiered natural waterfall staircase cascading through ancient sub-tropical rainforest.",
+    "meta1": {
+      "label": "TIERS",
+      "value": "9-Tier Waterfall"
+    },
+    "meta2": {
+      "label": "AIR",
+      "value": "Negative Ion Oasis"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800"
+    ],
+    "activities": [
+      "Rainforest canyon trekking",
+      "Valley spring photography"
+    ],
+    "areaMap": "Gulong Valley Trail",
+    "nearbyRecs": [
+      "Glass Canyon"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "gulong_coaster",
+    "name": "Gulong Jungle Mountain Coaster",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Afternoon (1h)",
+    "tag": "QINGYUAN • THRILL",
+    "tagIcon": "fa-car-side",
+    "image": "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800",
+    "desc": "Gravity-fed mountain toboggan zooming through lush forest turns down the canyon ridge.",
+    "meta1": {
+      "label": "LENGTH",
+      "value": "3,000m Track"
+    },
+    "meta2": {
+      "label": "SPEED",
+      "value": "Brake Controlled"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800"
+    ],
+    "activities": [
+      "High-speed downhill toboggan ride"
+    ],
+    "areaMap": "Gulong Gorge Descent Station",
+    "nearbyRecs": [
+      "Rafting"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "yingxi_forest",
+    "name": "Yingxi Peak Forest Corridor",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Full Day (6h)",
+    "tag": "QINGYUAN • KARST",
+    "tagIcon": "fa-mountain-city",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "desc": "Guangdong’s picturesque mini-Guilin featuring thousands of limestone karst mountain peaks.",
+    "meta1": {
+      "label": "GEOLOGY",
+      "value": "Karst Formations"
+    },
+    "meta2": {
+      "label": "LENGTH",
+      "value": "20km Corridor"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800"
+    ],
+    "activities": [
+      "Bamboo raft on peaceful river",
+      "Karst rock climbing"
+    ],
+    "areaMap": "Yingde County (Charter Car)",
+    "nearbyRecs": [
+      "Dongtian Cave"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "dongtian_cave",
+    "name": "Dongtian Wonderland (Chuantian Yan)",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Afternoon (3h)",
+    "tag": "QINGYUAN • NATURE",
+    "tagIcon": "fa-icicles",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
+    "desc": "Magnificent karst sinkhole cave featuring an underground river and illuminated glass skywalk.",
+    "meta1": {
+      "label": "PHENOMENON",
+      "value": "Karst Tiankeng"
+    },
+    "meta2": {
+      "label": "ACCESS",
+      "value": "Boat & Walkway"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800"
+    ],
+    "activities": [
+      "Underground boat cave cruise",
+      "Skywalk over the sinkhole"
+    ],
+    "areaMap": "Yingxi Corridor West",
+    "nearbyRecs": [
+      "Yingxi Forest"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "feilai_temple",
+    "name": "Feilai Temple & Beijiang River",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Morning (3h)",
+    "tag": "QINGYUAN • HERITAGE",
+    "tagIcon": "fa-ship",
+    "image": "https://images.unsplash.com/photo-1596426466989-13653199bc4b?w=800",
+    "desc": "Historic 1,400-year-old riverbank temple accessible via tranquil scenic boat cruise.",
+    "meta1": {
+      "label": "AGE",
+      "value": "1400+ Years"
+    },
+    "meta2": {
+      "label": "TRANSIT",
+      "value": "River Ferry"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1596426466989-13653199bc4b?w=800"
+    ],
+    "activities": [
+      "Scenic Beijiang cruise",
+      "Sample freshwater river feast"
+    ],
+    "areaMap": "Beijiang Gorge Ferry Pier",
+    "nearbyRecs": [
+      "Gulong Gorge"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "qingyuan_hotspring",
+    "name": "Yinzhan Forest Hot Springs",
+    "category": "Qingyuan Gulong Gorge",
+    "timeAlloc": "Evening (3h)",
+    "tag": "QINGYUAN • RELAX",
+    "tagIcon": "fa-hot-tub-person",
+    "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800",
+    "desc": "Natural outdoor mineral geothermal hot springs nestled under dense sub-tropical pines.",
+    "meta1": {
+      "label": "WATER",
+      "value": "Natural Geothermal"
+    },
+    "meta2": {
+      "label": "POOLS",
+      "value": "60+ Forest Tubs"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800"
+    ],
+    "activities": [
+      "Soak in mineral forest pools",
+      "Herbal steam baths"
+    ],
+    "areaMap": "Yinzhan Station (Intercity Rail)",
+    "nearbyRecs": [
+      "Gulong Gorge"
+    ],
+    "guideUrls": []
   },
   {
     "id": "dji",
     "name": "DJI Sky City Global HQ",
     "category": "Shenzhen Nanshan Tech",
     "timeAlloc": "Afternoon (2h)",
-    "tag": "SHENZHEN • NANSHAN",
+    "tag": "SHENZHEN • TECH",
     "tagIcon": "fa-microchip",
-    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
-    "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners with outdoor drone flight test bridges, leading directly into the futuristic tech district.",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
+    "desc": "Dual cantilever skyscraper towers by Foster + Partners with outdoor drone flight bridges.",
     "meta1": {
       "label": "ARCHITECTURE",
       "value": "Suspension Towers"
     },
     "meta2": {
       "label": "EXPERIENCE",
-      "value": "Drone Flagship Demo"
+      "value": "Drone Demo"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800"
     ],
     "activities": [
-      "Tour asymmetric structural architecture",
-      "Test fly drones in the indoor cage"
+      "Tour cantilever architecture",
+      "Test drone cages"
     ],
-    "areaMap": "Metro Line 5 (Liuxiandong)",
+    "areaMap": "Metro L5 (Liuxiandong)",
     "nearbyRecs": [
-      "Tencent HQ",
-      "Shenzhen Talent Park"
+      "Tencent HQ"
     ],
     "guideUrls": [
-      "https://www.dji.com/company/skycity"
+      "https://www.dji.com/"
     ]
   },
   {
@@ -2227,8 +3013,8 @@ const expeditionAttractions = [
     "timeAlloc": "Evening (2h)",
     "tag": "SHENZHEN • NATURE",
     "tagIcon": "fa-water",
-    "image": "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800&q=80",
-    "desc": "A pristine coastal park blending modern skyline views with ecological wetlands, offering the best vantage point for Shenzhen’s evening light shows.",
+    "image": "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800",
+    "desc": "Coastal park blending skyline views with wetlands, best vantage point for Houhai light shows.",
     "meta1": {
       "label": "LANDSCAPE",
       "value": "Coastal Skyline"
@@ -2238,65 +3024,268 @@ const expeditionAttractions = [
       "value": "City Light Show"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800&q=80"
+      "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800"
     ],
     "activities": [
-      "Walk the coastal promenade",
-      "Watch Houhai CBD night lights",
-      "Relax on the grass amphitheater"
+      "Promenade walk",
+      "Watch CBD evening light show"
     ],
-    "areaMap": "Metro Line 2/11 (Houhai)",
+    "areaMap": "Metro L2/11 (Houhai)",
     "nearbyRecs": [
-      "OCT Harbour",
-      "Dasha River Corridor"
+      "OCT Harbour"
     ],
-    "guideUrls": [
-      "https://www.trip.com/"
-    ]
+    "guideUrls": []
+  },
+  {
+    "id": "tencent_hq",
+    "name": "Tencent Binhai Mansion HQ",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Afternoon (1h)",
+    "tag": "SHENZHEN • TECH",
+    "tagIcon": "fa-laptop-code",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+    "desc": "Twin architectural towers connected by three horizontal sky bridges in High-Tech Industrial Park.",
+    "meta1": {
+      "label": "COMPANY",
+      "value": "Tencent Global HQ"
+    },
+    "meta2": {
+      "label": "DESIGN",
+      "value": "Connected Towers"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800"
+    ],
+    "activities": [
+      "Exterior architecture photography",
+      "Flagship digital store"
+    ],
+    "areaMap": "Metro L9 (Hi-Tech South)",
+    "nearbyRecs": [
+      "DJI Sky City"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "oct_loft",
+    "name": "OCT-LOFT Creative Park",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Afternoon (3h)",
+    "tag": "SHENZHEN • ART",
+    "tagIcon": "fa-palette",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800",
+    "desc": "Converted 1980s electronics factory estate now buzzing with design studios, cafes, and indie jazz.",
+    "meta1": {
+      "label": "ORIGIN",
+      "value": "Repurposed Factory"
+    },
+    "meta2": {
+      "label": "VIBE",
+      "value": "Indie Art & Music"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800"
+    ],
+    "activities": [
+      "Art gallery hops",
+      "Independent coffee tasting"
+    ],
+    "areaMap": "Metro L1 (Qiaocheng East Exit A)",
+    "nearbyRecs": [
+      "Splendid China"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "dasha_river",
+    "name": "Dasha River Ecological Corridor",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Morning (2h)",
+    "tag": "SHENZHEN • NATURE",
+    "tagIcon": "fa-person-biking",
+    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800",
+    "desc": "13km revitalized waterfront greenway connecting Nanshan University town to Shenzhen Bay.",
+    "meta1": {
+      "label": "GREENWAY",
+      "value": "13km Waterfront"
+    },
+    "meta2": {
+      "label": "SCENERY",
+      "value": "Universities & Tech"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800"
+    ],
+    "activities": [
+      "Riverside cycling",
+      "Morning birdwatching"
+    ],
+    "areaMap": "Metro L7 (Chaguang)",
+    "nearbyRecs": [
+      "Xili Lake"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "sea_world",
+    "name": "Shekou Sea World & Culture Center",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Evening (3h)",
+    "tag": "SHENZHEN • EXPAT",
+    "tagIcon": "fa-anchor",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
+    "desc": "Shekou’s coastal entertainment district centered around a stranded luxury liner and design museum.",
+    "meta1": {
+      "label": "CENTERPIECE",
+      "value": "Minghua Luxury Liner"
+    },
+    "meta2": {
+      "label": "MUSEUM",
+      "value": "Maki Design Society"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800"
+    ],
+    "activities": [
+      "Musical fountain show",
+      "Craft beer dining by the ship"
+    ],
+    "areaMap": "Metro L2 (Sea World Exit A)",
+    "nearbyRecs": [
+      "Dananshan"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "dananshan",
+    "name": "Dananshan Park Hike",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Morning (3h)",
+    "tag": "SHENZHEN • HIKE",
+    "tagIcon": "fa-hiking",
+    "image": "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800",
+    "desc": "Coastal mountain peak overlooking Shekou Container Port, Qianhai CBD, and Hong Kong Yuen Long.",
+    "meta1": {
+      "label": "PANORAMA",
+      "value": "Qianhai & HK Coast"
+    },
+    "meta2": {
+      "label": "ELEVATION",
+      "value": "336m Peak"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800"
+    ],
+    "activities": [
+      "Ascend stone stairway",
+      "Photograph busy cargo harbor"
+    ],
+    "areaMap": "Metro L2 (Sea World / Shuiwan)",
+    "nearbyRecs": [
+      "Shekou Sea World"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "pingan_finance",
+    "name": "Ping An Finance Centre",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Sunset (2h)",
+    "tag": "SHENZHEN • SKYSCRAPER",
+    "tagIcon": "fa-building-ngo",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
+    "desc": "599m mega-tall skyscraper featuring Free Sky observation deck on the 116th floor.",
+    "meta1": {
+      "label": "HEIGHT",
+      "value": "599m (Global #5)"
+    },
+    "meta2": {
+      "label": "VIEW",
+      "value": "360° Free Sky 116F"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800"
+    ],
+    "activities": [
+      "High-speed elevator",
+      "360° observation view"
+    ],
+    "areaMap": "Metro L1/3 (Shopping Park Exit D)",
+    "nearbyRecs": [
+      "Coco Park"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "shenzhen_bay",
+    "name": "Shenzhen Bay Coastal Park",
+    "category": "Shenzhen Nanshan Tech",
+    "timeAlloc": "Morning (2h)",
+    "tag": "SHENZHEN • COASTAL",
+    "tagIcon": "fa-feather",
+    "image": "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800",
+    "desc": "15km coastal wetland promenade where migratory birds congregate along the Hong Kong bridge.",
+    "meta1": {
+      "label": "TRAIL",
+      "value": "15km Bay Front"
+    },
+    "meta2": {
+      "label": "WILDLIFE",
+      "value": "Winter Migratory Birds"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800"
+    ],
+    "activities": [
+      "Seaside cycling",
+      "Bridge & bird photography"
+    ],
+    "areaMap": "Metro L9 (Shenzhen Bay Park Exit D)",
+    "nearbyRecs": [
+      "Talent Park"
+    ],
+    "guideUrls": []
   },
   {
     "id": "victoria",
-    "name": "Victoria Harbour",
+    "name": "Victoria Harbour & Star Ferry",
     "category": "Hong Kong Mong Kok & Harbour",
     "timeAlloc": "Sunset (3h)",
     "tag": "HONG KONG • HARBOUR",
     "tagIcon": "fa-ferry",
-    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80",
-    "desc": "The iconic waterway separating Hong Kong Island and Kowloon, best experienced via the historic Star Ferry at sunset as the world-famous skyline lights up.",
+    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800",
+    "desc": "Iconic waterway between Kowloon and HK Island, best experienced via historic Star Ferry.",
     "meta1": {
       "label": "LANDMARK",
-      "value": "World Famous Skyline"
+      "value": "Skyline Lights"
     },
     "meta2": {
-      "label": "CRUISE",
+      "label": "TRANSIT",
       "value": "Star Ferry"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80"
+      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800"
     ],
     "activities": [
-      "Ride the Star Ferry to Central",
-      "Symphony of Lights (8 PM)",
-      "Walk Avenue of Stars"
+      "Ride Star Ferry",
+      "Avenue of Stars stroll",
+      "Symphony of Lights"
     ],
     "areaMap": "MTR Tsim Sha Tsui -> Star Ferry Pier",
     "nearbyRecs": [
-      "K11 Musea",
-      "Mong Kok"
+      "K11 Musea"
     ],
-    "guideUrls": [
-      "https://www.discoverhongkong.com/"
-    ]
+    "guideUrls": []
   },
   {
     "id": "shamshuipo",
-    "name": "Sham Shui Po",
+    "name": "Sham Shui Po Neighborhood",
     "category": "Hong Kong Mong Kok & Harbour",
     "timeAlloc": "Afternoon (3h)",
     "tag": "HONG KONG • LOCAL",
     "tagIcon": "fa-store",
-    "image": "https://images.unsplash.com/photo-1549429532-6bf5dc0321fb?w=800&q=80",
-    "desc": "The beating heart of working-class Hong Kong, famous for raw street photography, vintage electronics at Ap Liu Street, and Michelin-recommended street food.",
+    "image": "https://images.unsplash.com/photo-1549429532-6bf5dc0321fb?w=800",
+    "desc": "Working-class cultural district famed for vintage electronics at Ap Liu St and Michelin street food.",
     "meta1": {
       "label": "CULTURE",
       "value": "Raw Local Vibe"
@@ -2306,20 +3295,17 @@ const expeditionAttractions = [
       "value": "Street Food Mecca"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1549429532-6bf5dc0321fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1549429532-6bf5dc0321fb?w=800"
     ],
     "activities": [
-      "Hunt vintage electronics at Ap Liu Street",
-      "Eat Cheung Fun (Rice Noodle Rolls)",
-      "Explore fabric markets"
+      "Ap Liu Street electronics",
+      "Taste Cheung Fun rolls"
     ],
     "areaMap": "MTR Sham Shui Po (Tsuen Wan Line)",
     "nearbyRecs": [
-      "Mong Kok Ladies Market"
+      "Mong Kok"
     ],
-    "guideUrls": [
-      "https://www.discoverhongkong.com/"
-    ]
+    "guideUrls": []
   },
   {
     "id": "lionrock",
@@ -2328,31 +3314,178 @@ const expeditionAttractions = [
     "timeAlloc": "Morning (4-5h)",
     "tag": "HONG KONG • NATURE",
     "tagIcon": "fa-mountain-sun",
-    "image": "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800&q=80",
-    "desc": "A rugged mountain ridge offering a challenging hike through dense nature, rewarding climbers with legendary, sweeping panoramic views of the entire Kowloon peninsula.",
+    "image": "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800",
+    "desc": "Rugged mountain ridge offering rewarding climbs with sweeping panoramic views of Kowloon.",
     "meta1": {
-      "label": "HIKE",
-      "value": "MacLehose Trail"
+      "label": "TRAIL",
+      "value": "MacLehose Stage 5"
     },
     "meta2": {
       "label": "VIEW",
-      "value": "Panoramic Kowloon"
+      "value": "Full Kowloon Basin"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800&q=80"
+      "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800"
     ],
     "activities": [
-      "Hike the ridge trail",
-      "Encounter wild macaques",
-      "Summit photography"
+      "Hike ridge crest trail",
+      "Spot wild macaques"
     ],
     "areaMap": "MTR Wong Tai Sin -> Minibus 18M",
     "nearbyRecs": [
       "Wong Tai Sin Temple"
     ],
-    "guideUrls": [
-      "https://www.discoverhongkong.com/"
-    ]
+    "guideUrls": []
+  },
+  {
+    "id": "mongkok_markets",
+    "name": "Mong Kok Ladies Market & Goldfish St",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Evening (3h)",
+    "tag": "HONG KONG • SHOPPING",
+    "tagIcon": "fa-bag-shopping",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
+    "desc": "Dense neon corridors packed with souvenir stalls, sneaker boutiques, and aquatic bag displays.",
+    "meta1": {
+      "label": "DISTRICT",
+      "value": "Mong Kok Heart"
+    },
+    "meta2": {
+      "label": "STREETS",
+      "value": "Tung Choi & Fa Yuen"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800"
+    ],
+    "activities": [
+      "Bargain hunt at Ladies Market",
+      "Stroll Goldfish Street"
+    ],
+    "areaMap": "MTR Mong Kok (Exit D3 / B2)",
+    "nearbyRecs": [
+      "Langham Place"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "k11_musea",
+    "name": "K11 MUSEA & Avenue of Stars",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Afternoon (3h)",
+    "tag": "HONG KONG • CULTURE",
+    "tagIcon": "fa-gem",
+    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800",
+    "desc": "Art-mall architectural marvel at Victoria Dockside combining high fashion, gardens, and harbor walks.",
+    "meta1": {
+      "label": "CONCEPT",
+      "value": "Silicon Valley of Culture"
+    },
+    "meta2": {
+      "label": "VIEW",
+      "value": "Waterfront Esplanade"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800"
+    ],
+    "activities": [
+      "Explore Opera Atrium design",
+      "Walk Avenue of Stars"
+    ],
+    "areaMap": "MTR Tsim Sha Tsui East (Exit J)",
+    "nearbyRecs": [
+      "Star Ferry"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "victoria_peak",
+    "name": "Victoria Peak & Peak Tram",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Sunset (3-4h)",
+    "tag": "HONG KONG • PANORAMA",
+    "tagIcon": "fa-train-subway",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800",
+    "desc": "Hong Kong’s legendary hill vantage point reached via historic funicular Peak Tram railway.",
+    "meta1": {
+      "label": "TRANSIT",
+      "value": "Historic Peak Tram"
+    },
+    "meta2": {
+      "label": "VANTAGE",
+      "value": "Sky Terrace 428"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800"
+    ],
+    "activities": [
+      "Ride 6th-gen Peak Tram",
+      "Lugard Road panoramic walk"
+    ],
+    "areaMap": "Central Peak Tram Lower Terminus",
+    "nearbyRecs": [
+      "Central Escalator"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "central_escalator",
+    "name": "Central Mid-Levels Escalator & Soho",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Afternoon (2h)",
+    "tag": "HONG KONG • URBAN",
+    "tagIcon": "fa-stairs",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800",
+    "desc": "World’s longest outdoor covered escalator system winding uphill past lively cafes and murals.",
+    "meta1": {
+      "label": "RECORD",
+      "value": "800m System"
+    },
+    "meta2": {
+      "label": "VIBE",
+      "value": "SoHo Cocktails & Art"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800"
+    ],
+    "activities": [
+      "Ride escalator through Soho",
+      "Hunt street art murals at Hollywood Rd"
+    ],
+    "areaMap": "MTR Central (Exit D2)",
+    "nearbyRecs": [
+      "Tai Kwun"
+    ],
+    "guideUrls": []
+  },
+  {
+    "id": "tai_kwun",
+    "name": "Tai Kwun Centre for Heritage & Arts",
+    "category": "Hong Kong Mong Kok & Harbour",
+    "timeAlloc": "Afternoon (2h)",
+    "tag": "HONG KONG • HERITAGE",
+    "tagIcon": "fa-landmark-dome",
+    "image": "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800",
+    "desc": "Restored Central Police Station, Judiciary Court, and Victoria Prison compound with modern galleries.",
+    "meta1": {
+      "label": "HISTORY",
+      "value": "1864 Colonial Police"
+    },
+    "meta2": {
+      "label": "REVITALIZATION",
+      "value": "Herzog & de Meuron"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800"
+    ],
+    "activities": [
+      "Tour historic prison cells",
+      "Visit contemporary art exhibitions"
+    ],
+    "areaMap": "Hollywood Road Soho (via Escalator)",
+    "nearbyRecs": [
+      "Mid-Levels Escalator"
+    ],
+    "guideUrls": []
   },
   {
     "id": "chimelong-safari",
@@ -2361,8 +3494,8 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (6-8h)",
     "tag": "GUANGZHOU • CHIMELONG",
     "tagIcon": "fa-ticket",
-    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
-    "desc": "World-renowned animal theme park featuring open-air self-drive savannah train, scenic sky gondola over safari enclosures, and giant panda triplets.",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800",
+    "desc": "World-renowned animal theme park featuring open-air self-drive train and panda triplets.",
     "meta1": {
       "label": "TIME REQUIRED",
       "value": "Full Day (6-8h)"
@@ -2372,18 +3505,17 @@ const expeditionAttractions = [
       "value": "Panda Triplets"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800"
     ],
     "activities": [
-      "Ride 40-min open-air Safari Train",
-      "Take transparent Sky Gondola",
+      "Ride Safari Train",
+      "Take Sky Gondola",
       "Panda Village"
     ],
-    "areaMap": "Metro Line 3/7 (Hanxi Changlong) -> Free Shuttle",
+    "areaMap": "Metro L3/7 (Hanxi Changlong) -> Free Shuttle",
     "nearbyRecs": [
-      "International Circus",
-      "Birds Park"
+      "Circus"
     ],
     "guideUrls": [
       "https://www.chimelong.com/"
@@ -2396,8 +3528,8 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (8h)",
     "tag": "QINGYUAN • ALPINE",
     "tagIcon": "fa-mountain",
-    "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80",
-    "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, glass suspension bridge over roaring waterfalls, and alpine coaster descent.",
+    "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800",
+    "desc": "Massive alpine forest reserve with 520m suspended glass walkway and canyon coaster.",
     "meta1": {
       "label": "RECORD",
       "value": "12 World Records"
@@ -2407,156 +3539,141 @@ const expeditionAttractions = [
       "value": "Canyon Coaster"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80"
+      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800"
     ],
     "activities": [
-      "Walk 520m Glass Skywalk",
-      "Jungle Canyon Coaster",
+      "Walk Glass Skywalk",
+      "Canyon Coaster descent",
       "Eat Qingyuan Chicken"
     ],
-    "areaMap": "Private Charter recommended (1.5h drive)",
+    "areaMap": "Private Charter (1.5h drive from Canton)",
     "nearbyRecs": [
       "Yingxi Peak Forest"
     ],
-    "guideUrls": [
-      "https://www.trip.com/"
-    ]
+    "guideUrls": []
   },
   {
     "id": "shawan-ancient-town",
     "name": "Shawan Ancient Town",
     "category": "Guangzhou Panyu",
-    "timeAlloc": "Late Afternoon (3h)",
+    "timeAlloc": "Afternoon (3h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-landmark",
-    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
-    "desc": "Picturesque Lingnan water village celebrated for ancestral brick shrines, oyster-shell boundary walls, and freshly made ginger water-buffalo curd.",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800",
+    "desc": "Lingnan water village celebrated for ancestral shrines and ginger curd.",
     "meta1": {
       "label": "HISTORY",
-      "value": "800+ Years Old"
+      "value": "800+ Years"
     },
     "meta2": {
-      "label": "DELICACY",
-      "value": "Water-Buffalo Milk"
+      "label": "FOOD",
+      "value": "Ginger Curd"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800"
     ],
     "activities": [
-      "Stroll 800-year-old stone alleys",
-      "Taste authentic Ginger Milk Curd",
-      "Visit Liugeng Hall"
+      "Stroll alleys",
+      "Eat ginger curd"
     ],
-    "areaMap": "Metro Line 3 (Shiqiao) -> Bus Fan 67 to South Gate",
+    "areaMap": "Metro L3 (Shiqiao) -> Bus Fan 67",
     "nearbyRecs": [
-      "Baomo Garden",
-      "Dafushan Forest"
+      "Baomo Garden"
     ],
-    "guideUrls": [
-      "https://sg.trip.com/travel-guide/attraction/guangzhou/shawan-ancient-town-10524178/"
-    ]
+    "guideUrls": []
   },
   {
     "id": "dji-sky-city",
     "name": "DJI Sky City Global HQ",
     "category": "Shenzhen Nanshan Tech",
     "timeAlloc": "Afternoon (2h)",
-    "tag": "SHENZHEN • NANSHAN",
+    "tag": "SHENZHEN • TECH",
     "tagIcon": "fa-microchip",
-    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
-    "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners with outdoor drone flight test bridges, leading directly into the futuristic tech district.",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
+    "desc": "Dual cantilever skyscraper towers by Foster + Partners with outdoor drone flight bridges.",
     "meta1": {
       "label": "ARCHITECTURE",
       "value": "Suspension Towers"
     },
     "meta2": {
       "label": "EXPERIENCE",
-      "value": "Drone Flagship Demo"
+      "value": "Drone Demo"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800"
     ],
     "activities": [
-      "Tour asymmetric structural architecture",
-      "Test fly drones in the indoor cage"
+      "Tour cantilever architecture",
+      "Test drone cages"
     ],
-    "areaMap": "Metro Line 5 (Liuxiandong)",
+    "areaMap": "Metro L5 (Liuxiandong)",
     "nearbyRecs": [
-      "Tencent HQ",
-      "Shenzhen Talent Park"
+      "Tencent HQ"
     ],
     "guideUrls": [
-      "https://www.dji.com/company/skycity"
+      "https://www.dji.com/"
     ]
   },
   {
     "id": "victoria-harbour",
-    "name": "Victoria Harbour",
+    "name": "Victoria Harbour & Star Ferry",
     "category": "Hong Kong Mong Kok & Harbour",
     "timeAlloc": "Sunset (3h)",
     "tag": "HONG KONG • HARBOUR",
     "tagIcon": "fa-ferry",
-    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80",
-    "desc": "The iconic waterway separating Hong Kong Island and Kowloon, best experienced via the historic Star Ferry at sunset as the world-famous skyline lights up.",
+    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800",
+    "desc": "Iconic waterway between Kowloon and HK Island, best experienced via historic Star Ferry.",
     "meta1": {
       "label": "LANDMARK",
-      "value": "World Famous Skyline"
+      "value": "Skyline Lights"
     },
     "meta2": {
-      "label": "CRUISE",
+      "label": "TRANSIT",
       "value": "Star Ferry"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80"
+      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800"
     ],
     "activities": [
-      "Ride the Star Ferry to Central",
-      "Symphony of Lights (8 PM)",
-      "Walk Avenue of Stars"
+      "Ride Star Ferry",
+      "Avenue of Stars stroll",
+      "Symphony of Lights"
     ],
     "areaMap": "MTR Tsim Sha Tsui -> Star Ferry Pier",
     "nearbyRecs": [
-      "K11 Musea",
-      "Mong Kok"
+      "K11 Musea"
     ],
-    "guideUrls": [
-      "https://www.discoverhongkong.com/"
-    ]
+    "guideUrls": []
   },
   {
     "id": "chimelong-birds",
-    "name": "Chimelong Safari Park",
+    "name": "Chimelong Birds Park",
     "category": "Chimelong Safari & Circus",
-    "timeAlloc": "Full Day (6-8h)",
-    "tag": "GUANGZHOU • CHIMELONG",
-    "tagIcon": "fa-ticket",
-    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
-    "desc": "World-renowned animal theme park featuring open-air self-drive savannah train, scenic sky gondola over safari enclosures, and giant panda triplets.",
+    "timeAlloc": "Half Day (3-4h)",
+    "tag": "CHIMELONG • NATURE",
+    "tagIcon": "fa-dove",
+    "image": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800",
+    "desc": "Expansive ecological wetland sanctuary home to thousands of rare birds and wetlands.",
     "meta1": {
-      "label": "TIME REQUIRED",
-      "value": "Full Day (6-8h)"
+      "label": "SPECIES",
+      "value": "Rare Wetlands"
     },
     "meta2": {
       "label": "HIGHLIGHT",
-      "value": "Panda Triplets"
+      "value": "Flight Demonstrations"
     },
     "photos": [
-      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
-      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80"
+      "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800"
     ],
     "activities": [
-      "Ride 40-min open-air Safari Train",
-      "Take transparent Sky Gondola",
-      "Panda Village"
+      "Wetland boat ride",
+      "Pelican feeding"
     ],
-    "areaMap": "Metro Line 3/7 (Hanxi Changlong) -> Free Shuttle",
+    "areaMap": "Resort Shuttle Bus",
     "nearbyRecs": [
-      "International Circus",
-      "Birds Park"
+      "Safari Park"
     ],
-    "guideUrls": [
-      "https://www.chimelong.com/"
-    ]
+    "guideUrls": []
   }
 ];
 
