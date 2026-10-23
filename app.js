@@ -1,81 +1,86 @@
 
-// === CANONICAL MAP PIN PALETTE & RESOLVER ===
+// === COMPREHENSIVE MAP PIN COLOR & ICON PALETTE ===
 window.MAP_PALETTE = {
   hotel: {
-    key: 'hotel',
-    name: 'Hotel',
-    bg: '#10b981',       // Emerald
-    border: '#059669',
-    glow: '0 0 10px rgba(16, 185, 129, 0.5)',
+    bg: '#10b981',        // Emerald Green
+    border: '#047857',
+    glow: '0 0 10px rgba(16, 185, 129, 0.6)',
     icon: 'fa-solid fa-hotel',
-    iconColor: '#ffffff'
+    iconColor: '#ffffff',
+    size: 28
   },
   transport: {
-    key: 'transport',
-    name: 'Transport',
-    bg: '#8b5cf6',       // Royal Purple
-    border: '#7c3aed',
-    glow: '0 0 10px rgba(139, 92, 246, 0.5)',
+    bg: '#8b5cf6',        // Royal Purple
+    border: '#6d28d9',
+    glow: '0 0 10px rgba(139, 92, 246, 0.6)',
     icon: 'fa-solid fa-train-subway',
-    iconColor: '#ffffff'
-  },
-  attraction: {
-    key: 'attraction',
-    name: 'Attraction',
-    bg: '#0284c7',       // Sky Blue
-    border: '#0369a1',
-    glow: '0 0 10px rgba(2, 132, 199, 0.5)',
-    icon: 'fa-solid fa-landmark',
-    iconColor: '#ffffff'
+    iconColor: '#ffffff',
+    size: 28
   },
   dining: {
-    key: 'dining',
-    name: 'Dining',
-    bg: '#f97316',       // Coral Orange
-    border: '#ea580c',
-    glow: '0 0 10px rgba(249, 115, 22, 0.5)',
+    bg: '#f97316',        // Coral / Orange
+    border: '#c2410c',
+    glow: '0 0 10px rgba(249, 115, 22, 0.6)',
     icon: 'fa-solid fa-utensils',
-    iconColor: '#ffffff'
+    iconColor: '#ffffff',
+    size: 28
+  },
+  attraction: {
+    bg: '#0284c7',        // Sky Blue
+    border: '#0369a1',
+    glow: '0 0 10px rgba(2, 132, 199, 0.6)',
+    icon: 'fa-solid fa-landmark',
+    iconColor: '#ffffff',
+    size: 28
   },
   mustdo: {
-    key: 'mustdo',
-    name: 'Must Do/Eat',
-    bg: '#e11d48',       // Crimson Red with Luminous Gold
+    bg: '#e11d48',        // Crimson Red with Luminous Gold
     border: '#fde047',
-    glow: '0 0 14px rgba(225, 29, 72, 0.8), 0 0 4px #fde047',
+    glow: '0 0 14px rgba(225, 29, 72, 0.85), 0 0 4px #fde047',
     icon: 'fa-solid fa-star',
-    iconColor: '#fde047'
+    iconColor: '#fde047',
+    size: 34
   }
 };
 
-// Must Do strictly overwrites attraction or dining if marked or curated
-window.resolveMarkerCategory = function(item, explicitCategory = '') {
+// Resilient Category Classifier with Strict Must-Do Overwrite
+window.resolveMarkerCategory = function(item, hint = '') {
   if (!item) return 'attraction';
-  
-  // 1. MUST-DO OVERWRITE RULE (Highest Precedence)
-  const isCuratedMustDo = [
-    'canton-tower', 'chimelong-safari', 'chimelong-birds-park', 'chimelong-international-circus',
-    'chen-clan-ancestral-hall', 'hong-kong-disneyland', 'ocean-park', 'wisca-binjiang-mansion',
-    'bingsheng-taste', 'taotao-ju', 'guangzhou-restaurant', 'gulong-gorge-glass-grand-canyon',
-    'dongshankou-mansions', 'shenzhen-ping-an-finance-centre', 'victoria-peak'
-  ].includes(item.id || item.nodeKey);
 
-  if (item.mustDo === true || item.mustEat === true || explicitCategory === 'mustdo' || isCuratedMustDo) {
+  const id = (item.id || item.nodeKey || '').toLowerCase().replace(/[-_]/g, '');
+  const name = (item.name || item.title || '').toLowerCase();
+  const nameZh = (item.nameZh || item.titleZh || '');
+  const cat = (item.category || item.cuisine || item.type || '').toLowerCase();
+
+  // 1. MUST-DO OVERWRITE (Highest Priority - Overwrites Attraction or Dining)
+  const isCuratedMustDo = (
+    item.mustDo === true ||
+    item.mustEat === true ||
+    hint === 'mustdo' ||
+    (item.rating && parseFloat(item.rating) >= 4.9) ||
+    /cantontower|chimelong|wisca|bingsheng|chenclan|disney|oceanpark|gulong|dongshan|victoriapeak|pingan/.test(id) ||
+    /广州塔|长隆|惠食佳|炳胜|陈家祠|迪士尼|海洋公园|古龙峡|东山口|太平山顶|平安金融/.test(nameZh) ||
+    /canton tower|chimelong|wisca|bingsheng|chen clan|disneyland|ocean park|gulong gorge|victoria peak/.test(name)
+  );
+
+  if (isCuratedMustDo) {
     return 'mustdo';
   }
 
   // 2. Hotel
-  if (explicitCategory === 'hotel' || item.type === 'hotel' || item.category === 'hotel' || (item.category && item.category.toLowerCase().includes('hotel')) || item.nights || item.checkIn) {
+  if (hint === 'hotel' || cat.includes('hotel') || item.nights || item.checkIn || /hotel|resort|lodge/.test(name)) {
     return 'hotel';
   }
 
   // 3. Transport
-  if (explicitCategory === 'transport' || item.type === 'transport' || item.category === 'transport' || (item.category && item.category.toLowerCase().includes('transit')) || item.rail || item.flight) {
+  if (hint === 'transport' || cat.includes('transport') || cat.includes('transit') || cat.includes('rail') ||
+      /station|railway|airport|ferry|terminal|bullet|subway|metro/.test(name) ||
+      /站|高铁|机场|码头|火车站|客运/.test(nameZh)) {
     return 'transport';
   }
 
   // 4. Dining
-  if (explicitCategory === 'dining' || item.type === 'dining' || item.cuisine || (item.dishes && item.dishes.length > 0)) {
+  if (hint === 'dining' || item.cuisine || (item.dishes && item.dishes.length > 0) || cat.includes('food') || cat.includes('dining') || cat.includes('restaurant')) {
     return 'dining';
   }
 
@@ -83,18 +88,17 @@ window.resolveMarkerCategory = function(item, explicitCategory = '') {
   return 'attraction';
 };
 
-// Generates an interactive L.divIcon using the unified palette
-window.createUnifiedMapPinIcon = function(item, explicitCategory = '') {
-  const catKey = window.resolveMarkerCategory(item, explicitCategory);
+window.createUnifiedMapPinIcon = function(item, hint = '') {
+  const catKey = window.resolveMarkerCategory(item, hint);
   const cfg = window.MAP_PALETTE[catKey] || window.MAP_PALETTE.attraction;
   const isMustDo = (catKey === 'mustdo');
-  const itemName = (item.title || item.name || '').replace(/'/g, "\\'");
+  const size = isMustDo ? 32 : 26;
 
   const html = `
-    <div class="mktravel-map-pin ${isMustDo ? 'must-do-pin' : ''}" style="
+    <div class="mktravel-pin-${catKey}" style="
       position: relative;
-      width: ${isMustDo ? '34px' : '28px'};
-      height: ${isMustDo ? '34px' : '28px'};
+      width: ${size}px;
+      height: ${size}px;
       background: ${cfg.bg};
       border: 2px solid ${cfg.border};
       border-radius: 50%;
@@ -104,23 +108,24 @@ window.createUnifiedMapPinIcon = function(item, explicitCategory = '') {
       box-shadow: ${cfg.glow};
       cursor: pointer;
       transition: transform 0.15s ease;
-    " onmouseover="this.style.transform='scale(1.2)';" onmouseout="this.style.transform='scale(1)';" title="${itemName} (${cfg.name})">
-      <i class="${cfg.icon}" style="color: ${cfg.iconColor}; font-size: ${isMustDo ? '14px' : '11px'};"></i>
-      ${isMustDo ? '<span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background: #fde047; border-radius: 50%; border: 1px solid #000;"></span>' : ''}
+    " onmouseover="this.style.transform='scale(1.25)';" onmouseout="this.style.transform='scale(1)';" title="${item.name || item.title || ''}">
+      <i class="${cfg.icon}" style="color: ${cfg.iconColor}; font-size: ${isMustDo ? '13px' : '11px'};"></i>
+      ${isMustDo ? '<span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background: #fde047; border-radius: 50%; border: 1px solid #1e293b;"></span>' : ''}
     </div>
   `;
 
   if (typeof L !== 'undefined' && L.divIcon) {
     return L.divIcon({
-      className: 'mktravel-div-icon',
+      className: 'mktravel-custom-marker',
       html: html,
-      iconSize: [isMustDo ? 34 : 28, isMustDo ? 34 : 28],
-      iconAnchor: [isMustDo ? 17 : 14, isMustDo ? 17 : 14],
-      popupAnchor: [0, isMustDo ? -18 : -15]
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -size / 2 - 2]
     });
   }
   return null;
 };
+
 
 
 // === MUST DO / EAT SECTION ENGINE ===
@@ -2428,7 +2433,14 @@ window.syncAttractionsMap = function(items) {
   } else {
     window.attractionsMarkerGroup.clearLayers();
   }
-  window.__attractionMarkerMap.clear();
+  if (window.__attractionMarkerMap) window.__attractionMarkerMap.clear();
+
+  if (!items) {
+    if (window.renderAllMapPoints) {
+      window.renderAllMapPoints(map, window.attractionsMarkerGroup);
+      return;
+    }
+  }
 
   const list = items || window.expeditionAttractions || [];
   const bounds = [];
@@ -3417,3 +3429,57 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
+
+// === MULTI-TIER MAP LAYER PLOTTER ===
+window.renderAllMapPoints = function(mapInstance, targetLayer) {
+  const map = mapInstance || window.map || window.regionalMapInstance || (typeof regionalMapInstance !== 'undefined' ? regionalMapInstance : null);
+  const layer = targetLayer || window.attractionsMarkerGroup;
+  if (!map || !layer) return;
+  layer.clearLayers();
+
+  const attractions = (typeof expeditionAttractions !== 'undefined') ? expeditionAttractions : [];
+  const restaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : [];
+
+  // Plot Attractions
+  attractions.forEach(a => {
+    if (a.coordinates && Array.isArray(a.coordinates) && a.coordinates.length >= 2) {
+      const pinIcon = window.createUnifiedMapPinIcon ? window.createUnifiedMapPinIcon(a, 'attraction') : undefined;
+      const marker = L.marker([a.coordinates[0], a.coordinates[1]], { icon: pinIcon });
+      if (window.createBrightMapPopupHtml) {
+        marker.bindPopup(window.createBrightMapPopupHtml(a));
+      }
+      marker.on('click', () => {
+        const card = document.getElementById('card-' + (a.id || a.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')));
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('ring-2', 'ring-amber-500');
+          setTimeout(() => card.classList.remove('ring-2', 'ring-amber-500'), 2000);
+        }
+      });
+      layer.addLayer(marker);
+      if (window.__attractionMarkerMap) window.__attractionMarkerMap.set(a.id, marker);
+    }
+  });
+
+  // Plot Dining Spots (Ensures Vivid Coral Orange Pins appear!)
+  restaurants.forEach(r => {
+    if (r.coordinates && Array.isArray(r.coordinates) && r.coordinates.length >= 2) {
+      const pinIcon = window.createUnifiedMapPinIcon ? window.createUnifiedMapPinIcon(r, 'dining') : undefined;
+      const marker = L.marker([r.coordinates[0], r.coordinates[1]], { icon: pinIcon });
+      if (window.createBrightMapPopupHtml) {
+        marker.bindPopup(window.createBrightMapPopupHtml(r));
+      }
+      marker.on('click', () => {
+        const card = document.getElementById('restaurant-card-' + r.id) || document.getElementById('card-' + r.id);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('ring-2', 'ring-amber-500');
+          setTimeout(() => card.classList.remove('ring-2', 'ring-amber-500'), 2000);
+        }
+      });
+      layer.addLayer(marker);
+      if (window.__attractionMarkerMap) window.__attractionMarkerMap.set(r.id, marker);
+    }
+  });
+};
