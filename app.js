@@ -1,4 +1,179 @@
 
+window.renderDiningRegionTabs = function() {
+  const container = document.getElementById('dining-region-tabs-container');
+  if (!container) return;
+
+  const regions = [
+    { id: 'all', label: 'All Regions' },
+    { id: 'Panyu', label: 'Panyu' },
+    { id: 'Chimelong', label: 'Chimelong' },
+    { id: 'Guangzhou', label: 'Guangzhou' },
+    { id: 'Qingyuan', label: 'Qingyuan' },
+    { id: 'Shenzhen', label: 'Shenzhen' },
+    { id: 'Hong Kong', label: 'Hong Kong' }
+  ];
+
+  let html = '<div class="dining-region-pill-bar" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; margin-bottom: 8px;">';
+  regions.forEach(reg => {
+    const isActive = (currentDiningRegion.toLowerCase() === reg.id.toLowerCase() || (reg.id === 'all' && currentDiningRegion === 'all'));
+    const activeStyle = isActive 
+      ? 'background: #e11d48; color: #ffffff; border-color: #e11d48; font-weight: 700;' 
+      : 'background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border-color: rgba(255, 255, 255, 0.1); font-weight: 500;';
+
+    html += `<button type="button" class="dining-region-tab" data-region="${reg.id}" onclick="window.filterDiningByRegion('${reg.id}')" style="padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-family: ui-monospace, monospace; border: 1px solid; cursor: pointer; transition: all 0.2s; ${activeStyle}">${reg.label}</button>`;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+};
+
+window.filterDiningByRegion = function(regionId) {
+  currentDiningRegion = regionId;
+  window.renderDiningRegionTabs();
+  if (typeof renderRestaurants === 'function') renderRestaurants();
+};
+
+
+// === VIEW MODE SWITCHER & 1-LINER MODULE ===
+let currentViewMode = localStorage.getItem('mktravel_view_mode') || 'grid'; // 'grid' | 'compact'
+let currentDiningRegion = 'all';
+
+window.setViewMode = function(mode) {
+  currentViewMode = mode;
+  localStorage.setItem('mktravel_view_mode', mode);
+  updateViewModeButtons();
+  if (typeof window.renderAttractionsGrid === 'function') window.renderAttractionsGrid();
+  if (typeof renderAttractions === 'function') renderAttractions();
+  if (typeof renderRestaurants === 'function') renderRestaurants();
+};
+
+function updateViewModeButtons() {
+  document.querySelectorAll('.view-mode-btn').forEach(btn => {
+    const mode = btn.getAttribute('data-mode');
+    if (mode === currentViewMode) {
+      btn.style.background = '#e11d48';
+      btn.style.color = '#ffffff';
+      btn.style.borderColor = '#e11d48';
+    } else {
+      btn.style.background = 'rgba(255, 255, 255, 0.05)';
+      btn.style.color = '#94a3b8';
+      btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+    }
+  });
+}
+
+window.renderViewSwitcher = function(targetContainerId) {
+  const container = document.getElementById(targetContainerId) || document.querySelector(targetContainerId);
+  if (!container || container.querySelector('.view-mode-toggle-container')) return;
+
+  const toggle = document.createElement('div');
+  toggle.className = 'view-mode-toggle-container';
+  toggle.style.display = 'inline-flex';
+  toggle.style.alignItems = 'center';
+  toggle.style.gap = '4px';
+  toggle.style.background = 'rgba(15, 23, 42, 0.8)';
+  toggle.style.padding = '3px';
+  toggle.style.borderRadius = '8px';
+  toggle.style.border = '1px solid rgba(255, 255, 255, 0.15)';
+
+  toggle.innerHTML = `
+    <button type="button" class="view-mode-btn" data-mode="grid" onclick="window.setViewMode('grid')" title="Detailed Card Grid View" style="padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px;">
+      <i class="fa-solid fa-table-cells-large"></i> Cards
+    </button>
+    <button type="button" class="view-mode-btn" data-mode="compact" onclick="window.setViewMode('compact')" title="Minimized One-Liner View" style="padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px;">
+      <i class="fa-solid fa-list-ul"></i> One-Liner
+    </button>
+  `;
+  container.appendChild(toggle);
+  updateViewModeButtons();
+};
+
+window.renderCompactAttractionRow = function(attraction) {
+  const id = attraction.id || '';
+  const name = attraction.name || '';
+  const nameZh = attraction.nameZh || '';
+  const region = attraction.region || 'Guangzhou';
+  const category = attraction.category || 'Sight';
+  const time = attraction.timeAlloc || attraction.time || '1-2h';
+  const img = attraction.image || (attraction.photos && attraction.photos[0]) || '/assets/attractions/cantontower.jpg';
+  const copyAddress = (attraction.address || nameZh || name).replace(/'/g, "\\'");
+  const copyZh = (nameZh || name).replace(/'/g, "\\'");
+  const isStaged = (window.__stagedAttractions || []).includes(id);
+
+  return `
+    <div class="compact-row attraction-compact-row" data-id="${id}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; margin-bottom: 8px; transition: all 0.2s ease;">
+      <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1;">
+        <img src="${img}" alt="${name}" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0;" loading="lazy" onerror="this.src='/assets/attractions/cantontower.jpg'">
+        <div style="min-width: 0; flex: 1;">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 14px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}')">${name}</span>
+            ${nameZh ? `<span style="font-size: 12px; font-weight: 500; color: #fbbf24;">${nameZh}</span>` : ''}
+            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(225, 29, 72, 0.15); color: #fb7185; border: 1px solid rgba(225, 29, 72, 0.3); font-weight: 600;">${region}</span>
+            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(255, 255, 255, 0.06); color: #cbd5e1;">${category}${time ? ' • ' + time : ''}</span>
+          </div>
+          ${attraction.address ? `<div style="font-size: 11px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px;"><i class="fa-solid fa-location-dot" style="color: #fbbf24; margin-right: 4px;"></i>${attraction.address}</div>` : ''}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+        <div class="compact-socials" style="transform: scale(0.9); transform-origin: right center;">
+          ${window.renderSocialLinks ? window.renderSocialLinks(attraction) : ""}
+        </div>
+        <button type="button" onclick="window.copyTaxiAddress('${copyAddress}', '${copyZh}')" title="Copy Chinese destination for Didi" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 5px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+          <i class="fa-solid fa-taxi"></i>
+        </button>
+        <button type="button" onclick="if(window.toggleStageAttraction) window.toggleStageAttraction('${id}')" title="Add / Remove Route" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 5px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+          <i class="fa-solid ${isStaged ? 'fa-check' : 'fa-plus'}"></i>
+        </button>
+        <button type="button" onclick="if(window.openAttractionDrawer) window.openAttractionDrawer('${id}')" title="View Details" style="background: rgba(255, 255, 255, 0.08); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.15); padding: 5px 9px; border-radius: 8px; font-size: 11px; cursor: pointer;">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+window.renderCompactRestaurantRow = function(r) {
+  const id = r.id || '';
+  const name = r.name || '';
+  const nameZh = r.nameZh || '';
+  const region = r.region || 'Guangzhou';
+  const cuisine = r.cuisine || 'Cantonese';
+  const price = r.price || '¥50/人';
+  const metro = r.metro || r.area || '';
+  const img = r.coverImage || (r.gallery && r.gallery[0] ? r.gallery[0].image : '/assets/dining/dongshan-creative-district-cafe.jpg');
+  const copyAddress = (r.address || nameZh || name).replace(/'/g, "\\'");
+  const copyZh = (nameZh || name).replace(/'/g, "\\'");
+
+  return `
+    <div class="compact-row restaurant-compact-row" data-id="${id}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; margin-bottom: 8px; transition: all 0.2s ease;">
+      <div style="display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1;">
+        <img src="${img}" alt="${name}" style="width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0;" loading="lazy" onerror="this.src='/assets/dining/dongshan-creative-district-cafe.jpg'">
+        <div style="min-width: 0; flex: 1;">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 14px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;" onclick="if(window.openDiningPhotoModal) window.openDiningPhotoModal('${id}')">${name}</span>
+            ${nameZh ? `<span style="font-size: 12px; font-weight: 500; color: #fbbf24;">${nameZh}</span>` : ''}
+            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(225, 29, 72, 0.15); color: #fb7185; border: 1px solid rgba(225, 29, 72, 0.3); font-weight: 600;">${region}</span>
+            <span style="font-size: 10px; padding: 2px 7px; border-radius: 4px; background: rgba(255, 255, 255, 0.06); color: #cbd5e1;">${cuisine} • ${price}</span>
+            ${metro ? `<span style="font-size: 10px; color: #64748b;"><i class="fa-solid fa-train-subway"></i> ${metro}</span>` : ''}
+          </div>
+          ${r.address ? `<div style="font-size: 11px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px;"><i class="fa-solid fa-location-dot" style="color: #fbbf24; margin-right: 4px;"></i>${r.address}</div>` : ''}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+        <div class="compact-socials" style="transform: scale(0.9); transform-origin: right center;">
+          ${window.renderSocialLinks ? window.renderSocialLinks(r) : ""}
+        </div>
+        <button type="button" onclick="window.copyTaxiAddress('${copyAddress}', '${copyZh}')" title="Copy Chinese address for Didi" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 5px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+          <i class="fa-solid fa-taxi"></i>
+        </button>
+        <button type="button" onclick="if(window.openDiningPhotoModal) window.openDiningPhotoModal('${id}')" title="View Menu & Photos" style="background: rgba(255, 255, 255, 0.08); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.15); padding: 5px 9px; border-radius: 8px; font-size: 11px; cursor: pointer;">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+
 
 // === RESILIENT SOCIAL MEDIA & WEB LINKS COMPONENT ===
 window.renderSocialLinks = function(item) {
@@ -485,6 +660,7 @@ function loadRestaurants() {
               visualTags: defaultItem.visualTags || item.visualTags,
               schedule: defaultItem.schedule || item.schedule,
               price: defaultItem.price || item.price,
+              region: defaultItem.region || item.region || "Guangzhou",
               links: defaultItem.links || item.links,
               sourceUrl: defaultItem.sourceUrl || item.sourceUrl
             };
@@ -525,7 +701,9 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
       (r.city && r.city.toLowerCase() === activeDiningCityFilter.toLowerCase());
     const matchCat = activeDiningCategoryFilter === 'all' || 
       (r.category && r.category.toLowerCase() === activeDiningCategoryFilter.toLowerCase());
-    return matchCity && matchCat;
+    const matchRegion = !currentDiningRegion || currentDiningRegion === 'all' ||
+      ((r.region || 'Guangzhou').toLowerCase() === currentDiningRegion.toLowerCase());
+    return matchCity && matchCat && matchRegion;
   });
 
   if (filtered.length === 0) {
@@ -541,6 +719,12 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
     return;
   }
 
+  if (currentViewMode === 'compact') {
+    container.className = 'space-y-2 col-span-full';
+    container.innerHTML = filtered.map(r => window.renderCompactRestaurantRow ? window.renderCompactRestaurantRow(r) : '').join('');
+    return;
+  }
+  container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
   container.innerHTML = filtered.map(r => {
     // Derive top 3 highlights
     let topChips = [];
@@ -1886,7 +2070,7 @@ window.renderAttractionsGrid = function(filterCategory) {
   const categoryMap = {
     'Guangzhou Panyu': ['panyu'],
     'Chimelong Safari & Circus': ['chimelong'],
-    'Canton Heritage': ['canton heritage', 'canton', 'guangzhou'],
+    'Guangzhou': ['guangzhou', 'canton heritage', 'canton'],
     'Qingyuan Gulong Gorge': ['qingyuan'],
     'Shenzhen Nanshan Tech': ['shenzhen'],
     'Hong Kong Mong Kok & Harbour': ['hong kong', 'hongkong']
@@ -1993,7 +2177,13 @@ window.renderAttractionsGrid = function(filterCategory) {
     '</div>';
   }).join('');
 
-  container.innerHTML = cardsHtml;
+  if (currentViewMode === 'compact') {
+    container.className = 'space-y-2 col-span-full';
+    container.innerHTML = filtered.map(item => window.renderCompactAttractionRow ? window.renderCompactAttractionRow(item) : '').join('');
+  } else {
+    container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+    container.innerHTML = cardsHtml;
+  }
 
   const countBadge = document.getElementById('attractions-count');
   if (countBadge) {
@@ -2642,3 +2832,44 @@ if (document.readyState === 'loading') {
     createSyncWidget();
   }
 })();
+
+// === MOUNT VIEW SWITCHER & REGION TABS ON LOAD ===
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    // Mount view switcher in attractions toolbar
+    const attrHeader = document.querySelector('#view-attractions .border-b');
+    if (attrHeader) {
+      let switchWrap = document.getElementById('attractions-view-switcher');
+      if (!switchWrap) {
+        switchWrap = document.createElement('div');
+        switchWrap.id = 'attractions-view-switcher';
+        switchWrap.style.marginLeft = 'auto';
+        attrHeader.appendChild(switchWrap);
+      }
+      window.renderViewSwitcher('attractions-view-switcher');
+    }
+
+    // Mount dining tabs and view switcher in dining section
+    const diningHeader = document.querySelector('#view-dining .border-b');
+    if (diningHeader) {
+      let switchWrap = document.getElementById('dining-view-switcher');
+      if (!switchWrap) {
+        switchWrap = document.createElement('div');
+        switchWrap.id = 'dining-view-switcher';
+        diningHeader.appendChild(switchWrap);
+      }
+      window.renderViewSwitcher('dining-view-switcher');
+    }
+
+    const diningControls = document.querySelector('#view-dining .space-y-3');
+    if (diningControls) {
+      let regionContainer = document.getElementById('dining-region-tabs-container');
+      if (!regionContainer) {
+        regionContainer = document.createElement('div');
+        regionContainer.id = 'dining-region-tabs-container';
+        diningControls.prepend(regionContainer);
+      }
+      window.renderDiningRegionTabs();
+    }
+  }, 100);
+});

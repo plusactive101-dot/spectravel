@@ -289,7 +289,8 @@ const defaultRestaurants = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E4%B8%9C%E5%B1%B1%E5%8F%A3%E6%96%87%E8%89%BA%E8%A1%97%E5%8C%BA%20%26%20%E5%92%96%E5%95%A1",
       "sourceUrl": "https://www.instagram.com/p/DezCs7Xjtuv/"
     },
-    "sourceUrl": "https://www.instagram.com/p/DezCs7Xjtuv/"
+    "sourceUrl": "https://www.instagram.com/p/DezCs7Xjtuv/",
+    "region": "Guangzhou"
   },
   {
     "id": "rest-1",
@@ -352,7 +353,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Shawan%20Ancient%20Town%20Milk%20Shop%20(%E6%B2%81%E8%8A%B3%E5%9B%AD%E7%94%9C%E5%93%81)"
-    }
+    },
+    "region": "Panyu"
   },
   {
     "id": "rest-2",
@@ -415,7 +417,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)"
-    }
+    },
+    "region": "Chimelong"
   },
   {
     "id": "rest-3",
@@ -478,7 +481,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Panxi%20Restaurant%20(%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-4",
@@ -541,7 +545,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dafo%20Temple%20Vegetarian%20House%20(%E5%A4%A7%E4%BD%9B%E5%AF%BA%E7%B4%A0%E9%A3%9F%E9%98%81)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-1",
@@ -604,7 +609,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-2",
@@ -667,7 +673,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Da%20Ge%20Fan%20(%E5%A4%A7%E9%B8%BD%E9%A5%AD%20%E2%80%A2%20%E6%8B%9B%E7%89%8C%E7%BA%A2%E7%83%A7%E4%B9%B3%E9%B8%BD)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-3",
@@ -730,7 +737,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Xie%20San%20Bao%20(%E8%9F%B9%E5%8F%81%E5%AE%9D%20%E2%80%A2%20%E8%9F%B9%E9%BB%84%E6%8D%9E%E9%A5%AD)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-4",
@@ -793,7 +801,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Dian%20Dou%20De%20(%E7%82%B9%E9%83%BD%E5%BE%B7%20%E2%80%A2%20%E9%9D%9E%E9%81%97%E5%B9%BF%E5%BC%8F%E6%97%A9%E8%8C%B6)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-5",
@@ -911,7 +920,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-6",
@@ -967,7 +977,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Yuan%20Ji%20Rice%20Noodle%20Rolls%20(%E6%BA%90%E8%AE%B0%E8%82%A0%E7%B2%89)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-7",
@@ -1030,7 +1041,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Chua%20Lam's%20Dim%20Sum%20(%E8%94%A1%E6%BE%9C%E6%B8%AF%E5%BC%8F%E7%82%B9%E5%BF%83)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-8",
@@ -1086,7 +1098,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Min%20Ji%20Claypot%20Rice%20(%E6%B0%91%E8%AE%B0%E7%85%B2%E4%BB%94%E9%A5%AD)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-9",
@@ -1142,7 +1155,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Ming%20Shao%20Chicken%20Specialty%20Restaurant%20(%E9%93%AD%E5%B0%91%E9%A3%9F%E9%B8%A1%E4%B8%93%E9%97%A8%E5%BA%97)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-gz-10",
@@ -1205,7 +1219,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Li%20Fang%20Four%20Seasons%20Dessert%20Shop%20(%E8%8D%94%E8%8A%B3%E5%9B%9B%E5%AD%A3%E7%B3%96%E6%B0%B4%E5%BA%97)"
-    }
+    },
+    "region": "Guangzhou"
   },
   {
     "id": "rest-5",
@@ -1261,7 +1276,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Qingyuan%20Mountain%20Farmhouse%20(%E5%8F%A4%E9%BE%99%E5%B3%A1%E5%9C%9F%E8%8F%9C%E9%A6%86)"
-    }
+    },
+    "region": "Qingyuan"
   },
   {
     "id": "rest-6",
@@ -1317,7 +1333,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Baheli%20Chaoshan%20Beef%20Hotpot%20(%E5%85%AB%E5%90%88%E9%87%8C%E7%89%9B%E8%82%89%E7%81%AB%E9%94%85%20%E2%80%A2%20%E5%8D%97%E5%A4%B4%E5%BA%97)"
-    }
+    },
+    "region": "Shenzhen"
   },
   {
     "id": "rest-sz-2",
@@ -1373,7 +1390,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Run%20Yuan%20Four%20Seasons%20(%E6%B6%A6%E5%9B%AD%E5%9B%9B%E5%AD%A3%E6%A4%B0%E5%AD%90%E9%B8%A1%20%E2%80%A2%20%E5%8D%8E%E4%BE%A8%E5%9F%8E%E5%BA%97)"
-    }
+    },
+    "region": "Shenzhen"
   },
   {
     "id": "rest-sz-3",
@@ -1429,7 +1447,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Sea%20World%20Shekou%20Promenade%20Dining%20(%E6%B5%B7%E4%B8%8A%E4%B8%96%E7%95%8C%E6%98%8E%E5%8D%8E%E8%BD%AE%E6%B5%B7%E9%B2%9C%E5%B9%BF%E5%9C%BA)"
-    }
+    },
+    "region": "Shenzhen"
   },
   {
     "id": "rest-7",
@@ -1485,7 +1504,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Kam%20Wah%20Cafe%20(%E9%87%91%E5%8D%8E%E5%86%B0%E5%8E%85%20%E2%80%A2%20%E9%A6%99%E6%B8%AF%E8%8F%A0%E8%90%9D%E6%B2%B9%E5%86%A0%E5%86%9B)"
-    }
+    },
+    "region": "Hong Kong"
   },
   {
     "id": "rest-8",
@@ -1541,7 +1561,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)"
-    }
+    },
+    "region": "Hong Kong"
   },
   {
     "id": "rest-hk-3",
@@ -1597,7 +1618,8 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Mong%20Kok%20Night%20Food%20Stalls%20(%E6%97%BA%E8%A7%92%E7%99%BB%E6%89%93%E5%A3%AB%E8%A1%97%E5%9C%B0%E9%81%93%E8%A1%97%E5%A4%B4%E5%B0%8F%E9%A3%9F)"
-    }
+    },
+    "region": "Hong Kong"
   }
 ];
 
@@ -2454,7 +2476,7 @@ const expeditionAttractions = [
     ],
     "review": "Visitors praise the 360-degree panoramic views from the open-air observation deck and describe the Bubble Tram at sunset as an unforgettable experience.",
     "website": "https://www.cantontower.com/",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "links": {
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BF%E5%B7%9E%E5%A1%94",
       "dianping": "https://www.dianping.com/search/keyword/4/0_%E5%B9%BF%E5%B7%9E%E5%A1%94",
@@ -2504,7 +2526,7 @@ const expeditionAttractions = [
     ],
     "reviews": [],
     "nameZh": "陈家祠",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "address": "No. 34 Enlong Li, Zhongshan 7th Road, Liwan District, Guangzhou",
     "website": "http://www.gemuseum.cn/",
     "review": "Highly commended for its mesmerizing late-Qing dynasty wood, brick, and ceramic roof carvings.",
@@ -2552,7 +2574,7 @@ const expeditionAttractions = [
       "https://www.trip.com/"
     ],
     "reviews": [],
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "links": {
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Dongshankou%20Mansions",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Dongshankou%20Mansions",
@@ -2606,7 +2628,7 @@ const expeditionAttractions = [
       }
     ],
     "nameZh": "沙面岛",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "address": "Shamian Island, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
     "review": "Travelers love the quiet, European-like tree-lined boulevards, historic colonial villas, and relaxing outdoor coffee shops.",
@@ -3482,7 +3504,7 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "links": {
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Beijing%20Road%20%26%20Dafo%20Temple",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Beijing%20Road%20%26%20Dafo%20Temple",
@@ -3521,7 +3543,7 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "links": {
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Yongqing%20Fang%20%26%20Cantonese%20Opera",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Yongqing%20Fang%20%26%20Cantonese%20Opera",
@@ -3562,7 +3584,7 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "links": {
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Canton%20Tower%20%26%20Haixin%20Bridge",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Canton%20Tower%20%26%20Haixin%20Bridge",
@@ -3600,7 +3622,7 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "links": {
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Baiyun%20Mountain%20(White%20Cloud)",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Baiyun%20Mountain%20(White%20Cloud)",
@@ -3639,7 +3661,7 @@ const expeditionAttractions = [
     ],
     "guideUrls": [],
     "reviews": [],
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "links": {
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Liwan%20Lake%20Park%20%26%20Pantang",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Liwan%20Lake%20Park%20%26%20Pantang",
@@ -3681,7 +3703,7 @@ const expeditionAttractions = [
     "guideUrls": [],
     "reviews": [],
     "nameZh": "石室圣心大教堂",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "address": "No. 56 Yide Road, Yuexiu District, Guangzhou",
     "website": "http://www.archdioceseofguangzhou.org/",
     "review": "Often called the 'Notre Dame of China,' visitors praise its striking twin Gothic stone spires and stunning stained-glass windows.",
@@ -4568,7 +4590,7 @@ const expeditionAttractions = [
       }
     ],
     "nameZh": "北京路步行街",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "address": "Beijing Road, Yuexiu District, Guangzhou",
     "website": "http://www.yuexiu.gov.cn/",
     "review": "Famous for its glass-covered ancient road excavations dating back to the Song and Yuan dynasties, alongside bustling shopping and street food.",
@@ -4596,7 +4618,7 @@ const expeditionAttractions = [
     "desc": "Described as a masterclass in urban regeneration, blending traditional Cantonese Qilou (arcade) architecture with modern craft breweries and boutique spaces.",
     "name": "Yongqing Fang",
     "nameZh": "永庆坊",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Enning Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -4625,7 +4647,7 @@ const expeditionAttractions = [
     "desc": "Visitors are consistently awed by the towering golden Buddha statues and the dramatic night illumination that makes the complex look straight out of a fantasy movie.",
     "name": "Dafo Temple (Big Buddha Temple)",
     "nameZh": "大佛寺",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 21 Huixin West Street, Beijing Road, Yuexiu District, Guangzhou",
     "website": "http://www.dafo.org.cn/",
@@ -4654,7 +4676,7 @@ const expeditionAttractions = [
     "desc": "The spiritual lungs of the city; tourists enjoy seeing the historic Five Rams Sculpture and walking segments of the ancient Ming Dynasty city wall.",
     "name": "Yuexiu Park",
     "nameZh": "越秀公园",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Nature & Parks",
     "address": "No. 98 Jiefang North Road, Yuexiu District, Guangzhou",
     "website": "http://www.yuexiupark-gz.com/",
@@ -4683,7 +4705,7 @@ const expeditionAttractions = [
     "desc": "Fascinating underground layout housing real 2,000-year-old royal tombs, jade burial suits, and ancient artifacts.",
     "name": "Museum of the Mausoleum of the Nanyue King",
     "nameZh": "南越王博物院",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Museums & Galleries",
     "address": "No. 867 Jiefang North Road, Yuexiu District, Guangzhou",
     "website": "http://www.gznywmuseum.org.cn/",
@@ -4712,7 +4734,7 @@ const expeditionAttractions = [
     "desc": "Admired for its grand traditional Chinese octagonal roof structure and the peaceful surrounding gardens honoring China's republican pioneer.",
     "name": "Sun Yat-sen Memorial Hall",
     "nameZh": "中山纪念堂",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 259 Dongfeng Middle Road, Yuexiu District, Guangzhou",
     "website": "http://www.gzsysmh.com/",
@@ -4741,7 +4763,7 @@ const expeditionAttractions = [
     "desc": "Active Buddhist place of worship featuring the striking 17-story Flower Pagoda. Visitors note the deeply tranquil atmosphere.",
     "name": "Temple of the Six Banyan Trees",
     "nameZh": "六榕寺",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 87 Liurong Road, Yuexiu District, Guangzhou",
     "website": "http://www.gzbuddhism.org/",
@@ -4770,7 +4792,7 @@ const expeditionAttractions = [
     "desc": "A stunning classical Jiangnan-style garden housing brilliant exhibits on Cantonese opera history, costumes, and water-stage performances.",
     "name": "Cantonese Opera Art Museum",
     "nameZh": "粤剧艺术博物馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Museums & Galleries",
     "address": "No. 127 Enning Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -4799,7 +4821,7 @@ const expeditionAttractions = [
     "desc": "Shaped like an antique Chinese lacquer box; highly praised for its rich exhibitions on Lingnan nature, ceramics, and historical trade.",
     "name": "Guangdong Museum",
     "nameZh": "广东省博物馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Museums & Galleries",
     "address": "No. 2 Zhujiang East Road, Zhujiang New Town, Tianhe District, Guangzhou",
     "website": "http://www.gdmuseum.com/",
@@ -4828,7 +4850,7 @@ const expeditionAttractions = [
     "desc": "Zaha Hadid’s futuristic double-pebbled masterpiece leaves architecture enthusiasts speechless, especially when illuminated at night.",
     "name": "Guangzhou Opera House",
     "nameZh": "广州大剧院",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "No. 1 Zhujiang West Road, Tianhe District, Guangzhou",
     "website": "http://www.gzdjh.com/",
@@ -4857,7 +4879,7 @@ const expeditionAttractions = [
     "desc": "Bustling, classic shopping street lined with historic covered arcades, old-school pastry shops, and authentic dim sum joints.",
     "name": "Shangxiajiu Pedestrian Street",
     "nameZh": "上下九步行街",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Markets & Walking Streets",
     "address": "Shangxiajiu Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -4886,7 +4908,7 @@ const expeditionAttractions = [
     "desc": "The prime viewing ground for the Pearl River light show and the venue of the 2010 Asian Games opening ceremony.",
     "name": "Haixinsha Island",
     "nameZh": "海心沙",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "Haixinsha, Zhujiang New Town, Tianhe District, Guangzhou",
     "website": "http://www.tianhe.gov.cn/",
@@ -4915,7 +4937,7 @@ const expeditionAttractions = [
     "desc": "The modern heart of Guangzhou; visitors love taking photographs here with unobstructed symmetrical views of Canton Tower.",
     "name": "Huacheng Square (Flower City Square)",
     "nameZh": "花城广场",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "Huacheng Avenue, Zhujiang New Town, Tianhe District, Guangzhou",
     "website": "http://www.tianhe.gov.cn/",
@@ -4944,7 +4966,7 @@ const expeditionAttractions = [
     "desc": "An architectural marvel with an open atrium; clean, quiet, and a favorite spot for travelers looking to relax or work.",
     "name": "Guangzhou Library",
     "nameZh": "广州图书馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "No. 4 Zhujiang East Road, Tianhe District, Guangzhou",
     "website": "http://www.gzlib.gov.cn/",
@@ -4971,7 +4993,7 @@ const expeditionAttractions = [
     "desc": "Offers a deep look into traditional wealthy merchant life in old Guangzhou with authentic courtyard layouts.",
     "name": "Xiguan Custom Museum",
     "nameZh": "西关民俗馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Museums & Galleries",
     "address": "No. 15 Enning Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -4999,7 +5021,7 @@ const expeditionAttractions = [
     "desc": "A compact, atmospheric ancestral home detailing the family history and martial arts lineage of the global icon.",
     "name": "Bruce Lee’s Ancestral Residence",
     "nameZh": "李小龙祖居",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "13 Yuewai Street, Enning Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -5025,7 +5047,7 @@ const expeditionAttractions = [
     "desc": "An intense sensory experience filled with exotic herbs, dried roots, and traditional Chinese medicine ingredients.",
     "name": "Qingping Herbal Medicine Market",
     "nameZh": "清平中药材市场",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Markets & Walking Streets",
     "address": "Qingping Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -5054,7 +5076,7 @@ const expeditionAttractions = [
     "desc": "Historic imperial pier dating back to the Qing dynasty; now the primary boarding point for evening river dinner cruises.",
     "name": "Tianzi Wharf",
     "nameZh": "天字码头",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 191 Yanjiang Zhong Road, Yuexiu District, Guangzhou",
     "website": "http://www.gzocean.com/",
@@ -5082,7 +5104,7 @@ const expeditionAttractions = [
     "desc": "Large modern terminal for luxury passenger ships cruising the Pearl River.",
     "name": "Dashatou Wharf",
     "nameZh": "大沙头码头",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "No. 466 Yanjiang East Road, Yuexiu District, Guangzhou",
     "website": "http://www.gzocean.com/",
@@ -5111,7 +5133,7 @@ const expeditionAttractions = [
     "desc": "An upscale green island in the middle of the river housing art galleries, sports training bases, and calm riverside parks.",
     "name": "Ersha Island",
     "nameZh": "二沙岛",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Nature & Parks",
     "address": "Ersha Island, Yuexiu District, Guangzhou",
     "website": "http://www.yuexiu.gov.cn/",
@@ -5139,7 +5161,7 @@ const expeditionAttractions = [
     "desc": "Features rotating contemporary and classical Chinese art exhibitions in a quiet, leafy island setting.",
     "name": "Guangdong Museum of Art",
     "nameZh": "广东美术馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Museums & Galleries",
     "address": "38 Yanyu Road, Ersha Island, Yuexiu District, Guangzhou",
     "website": "http://www.gdmoa.org/",
@@ -5168,7 +5190,7 @@ const expeditionAttractions = [
     "desc": "Comprehensive and moving tribute to the 1911 revolution that overthrew the Qing dynasty.",
     "name": "Xinhai Revolution Memorial Museum",
     "nameZh": "辛亥革命纪念馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 563 Changzhou Road, Huangpu District, Guangzhou",
     "website": "http://www.gzxhgm.com/",
@@ -5197,7 +5219,7 @@ const expeditionAttractions = [
     "desc": "Essential historical landmark where leaders of both the Kuomintang and Communist parties trained in the 1920s.",
     "name": "Whampoa Military Academy Site",
     "nameZh": "黄埔军校旧址",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Changzhou Island, Huangpu District, Guangzhou",
     "website": "http://www.hpjxgz.com/",
@@ -5226,7 +5248,7 @@ const expeditionAttractions = [
     "desc": "Historic temple tied to Bodhidharma, famous for its grand hall housing the 500 Arhat statues.",
     "name": "Hualin Temple",
     "nameZh": "华林寺",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 37 Hualin Street, Xiaobei Road, Liwan District, Guangzhou",
     "website": "http://www.gzbuddhism.org/",
@@ -5253,7 +5275,7 @@ const expeditionAttractions = [
     "desc": "Guangzhou’s oldest public park; excellent place to watch local residents practice ballroom dancing, calligraphy, and jianzi.",
     "name": "Renmin Park (People's Park)",
     "nameZh": "人民公园",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Nature & Parks",
     "address": "No. 231 Huifu West Road, Yuexiu District, Guangzhou",
     "website": "http://www.yuexiu.gov.cn/",
@@ -5282,7 +5304,7 @@ const expeditionAttractions = [
     "desc": "Famous for traditional lantern festivals, chess tournaments, and relaxed outdoor community recreation.",
     "name": "Guangzhou Cultural Park",
     "nameZh": "广州文化公园",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 156 Xiti Er Road, Liwan District, Guangzhou",
     "website": "http://www.whwh.cn/",
@@ -5308,7 +5330,7 @@ const expeditionAttractions = [
     "desc": "Popular evening walking spot with great angles for photographing river bridges and city night lights.",
     "name": "Haiyin Bridge Area",
     "nameZh": "海印大桥观景区",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "Overing Pearl River connecting Yuexiu and Haizhu Districts",
     "website": "http://www.gzcc.gov.cn/",
@@ -5334,7 +5356,7 @@ const expeditionAttractions = [
     "desc": "Authentic residential streets featuring old timber doorways, grey brick walls, and nostalgic neighborhood eateries.",
     "name": "Xiguan House Cluster (Duo Bao Road)",
     "nameZh": "西关大屋建筑保护区",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Duobao Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -5362,7 +5384,7 @@ const expeditionAttractions = [
     "desc": "Historic sports stadium hosting local matches and community events.",
     "name": "Guangdong Provincial People's Stadium",
     "nameZh": "广东省人民体育场",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 64 Zhongshan Er Road, Yuexiu District, Guangzhou",
     "website": "http://tyj.gd.gov.cn/",
@@ -5388,7 +5410,7 @@ const expeditionAttractions = [
     "desc": "Commemorates the historic 1841 grassroots anti-colonial civilian battle.",
     "name": "Anti-British Struggle Memorial Pavilion (Sanyuanli)",
     "nameZh": "三元里人民抗英斗争纪念馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Sanyuanli Village, Baiyun District, Guangzhou",
     "website": "http://www.baiyun.gov.cn/",
@@ -5417,7 +5439,7 @@ const expeditionAttractions = [
     "desc": "Restored historical red-brick school compound where early revolutionary leaders lectured.",
     "name": "Peasant Movement Training Institute",
     "nameZh": "农讲所旧址",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 42 Zhongshan 4th Road, Yuexiu District, Guangzhou",
     "website": "http://www.nongjiangsuo.com/",
@@ -5443,7 +5465,7 @@ const expeditionAttractions = [
     "desc": "Details Guangzhou's pivotal role as China's sole maritime foreign trade port during the Qing Dynasty.",
     "name": "Shisanhang (Thirteen Factories) Museum",
     "nameZh": "十三行博物馆",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Museums & Galleries",
     "address": "No. 37 Xidi Erma Road, Liwan District, Guangzhou",
     "website": "http://www.liwan.gov.cn/",
@@ -5472,7 +5494,7 @@ const expeditionAttractions = [
     "desc": "Small glass-enclosed underground exhibit letting visitors look right down at stacked ancient paving stones.",
     "name": "Qiannian Gu Dao (Ancient Road Museum)",
     "nameZh": "千年古道遗址",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Beijing Road, Yuexiu District, Guangzhou",
     "website": "http://www.yuexiu.gov.cn/",
@@ -5501,7 +5523,7 @@ const expeditionAttractions = [
     "desc": "A peaceful, heavily forested memorial park honoring fallen revolutionary heroes.",
     "name": "Guangzhou Uprising Martyrs' Cemetery",
     "nameZh": "广州起义烈士陵园",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 92 Zhongshan 3rd Road, Yuexiu District, Guangzhou",
     "website": "http://mzj.gz.gov.cn/",
@@ -5528,7 +5550,7 @@ const expeditionAttractions = [
     "desc": "An ancient canal-laced riverside village popular with artists, indie coffee shops, and quiet stone bridges.",
     "name": "Xiaozhou Village",
     "nameZh": "小洲村",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Xiaozhou Village, Haizhu District, Guangzhou",
     "website": "http://www.haizhu.gov.cn/",
@@ -5557,7 +5579,7 @@ const expeditionAttractions = [
     "desc": "Historic port where the legendary Swedish East India ship Götheborg set sail; great for local snacks and old docks.",
     "name": "Huangpu Ancient Port",
     "nameZh": "黄埔古港",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Shichong Road, Pazhou, Haizhu District, Guangzhou",
     "website": "http://www.haizhu.gov.cn/",
@@ -5586,7 +5608,7 @@ const expeditionAttractions = [
     "desc": "A 9-story Ming Dynasty brick pagoda originally built to guide trading ships entering Guangzhou.",
     "name": "Pazhou Pagoda",
     "nameZh": "琶洲塔",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Pazhou Island, Haizhu District, Guangzhou",
     "website": "http://www.haizhu.gov.cn/",
@@ -5615,7 +5637,7 @@ const expeditionAttractions = [
     "desc": "Historic sister pagoda to Pazhou, standing quietly amidst modern high-rises.",
     "name": "Chigang Pagoda",
     "nameZh": "赤岗塔",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "Chigang, Haizhu District, Guangzhou",
     "website": "http://www.haizhu.gov.cn/",
@@ -5642,7 +5664,7 @@ const expeditionAttractions = [
     "desc": "Converted industrial textile mills housing design studios and trendy restaurants.",
     "name": "Titanium Creative Park",
     "nameZh": "钛创易文化创意园",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "Xingang East Road, Haizhu District, Guangzhou",
     "website": "http://www.haizhu.gov.cn/",
@@ -5669,7 +5691,7 @@ const expeditionAttractions = [
     "desc": "A youth-oriented shopping and fashion avenue packed with hidden dessert shops and independent boutiques.",
     "name": "Jiangnan West Road",
     "nameZh": "江南西商业街",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Markets & Walking Streets",
     "address": "Jiangnan West Road, Haizhu District, Guangzhou",
     "website": "http://www.haizhu.gov.cn/",
@@ -5696,7 +5718,7 @@ const expeditionAttractions = [
     "desc": "Ultra-luxury shopping complex representing modern Guangzhou's commercial success.",
     "name": "Taigoo Hui Shopping Mall",
     "nameZh": "太古汇",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "No. 383 Tianhe Road, Tianhe District, Guangzhou",
     "website": "http://www.taikooohui.com/",
@@ -5723,7 +5745,7 @@ const expeditionAttractions = [
     "desc": "Seamlessly merges high-end retail with contemporary art galleries and installations.",
     "name": "K11 Art Mall Guangzhou",
     "nameZh": "广州K11购物艺术中心",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "No. 6 Zhujiang East Road, Tianhe District, Guangzhou",
     "website": "http://www.gz-k11.com/",
@@ -5750,7 +5772,7 @@ const expeditionAttractions = [
     "desc": "One of Guangzhou’s most iconic, bustling multi-level shopping malls right at Tianhe Sports Center.",
     "name": "Teemall",
     "nameZh": "天河城",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Skyline & Modern",
     "address": "No. 208 Tianhe Road, Tianhe District, Guangzhou",
     "website": "http://www.teemall.com.cn/",
@@ -5779,7 +5801,7 @@ const expeditionAttractions = [
     "desc": "Sprawling public green plaza and stadium complex where locals gather to run, play badminton, and relax.",
     "name": "Tianhe Sports Center",
     "nameZh": "天河体育中心",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Nature & Parks",
     "address": "Tianhe Road, Tianhe District, Guangzhou",
     "website": "http://tyj.gz.gov.cn/",
@@ -5808,7 +5830,7 @@ const expeditionAttractions = [
     "desc": "Historic campus featuring majestic red brick academic buildings shaded by enormous banyan trees. Visitors love the scholarly ambiance.",
     "name": "Zhongshan University (South Campus)",
     "nameZh": "中山大学 (南校区)",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Heritage & Culture",
     "address": "No. 135 Xingang West Road, Haizhu District, Guangzhou",
     "website": "https://www.sysu.edu.cn/",
@@ -5835,7 +5857,7 @@ const expeditionAttractions = [
     "desc": "State-of-the-art national art museum showcasing brilliant collections of Chinese ink paintings and modern sculpture.",
     "name": "Guangzhou Art Museum (New Hall)",
     "nameZh": "广州艺术博物院 (广州美术馆新馆)",
-    "region": "Canton Heritage",
+    "region": "Guangzhou",
     "category": "Museums & Galleries",
     "address": "No. 198 Yiyuan Road, Haizhu District, Guangzhou",
     "website": "https://www.gzam.org.cn/",
