@@ -2158,3 +2158,122 @@ if (document.readyState === 'loading') {
 } else {
   initAttractionsSearch();
 }
+
+// ============================================================================
+// PHASE 5: SLIDE-OVER DETAIL DRAWER CONTROLLER
+// ============================================================================
+
+window.openAttractionDrawer = function(itemId) {
+  const attractions = window.expeditionAttractions || [];
+  const item = attractions.find(p => p.id === itemId || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId);
+  if (!item) {
+    if (typeof window.openAttraction === 'function') {
+      window.openAttraction(itemId);
+    }
+    return;
+  }
+
+  const drawer = document.getElementById('attraction-detail-drawer');
+  const backdrop = document.getElementById('attraction-drawer-backdrop');
+  const body = document.getElementById('attraction-drawer-body');
+  if (!drawer || !backdrop || !body) {
+    if (typeof window.openAttraction === 'function') {
+      window.openAttraction(itemId);
+    }
+    return;
+  }
+
+  const nameZhDisplay = item.nameZh ? '<span class="ml-2 text-sm font-medium px-2.5 py-1 rounded-md bg-gray-800 text-amber-300 border border-amber-900/40">' + item.nameZh + '</span>' : '';
+  const regionBadge = item.region ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + item.region + '</span>' : '';
+  const categoryBadge = item.category ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-700/40">' + item.category + '</span>' : '';
+  
+  const safeAddress = (item.address || '').replace(/'/g, "\\'");
+  const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
+  
+  const lat = item.coordinates && item.coordinates[0] ? item.coordinates[0] : null;
+  const lng = item.coordinates && item.coordinates[1] ? item.coordinates[1] : null;
+  const navGoogleUrl = (lat && lng) ? ('https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng) : '#';
+  const navAmapUrl = (lat && lng) ? ('https://uri.amap.com/marker?position=' + lng + ',' + lat + '&name=' + encodeURIComponent(item.nameZh || item.name)) : '#';
+
+  const websiteLink = item.website ? ('<div class="pt-2"><a href="' + item.website + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-800 hover:bg-gray-700 text-amber-300 border border-gray-700 transition-colors"><span>🌐</span> Visit Official Portal</a></div>') : '';
+
+  let reviewsHtml = '';
+  if (item.reviews && item.reviews.length > 0) {
+    reviewsHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2"><div class="text-xs text-rose-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>📺</span> Video Reviews</div><div class="flex flex-col gap-2">';
+    item.reviews.forEach(r => {
+      reviewsHtml += '<a href="' + r.url + '" target="_blank" class="inline-flex items-center gap-2 text-xs text-rose-300 hover:text-white hover:underline bg-rose-500/10 px-3 py-2 rounded border border-rose-500/20"><i class="fa-brands fa-youtube text-red-500"></i> ' + r.title + '</a>';
+    });
+    reviewsHtml += '</div></div>';
+  }
+
+  body.innerHTML = '<div>' +
+      '<div class="flex items-center gap-2 flex-wrap mb-2">' +
+        regionBadge +
+        categoryBadge +
+      '</div>' +
+      '<h1 class="text-xl font-bold text-white flex items-center flex-wrap gap-1">' +
+        item.name +
+        nameZhDisplay +
+      '</h1>' +
+    '</div>' +
+    (item.address ? (
+      '<div class="bg-gray-800/60 p-3.5 rounded-xl border border-gray-700/60 space-y-2">' +
+        '<div class="text-xs text-gray-400 font-medium uppercase tracking-wider">Address / 详细地址</div>' +
+        '<div class="text-sm text-gray-200 select-all font-mono">' + item.address + '</div>' +
+        '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="mt-2 w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-colors">' +
+          '<span>🚕</span> Copy Bilingual Address for Taxi / Didi' +
+        '</button>' +
+      '</div>'
+    ) : '') +
+    (item.review || item.desc ? (
+      '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
+        '<div class="text-xs text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
+          '<span>💬</span> What Travelers Say' +
+        '</div>' +
+        '<p class="text-sm text-gray-300 leading-relaxed italic">"' + (item.review || item.desc) + '"</p>' +
+      '</div>'
+    ) : '') +
+    reviewsHtml +
+    '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-3">' +
+      '<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
+        '<span>🧭</span> Navigation & Map Coordinates' +
+      '</div>' +
+      '<div class="text-xs text-gray-400 font-mono">' +
+        'Latitude: ' + (lat || 'N/A') + ', Longitude: ' + (lng || 'N/A') +
+      '</div>' +
+      '<div class="flex items-center gap-2 flex-wrap pt-1">' +
+        ((lat && lng) ? (
+          '<a href="' + navAmapUrl + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-900/40 hover:bg-blue-900/60 text-blue-300 border border-blue-800 transition-colors">' +
+            '🗺️ Open in Amap (高德)' +
+          '</a>' +
+          '<a href="' + navGoogleUrl + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 transition-colors">' +
+            'Google Maps' +
+          '</a>'
+        ) : '') +
+      '</div>' +
+      websiteLink +
+    '</div>';
+
+  backdrop.classList.remove('opacity-0', 'pointer-events-none');
+  backdrop.classList.add('opacity-100');
+  drawer.classList.remove('translate-x-full');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeAttractionDrawer = function() {
+  const drawer = document.getElementById('attraction-detail-drawer');
+  const backdrop = document.getElementById('attraction-drawer-backdrop');
+  if (drawer) drawer.classList.add('translate-x-full');
+  if (backdrop) {
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+  }
+  document.body.style.overflow = '';
+};
+
+// Global Escape Key Listener for modal dismissal
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    window.closeAttractionDrawer();
+  }
+});
