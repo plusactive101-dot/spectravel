@@ -1991,7 +1991,7 @@ const expeditionAttractions = [
     "timeAlloc": "Late Afternoon (3h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-landmark",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Guangzhou_Shawan_Town.jpg",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "desc": "Picturesque Lingnan water village celebrated for ancestral brick shrines, oyster-shell boundary walls, and freshly made ginger water-buffalo curd.",
     "meta1": {
       "label": "HISTORY",
@@ -2002,8 +2002,7 @@ const expeditionAttractions = [
       "value": "Water-Buffalo Milk"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/e/e6/Guangzhou_Shawan_Town.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Shawan_Aoyucun.jpg/800px-Shawan_Aoyucun.jpg"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "activities": [
       "Stroll 800-year-old stone alleys",
@@ -2026,7 +2025,7 @@ const expeditionAttractions = [
     "timeAlloc": "Morning (4h)",
     "tag": "PANYU • NATURE",
     "tagIcon": "fa-tree",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Baomo_Garden_Lake.jpg/800px-Baomo_Garden_Lake.jpg",
+    "image": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80",
     "desc": "An expansive natural oasis favored by locals, featuring lush banyan trees, tandem biking around serene lakes, and morning tai chi.",
     "meta1": {
       "label": "LANDSCAPE",
@@ -2037,7 +2036,7 @@ const expeditionAttractions = [
       "value": "Local Leisure"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Baomo_Garden_Lake.jpg/800px-Baomo_Garden_Lake.jpg"
+      "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=800&q=80"
     ],
     "activities": [
       "Rent tandem bikes",
@@ -2059,7 +2058,7 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (6-8h)",
     "tag": "GUANGZHOU • CHIMELONG",
     "tagIcon": "fa-ticket",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chimelong_Safari_Park_Panda.jpg/800px-Chimelong_Safari_Park_Panda.jpg",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
     "desc": "World-renowned animal theme park featuring open-air self-drive savannah train, scenic sky gondola over safari enclosures, and giant panda triplets.",
     "meta1": {
       "label": "TIME REQUIRED",
@@ -2070,7 +2069,8 @@ const expeditionAttractions = [
       "value": "Panda Triplets"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chimelong_Safari_Park_Panda.jpg/800px-Chimelong_Safari_Park_Panda.jpg"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80"
     ],
     "activities": [
       "Ride 40-min open-air Safari Train",
@@ -2093,7 +2093,7 @@ const expeditionAttractions = [
     "timeAlloc": "Afternoon (3h)",
     "tag": "CANTON • LOCAL",
     "tagIcon": "fa-mug-hot",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dongshankou_Guangzhou.jpg/800px-Dongshankou_Guangzhou.jpg",
+    "image": "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80",
     "desc": "A historic neighborhood of 1920s Republican-era red brick mansions, now transformed into Guangzhou’s premier indie arts and cafe district.",
     "meta1": {
       "label": "ARCHITECTURE",
@@ -2104,7 +2104,7 @@ const expeditionAttractions = [
       "value": "Indie Arts & Cafes"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dongshankou_Guangzhou.jpg/800px-Dongshankou_Guangzhou.jpg"
+      "https://images.unsplash.com/photo-1555529902-536138fea2cb?w=800&q=80"
     ],
     "activities": [
       "Cafe hopping in historic villas",
@@ -2127,7 +2127,7 @@ const expeditionAttractions = [
     "timeAlloc": "Morning (2-3h)",
     "tag": "CANTON • HERITAGE",
     "tagIcon": "fa-building",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Canton_Tower_night_view.jpg/800px-Canton_Tower_night_view.jpg",
+    "image": "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800&q=80",
     "desc": "A tranquil sandbank island steeped in history, featuring meticulously preserved European colonial architecture, banyan-lined avenues, and waterfront views.",
     "meta1": {
       "label": "ERA",
@@ -2138,7 +2138,7 @@ const expeditionAttractions = [
       "value": "European Enclave"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Canton_Tower_night_view.jpg/800px-Canton_Tower_night_view.jpg"
+      "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800&q=80"
     ],
     "activities": [
       "Walk colonial tree-lined boulevards",
@@ -2161,7 +2161,7 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (8h)",
     "tag": "QINGYUAN • ALPINE",
     "tagIcon": "fa-mountain",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qingyuan_Gulong_Gorge.jpg/800px-Qingyuan_Gulong_Gorge.jpg",
+    "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80",
     "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, glass suspension bridge over roaring waterfalls, and alpine coaster descent.",
     "meta1": {
       "label": "RECORD",
@@ -2172,7 +2172,7 @@ const expeditionAttractions = [
       "value": "Canyon Coaster"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qingyuan_Gulong_Gorge.jpg/800px-Qingyuan_Gulong_Gorge.jpg"
+      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80"
     ],
     "activities": [
       "Walk 520m Glass Skywalk",
@@ -2194,7 +2194,7 @@ const expeditionAttractions = [
     "timeAlloc": "Afternoon (2h)",
     "tag": "SHENZHEN • NANSHAN",
     "tagIcon": "fa-microchip",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
     "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners with outdoor drone flight test bridges, leading directly into the futuristic tech district.",
     "meta1": {
       "label": "ARCHITECTURE",
@@ -2205,7 +2205,7 @@ const expeditionAttractions = [
       "value": "Drone Flagship Demo"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "activities": [
       "Tour asymmetric structural architecture",
@@ -2227,7 +2227,7 @@ const expeditionAttractions = [
     "timeAlloc": "Evening (2h)",
     "tag": "SHENZHEN • NATURE",
     "tagIcon": "fa-water",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg",
+    "image": "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800&q=80",
     "desc": "A pristine coastal park blending modern skyline views with ecological wetlands, offering the best vantage point for Shenzhen’s evening light shows.",
     "meta1": {
       "label": "LANDSCAPE",
@@ -2238,7 +2238,7 @@ const expeditionAttractions = [
       "value": "City Light Show"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg"
+      "https://images.unsplash.com/photo-1552554746-81e05d233e14?w=800&q=80"
     ],
     "activities": [
       "Walk the coastal promenade",
@@ -2261,7 +2261,7 @@ const expeditionAttractions = [
     "timeAlloc": "Sunset (3h)",
     "tag": "HONG KONG • HARBOUR",
     "tagIcon": "fa-ferry",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg",
+    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80",
     "desc": "The iconic waterway separating Hong Kong Island and Kowloon, best experienced via the historic Star Ferry at sunset as the world-famous skyline lights up.",
     "meta1": {
       "label": "LANDMARK",
@@ -2272,7 +2272,7 @@ const expeditionAttractions = [
       "value": "Star Ferry"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg"
+      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80"
     ],
     "activities": [
       "Ride the Star Ferry to Central",
@@ -2295,7 +2295,7 @@ const expeditionAttractions = [
     "timeAlloc": "Afternoon (3h)",
     "tag": "HONG KONG • LOCAL",
     "tagIcon": "fa-store",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dongshankou_Guangzhou.jpg/800px-Dongshankou_Guangzhou.jpg",
+    "image": "https://images.unsplash.com/photo-1549429532-6bf5dc0321fb?w=800&q=80",
     "desc": "The beating heart of working-class Hong Kong, famous for raw street photography, vintage electronics at Ap Liu Street, and Michelin-recommended street food.",
     "meta1": {
       "label": "CULTURE",
@@ -2306,7 +2306,7 @@ const expeditionAttractions = [
       "value": "Street Food Mecca"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Dongshankou_Guangzhou.jpg/800px-Dongshankou_Guangzhou.jpg"
+      "https://images.unsplash.com/photo-1549429532-6bf5dc0321fb?w=800&q=80"
     ],
     "activities": [
       "Hunt vintage electronics at Ap Liu Street",
@@ -2328,7 +2328,7 @@ const expeditionAttractions = [
     "timeAlloc": "Morning (4-5h)",
     "tag": "HONG KONG • NATURE",
     "tagIcon": "fa-mountain-sun",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg",
+    "image": "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800&q=80",
     "desc": "A rugged mountain ridge offering a challenging hike through dense nature, rewarding climbers with legendary, sweeping panoramic views of the entire Kowloon peninsula.",
     "meta1": {
       "label": "HIKE",
@@ -2339,7 +2339,7 @@ const expeditionAttractions = [
       "value": "Panoramic Kowloon"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg"
+      "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800&q=80"
     ],
     "activities": [
       "Hike the ridge trail",
@@ -2361,7 +2361,7 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (6-8h)",
     "tag": "GUANGZHOU • CHIMELONG",
     "tagIcon": "fa-ticket",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chimelong_Safari_Park_Panda.jpg/800px-Chimelong_Safari_Park_Panda.jpg",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
     "desc": "World-renowned animal theme park featuring open-air self-drive savannah train, scenic sky gondola over safari enclosures, and giant panda triplets.",
     "meta1": {
       "label": "TIME REQUIRED",
@@ -2372,7 +2372,8 @@ const expeditionAttractions = [
       "value": "Panda Triplets"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chimelong_Safari_Park_Panda.jpg/800px-Chimelong_Safari_Park_Panda.jpg"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80"
     ],
     "activities": [
       "Ride 40-min open-air Safari Train",
@@ -2395,7 +2396,7 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (8h)",
     "tag": "QINGYUAN • ALPINE",
     "tagIcon": "fa-mountain",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qingyuan_Gulong_Gorge.jpg/800px-Qingyuan_Gulong_Gorge.jpg",
+    "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80",
     "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, glass suspension bridge over roaring waterfalls, and alpine coaster descent.",
     "meta1": {
       "label": "RECORD",
@@ -2406,7 +2407,7 @@ const expeditionAttractions = [
       "value": "Canyon Coaster"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Qingyuan_Gulong_Gorge.jpg/800px-Qingyuan_Gulong_Gorge.jpg"
+      "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80"
     ],
     "activities": [
       "Walk 520m Glass Skywalk",
@@ -2428,7 +2429,7 @@ const expeditionAttractions = [
     "timeAlloc": "Late Afternoon (3h)",
     "tag": "PANYU • HERITAGE",
     "tagIcon": "fa-landmark",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Guangzhou_Shawan_Town.jpg",
+    "image": "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80",
     "desc": "Picturesque Lingnan water village celebrated for ancestral brick shrines, oyster-shell boundary walls, and freshly made ginger water-buffalo curd.",
     "meta1": {
       "label": "HISTORY",
@@ -2439,8 +2440,7 @@ const expeditionAttractions = [
       "value": "Water-Buffalo Milk"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/e/e6/Guangzhou_Shawan_Town.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Shawan_Aoyucun.jpg/800px-Shawan_Aoyucun.jpg"
+      "https://images.unsplash.com/photo-1563204907-7a2e2d832d20?w=800&q=80"
     ],
     "activities": [
       "Stroll 800-year-old stone alleys",
@@ -2463,7 +2463,7 @@ const expeditionAttractions = [
     "timeAlloc": "Afternoon (2h)",
     "tag": "SHENZHEN • NANSHAN",
     "tagIcon": "fa-microchip",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg",
+    "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
     "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners with outdoor drone flight test bridges, leading directly into the futuristic tech district.",
     "meta1": {
       "label": "ARCHITECTURE",
@@ -2474,7 +2474,7 @@ const expeditionAttractions = [
       "value": "Drone Flagship Demo"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/DJI_Sky_City_Shenzhen.jpg/800px-DJI_Sky_City_Shenzhen.jpg"
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80"
     ],
     "activities": [
       "Tour asymmetric structural architecture",
@@ -2496,7 +2496,7 @@ const expeditionAttractions = [
     "timeAlloc": "Sunset (3h)",
     "tag": "HONG KONG • HARBOUR",
     "tagIcon": "fa-ferry",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg",
+    "image": "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80",
     "desc": "The iconic waterway separating Hong Kong Island and Kowloon, best experienced via the historic Star Ferry at sunset as the world-famous skyline lights up.",
     "meta1": {
       "label": "LANDMARK",
@@ -2507,7 +2507,7 @@ const expeditionAttractions = [
       "value": "Star Ferry"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Harbour_Hong_Kong.jpg/800px-Victoria_Harbour_Hong_Kong.jpg"
+      "https://images.unsplash.com/photo-1506351421178-63b53aee584c?w=800&q=80"
     ],
     "activities": [
       "Ride the Star Ferry to Central",
@@ -2530,7 +2530,7 @@ const expeditionAttractions = [
     "timeAlloc": "Full Day (6-8h)",
     "tag": "GUANGZHOU • CHIMELONG",
     "tagIcon": "fa-ticket",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chimelong_Safari_Park_Panda.jpg/800px-Chimelong_Safari_Park_Panda.jpg",
+    "image": "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
     "desc": "World-renowned animal theme park featuring open-air self-drive savannah train, scenic sky gondola over safari enclosures, and giant panda triplets.",
     "meta1": {
       "label": "TIME REQUIRED",
@@ -2541,7 +2541,8 @@ const expeditionAttractions = [
       "value": "Panda Triplets"
     },
     "photos": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chimelong_Safari_Park_Panda.jpg/800px-Chimelong_Safari_Park_Panda.jpg"
+      "https://images.unsplash.com/photo-1564175822606-8d693f4cc14d?w=800&q=80",
+      "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80"
     ],
     "activities": [
       "Ride 40-min open-air Safari Train",
