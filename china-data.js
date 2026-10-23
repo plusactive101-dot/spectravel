@@ -422,7 +422,6 @@ const defaultRestaurants = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Bingsheng%20Taste%20(%E7%82%B3%E8%83%9C%E5%93%81%E5%91%B3%20%E2%80%A2%20%E6%97%B6%E4%BB%A3E-PARK%E5%BA%97)"
     },
     "region": "Chimelong",
-    "mustEat": true,
     "nameZh": "炳胜品味 • 时代E-PARK店"
   },
   {
@@ -618,7 +617,6 @@ const defaultRestaurants = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tao%20Tao%20Ju%20(%E9%99%B6%E9%99%B6%E5%B1%85%20%E2%80%A2%20%E7%99%BE%E5%B9%B4%E8%80%81%E5%AD%97%E5%8F%B7)"
     },
     "region": "Guangzhou",
-    "mustEat": true,
     "nameZh": "陶陶居 • 百年老字号"
   },
   {
@@ -934,7 +932,6 @@ const defaultRestaurants = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Guangzhou%20Restaurant%20(Longjin%20West%20Branch)%20%2F%20%E5%B9%BF%E5%B7%9E%E9%85%92%E5%AE%B6%EF%BC%88%E9%BE%99%E6%B4%A5%E8%A5%BF%E8%B7%AF%E5%BA%97%20%C2%B7%20%E7%B2%A4%E5%AE%B4%E8%A5%BF%E5%85%B3%EF%BC%89"
     },
     "region": "Guangzhou",
-    "mustEat": true,
     "nameZh": "Longjin West Branch"
   },
   {
@@ -1587,7 +1584,6 @@ const defaultRestaurants = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Tim%20Ho%20Wan%20(%E6%B7%BB%E5%A5%BD%E8%BF%90%20%E2%80%A2%20%E7%B1%B3%E5%85%B6%E6%9E%97%E7%82%B9%E5%BF%83%E4%B8%93%E5%8D%96%E5%BA%97)"
     },
     "region": "Hong Kong",
-    "mustEat": true,
     "nameZh": "添好运 • 米其林点心专卖店"
   },
   {
@@ -1706,7 +1702,8 @@ const defaultRestaurants = [
       }
     ],
     "officialUrl": "http://www.huishijia.com.cn",
-    "mustEat": true
+    "mustEat": true,
+    "mustDo": true
   }
 ];
 
@@ -2454,8 +2451,7 @@ const expeditionAttractions = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C",
       "official": "https://www.chimelong.com"
     },
-    "officialUrl": "https://www.chimelong.com",
-    "mustDo": true
+    "officialUrl": "https://www.chimelong.com"
   },
   {
     "id": "circus",
@@ -2519,8 +2515,7 @@ const expeditionAttractions = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%95%BF%E9%9A%86%E5%9B%BD%E9%99%85%E5%A4%A7%E9%A9%AC%E6%88%8F",
       "official": "https://www.chimelong.com"
     },
-    "officialUrl": "https://www.chimelong.com",
-    "mustDo": true
+    "officialUrl": "https://www.chimelong.com"
   },
   {
     "id": "cantontower",
@@ -2634,8 +2629,7 @@ const expeditionAttractions = [
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E9%99%88%E5%AE%B6%E7%A5%A0",
       "official": "http://www.gzchenjiaci.com"
     },
-    "officialUrl": "http://www.gzchenjiaci.com",
-    "mustDo": true
+    "officialUrl": "http://www.gzchenjiaci.com"
   },
   {
     "id": "dongshankou",
@@ -2804,8 +2798,7 @@ const expeditionAttractions = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=Qingyuan%20Gulong%20Gorge",
       "dianping": "https://www.dianping.com/search/keyword/4/0_Qingyuan%20Gulong%20Gorge",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=Qingyuan%20Gulong%20Gorge"
-    },
-    "mustDo": true
+    }
   },
   {
     "id": "indoorski",

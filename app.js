@@ -1,3 +1,206 @@
+// =========================================================================
+// === UNIFIED MAP PIN ENGINE & LAYERGROUP CONTROLLER ===
+// =========================================================================
+
+window.REGIONAL_MAP_LAYERS = {
+  hotel: null,
+  transport: null,
+  attraction: null,
+  dining: null,
+  mustdo: null
+};
+
+window.REGIONAL_MAP_VISIBILITY = {
+  hotel: true,
+  transport: true,
+  attraction: true,
+  dining: true,
+  mustdo: true
+};
+
+// Aliases for backwards compatibility
+window.MAP_LAYERS = window.REGIONAL_MAP_LAYERS;
+window.MAP_LAYER_VISIBILITY = window.REGIONAL_MAP_VISIBILITY;
+
+// Unified Icon Factory (Guarantees exact color consistency across entire app)
+window.getUnifiedPinIcon = function(category, isMustDo) {
+  const effectiveCat = isMustDo ? 'mustdo' : category;
+
+  const PALETTE = {
+    hotel:      { bg: '#10b981', border: '#047857', icon: 'fa-solid fa-hotel', color: '#ffffff' },
+    transport:  { bg: '#8b5cf6', border: '#6d28d9', icon: 'fa-solid fa-train-subway', color: '#ffffff' },
+    attraction: { bg: '#0284c7', border: '#0369a1', icon: 'fa-solid fa-landmark', color: '#ffffff' },
+    dining:     { bg: '#f97316', border: '#c2410c', icon: 'fa-solid fa-utensils', color: '#ffffff' },
+    mustdo:     { bg: '#e11d48', border: '#fde047', icon: 'fa-solid fa-star', color: '#fde047' }
+  };
+
+  const c = PALETTE[effectiveCat] || PALETTE.attraction;
+  const size = effectiveCat === 'mustdo' ? 32 : 26;
+  const starBadge = effectiveCat === 'mustdo'
+    ? '<span style="position:absolute; top:-3px; right:-3px; width:8px; height:8px; background:#fde047; border-radius:50%; border:1.5px solid #0f172a;"></span>'
+    : '';
+
+  const html = `
+    <div class="mktravel-pin mktravel-pin-${effectiveCat}" style="
+      position: relative;
+      width: ${size}px;
+      height: ${size}px;
+      background: ${c.bg};
+      border: 2px solid ${c.border};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px ${c.bg}88;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    " onmouseover="this.style.transform='scale(1.25)';" onmouseout="this.style.transform='scale(1)';">
+      <i class="${c.icon}" style="color: ${c.color}; font-size: ${effectiveCat === 'mustdo' ? '13px' : '11px'};"></i>
+      ${starBadge}
+    </div>
+  `;
+
+  return L.divIcon({
+    className: 'mktravel-custom-div-icon',
+    html: html,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    popupAnchor: [0, -size / 2 - 2]
+  });
+};
+
+// Universal adapter for legacy calls to createUnifiedMapPinIcon
+window.createUnifiedMapPinIcon = function(item, hint = '') {
+  if (!item) return window.getUnifiedPinIcon('attraction', false);
+  const isMustDo = (item.mustDo === true || item.mustEat === true || hint === 'mustdo');
+  let cat = hint || item.category || item.cuisine || '';
+  cat = cat.toLowerCase();
+  if (cat.includes('hotel') || item.nights || item.checkIn) cat = 'hotel';
+  else if (cat.includes('transport') || cat.includes('transit') || cat.includes('station') || cat.includes('airport') || cat.includes('ferry')) cat = 'transport';
+  else if (cat.includes('dining') || cat.includes('restaurant') || cat.includes('food') || item.dishes) cat = 'dining';
+  else cat = 'attraction';
+  return window.getUnifiedPinIcon(cat, isMustDo);
+};
+
+// Interactive Legend Toggle
+window.toggleMapCategoryFilter = function(categoryKey) {
+  if (window.REGIONAL_MAP_VISIBILITY[categoryKey] === undefined) return;
+
+  const current = window.REGIONAL_MAP_VISIBILITY[categoryKey];
+  window.REGIONAL_MAP_VISIBILITY[categoryKey] = !current;
+  const isVisible = window.REGIONAL_MAP_VISIBILITY[categoryKey];
+
+  // Visual feedback on legend chips
+  const btns = document.querySelectorAll(`[data-legend-cat="${categoryKey}"]`);
+  btns.forEach(btn => {
+    if (isVisible) {
+      btn.style.opacity = '1';
+      btn.style.filter = 'grayscale(0%)';
+      btn.style.transform = 'scale(1)';
+    } else {
+      btn.style.opacity = '0.35';
+      btn.style.filter = 'grayscale(80%)';
+      btn.style.transform = 'scale(0.92)';
+    }
+  });
+
+  // Add/Remove from active Regional Map
+  const map = window.regionalLeafletMapInstance || window.regionalMapInstance || window.map;
+  const layer = window.REGIONAL_MAP_LAYERS[categoryKey];
+  if (map && layer) {
+    if (isVisible) {
+      if (!map.hasLayer(layer)) map.addLayer(layer);
+    } else {
+      if (map.hasLayer(layer)) map.removeLayer(layer);
+    }
+  }
+};
+window.toggleMapCategory = window.toggleMapCategoryFilter;
+
+// Rebuild All Markers into LayerGroups on the Regional Map
+window.setupRegionalMapLayers = function(map) {
+  if (!map || typeof L === 'undefined') return;
+  window.regionalLeafletMapInstance = map;
+  window.regionalMapInstance = map;
+  if (!window.regionalMarkers) window.regionalMarkers = {};
+
+  // Initialize or clear layer groups
+  ['hotel', 'transport', 'attraction', 'dining', 'mustdo'].forEach(cat => {
+    if (!window.REGIONAL_MAP_LAYERS[cat]) {
+      window.REGIONAL_MAP_LAYERS[cat] = L.layerGroup();
+    } else {
+      window.REGIONAL_MAP_LAYERS[cat].clearLayers();
+    }
+    if (window.REGIONAL_MAP_VISIBILITY[cat] && !map.hasLayer(window.REGIONAL_MAP_LAYERS[cat])) {
+      map.addLayer(window.REGIONAL_MAP_LAYERS[cat]);
+    }
+  });
+
+  const attractions = (typeof expeditionAttractions !== 'undefined') ? expeditionAttractions : [];
+  const restaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : [];
+  const hotels = (typeof routeData !== 'undefined' && routeData.hotels && routeData.hotels.length)
+    ? routeData.hotels
+    : [
+        { id: "loc-panyu-mehood", name: "Mehood Lestie Hotel (Guangzhou Panyu)", nameZh: "广州番禺美豪丽致酒店", coordinates: [22.9298, 113.3482], category: "Hotel Base 01", area: "Panyu", nodeKey: "node-hotel-mehood" },
+        { id: "loc-chimelong-hotel", name: "Chimelong Hotel (Resort Base)", nameZh: "广州长隆酒店", coordinates: [23.0031, 113.3278], category: "Hotel Base 02", area: "Panyu", nodeKey: "node-hotel-chimelong" },
+        { id: "loc-canton-atour", name: "Atour S Hotel (Zhujiang New Town)", nameZh: "广州珠江新城亚朵S酒店", coordinates: [23.1256, 113.2985], category: "Hotel Base 03", area: "Tianhe", nodeKey: "node-hotel-atour" },
+        { id: "loc-shenzhen-qiuguo", name: "Qiuguo Hotel (Shenzhen Nanshan)", nameZh: "深圳南山科技园秋果酒店", coordinates: [22.5401, 113.9525], category: "Hotel Base 04", area: "Nanshan", nodeKey: "node-hotel-qiuguo" },
+        { id: "loc-hongkong-eaton", name: "Eaton HK (Kowloon Jordan)", nameZh: "香港逸东酒店", coordinates: [22.3088, 114.1714], category: "Hotel Base 05", area: "Kowloon", nodeKey: "node-hotel-eaton" }
+      ];
+
+  // 1. Hotels (Emerald Green)
+  hotels.forEach(h => {
+    const coords = h.coordinates || (h.lat && h.lng ? [h.lat, h.lng] : null);
+    if (!coords) return;
+    const marker = L.marker([coords[0], coords[1]], { icon: window.getUnifiedPinIcon('hotel', false) });
+    if (window.createBrightMapPopupHtml) marker.bindPopup(window.createBrightMapPopupHtml(h));
+    window.REGIONAL_MAP_LAYERS.hotel.addLayer(marker);
+    if (h.id) window.regionalMarkers[h.id] = marker;
+  });
+
+  // 2. Transport Hubs (Royal Purple)
+  const transitHubs = [
+    { id: "loc-can-airport", name: "Guangzhou Baiyun International Airport", nameZh: "广州白云国际机场", coordinates: [23.3924, 113.2988], category: "Airport", area: "Baiyun" },
+    { id: "loc-gz-south", name: "Guangzhou South Railway Station", nameZh: "广州南站", coordinates: [22.9886, 113.2686], category: "Transport Hub", area: "Panyu" },
+    { id: "loc-sz-north", name: "Shenzhen North Railway Station", nameZh: "深圳北站", coordinates: [22.6094, 114.0294], category: "Transport Hub", area: "Longhua" },
+    { id: "loc-hk-westkowloon", name: "Hong Kong West Kowloon Station", nameZh: "香港西九龙站", coordinates: [22.3034, 114.1654], category: "High Speed Rail", area: "West Kowloon" },
+    { id: "loc-pazhou-ferry", name: "Pazhou Ferry Terminal", nameZh: "琶洲港澳客运口岸", coordinates: [23.1042, 113.3752], category: "Ferry Terminal", area: "Haizhu" }
+  ];
+
+  transitHubs.forEach(t => {
+    const marker = L.marker([t.coordinates[0], t.coordinates[1]], { icon: window.getUnifiedPinIcon('transport', false) });
+    if (window.createBrightMapPopupHtml) marker.bindPopup(window.createBrightMapPopupHtml(t));
+    window.REGIONAL_MAP_LAYERS.transport.addLayer(marker);
+    if (t.id) window.regionalMarkers[t.id] = marker;
+  });
+
+  // 3. Attractions (Sky Blue OR Must-Do Crimson/Gold)
+  attractions.forEach(a => {
+    const coords = a.coordinates || (a.lat && a.lng ? [a.lat, a.lng] : null);
+    if (!coords) return;
+    const isMustDo = (a.mustDo === true);
+    const targetLayer = isMustDo ? window.REGIONAL_MAP_LAYERS.mustdo : window.REGIONAL_MAP_LAYERS.attraction;
+    const marker = L.marker([coords[0], coords[1]], { icon: window.getUnifiedPinIcon('attraction', isMustDo) });
+    if (window.createBrightMapPopupHtml) marker.bindPopup(window.createBrightMapPopupHtml(a));
+    targetLayer.addLayer(marker);
+    if (a.id) window.regionalMarkers[a.id] = marker;
+  });
+
+  // 4. Dining Spots (Vivid Coral Orange OR Must-Eat Crimson/Gold)
+  restaurants.forEach(r => {
+    const coords = r.coordinates || (r.lat && r.lng ? [r.lat, r.lng] : null);
+    if (!coords) return;
+    const isMustDo = (r.mustEat === true || r.mustDo === true);
+    const targetLayer = isMustDo ? window.REGIONAL_MAP_LAYERS.mustdo : window.REGIONAL_MAP_LAYERS.dining;
+    const marker = L.marker([coords[0], coords[1]], { icon: window.getUnifiedPinIcon('dining', isMustDo) });
+    if (window.createBrightMapPopupHtml) marker.bindPopup(window.createBrightMapPopupHtml(r));
+    targetLayer.addLayer(marker);
+    if (r.id) window.regionalMarkers[r.id] = marker;
+  });
+};
+window.setupAllMapLayers = window.setupRegionalMapLayers;
+
+// === END UNIFIED MAP PIN ENGINE ===
 
 // =====================================================================
 // === CANONICAL REGIONAL MAP ENGINE & INTERACTIVE LAYER CONTROLLER ===
@@ -2166,7 +2369,6 @@ function initRegionalMap() {
   if (!mapContainer || typeof L === 'undefined') return;
 
   if (!regionalMapInstance) {
-    // Create Leaflet map instance centered over GBA Corridor
     regionalMapInstance = L.map('regionalLeafletMap', {
       zoomControl: true,
       scrollWheelZoom: true,
@@ -2174,9 +2376,18 @@ function initRegionalMap() {
     }).setView([22.95, 113.60], 9);
     window.map = regionalMapInstance;
     window.regionalMapInstance = regionalMapInstance;
+    window.regionalLeafletMapInstance = regionalMapInstance;
+    window.regionalLeafletMap = regionalMapInstance;
 
-    // Apply default base layer
-    setMapBaseLayer(currentBaseLayerName);
+    // Apply CartoDB Dark Matter / default base layer
+    if (typeof setMapBaseLayer === 'function') {
+      setMapBaseLayer(currentBaseLayerName);
+    } else {
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; CartoDB',
+        maxZoom: 19
+      }).addTo(regionalMapInstance);
+    }
 
     // Draw Transit Polyline linking major hubs
     const corridorPath = [
@@ -2208,62 +2419,19 @@ function initRegionalMap() {
       opacity: 0.95
     }).addTo(regionalMapInstance);
 
-    // Create custom markers
-    regionalLocations.forEach(loc => {
-      const customIcon = L.divIcon({
-        className: 'leaflet-data-marker',
-        html: `
-          <div class="custom-map-marker" style="background:${loc.color}; width:34px; height:34px;">
-            <i class="fa-solid ${loc.icon} text-sm"></i>
-          </div>
-        `,
-        iconSize: [34, 34],
-        iconAnchor: [17, 17],
-        popupAnchor: [0, -20]
-      });
+    // Prevent Leaflet canvas from hijacking clicks on the legend
+    const legendEl = document.getElementById('mktravel-map-legend');
+    if (legendEl && typeof L !== 'undefined' && L.DomEvent) {
+      L.DomEvent.disableClickPropagation(legendEl);
+      L.DomEvent.disableScrollPropagation(legendEl);
+    }
 
-      const popupHtml = `
-        <div class="space-y-2 text-xs">
-          <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1.5">
-            <span class="px-2 py-0.5 rounded text-[10px] font-black mono text-white" style="background:${loc.color}">${loc.badge}</span>
-            <span class="text-[10px] mono text-slate-200 uppercase">${loc.category}</span>
-          </div>
-          <div>
-            <h4 class="font-black text-sm text-white">${loc.title}</h4>
-            <p class="text-[11px] text-orange-300 font-bold mono">${loc.titleZh}</p>
-          </div>
-          <p class="text-slate-300 leading-snug">${loc.description}</p>
-          <div class="pt-1.5 flex items-center justify-between">
-            <button onclick="openDrawer('${loc.nodeKey}')" class="px-2.5 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500 text-cyan-200 hover:text-slate-950 font-bold mono text-[11px] transition flex items-center gap-1 cursor-pointer">
-              <span>View Specs</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
-            </button>
-            <span class="text-[10px] mono text-slate-200">${loc.coords[0].toFixed(2)}°N, ${loc.coords[1].toFixed(2)}°E</span>
-          </div>
-        </div>
-      `;
-
-      const marker = L.marker(loc.coords, { icon: (window.createUnifiedMapPinIcon ? window.createUnifiedMapPinIcon(loc) : customIcon) })
-        .addTo(regionalMapInstance)
-        .bindPopup(popupHtml);
-
-      regionalMarkers[loc.id] = marker;
-    });
+    // Populate unified LayerGroups
+    if (window.setupRegionalMapLayers) {
+      window.setupRegionalMapLayers(regionalMapInstance);
+    }
 
     renderRegionalLocationsSidebar();
-    // Bind global map instance and disable Leaflet propagation on legend
-  window.regionalMapInstance = regionalMapInstance;
-  window.regionalLeafletMap = regionalMapInstance;
-  const legendElem = document.getElementById('mktravel-map-legend');
-  if (legendElem && typeof L !== 'undefined' && L.DomEvent) {
-    L.DomEvent.disableClickPropagation(legendElem);
-    L.DomEvent.disableScrollPropagation(legendElem);
-  }
-  if (window.setupAllMapLayers) {
-    window.setupAllMapLayers(regionalMapInstance);
-  }
-    if (window.populateUniversalMapMarkers) {
-      window.populateUniversalMapMarkers(regionalMapInstance);
-    }
   }
 
   // Invalidate size to ensure proper tile rendering in tab views
