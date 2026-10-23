@@ -1,4 +1,38 @@
 
+// === UNIVERSAL CLICK-TO-COPY HELPER ===
+window.copyVenueText = function(text, label, event) {
+  if (event) event.stopPropagation();
+  if (!text) return;
+
+  const showFeedback = () => {
+    if (window.showToast) {
+      window.showToast(`Copied ${label || ''}: "${text}"`);
+    }
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(showFeedback).catch(() => {
+      // Fallback for older webviews
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showFeedback();
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showFeedback();
+  }
+};
+
+
 // === HIGH-CONTRAST MAP POPUP RENDERER ===
 window.createBrightMapPopupHtml = function(item) {
   if (!item) return '';
@@ -196,8 +230,8 @@ window.renderAttractionTile = function(a) {
         <span style="position: absolute; top: 6px; right: 6px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #fb7185; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(225, 29, 72, 0.3);">${region}</span>
       </div>
       <div style="padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; flex: 1;">
-        <div style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3;" title="${name}">${name}</div>
-        <div style="font-size: 11px; font-weight: 500; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${nameZh}">${nameZh}</div>
+        <div style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; cursor: copy;" title="Click to copy name" onclick="window.copyVenueText('${name.replace(/'/g, "\\'")}', 'English Name', event)"><i class="fa-regular fa-copy" style="font-size: 10px; opacity: 0.6; margin-right: 3px;"></i>${name}</div>
+        <div style="font-size: 11px; font-weight: 500; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: copy;" title="Click to copy Chinese name" onclick="window.copyVenueText('${nameZh.replace(/'/g, "\\'")}', 'Chinese Name', event)"><i class="fa-regular fa-copy" style="font-size: 9px; opacity: 0.6; margin-right: 3px;"></i>${nameZh}</div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px; font-size: 10px; color: #64748b;">
           <span>${category}</span>
           <span style="color: #38bdf8;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Info</span>
@@ -223,8 +257,8 @@ window.renderRestaurantTile = function(r) {
         <span style="position: absolute; top: 6px; right: 6px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #fbbf24; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">${region}</span>
       </div>
       <div style="padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; flex: 1;">
-        <div style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3;" title="${name}">${name}</div>
-        <div style="font-size: 11px; font-weight: 500; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${nameZh}">${nameZh}</div>
+        <div style="font-size: 12px; font-weight: 700; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; cursor: copy;" title="Click to copy name" onclick="window.copyVenueText('${name.replace(/'/g, "\\'")}', 'English Name', event)"><i class="fa-regular fa-copy" style="font-size: 10px; opacity: 0.6; margin-right: 3px;"></i>${name}</div>
+        <div style="font-size: 11px; font-weight: 500; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: copy;" title="Click to copy Chinese name" onclick="window.copyVenueText('${nameZh.replace(/'/g, "\\'")}', 'Chinese Name', event)"><i class="fa-regular fa-copy" style="font-size: 9px; opacity: 0.6; margin-right: 3px;"></i>${nameZh}</div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px; font-size: 10px; color: #64748b;">
           <span>${cuisine}</span>
           <span style="color: #fbbf24;">${price}</span>
@@ -320,68 +354,35 @@ window.renderCompactRestaurantRow = function(r) {
 
 
 
-// === SOCIAL MEDIA KEYWORD SEARCH & OFFICIAL WEBSITE ENGINE ===
-window.openSocialAppOrWeb = function(appScheme, webUrl) {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  if (isMobile && appScheme) {
-    const tStart = Date.now();
-    window.location.href = appScheme;
-    setTimeout(() => {
-      if (Date.now() - tStart < 1600 && document.hasFocus()) {
-        window.open(webUrl, '_blank', 'noopener,noreferrer');
-      }
-    }, 1200);
-  } else {
-    window.open(webUrl, '_blank', 'noopener,noreferrer');
-  }
-};
 
+// === STREAMLINED 1-TAP DISCOVERY & COPY BAR ===
 window.renderSocialLinks = function(item) {
   try {
     if (!item || typeof item !== 'object') return '';
-    const nameZh = item.nameZh || '';
-    const nameEn = item.name || '';
-    const zhQuery = nameZh || nameEn;
-    const globalQuery = nameEn || nameZh;
-    if (!zhQuery && !globalQuery) return '';
-
-    const encZh = encodeURIComponent(zhQuery);
-    const encGlobal = encodeURIComponent(globalQuery);
-
-    // 1. Xiaohongshu (XHS) Keyword Search
-    const xhsApp = `xhsdiscover://search/result?keyword=${encZh}`;
-    const xhsWeb = `https://www.xiaohongshu.com/search_result?keyword=${encZh}`;
-
-    // 2. TikTok Keyword Search
-    const tiktokWeb = `https://www.tiktok.com/search?q=${encGlobal}`;
-
-    // 3. Instagram Keyword Search
-    const instaWeb = `https://www.instagram.com/explore/search/keyword/?q=${encGlobal}`;
-
-    // 4. Official Website Portal (if defined)
+    const nameZh = (item.nameZh || '').replace(/'/g, "\\'");
+    const nameEn = (item.name || '').replace(/'/g, "\\'");
     const officialUrl = item.links?.official || item.officialUrl || item.website || '';
 
-    let html = '<div class="social-links-bar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; margin-bottom: 4px;">';
+    let html = '<div class="copy-discovery-bar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; margin-bottom: 4px;">';
 
-    // Xiaohongshu Chip
-    html += `<button type="button" onclick="window.openSocialAppOrWeb('${xhsApp}', '${xhsWeb}')" class="social-chip xhs-chip" title="Search on Xiaohongshu" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(255,36,66,0.15);color:#ff2442;border:1px solid rgba(255,36,66,0.4);cursor:pointer;transition:all 0.15s ease;">
-      <i class="fa-solid fa-camera"></i> 小红书
-    </button>`;
+    // 1-Tap Chinese Name Copy
+    if (nameZh) {
+      html += `<button type="button" onclick="window.copyVenueText('${nameZh}', 'Chinese Name', event)" title="Click to copy Chinese name for XHS, Dianping, Douyin" style="display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:6px;font-size:11px;font-weight:700;background:rgba(244,63,94,0.15);color:#fb7185;border:1px solid rgba(244,63,94,0.4);cursor:pointer;transition:all 0.15s ease;">
+        <i class="fa-regular fa-copy"></i> 复制中文名 (${nameZh})
+      </button>`;
+    }
 
-    // TikTok Chip
-    html += `<a href="${tiktokWeb}" target="_blank" rel="noopener noreferrer" class="social-chip tiktok-chip" title="Search on TikTok" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(0,242,254,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);transition:all 0.15s ease;">
-      <i class="fa-brands fa-tiktok"></i> TikTok
-    </a>`;
+    // 1-Tap English Name Copy
+    if (nameEn) {
+      html += `<button type="button" onclick="window.copyVenueText('${nameEn}', 'English Name', event)" title="Click to copy English name for TikTok, Instagram, Google" style="display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);cursor:pointer;transition:all 0.15s ease;">
+        <i class="fa-regular fa-copy"></i> Copy English
+      </button>`;
+    }
 
-    // Instagram Chip
-    html += `<a href="${instaWeb}" target="_blank" rel="noopener noreferrer" class="social-chip insta-chip" title="Search on Instagram" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(225,48,108,0.15);color:#f43f5e;border:1px solid rgba(244,63,94,0.4);transition:all 0.15s ease;">
-      <i class="fa-brands fa-instagram"></i> Instagram
-    </a>`;
-
-    // Official Website Chip (Rendered if available)
+    // Official Landmark Portal (if available)
     if (officialUrl) {
-      html += `<a href="${officialUrl}" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" title="Official Website" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(192,132,252,0.4);transition:all 0.15s ease;">
-        <i class="fa-solid fa-globe"></i> 官网 (Official)
+      html += `<a href="${officialUrl}" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" title="Official Website" style="display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(192,132,252,0.4);transition:all 0.15s ease;">
+        <i class="fa-solid fa-globe"></i> 官网
       </a>`;
     }
 
@@ -392,6 +393,7 @@ window.renderSocialLinks = function(item) {
     return '';
   }
 };
+
 
 
 
@@ -2568,7 +2570,7 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
   );
 
   // Badges & Titles
-  const nameZhDisplay = nameZh ? '<span class="text-amber-300 font-mono text-sm ml-2">(' + nameZh + ')</span>' : '';
+  const nameZhDisplay = nameZh ? '<span class="text-amber-300 font-mono text-sm ml-2 cursor-pointer hover:underline" title="Click to copy Chinese name" onclick="window.copyVenueText(\'' + safeNameZh + '\', \'Chinese Name\', event)"><i class="fa-regular fa-copy text-xs opacity-75 mr-1"></i>(' + nameZh + ')</span>' : '';
   const regionBadge = '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + region + '</span>';
   const categoryBadge = '<span class="text-xs px-2.5 py-1 rounded-full font-medium ' + (isDining ? 'bg-amber-900/40 text-amber-300 border border-amber-700/40' : 'bg-emerald-900/40 text-emerald-300 border border-emerald-700/40') + '">' + (isDining ? '🍴 ' + category : category) + '</span>';
   const timeAllocBadge = timeOrPrice ? ('<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-purple-900/40 text-purple-300 border border-purple-700/40">' + (isDining ? '💰 ' + timeOrPrice : '⏱️ ' + timeOrPrice) + '</span>') : '';
@@ -2639,7 +2641,7 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
         timeAllocBadge +
       '</div>' +
       '<h1 class="text-xl font-bold text-white flex items-center flex-wrap gap-1">' +
-        name +
+        '<span class="cursor-pointer hover:text-amber-300 transition-colors" title="Click to copy English name" onclick="window.copyVenueText(\'' + safeId + '\', \'English Name\', event)"><i class="fa-regular fa-copy text-sm opacity-60 mr-1.5"></i>' + name + '</span>' +
         nameZhDisplay +
       '</h1>' +
     '</div>' +
