@@ -2292,7 +2292,7 @@ const expeditionAttractions = [
     "tag": "CANTON • HERITAGE",
     "tagIcon": "fa-building",
     "image": "https://images.unsplash.com/photo-1574227492706-f65b24c3688a?w=800&q=80",
-    "desc": "A tranquil sandbank island featuring meticulously preserved European colonial architecture, banyan-lined avenues, and waterfront views.",
+    "desc": "A tranquil sandbank island steeped in history. Once a British and French enclave, it features meticulously preserved 19th-century colonial architecture, massive banyan-lined avenues, and boutique cafes.",
     "meta1": {
       "label": "ERA",
       "value": "Colonial 19th Century"
@@ -2306,9 +2306,9 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1541846513-33bc0c1bc256?w=800&q=80"
     ],
     "activities": [
-      "Walk colonial boulevards",
-      "Visit Our Lady of Lourdes Chapel",
-      "Relax by the Pearl River"
+      "Photograph the historic ex-British & French colonial mansions",
+      "Drink coffee at the famous colonial Starbucks reserve",
+      "Relax by the Pearl River promenade under centuries-old Banyan trees"
     ],
     "areaMap": "Metro Line 1 (Huangsha) -> Exit F",
     "nearbyRecs": [
@@ -2317,7 +2317,16 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.travelchinaguide.com/"
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "The ex-British and French enclave of Shamian Island",
+        "url": "https://www.youtube.com/watch?v=YRU1w9mUBoo"
+      },
+      {
+        "title": "This Doesn’t Feel Like China… Exploring Shamian Island",
+        "url": "https://www.youtube.com/watch?v=cx4OsI81h_c"
+      }
+    ]
   },
   {
     "id": "gulong",
@@ -2414,7 +2423,7 @@ const expeditionAttractions = [
     "tag": "SHENZHEN • TECH",
     "tagIcon": "fa-microchip",
     "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&q=80",
-    "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners with outdoor drone flight test bridges.",
+    "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners. Features an outdoor drone flight test bridge suspended high in the air and a futuristic showroom.",
     "meta1": {
       "label": "ARCHITECTURE",
       "value": "Suspension Towers"
@@ -2428,8 +2437,9 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1551694291-76495db600ed?w=800&q=80"
     ],
     "activities": [
-      "Tour asymmetric architecture",
-      "Test fly drones"
+      "Walk the glass suspension bridge connecting the twin towers",
+      "Watch indoor drone flight tests in the flagship store",
+      "Experience the asymmetric architectural design"
     ],
     "areaMap": "Metro Line 5 (Liuxiandong)",
     "nearbyRecs": [
@@ -2438,7 +2448,16 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.dji.com/company/skycity"
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "Welcome to DJI Sky City (Official Reveal)",
+        "url": "https://www.youtube.com/watch?v=RGsa_bpkVpU"
+      },
+      {
+        "title": "Futuristic DJI Headquarters Walking Tour",
+        "url": "https://www.youtube.com/watch?v=OMbgdGUn3-s"
+      }
+    ]
   },
   {
     "id": "talentpark",
@@ -2496,9 +2515,9 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1513686861775-6e06b7cbab98?w=800&q=80"
     ],
     "activities": [
-      "Ride the Star Ferry to Central",
-      "Symphony of Lights (8 PM)",
-      "Avenue of Stars"
+      "Ride the historic Star Ferry from Tsim Sha Tsui to Central",
+      "Watch the 8 PM Symphony of Lights laser show",
+      "Stroll along the Avenue of Stars taking in the skyline"
     ],
     "areaMap": "MTR Tsim Sha Tsui -> Star Ferry Pier",
     "nearbyRecs": [
@@ -2507,7 +2526,12 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.discoverhongkong.com/"
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "Hong Kong Victoria Harbour Walking Tour",
+        "url": "https://www.youtube.com/watch?v=48ecd730"
+      }
+    ]
   },
   {
     "id": "shamshuipo",
@@ -2551,7 +2575,7 @@ const expeditionAttractions = [
     "tag": "HONG KONG • NATURE",
     "tagIcon": "fa-mountain-sun",
     "image": "https://images.unsplash.com/photo-1598516246473-b26a6d0c2e68?w=800&q=80",
-    "desc": "A rugged mountain ridge offering a challenging hike through dense nature, rewarding climbers with legendary panoramic views of Kowloon.",
+    "desc": "The most iconic mountain in Hong Kong, offering a steep, challenging hike along the MacLehose trail. It rewards climbers with sweeping, panoramic sunset views of the Kowloon Peninsula.",
     "meta1": {
       "label": "HIKE",
       "value": "MacLehose Trail"
@@ -2565,8 +2589,9 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1572973809053-96b666a3363e?w=800&q=80"
     ],
     "activities": [
-      "Hike the ridge trail",
-      "Encounter wild macaques"
+      "Hike the legendary MacLehose Trail to the summit",
+      "Spot wild Macaques along the mountain path",
+      "Watch the sunset over the Kowloon Peninsula from the Lion's Head"
     ],
     "areaMap": "MTR Wong Tai Sin -> Minibus 18M",
     "nearbyRecs": [
@@ -2575,7 +2600,16 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.discoverhongkong.com/"
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "Lion Rock Peak Hike | The Most ICONIC Mountain In HK",
+        "url": "https://www.youtube.com/watch?v=g22oVyorlwA"
+      },
+      {
+        "title": "Lion Rock Hike: from Wong Tai Sin and back",
+        "url": "https://www.youtube.com/watch?v=YRJZsGRWnfk"
+      }
+    ]
   },
   {
     "id": "nanyue",
@@ -3889,7 +3923,7 @@ const expeditionAttractions = [
     "tag": "SHENZHEN • TECH",
     "tagIcon": "fa-microchip",
     "image": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
-    "desc": "Dual cantilever skyscraper towers by Foster + Partners with outdoor drone flight bridges.",
+    "desc": "State-of-the-art dual cantilever towers designed by Foster + Partners. Features an outdoor drone flight test bridge suspended high in the air and a futuristic showroom.",
     "meta1": {
       "label": "ARCHITECTURE",
       "value": "Suspension Towers"
@@ -3903,8 +3937,9 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     ],
     "activities": [
-      "Tour cantilever architecture",
-      "Test drone cages"
+      "Walk the glass suspension bridge connecting the twin towers",
+      "Watch indoor drone flight tests in the flagship store",
+      "Experience the asymmetric architectural design"
     ],
     "areaMap": "Metro L5 (Liuxiandong)",
     "nearbyRecs": [
@@ -3913,7 +3948,16 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.dji.com/"
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "Welcome to DJI Sky City (Official Reveal)",
+        "url": "https://www.youtube.com/watch?v=RGsa_bpkVpU"
+      },
+      {
+        "title": "Futuristic DJI Headquarters Walking Tour",
+        "url": "https://www.youtube.com/watch?v=OMbgdGUn3-s"
+      }
+    ]
   },
   {
     "id": "victoria-harbour",
@@ -3937,16 +3981,21 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     ],
     "activities": [
-      "Ride Star Ferry",
-      "Avenue of Stars stroll",
-      "Symphony of Lights"
+      "Ride the historic Star Ferry from Tsim Sha Tsui to Central",
+      "Watch the 8 PM Symphony of Lights laser show",
+      "Stroll along the Avenue of Stars taking in the skyline"
     ],
     "areaMap": "MTR Tsim Sha Tsui -> Star Ferry Pier",
     "nearbyRecs": [
       "K11 Musea"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "Hong Kong Victoria Harbour Walking Tour",
+        "url": "https://www.youtube.com/watch?v=48ecd730"
+      }
+    ]
   },
   {
     "id": "chimelong-birds",
