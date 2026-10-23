@@ -2399,11 +2399,13 @@ window.selectDrawerPhoto = function(url, index, total, thumbElement) {
   }
 };
 
+// === UNIVERSAL DETAIL DRAWER (DEDUPLICATED & MOBILE-FIRST) ===
 window.openAttractionDrawer = function(itemId, directItem = null) {
   let item = directItem;
   if (!item) {
-    const attractions = window.expeditionAttractions || [];
-    item = attractions.find(p => p.id === itemId || (p.name && p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId));
+    if (typeof expeditionAttractions !== 'undefined') {
+      item = expeditionAttractions.find(p => p.id === itemId || (p.name && p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === itemId));
+    }
   }
   if (!item) {
     const restaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : (window.restaurants || []);
@@ -2419,82 +2421,134 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
   }
 
   const drawer = document.getElementById('attraction-detail-drawer');
-  const backdrop = document.getElementById('attraction-drawer-backdrop');
-  const body = document.getElementById('attraction-drawer-body');
+  const backdrop = document.getElementById('attraction-drawer-backdrop') || document.getElementById('drawer-backdrop');
+  const body = document.getElementById('attraction-drawer-body') || document.getElementById('drawer-body-details');
   if (!drawer || !backdrop || !body) return;
 
   const isDining = !!(item.cuisine || item.dishes || (item.price && item.price.includes('¥')));
-  const nameZhDisplay = item.nameZh ? '<span class="text-amber-300 font-mono text-sm ml-2">(' + item.nameZh + ')</span>' : '';
-  const regionBadge = item.region ? '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + item.region + '</span>' : '';
-  const categoryBadge = '<span class="text-xs px-2.5 py-1 rounded-full font-medium ' + (isDining ? 'bg-amber-900/40 text-amber-300 border border-amber-700/40' : 'bg-emerald-900/40 text-emerald-300 border border-emerald-700/40') + '">' + (isDining ? '🍴 ' + (item.cuisine || item.category || 'Dining') : (item.category || 'Attraction')) + '</span>';
-  const timeAllocBadge = (item.timeAlloc || item.time || item.price) ? ('<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-purple-900/40 text-purple-300 border border-purple-700/40">' + (isDining ? '💰 ' + item.price : '⏱️ ' + (item.timeAlloc || item.time)) + '</span>') : '';
+  const name = item.name || '';
+  const nameZh = item.nameZh || '';
+  const region = item.region || 'Guangzhou';
+  const category = item.category || item.cuisine || (isDining ? 'Dining' : 'Attraction');
+  const timeOrPrice = item.price || item.timeAlloc || item.time || '';
+  const address = item.address || nameZh || name;
+  const metro = item.metro || item.areaMap || item.area || '';
+  const review = item.review || item.desc || item.notes || '';
+  const dishes = Array.isArray(item.dishes) ? item.dishes : (typeof item.dishes === 'string' ? item.dishes.split(',').map(s => s.trim()) : []);
 
-  const safeAddress = (item.address || item.nameZh || item.name || '').replace(/'/g, "\\'");
-  const safeNameZh = (item.nameZh || item.name || '').replace(/'/g, "\\'");
+  const safeAddress = (address || nameZh || name).replace(/'/g, "\\'");
+  const safeNameZh = (nameZh || name).replace(/'/g, "\\'");
   const safeId = (item.id || '').replace(/'/g, "\\'");
 
   const lat = item.coordinates && item.coordinates[0] ? item.coordinates[0] : null;
   const lng = item.coordinates && item.coordinates[1] ? item.coordinates[1] : null;
   const navGoogleUrl = (lat && lng) ? ('https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng) : '#';
-  const navAmapUrl = (lat && lng) ? ('https://uri.amap.com/marker?position=' + lng + ',' + lat + '&name=' + encodeURIComponent(item.nameZh || item.name)) : '#';
+  const navAmapUrl = (lat && lng) ? ('https://uri.amap.com/marker?position=' + lng + ',' + lat + '&name=' + encodeURIComponent(nameZh || name)) : '#';
 
-  // Interactive Photo Library & Experience Gallery
-  let photoGalleryHtml = '';
-  let photos = [];
-  if (Array.isArray(item.photos) && item.photos.length > 0) {
-    photos = item.photos;
-  } else if (Array.isArray(item.gallery) && item.gallery.length > 0) {
-    photos = item.gallery.map(g => (typeof g === 'string' ? g : (g.image || g.url))).filter(Boolean);
-  } else if (item.image) {
-    photos = [item.image];
-  } else if (item.coverImage) {
-    photos = [item.coverImage];
+  // --- STRICT PHOTO DEDUPLICATION LOGIC ---
+  const cleanPath = (p) => (p || '').replace(/^https?:\/\/[^\/]+/, '').split('?')[0];
+
+  let rawCandidates = [];
+  if (item.coverImage) rawCandidates.push(item.coverImage);
+  if (item.image) rawCandidates.push(item.image);
+  if (Array.isArray(item.photos)) {
+    item.photos.forEach(p => rawCandidates.push(typeof p === 'string' ? p : (p && p.url)));
+  }
+  if (Array.isArray(item.gallery)) {
+    item.gallery.forEach(g => {
+      if (typeof g === 'string') rawCandidates.push(g);
+      else if (g && g.image) rawCandidates.push(g.image);
+      else if (g && g.url) rawCandidates.push(g.url);
+    });
+  }
+  if (Array.isArray(item.images)) {
+    item.images.forEach(img => rawCandidates.push(img));
   }
 
-  if (photos.length > 0) {
-    const mainPhoto = photos[0];
-    let thumbStripHtml = '';
-    if (photos.length > 1) {
-      thumbStripHtml = '<div class="space-y-1.5 pt-1">' +
-        '<div class="flex items-center justify-between text-[11px] mono text-slate-200">' +
-          '<span class="text-cyan-400 font-bold flex items-center gap-1.5">' +
-            '<i class="fa-solid fa-camera-retro"></i> PHOTO GALLERY (' + photos.length + ')' +
-          '</span>' +
-          '<span class="text-slate-500">Click angle to view</span>' +
-        '</div>' +
-        '<div class="flex gap-2 overflow-x-auto pb-1.5 snap-x">';
-
-      photos.forEach((p, idx) => {
-        const safeP = (p || '').replace(/'/g, "\\'");
-        thumbStripHtml += '<div onclick="window.selectDrawerPhoto(\'' + safeP + '\', ' + (idx + 1) + ', ' + photos.length + ', this)" ' +
-             'class="drawer-thumb-btn flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden cursor-pointer border-2 ' + (idx === 0 ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-white/10 hover:border-white/30') + ' transition-all snap-start relative">' +
-          '<img src="' + p + '" class="w-full h-full object-cover" loading="lazy" alt="Angle ' + (idx + 1) + '">' +
-          '<span class="absolute bottom-1 right-1 bg-black/80 text-[9px] font-mono font-bold text-white px-1 rounded">#' + (idx + 1) + '</span>' +
-        '</div>';
-      });
-
-      thumbStripHtml += '</div></div>';
+  const photos = [];
+  const seenPaths = new Set();
+  rawCandidates.forEach(p => {
+    if (!p) return;
+    const norm = cleanPath(p);
+    if (!seenPaths.has(norm)) {
+      seenPaths.add(norm);
+      photos.push(p);
     }
+  });
 
-    photoGalleryHtml = '<div class="space-y-2">' +
-      '<div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">' +
-        '<img id="drawer-main-photo" src="' + mainPhoto + '" class="w-full h-full object-cover transition-opacity duration-200" alt="' + item.name + '" loading="lazy">' +
-        '<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>' +
+  if (photos.length === 0) {
+    photos.push(isDining ? '/assets/dining/dongshan-creative-district-cafe.jpg' : '/assets/attractions/cantontower.jpg');
+  }
+
+  const mainPhoto = photos[0];
+  let thumbStripHtml = '';
+  if (photos.length > 1) {
+    thumbStripHtml = '<div class="space-y-1.5 pt-1">' +
+      '<div class="flex items-center justify-between text-[11px] mono text-slate-200">' +
+        '<span class="text-cyan-400 font-bold flex items-center gap-1.5">' +
+          '<i class="fa-solid fa-camera-retro"></i> PHOTO GALLERY (' + photos.length + ')' +
+        '</span>' +
+        '<span class="text-slate-400 text-[10px]">Tap angle to view</span>' +
+      '</div>' +
+      '<div class="flex gap-2 overflow-x-auto pb-1.5 snap-x">';
+
+    photos.forEach((p, idx) => {
+      const safeP = (p || '').replace(/'/g, "\\'");
+      thumbStripHtml += '<div onclick="window.selectDrawerPhoto(\'' + safeP + '\', ' + (idx + 1) + ', ' + photos.length + ', this)" ' +
+        'class="drawer-thumb-btn flex-shrink-0 w-20 h-16 rounded-xl overflow-hidden cursor-pointer border-2 ' + (idx === 0 ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-white/10 hover:border-white/30') + ' transition-all snap-start relative">' +
+        '<img src="' + p + '" class="w-full h-full object-cover" loading="lazy" alt="Angle ' + (idx + 1) + '">' +
+        '<span class="absolute bottom-1 right-1 bg-black/80 text-[9px] font-mono font-bold text-white px-1 rounded">#' + (idx + 1) + '</span>' +
+      '</div>';
+    });
+
+    thumbStripHtml += '</div></div>';
+  }
+
+  const photoGalleryHtml = '<div class="space-y-2">' +
+    '<div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group bg-slate-950">' +
+      '<img id="drawer-main-photo" src="' + mainPhoto + '" class="w-full h-full object-cover transition-opacity duration-200" alt="' + name + '" loading="lazy" onerror="this.src=\'' + (isDining ? '/assets/dining/dongshan-creative-district-cafe.jpg' : '/assets/attractions/cantontower.jpg') + '\'">' +
+      '<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>' +
+      (photos.length > 1 ? (
         '<div class="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-xl text-xs font-mono text-cyan-300 border border-white/15">' +
           '<span id="drawer-photo-counter">1</span> / ' + photos.length + ' Photos' +
-        '</div>' +
-        '<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">' +
-          '<span class="text-xs text-white/90 font-medium drop-shadow flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-amber-400"></i> ' + item.name + '</span>' +
-          '<span class="text-[11px] mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">' + (isDining ? 'Culinary Radar' : 'Experience Gallery') + '</span>' +
-        '</div>' +
+        '</div>'
+      ) : '') +
+      '<div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">' +
+        '<span class="text-xs text-white/90 font-medium drop-shadow flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-amber-400"></i> ' + name + '</span>' +
+        '<span class="text-[11px] mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">' + (isDining ? 'Culinary Radar' : 'Experience Gallery') + '</span>' +
       '</div>' +
-      thumbStripHtml +
-    '</div>';
-  }
+    '</div>' +
+    thumbStripHtml +
+  '</div>';
 
-  // Signature Dishes (for dining)
+  // Social Links Component (TOP PRIORITY - ABOVE THE FOLD)
+  const socialLinksSection = window.renderSocialLinks ? (
+    '<div style="margin-top: 10px; margin-bottom: 12px; padding: 10px 12px; border-radius: 12px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(244, 63, 94, 0.35); box-shadow: 0 4px 14px rgba(0,0,0,0.4);">' +
+      '<div style="font-size: 11px; font-weight: 700; color: #f43f5e; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">' +
+        '<span><i class="fa-solid fa-share-nodes"></i> 社交平台与实时攻略 (Social & Live Intel)</span>' +
+        '<span style="font-size: 10px; color: #94a3b8; font-weight: 400;">1-Tap Discovery</span>' +
+      '</div>' +
+      window.renderSocialLinks(item) +
+    '</div>'
+  ) : '';
+
+  // One-Tap Didi Taxi Button
+  const didiButton = (
+    '<div style="margin-bottom: 12px;">' +
+      '<button type="button" onclick="if(window.copyTaxiAddress){window.copyTaxiAddress(\'' + safeAddress + '\',\'' + safeNameZh + '\');}else{navigator.clipboard.writeText(\'' + safeAddress + '\');if(window.showToast)window.showToast(\'Copied destination for Didi: ' + safeAddress + '\');}" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px; border-radius: 10px; background: linear-gradient(135deg, #f59e0b, #d97706); color: #ffffff; font-weight: 700; font-size: 12px; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);">' +
+        '<i class="fa-solid fa-taxi"></i> Copy Address for Didi (复制滴滴地址)' +
+      '</button>' +
+    '</div>'
+  );
+
+  // Badges & Titles
+  const nameZhDisplay = nameZh ? '<span class="text-amber-300 font-mono text-sm ml-2">(' + nameZh + ')</span>' : '';
+  const regionBadge = '<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-900/50 text-blue-300 border border-blue-700/50">' + region + '</span>';
+  const categoryBadge = '<span class="text-xs px-2.5 py-1 rounded-full font-medium ' + (isDining ? 'bg-amber-900/40 text-amber-300 border border-amber-700/40' : 'bg-emerald-900/40 text-emerald-300 border border-emerald-700/40') + '">' + (isDining ? '🍴 ' + category : category) + '</span>';
+  const timeAllocBadge = timeOrPrice ? ('<span class="text-xs px-2.5 py-1 rounded-full font-medium bg-purple-900/40 text-purple-300 border border-purple-700/40">' + (isDining ? '💰 ' + timeOrPrice : '⏱️ ' + timeOrPrice) + '</span>') : '';
+
+  // Dishes Section
   let dishesHtml = '';
-  const dishes = Array.isArray(item.dishes) ? item.dishes : (typeof item.dishes === 'string' ? item.dishes.split(',').map(s => s.trim()) : []);
   if (dishes.length > 0) {
     dishesHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
       '<div class="text-xs text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-utensils"></i> Signature Dishes & Highlights (招牌菜推荐)</div>' +
@@ -2504,7 +2558,7 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
     '</div>';
   }
 
-  // Key Activities / What to Do (for attractions)
+  // Activities Section
   let activitiesHtml = '';
   if (item.activities && item.activities.length > 0) {
     activitiesHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
@@ -2515,24 +2569,23 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
     '</div>';
   }
 
-  // Transit & Access
+  // Transit Section
   let accessHtml = '';
-  const accessText = item.areaMap || item.metro || '';
-  if (accessText) {
+  if (metro) {
     accessHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
       '<div class="text-xs text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>🚇</span> Transit & Access</div>' +
-      '<p class="text-xs text-gray-300 font-mono">' + accessText + '</p>' +
+      '<p class="text-xs text-gray-300 font-mono">' + metro + '</p>' +
     '</div>';
   }
 
-  // Video reviews
-  let reviewsHtml = '';
-  if (item.reviews && item.reviews.length > 0) {
-    reviewsHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
-      '<div class="text-xs text-rose-400 font-semibold uppercase tracking-wider flex items-center gap-1"><span>📺</span> Video Reviews</div>' +
-      '<div class="flex flex-col gap-2">' +
-        item.reviews.map(r => '<a href="' + r.url + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-rose-300 hover:text-white hover:underline bg-rose-500/10 px-3 py-2 rounded-xl border border-rose-500/20"><i class="fa-brands fa-youtube text-red-500 text-sm"></i> ' + r.title + '</a>').join('') +
+  // Review / Overview Section
+  let reviewHtml = '';
+  if (review) {
+    reviewHtml = '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
+      '<div class="text-xs text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
+        '<span>💬</span> ' + (isDining ? 'What Diners Say' : 'What Travelers Say') +
       '</div>' +
+      '<p class="text-sm text-gray-300 leading-relaxed italic">"' + review + '"</p>' +
     '</div>';
   }
 
@@ -2551,7 +2604,7 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
 
   const isStaged = (window.__stagedAttractions || []).includes(item.id);
 
-  body.innerHTML = '<div class="space-y-4">' +
+  body.innerHTML = '<div class="space-y-4 pb-12">' +
     photoGalleryHtml +
     '<div>' +
       '<div class="flex items-center gap-2 flex-wrap mb-2">' +
@@ -2560,41 +2613,23 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
         timeAllocBadge +
       '</div>' +
       '<h1 class="text-xl font-bold text-white flex items-center flex-wrap gap-1">' +
-        item.name +
+        name +
         nameZhDisplay +
       '</h1>' +
     '</div>' +
-    (item.address ? (
+    socialLinksSection +
+    (address ? (
       '<div class="bg-gray-800/60 p-3.5 rounded-xl border border-gray-700/60 space-y-2">' +
         '<div class="text-xs text-gray-200 font-medium uppercase tracking-wider">Address / 详细地址</div>' +
-        '<div class="text-sm text-gray-200 select-all font-mono">' + item.address + '</div>' +
-        '<button onclick="window.copyTaxiAddress(\'' + safeAddress + '\', \'' + safeNameZh + '\')" class="mt-2 w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-colors">' +
-          '<span>🚕</span> Copy Bilingual Address for Taxi / Didi' +
-        '</button>' +
+        '<div class="text-sm text-gray-200 select-all font-mono">' + address + '</div>' +
+        didiButton +
       '</div>'
-    ) : '') +
+    ) : didiButton) +
     dishesHtml +
     activitiesHtml +
-    (item.review || item.desc || item.notes ? (
-      '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-2">' +
-        '<div class="text-xs text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1">' +
-          '<span>💬</span> ' + (isDining ? 'What Diners Say' : 'What Travelers Say') +
-        '</div>' +
-        '<p class="text-sm text-gray-300 leading-relaxed italic">"' + (item.review || item.desc || item.notes) + '"</p>' +
-      '</div>'
-    ) : '') +
-    (window.renderSocialLinks ? (
-      '<div class="bg-gray-800/50 p-4 rounded-xl border border-rose-500/30 space-y-2">' +
-        '<div class="text-xs text-rose-400 font-bold uppercase tracking-wider flex items-center gap-1.5">' +
-          '<i class="fa-solid fa-share-nodes"></i> 社交平台与实时攻略 (Social & Live Intel)' +
-        '</div>' +
-        '<div class="text-[11px] text-slate-200 mb-1">Click any chip for real-time crowd photos, menus, and guides:</div>' +
-        window.renderSocialLinks(item) +
-      '</div>'
-    ) : '') +
+    reviewHtml +
     accessHtml +
     nearbyHtml +
-    reviewsHtml +
     '<div class="bg-gray-800/40 p-4 rounded-xl border border-gray-800 space-y-3">' +
       '<div class="text-xs text-gray-200 font-semibold uppercase tracking-wider flex items-center gap-1">' +
         '<span>🧭</span> Navigation & Map Coordinates' +
@@ -2632,6 +2667,9 @@ window.openAttractionDrawer = function(itemId, directItem = null) {
   document.body.style.overflow = 'hidden';
 };
 
+window.openRestaurantDetail = function(id) {
+  window.openAttractionDrawer(id);
+};
 
 window.closeAttractionDrawer = function() {
   const drawer = document.getElementById('attraction-detail-drawer');
