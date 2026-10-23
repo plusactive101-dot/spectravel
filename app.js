@@ -1665,6 +1665,7 @@ function initApp() {
   try { renderDailySchedule('all'); } catch (e) { console.error('China schedule err:', e); }
   try { renderRestaurants('all'); } catch (e) { console.error('China dining err:', e); }
   try { calculateChinaBudget(); } catch (e) { console.error('China budget err:', e); }
+  try { window.renderAttractionsGrid('All'); } catch (e) { console.error('Attractions render err:', e); }
 
   window.addEventListener('hashchange', () => {
     const raw = window.location.hash ? window.location.hash.replace('#', '') : '';
@@ -1757,4 +1758,100 @@ window.openAttraction = function(id) {
         overlay.classList.remove('hidden');
         overlay.classList.add('opacity-100');
     }
+};
+
+
+// --- DYNAMIC ATTRACTIONS GRID RENDERER ---
+window.renderAttractionsGrid = function(filterCategory = 'All') {
+  const container = document.getElementById('attractionsGridContainer') || document.getElementById('attractionsGrid');
+  if (!container) return;
+
+  const rawData = (typeof expeditionAttractions !== 'undefined') ? expeditionAttractions : [];
+  const seen = new Set();
+  const data = rawData.filter(item => {
+    if (!item.id || seen.has(item.id)) return false;
+    seen.add(item.id);
+    return true;
+  });
+
+  const categoryMap = {
+    'theme-park': ['chimelong', 'safari', 'circus', 'water', 'paradise'],
+    'nature': ['nature', 'alpine', 'scenic', 'forest', 'karst', 'waterfall', 'lake', 'mountain'],
+    'heritage': ['heritage', 'culture', 'local', 'temple', 'mansions', 'history'],
+    'tech': ['tech', 'nanshan', 'skyscraper', 'art', 'exhibition', 'promenade']
+  };
+
+  const filtered = data.filter(item => {
+    if (!filterCategory || filterCategory === 'All' || filterCategory === 'all') return true;
+    const catLower = (item.category || '').toLowerCase();
+    const tagLower = (item.tag || '').toLowerCase();
+    
+    if (item.category === filterCategory) return true;
+
+    const patterns = categoryMap[filterCategory.toLowerCase()];
+    if (patterns) {
+      return patterns.some(p => catLower.includes(p) || tagLower.includes(p));
+    }
+    return catLower.includes(filterCategory.toLowerCase());
+  });
+
+  let html = '';
+  filtered.forEach(item => {
+    const imgUrl = item.image || (item.photos && item.photos[0]) || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800';
+    const tag = item.tag || 'EXPEDITION SPOT';
+    const timeAlloc = item.timeAlloc || '';
+    const desc = item.desc || (item.activities ? item.activities.join(' • ') : '');
+    const meta1Label = item.meta1 ? item.meta1.label : 'CATEGORY';
+    const meta1Val = item.meta1 ? item.meta1.value : (item.category || 'Sight');
+    const meta2Label = item.meta2 ? item.meta2.label : 'ACCESS';
+    const meta2Val = item.meta2 ? item.meta2.value : (item.areaMap ? item.areaMap.split('->')[0].trim() : 'Transit');
+
+    html += '<div class="attraction-card glass-card glow-cyan rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between space-y-4 hover:border-cyan-500/40 transition">' +
+      '<div class="space-y-4">' +
+        '<div class="relative h-52 overflow-hidden group cursor-pointer" onclick="window.openAttraction(\'' + item.id + '\')">' +
+          '<img src="' + imgUrl + '" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="' + item.name + '">' +
+          '<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>' +
+          '<span class="absolute top-4 left-4 bg-cyan-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs mono shadow-md">' + tag + '</span>' +
+          (timeAlloc ? '<span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-cyan-300 font-bold px-2.5 py-1 rounded-xl text-[11px] mono border border-white/15"><i class="fa-solid fa-clock mr-1"></i> ' + timeAlloc + '</span>' : '') +
+          '<div class="absolute bottom-4 left-5 right-5">' +
+            '<h3 class="text-xl font-black text-white group-hover:text-cyan-300 transition">' + item.name + '</h3>' +
+            '<p class="text-xs text-cyan-300 font-mono">' + (item.category || '') + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="px-6 space-y-3 text-xs">' +
+          '<div class="grid grid-cols-2 gap-2 text-[11px] mono">' +
+            '<div class="p-2 rounded-xl bg-white/5 border border-white/10">' +
+              '<span class="text-slate-400 block text-[10px]">' + meta1Label + '</span>' +
+              '<span class="text-white font-bold truncate block">' + meta1Val + '</span>' +
+            '</div>' +
+            '<div class="p-2 rounded-xl bg-white/5 border border-white/10">' +
+              '<span class="text-slate-400 block text-[10px]">' + meta2Label + '</span>' +
+              '<span class="text-cyan-300 font-bold truncate block">' + meta2Val + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<p class="text-slate-300 leading-relaxed line-clamp-3">' + desc + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="p-6 pt-0 flex items-center gap-2">' +
+        '<button onclick="window.openAttraction(\'' + item.id + '\')" class="flex-1 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 border border-cyan-500/40 text-cyan-200 hover:text-slate-950 font-bold mono text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">' +
+          '<i class="fa-solid fa-circle-info"></i> View Itinerary Specs' +
+        '</button>' +
+      '</div>' +
+    '</div>';
+  });
+
+  container.innerHTML = html;
+};
+
+// Update filterAttractionsCards to trigger dynamic re-render
+window.filterAttractionsCards = function(category) {
+  document.querySelectorAll('.attraction-filter-btn').forEach(btn => {
+    if (btn.dataset.category === category) {
+      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md";
+    } else {
+      btn.className = "attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15";
+    }
+  });
+
+  window.renderAttractionsGrid(category);
 };
