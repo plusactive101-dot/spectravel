@@ -1,4 +1,206 @@
 
+// =====================================================================
+// === CANONICAL REGIONAL MAP ENGINE & INTERACTIVE LAYER CONTROLLER ===
+// =====================================================================
+
+window.MAP_LAYERS = {
+  hotel: null,
+  transport: null,
+  attraction: null,
+  dining: null,
+  mustdo: null
+};
+
+window.MAP_LAYER_VISIBILITY = {
+  hotel: true,
+  transport: true,
+  attraction: true,
+  dining: true,
+  mustdo: true
+};
+
+window.resolveMarkerCategory = function(item, explicitCat = '') {
+  if (!item) return 'attraction';
+
+  const id = (item.id || item.nodeKey || '').toLowerCase().replace(/[-_]/g, '');
+  const name = (item.name || item.title || '').toLowerCase();
+  const nameZh = (item.nameZh || item.titleZh || '');
+  const cat = (item.category || item.cuisine || item.type || '').toLowerCase();
+
+  // 1. MUST-DO OVERWRITE (Highest Priority: Overwrites Attraction or Dining)
+  const isCuratedMustDo = (
+    item.mustDo === true ||
+    item.mustEat === true ||
+    explicitCat === 'mustdo' ||
+    (item.rating && parseFloat(item.rating) >= 4.9) ||
+    /cantontower|chimelong|wisca|bingsheng|chenclan|disney|oceanpark|gulong|dongshan|victoriapeak|pingan/.test(id) ||
+    /广州塔|长隆|惠食佳|炳胜|陈家祠|迪士尼|海洋公园|古龙峡|东山口|太平山顶|平安金融/.test(nameZh) ||
+    /canton tower|chimelong|wisca|bingsheng|chen clan|disneyland|ocean park|gulong gorge|victoria peak/.test(name)
+  );
+
+  if (isCuratedMustDo) return 'mustdo';
+
+  // 2. Hotel
+  if (explicitCat === 'hotel' || cat.includes('hotel') || item.nights || item.checkIn || /hotel|resort|lodge/.test(name) || (item.badge && item.badge.includes('Hotel'))) {
+    return 'hotel';
+  }
+
+  // 3. Transport
+  if (explicitCat === 'transport' || cat.includes('transport') || cat.includes('transit') || cat.includes('rail') || cat.includes('speed rail') ||
+      /station|railway|airport|ferry|terminal|bullet|subway|metro/.test(name) ||
+      /站|高铁|机场|码头|火车站|客运/.test(nameZh) ||
+      (item.badge && item.badge.includes('Transit'))) {
+    return 'transport';
+  }
+
+  // 4. Dining
+  if (explicitCat === 'dining' || item.cuisine || (item.dishes && item.dishes.length > 0) || cat.includes('food') || cat.includes('dining') || cat.includes('restaurant')) {
+    return 'dining';
+  }
+
+  // 5. Default Attraction
+  return 'attraction';
+};
+
+window.createUnifiedMapPinIcon = function(item, explicitCat = '') {
+  const catKey = window.resolveMarkerCategory(item, explicitCat);
+  const isMustDo = (catKey === 'mustdo');
+
+  const configs = {
+    hotel:      { bg: '#10b981', border: '#047857', glow: '0 0 10px rgba(16, 185, 129, 0.7)', icon: 'fa-solid fa-hotel', iconColor: '#ffffff' },
+    transport:  { bg: '#8b5cf6', border: '#6d28d9', glow: '0 0 10px rgba(139, 92, 246, 0.7)', icon: 'fa-solid fa-train-subway', iconColor: '#ffffff' },
+    attraction: { bg: '#0284c7', border: '#0369a1', glow: '0 0 10px rgba(2, 132, 199, 0.7)', icon: 'fa-solid fa-landmark', iconColor: '#ffffff' },
+    dining:     { bg: '#f97316', border: '#c2410c', glow: '0 0 10px rgba(249, 115, 22, 0.7)', icon: 'fa-solid fa-utensils', iconColor: '#ffffff' },
+    mustdo:     { bg: '#e11d48', border: '#fde047', glow: '0 0 16px rgba(225, 29, 72, 0.9), 0 0 6px #fde047', icon: 'fa-solid fa-star', iconColor: '#fde047' }
+  };
+
+  const cfg = configs[catKey] || configs.attraction;
+  const size = isMustDo ? 32 : 26;
+
+  const html = `
+    <div class="mktravel-pin mktravel-pin-${catKey}" style="
+      position: relative;
+      width: ${size}px;
+      height: ${size}px;
+      background: ${cfg.bg};
+      border: 2px solid ${cfg.border};
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: ${cfg.glow};
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    " onmouseover="this.style.transform='scale(1.25)';" onmouseout="this.style.transform='scale(1)';" title="${((item.name || item.title || '') + '').replace(/"/g, '&quot;')}">
+      <i class="${cfg.icon}" style="color: ${cfg.iconColor}; font-size: ${isMustDo ? '13px' : '11px'};"></i>
+      ${isMustDo ? '<span style="position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; background: #fde047; border-radius: 50%; border: 1.5px solid #0f172a;"></span>' : ''}
+    </div>
+  `;
+
+  if (typeof L !== 'undefined' && L.divIcon) {
+    return L.divIcon({
+      className: 'mktravel-custom-div-icon',
+      html: html,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -size / 2 - 2]
+    });
+  }
+  return null;
+};
+
+// Toggle Category on Legend Click
+window.toggleMapCategoryFilter = function(categoryKey) {
+  if (window.MAP_LAYER_VISIBILITY[categoryKey] === undefined) return;
+
+  const current = window.MAP_LAYER_VISIBILITY[categoryKey];
+  window.MAP_LAYER_VISIBILITY[categoryKey] = !current;
+  const isVisible = window.MAP_LAYER_VISIBILITY[categoryKey];
+
+  // Update Legend Button Visual Style
+  const legendBtns = document.querySelectorAll(`[data-legend-cat="${categoryKey}"]`);
+  legendBtns.forEach(btn => {
+    if (isVisible) {
+      btn.style.opacity = '1';
+      btn.style.filter = 'grayscale(0%)';
+      btn.style.transform = 'scale(1)';
+    } else {
+      btn.style.opacity = '0.35';
+      btn.style.filter = 'grayscale(80%)';
+      btn.style.transform = 'scale(0.92)';
+    }
+  });
+
+  // Toggle LayerGroup on Regional Map
+  const mapInstance = window.regionalMapInstance || window.map;
+  const layer = window.MAP_LAYERS[categoryKey];
+  if (mapInstance && layer) {
+    if (isVisible) {
+      if (!mapInstance.hasLayer(layer)) mapInstance.addLayer(layer);
+    } else {
+      if (mapInstance.hasLayer(layer)) mapInstance.removeLayer(layer);
+    }
+  }
+};
+
+// Populate All 5 Layers on the Target Map
+window.setupAllMapLayers = function(targetMap) {
+  const map = targetMap || window.regionalMapInstance || window.map;
+  if (!map || typeof L === 'undefined') return;
+  window.regionalMapInstance = map;
+
+  // Initialize or clear layer groups
+  Object.keys(window.MAP_LAYERS).forEach(k => {
+    if (!window.MAP_LAYERS[k]) {
+      window.MAP_LAYERS[k] = L.layerGroup();
+    } else {
+      window.MAP_LAYERS[k].clearLayers();
+    }
+    // Add to map if currently active
+    if (window.MAP_LAYER_VISIBILITY[k] && !map.hasLayer(window.MAP_LAYERS[k])) {
+      map.addLayer(window.MAP_LAYERS[k]);
+    }
+  });
+
+  const attractions = (typeof expeditionAttractions !== 'undefined') ? expeditionAttractions : [];
+  const restaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : [];
+  const corridorLocs = (typeof regionalLocations !== 'undefined') ? regionalLocations : [];
+
+  const addPoint = (item, baseCategory, coords) => {
+    if (!coords || !Array.isArray(coords) || coords.length < 2) return;
+    const cat = window.resolveMarkerCategory(item, baseCategory);
+    const pin = window.createUnifiedMapPinIcon(item, baseCategory);
+    const marker = L.marker([coords[0], coords[1]], { icon: pin });
+
+    if (window.createBrightMapPopupHtml) {
+      marker.bindPopup(window.createBrightMapPopupHtml(item));
+    }
+
+    if (window.MAP_LAYERS[cat]) {
+      window.MAP_LAYERS[cat].addLayer(marker);
+    }
+  };
+
+  // 1. Corridor Hubs (Hotels & Transit)
+  corridorLocs.forEach(loc => {
+    addPoint(loc, '', loc.coords);
+  });
+
+  // 2. Attractions (Sky Blue or Must Do Crimson/Gold)
+  attractions.forEach(a => {
+    const coords = a.coordinates || (a.lat && a.lng ? [a.lat, a.lng] : null);
+    addPoint(a, 'attraction', coords);
+  });
+
+  // 3. Dining (Coral Orange or Must Eat Crimson/Gold)
+  restaurants.forEach(r => {
+    const coords = r.coordinates || (r.lat && r.lng ? [r.lat, r.lng] : null);
+    addPoint(r, 'dining', coords);
+  });
+};
+
+// === END REGIONAL MAP ENGINE ===
+
 // === REGIONAL MAP UNIVERSAL MARKER ENGINE & INTERACTIVE LEGEND ===
 window.activeMapFilters = {
   hotel: true,
@@ -2057,6 +2259,7 @@ function initRegionalMap() {
     });
 
     renderRegionalLocationsSidebar();
+    if (window.setupAllMapLayers) { window.setupAllMapLayers(regionalMapInstance); }
     if (window.populateUniversalMapMarkers) {
       window.populateUniversalMapMarkers(regionalMapInstance);
     }
