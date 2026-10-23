@@ -1147,12 +1147,14 @@
           </div>
 
           <!-- ATTRACTIONS FILTER TABS -->
-          <div class="flex flex-wrap gap-2 text-xs mono">
-            <button onclick="filterAttractionsCards('all')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md" data-category="all">All Sights</button>
-            <button onclick="filterAttractionsCards('theme-park')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="theme-park">Theme Parks</button>
-            <button onclick="filterAttractionsCards('nature')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="nature">Nature & Alps</button>
-            <button onclick="filterAttractionsCards('heritage')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="heritage">Heritage & Culture</button>
-            <button onclick="filterAttractionsCards('tech')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="tech">Tech & Skyline</button>
+          <div class="flex flex-wrap gap-2 text-xs mono" id="attractionFilters">
+            <button onclick="filterAttractionsCards('All')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold shadow-md" data-category="All">All Regions</button>
+            <button onclick="filterAttractionsCards('Guangzhou Panyu')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="Guangzhou Panyu">Panyu</button>
+            <button onclick="filterAttractionsCards('Chimelong Safari & Circus')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="Chimelong Safari & Circus">Chimelong</button>
+            <button onclick="filterAttractionsCards('Canton Heritage')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="Canton Heritage">Canton Heritage</button>
+            <button onclick="filterAttractionsCards('Qingyuan Gulong Gorge')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="Qingyuan Gulong Gorge">Qingyuan</button>
+            <button onclick="filterAttractionsCards('Shenzhen Nanshan Tech')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="Shenzhen Nanshan Tech">Shenzhen</button>
+            <button onclick="filterAttractionsCards('Hong Kong Mong Kok & Harbour')" class="attraction-filter-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-category="Hong Kong Mong Kok & Harbour">Hong Kong</button>
           </div>
         </div>
 
