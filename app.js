@@ -2474,9 +2474,18 @@ if (document.readyState === 'loading') {
   initApp();
 }
 
-
 // === MK TRAVEL MANUAL OFFLINE SYNC MODULE ===
 (function initManualOfflineSync() {
+  // If user has not explicitly synced offline data, unregister any active service worker so it never runs automatically
+  if (!localStorage.getItem('mktravel_offline_synced_at') && 'serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(regs => {
+      for (const reg of regs) {
+        reg.unregister();
+        console.log('[*] Unregistered automatic Service Worker. App is running in direct static mode.');
+      }
+    });
+  }
+
   function createSyncWidget() {
     if (document.getElementById('mk-offline-sync-widget')) return;
 
@@ -2494,7 +2503,7 @@ if (document.readyState === 'loading') {
     const lastSync = localStorage.getItem('mktravel_offline_synced_at');
     const syncBtn = document.createElement('button');
     syncBtn.id = 'mk-sync-offline-btn';
-    syncBtn.innerHTML = lastSync ? '<i class="fa-solid fa-cloud-arrow-down"></i> Offline Ready' : '<i class="fa-solid fa-cloud-arrow-down"></i> Sync Offline Pack';
+    syncBtn.innerHTML = lastSync ? '<i class="fa-solid fa-cloud-arrow-down"></i> Offline Mode Ready' : '<i class="fa-solid fa-cloud-arrow-down"></i> Enable Offline Pack';
     syncBtn.style.background = 'rgba(15, 23, 42, 0.85)';
     syncBtn.style.color = '#38bdf8';
     syncBtn.style.border = '1px solid rgba(56, 189, 248, 0.4)';
@@ -2505,7 +2514,6 @@ if (document.readyState === 'loading') {
     syncBtn.style.fontWeight = '600';
     syncBtn.style.cursor = 'pointer';
     syncBtn.style.boxShadow = '0 4px 14px rgba(0,0,0,0.35)';
-    syncBtn.style.transition = 'all 0.2s ease';
 
     const progressBanner = document.createElement('div');
     progressBanner.id = 'mk-sync-progress-banner';
@@ -2531,9 +2539,16 @@ if (document.readyState === 'loading') {
       syncBtn.disabled = true;
       syncBtn.style.opacity = '0.7';
       progressBanner.style.display = 'block';
-      progressBanner.innerHTML = 'Fetching image manifest...';
+      progressBanner.innerHTML = 'Activating Service Worker on demand...';
 
       try {
+        // ONLY register the Service Worker when manually requested by user click
+        if ('serviceWorker' in navigator) {
+          await navigator.serviceWorker.register('/sw.js');
+          await navigator.serviceWorker.ready;
+        }
+
+        progressBanner.innerHTML = 'Reading image manifest...';
         const res = await fetch('/assets/image-manifest.json?ts=' + Date.now());
         if (!res.ok) throw new Error('Manifest not found');
         const images = await res.json();
@@ -2543,7 +2558,6 @@ if (document.readyState === 'loading') {
 
         progressBanner.innerHTML = 'Syncing 0 / ' + total + ' (0%)...';
 
-        // Download in parallel batches of 6
         const batchSize = 6;
         for (let i = 0; i < images.length; i += batchSize) {
           const batch = images.slice(i, i + batchSize);
@@ -2566,7 +2580,7 @@ if (document.readyState === 'loading') {
         syncBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + total + ' Offline Photos Ready';
         syncBtn.style.color = '#4ade80';
         syncBtn.style.borderColor = 'rgba(74, 222, 128, 0.4)';
-        progressBanner.innerHTML = '✓ All ' + total + ' photos cached locally!';
+        progressBanner.innerHTML = '✓ Done! Offline mode active.';
         setTimeout(() => { progressBanner.style.display = 'none'; }, 4000);
       } catch (err) {
         progressBanner.innerHTML = '⚠️ Sync failed: ' + err.message;

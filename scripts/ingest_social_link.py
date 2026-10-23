@@ -169,12 +169,11 @@ def main():
         f.write(updated_content)
 
     print("[*] Rebuilding Service Worker pre-cache index...")
-    subprocess.run(["node", BUILD_SW], cwd=REPO_DIR, check=True)
+    # (SW rebuild disabled on content updates)
 
     print("[*] Pre-flight syntax validation...")
     subprocess.run(["node", "-c", DATA_FILE], check=True)
-    subprocess.run(["node", "-c", os.path.join(REPO_DIR, "sw.js")], check=True)
-
+    
     # Clean socket before deploy
     if os.path.exists("/home/mk/.hermes/gateway.sock"):
         try:
@@ -183,7 +182,7 @@ def main():
             pass
 
     print("[*] Committing and deploying live to Cloudflare Pages edge...")
-    subprocess.run(["git", "add", "china-data.js", "sw.js", "scripts/", "assets/"], cwd=REPO_DIR, check=True)
+    subprocess.run(["git", "add", "china-data.js", "scripts/", "assets/"], cwd=REPO_DIR, check=True)
     subprocess.run(["git", "commit", "-m", f"fix(ingest): route {entity_type} {name_en} to {target_array_name}"], cwd=REPO_DIR, check=True)
     subprocess.run(["git", "push", "origin", "main"], cwd=REPO_DIR, check=True)
 
