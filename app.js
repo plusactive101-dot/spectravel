@@ -214,7 +214,7 @@ window.renderRestaurantTile = function(r) {
   const region = r.region || 'Guangzhou';
   const cuisine = r.cuisine || 'Cantonese';
   const price = r.price || '¥50/人';
-  const img = r.coverImage || (r.gallery && r.gallery[0] ? r.gallery[0].image : '/assets/dining/dongshan-creative-district-cafe.jpg');
+  const img = r.coverImage || r.image || (r.gallery && r.gallery[0] ? r.gallery[0].image : '/assets/dining/dongshan-creative-district-cafe.jpg');
 
   return `
     <div class="micro-tile restaurant-tile" onclick="if(window.openRestaurantDetail) window.openRestaurantDetail('${id}')" style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform 0.15s ease, border-color 0.15s ease;" onmouseover="this.style.borderColor='rgba(245, 158, 11, 0.5)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)';">
@@ -287,7 +287,7 @@ window.renderCompactRestaurantRow = function(r) {
   const region = r.region || 'Guangzhou';
   const cuisine = r.cuisine || 'Cantonese';
   const price = r.price || '¥50/人';
-  const img = r.coverImage || (r.gallery && r.gallery[0] ? r.gallery[0].image : '/assets/dining/dongshan-creative-district-cafe.jpg');
+  const img = r.coverImage || r.image || (r.gallery && r.gallery[0] ? r.gallery[0].image : '/assets/dining/dongshan-creative-district-cafe.jpg');
   const copyAddress = (r.address || nameZh || name).replace(/'/g, "\\'");
   const copyZh = (nameZh || name).replace(/'/g, "\\'");
 

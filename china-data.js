@@ -363,7 +363,7 @@ const defaultRestaurants = [
     "district": "Panyu / Chimelong",
     "category": "Roast",
     "cuisine": "Michelin Cantonese & Roast Specialty (黑叉烧粤菜)",
-    "price": "$$",
+    "price": "$",
     "schedule": "11:00 AM – 02:30 PM, 05:00 PM – 09:30 PM",
     "address": "Building 2, Times E-PARK, No. 290 Hanxi Ave East (7 mins Didi from Chimelong Hotel)",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=炳胜品味+时代EPARK店+番禺区",
@@ -683,7 +683,7 @@ const defaultRestaurants = [
     "district": "Yuexiu",
     "category": "Street",
     "cuisine": "Crab Roe & Seafood Specialty (蟹黄海鲜名店)",
-    "price": "$$",
+    "price": "$",
     "schedule": "11:00 AM – 09:30 PM",
     "address": "Beijing Road Commercial Pedestrian Zone, Yuexiu District, Guangzhou",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=蟹叁宝+广州市北京路",
@@ -811,7 +811,7 @@ const defaultRestaurants = [
     "district": "Liwan",
     "category": "DimSum",
     "cuisine": "Cantonese Morning Tea & State Banquet (老字号粤宴早茶)",
-    "price": "$$",
+    "price": "$",
     "schedule": "⏰ 08:00—14:00 (Breakfast / Morning Tea)",
     "address": "📍 No. 102 Longjin West Road, Liwan District (荔湾区龙津西路102号，荔枝湾畔)",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=广州市荔湾区龙津西路102号+广州酒家",
@@ -1651,7 +1651,32 @@ const defaultRestaurants = [
       "xhs": "https://www.xiaohongshu.com/search_result?keyword=%E6%83%A0%E9%A3%9F%E4%BD%B3%20%E6%BB%A8%E6%B1%9F%E5%A4%A7%E5%85%AC%E9%A6%86",
       "dianping": "https://www.dianping.com/search/keyword/4/0_%E6%83%A0%E9%A3%9F%E4%BD%B3%E6%BB%A8%E6%B1%9F%E5%A4%A7%E5%85%AC%E9%A6%86",
       "trip": "https://m.ctrip.com/webapp/you/sight/search?keyword=%E6%83%A0%E9%A3%9F%E4%BD%B3"
-    }
+    },
+    "coverImage": "/assets/dining/wisca-binjiang-mansion.jpg",
+    "gallery": [
+      {
+        "title": "Signature Sizzling Claypot Eel & Table Feast",
+        "type": "interior",
+        "image": "/assets/dining/wisca-binjiang-mansion.jpg",
+        "desc": "Authentic table feast featuring sizzling eel claypot (招牌啫啫黄鳝煲), claypot cured meat rice (生煲腊味煲仔饭), and teaware at Wisca Binjiang Mansion"
+      }
+    ],
+    "menu": [
+      {
+        "nameZh": "招牌啫啫黄鳝煲",
+        "nameEn": "Michelin Signature Sizzling Eel Claypot",
+        "category": "啫啫煲 (Sizzling Claypot)",
+        "desc": "Fiery wok-hei eel in piping hot earthenware pot with spring onions, garlic, and special glaze.",
+        "image": "/assets/dining/wisca-binjiang-mansion.jpg"
+      },
+      {
+        "nameZh": "生煲腊味煲仔饭",
+        "nameEn": "Traditional Claypot Cured Meat Rice",
+        "category": "煲仔饭 (Claypot Rice)",
+        "desc": "Crispy crust rice cooked with premium Cantonese cured sausages and cured duck meat.",
+        "image": "/assets/dining/wisca-binjiang-mansion.jpg"
+      }
+    ]
   }
 ];
 
