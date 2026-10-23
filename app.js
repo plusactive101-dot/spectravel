@@ -1,44 +1,39 @@
 
-// === SOCIAL MEDIA & WEB LINKS COMPONENT ===
+
+// === RESILIENT SOCIAL MEDIA & WEB LINKS COMPONENT ===
 window.renderSocialLinks = function(item) {
-  if (!item) return '';
-  const nameQuery = encodeURIComponent(item.nameZh || item.name || '');
-  const xhsUrl = item.links?.xhs || ('https://www.xiaohongshu.com/search_result?keyword=' + nameQuery);
-  const dpUrl = item.links?.dianping || ('https://www.dianping.com/search/keyword/4/0_' + nameQuery);
-  const tripUrl = item.links?.trip || ('https://m.ctrip.com/webapp/you/sight/search?keyword=' + nameQuery);
-  const official = item.links?.official || item.officialUrl;
-  const source = item.links?.sourceUrl || item.sourceUrl;
+  try {
+    if (!item || typeof item !== 'object') return '';
+    const nameQuery = encodeURIComponent(item.nameZh || item.name || '');
+    if (!nameQuery) return '';
 
-  let html = '<div class="social-links-bar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; margin-bottom: 4px;">';
+    const links = item.links || {};
+    const xhsUrl = links.xhs || ('https://www.xiaohongshu.com/search_result?keyword=' + nameQuery);
+    const dpUrl = links.dianping || ('https://www.dianping.com/search/keyword/4/0_' + nameQuery);
+    const tripUrl = links.trip || ('https://m.ctrip.com/webapp/you/sight/search?keyword=' + nameQuery);
+    const official = links.official || item.officialUrl;
+    const source = links.sourceUrl || item.sourceUrl;
 
-  // Xiaohongshu (RED)
-  html += '<a href="' + xhsUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip xhs-chip" title="View Xiaohongshu (小红书) Photos & Notes" style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; background: rgba(255, 36, 66, 0.12); color: #ff2442; border: 1px solid rgba(255, 36, 66, 0.35); transition: all 0.2s;"><i class="fa-solid fa-camera"></i> 小红书</a>';
+    let html = '<div class="social-links-bar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; margin-bottom: 4px;">';
+    html += '<a href="' + xhsUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip xhs-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(255,36,66,0.12);color:#ff2442;border:1px solid rgba(255,36,66,0.35);"><i class="fa-solid fa-camera"></i> 小红书</a>';
+    html += '<a href="' + dpUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip dp-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(255,102,0,0.12);color:#ff6600;border:1px solid rgba(255,102,0,0.35);"><i class="fa-solid fa-utensils"></i> 大众点评</a>';
+    html += '<a href="' + tripUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip trip-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(14,116,244,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.35);"><i class="fa-solid fa-compass"></i> 携程攻略</a>';
 
-  // Dianping
-  html += '<a href="' + dpUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip dp-chip" title="View Dianping (大众点评) Rating & Menu" style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; background: rgba(255, 102, 0, 0.12); color: #ff6600; border: 1px solid rgba(255, 102, 0, 0.35); transition: all 0.2s;"><i class="fa-solid fa-utensils"></i> 大众点评</a>';
-
-  // Trip.com Guide
-  html += '<a href="' + tripUrl + '" target="_blank" rel="noopener noreferrer" class="social-chip trip-chip" title="Trip.com Guide & Tickets" style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; background: rgba(14, 116, 244, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); transition: all 0.2s;"><i class="fa-solid fa-compass"></i> 携程攻略</a>';
-
-  // Official Website (if present)
-  if (official) {
-    html += '<a href="' + official + '" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" title="Official Website" style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.35); transition: all 0.2s;"><i class="fa-solid fa-globe"></i> 官网</a>';
+    if (official) {
+      html += '<a href="' + official + '" target="_blank" rel="noopener noreferrer" class="social-chip official-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(168,85,247,0.12);color:#c084fc;border:1px solid rgba(192,132,252,0.35);"><i class="fa-solid fa-globe"></i> 官网</a>';
+    }
+    if (source) {
+      const isInsta = source.includes('instagram.com');
+      const badgeLabel = isInsta ? 'Instagram' : '原链接';
+      const iconClass = isInsta ? 'fa-brands fa-instagram' : 'fa-solid fa-link';
+      html += '<a href="' + source + '" target="_blank" rel="noopener noreferrer" class="social-chip source-chip" style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;background:rgba(255,255,255,0.08);color:#f43f5e;border:1px solid #f43f5e;"><i class="' + iconClass + '"></i> ' + badgeLabel + '</a>';
+    }
+    html += '</div>';
+    return html;
+  } catch (err) {
+    console.warn("[renderSocialLinks] Non-fatal render error:", err);
+    return '';
   }
-
-  // Source Post (Instagram, TikTok, etc.)
-  if (source) {
-    const isInsta = source.includes('instagram.com');
-    const isTiktok = source.includes('tiktok.com');
-    const isXhs = source.includes('xiaohongshu.com') || source.includes('xhslink.com');
-    const badgeLabel = isInsta ? 'Instagram' : (isTiktok ? 'TikTok' : (isXhs ? '小红书原帖' : '原链接'));
-    const iconClass = isInsta ? 'fa-brands fa-instagram' : (isTiktok ? 'fa-brands fa-tiktok' : (isXhs ? 'fa-solid fa-link' : 'fa-solid fa-arrow-up-right-from-square'));
-    const color = isInsta ? '#f43f5e' : (isTiktok ? '#22d3ee' : '#a3e635');
-
-    html += '<a href="' + source + '" target="_blank" rel="noopener noreferrer" class="social-chip source-chip" title="Original Social Media Post" style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; background: rgba(255, 255, 255, 0.08); color: ' + color + '; border: 1px solid ' + color + '; transition: all 0.2s;"><i class="' + iconClass + '"></i> ' + badgeLabel + '</a>';
-  }
-
-  html += '</div>';
-  return html;
 };
 
 
@@ -634,7 +629,7 @@ function renderRestaurants(cityFilter = null, categoryFilter = null) {
             </div>
           </div>
 
-          ${window.renderSocialLinks ? window.renderSocialLinks(r) : ""}
+          ${window.renderSocialLinks && typeof r !== "undefined" ? window.renderSocialLinks(r) : (window.renderSocialLinks && typeof restaurant !== "undefined" ? window.renderSocialLinks(restaurant) : "")}
           <!-- Action Buttons -->
           <div class="pt-3 border-t border-white/10 space-y-2">
             <button onclick="openDiningPhotoModal('${r.id}')" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-black text-xs mono flex items-center justify-center gap-2 transition shadow-md hover:shadow-amber-500/20">
