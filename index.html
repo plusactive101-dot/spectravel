@@ -286,36 +286,7 @@
       </div>
 
       <!-- CHINA EXPEDITION QUICK VIEW NAVIGATION -->
-      <nav class="flex items-center space-x-1.5 sm:space-x-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 text-xs mono">
-        <button onclick="switchChinaView('flowchart', true)" id="header-btn-flowchart" class="header-nav-tab px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold flex items-center gap-1.5 transition shrink-0 shadow-md">
-          <i class="fa-solid fa-route text-cyan-300"></i>
-          <span>Route</span>
-        </button>
-        <button onclick="switchChinaView('schedule', true)" id="header-btn-schedule" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
-          <i class="fa-solid fa-calendar-days text-orange-400"></i>
-          <span>Itinerary</span>
-        </button>
-        <button onclick="switchChinaView('hotels', true)" id="header-btn-hotels" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
-          <i class="fa-solid fa-hotel text-emerald-400"></i>
-          <span>Hotels</span>
-        </button>
-        <button onclick="switchChinaView('attractions', true)" id="header-btn-attractions" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
-          <i class="fa-solid fa-ferris-wheel text-pink-400"></i>
-          <span>Attractions</span>
-        </button>
-        <button onclick="switchChinaView('dining', true)" id="header-btn-dining" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
-          <i class="fa-solid fa-utensils text-yellow-400"></i>
-          <span>Dining</span>
-        </button>
-        <button onclick="switchChinaView('budget', true)" id="header-btn-budget" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
-          <i class="fa-solid fa-calculator text-teal-400"></i>
-          <span>Budget</span>
-        </button>
-        <button onclick="switchChinaView('mindmap', true)" id="header-btn-mindmap" class="header-nav-tab px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white font-bold flex items-center gap-1.5 transition shrink-0">
-          <i class="fa-solid fa-map-location-dot text-purple-400"></i>
-          <span>Map</span>
-        </button>
-      </nav>
+      
 
     </div>
   </header>
@@ -357,7 +328,7 @@
                 <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Chimelong Safari & Circus
               </button>
               <button onclick="filterChinaDays('canton'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-purple-500/15 hover:bg-purple-500/30 border border-purple-500/30 text-purple-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
-                <span class="w-2 h-2 rounded-full bg-purple-400"></span> Canton Heritage (Dongshankou)
+                <span class="w-2 h-2 rounded-full bg-purple-400"></span> Guangzhou (Dongshankou & Core)
               </button>
               <button onclick="filterChinaDays('qingyuan'); switchChinaView('schedule', true);" class="px-3 py-1 rounded-xl bg-blue-500/15 hover:bg-blue-500/30 border border-blue-500/30 text-blue-300 font-bold flex items-center gap-1.5 transition cursor-pointer">
                 <span class="w-2 h-2 rounded-full bg-blue-400"></span> Qingyuan Gulong Gorge
@@ -430,6 +401,10 @@
         <button onclick="switchChinaView('dining')" id="btn-china-dining" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
           <i class="fa-solid fa-utensils text-yellow-400"></i>
           <span>Dining</span>
+        </button>
+        <button onclick="switchChinaView('must-do-eat', true)" id="btn-china-must-do-eat" data-tab="must-do-eat" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
+          <i class="fa-solid fa-star text-amber-400"></i>
+          <span>Must Do/Eat</span>
         </button>
         <button onclick="switchChinaView('budget')" id="btn-china-budget" class="china-nav-tab px-3.5 py-2 rounded-xl border border-white/10 hover:bg-white/10 text-slate-300 transition flex items-center gap-1.5 shrink-0">
           <i class="fa-solid fa-calculator text-teal-400"></i>
@@ -1278,6 +1253,44 @@
         </div>
       </section>
 
+  <!-- ==================== MUST DO / EAT SECTION ==================== -->
+  <section id="view-must-do-eat" class="china-view-panel view-panel hidden container mx-auto px-4 py-6">
+    <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-4">
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-star text-amber-400"></i> Must Do & Must Eat Bucket List
+        </h2>
+        <p class="text-xs md:text-sm text-slate-400 mt-1">
+          Hand-picked ultimate experiences, landmark attractions, and legendary dining spots for the Greater Bay Area.
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-mono">
+          Curated Highlights
+        </span>
+      </div>
+    </div>
+
+    <!-- Sub-tabs: All | Must Do (Attractions) | Must Eat (Dining) -->
+    <div class="flex items-center gap-2 mb-6 overflow-x-auto pb-1">
+      <button type="button" onclick="window.filterMustDoEat('all')" class="must-do-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-600 text-white border border-rose-500 shadow-sm" data-sub="all">
+        All Highlights
+      </button>
+      <button type="button" onclick="window.filterMustDoEat('attraction')" class="must-do-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10" data-sub="attraction">
+        <i class="fa-solid fa-ticket text-sky-400 mr-1"></i> Must-Do Sights
+      </button>
+      <button type="button" onclick="window.filterMustDoEat('dining')" class="must-do-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10" data-sub="dining">
+        <i class="fa-solid fa-utensils text-amber-400 mr-1"></i> Must-Eat Food
+      </button>
+    </div>
+
+    <!-- Content Grid Container -->
+    <div id="must-do-eat-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Staged cards populated dynamically or with customizable placeholders -->
+    </div>
+  </section>
+  
+
       <!-- ========================================== -->
       <!-- VIEW 5: REGIONAL INTERACTIVE MAP           -->
       <!-- ========================================== -->
@@ -1301,8 +1314,7 @@
               <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1"></span> Chimelong
             </button>
             <button onclick="zoomToRegionalLocation('canton')" class="regional-map-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-target="canton">
-              <span class="w-2 h-2 rounded-full bg-purple-400 inline-block mr-1"></span> Canton Core
-            </button>
+              <span class="w-2 h-2 rounded-full bg-purple-400 inline-block mr-1"></span>Guangzhou</button>
             <button onclick="zoomToRegionalLocation('qingyuan')" class="regional-map-btn px-3 py-1.5 rounded-xl bg-white/10 text-slate-300 border border-white/10 hover:bg-white/15" data-target="qingyuan">
               <span class="w-2 h-2 rounded-full bg-blue-400 inline-block mr-1"></span> Qingyuan
             </button>

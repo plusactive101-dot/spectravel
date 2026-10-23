@@ -1,4 +1,135 @@
 
+// === MUST DO / EAT SECTION ENGINE ===
+let currentMustDoSubFilter = 'all';
+
+window.filterMustDoEat = function(subType) {
+  currentMustDoSubFilter = subType;
+  document.querySelectorAll('.must-do-filter-btn').forEach(btn => {
+    if (btn.getAttribute('data-sub') === subType) {
+      btn.className = 'must-do-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-600 text-white border border-rose-500 shadow-sm';
+    } else {
+      btn.className = 'must-do-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10';
+    }
+  });
+  renderMustDoEatSection();
+};
+
+window.renderMustDoEatSection = function() {
+  const grid = document.getElementById('must-do-eat-grid');
+  if (!grid) return;
+
+  // Retrieve top highlights from attractions and dining
+  const allAttractions = (typeof expeditionAttractions !== 'undefined') ? expeditionAttractions : [];
+  const allRestaurants = (typeof defaultRestaurants !== 'undefined') ? defaultRestaurants : [];
+
+  // Filter top must-dos (highlighted items, ratings >= 4.9, or curated items)
+  let topSights = allAttractions.filter(a => a.mustDo || a.rating >= 4.9 || ['canton-tower', 'chimelong-safari', 'chen-clan-ancestral-hall', 'hong-kong-disneyland'].includes(a.id)).slice(0, 6);
+  let topEats = allRestaurants.filter(r => r.mustEat || r.rating >= 4.9 || ['wisca-binjiang-mansion', 'bingsheng-taste', 'taotao-ju', 'guangzhou-restaurant'].includes(r.id)).slice(0, 6);
+
+  let cards = [];
+
+  if (currentMustDoSubFilter === 'all' || currentMustDoSubFilter === 'attraction') {
+    topSights.forEach(a => {
+      cards.push({
+        type: 'sight',
+        id: a.id,
+        name: a.name,
+        nameZh: a.nameZh,
+        region: a.region || 'Guangzhou',
+        badge: 'Must-Do Sight',
+        badgeColor: 'rgba(56, 189, 248, 0.2)',
+        badgeTextColor: '#38bdf8',
+        tag: a.category || 'Sight',
+        sub: a.time || 'Highlight',
+        image: a.image || '/assets/attractions/cantontower.jpg',
+        desc: a.review || a.desc || 'Top-tier landmark experience.',
+        dishes: []
+      });
+    });
+  }
+
+  if (currentMustDoSubFilter === 'all' || currentMustDoSubFilter === 'dining') {
+    topEats.forEach(r => {
+      cards.push({
+        type: 'dining',
+        id: r.id,
+        name: r.name,
+        nameZh: r.nameZh,
+        region: r.region || 'Guangzhou',
+        badge: 'Must-Eat Feast',
+        badgeColor: 'rgba(245, 158, 11, 0.2)',
+        badgeTextColor: '#fbbf24',
+        tag: r.cuisine || 'Cantonese',
+        sub: r.price || 'Recommended',
+        image: r.coverImage || r.image || '/assets/dining/dongshan-creative-district-cafe.jpg',
+        desc: r.review || 'Legendary dining specialty.',
+        dishes: r.dishes || []
+      });
+    });
+  }
+
+  if (cards.length === 0) {
+    grid.innerHTML = `
+      <div class="col-span-full py-16 text-center text-slate-400">
+        <i class="fa-solid fa-star text-3xl text-amber-400/40 mb-3"></i>
+        <p class="text-sm">No items in this category yet. Details can be added anytime.</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = cards.map(c => `
+    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 bg-slate-900/70 backdrop-blur-md flex flex-col transition hover:border-amber-400/40 hover:-translate-y-1">
+      <div class="relative h-44 bg-slate-950 overflow-hidden cursor-pointer" onclick="${c.type === 'dining' ? `window.openRestaurantDetail('${c.id}')` : `window.openAttractionDrawer('${c.id}')`}">
+        <img src="${c.image}" alt="${c.name}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy" onerror="this.src='/assets/attractions/cantontower.jpg'">
+        <div class="absolute top-3 left-3 flex gap-2">
+          <span style="background: ${c.badgeColor}; color: ${c.badgeTextColor};" class="text-[10px] font-bold px-2.5 py-1 rounded-md border border-white/10 backdrop-blur-md">
+            ${c.badge}
+          </span>
+          <span class="bg-slate-900/80 text-rose-300 text-[10px] font-bold px-2 py-1 rounded-md border border-rose-500/30">
+            ${c.region}
+          </span>
+        </div>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <div class="flex items-start justify-between gap-2 mb-1">
+          <div>
+            <h3 class="text-base font-bold text-white cursor-pointer hover:text-amber-300 transition" onclick="${c.type === 'dining' ? `window.openRestaurantDetail('${c.id}')` : `window.openAttractionDrawer('${c.id}')`}">
+              ${c.name}
+            </h3>
+            <p class="text-xs text-amber-400 font-semibold cursor-copy" onclick="window.copyVenueText('${(c.nameZh || '').replace(/'/g, "\\'")}', 'Chinese Name', event)">
+              <i class="fa-regular fa-copy text-[10px] mr-1"></i>${c.nameZh}
+            </p>
+          </div>
+          <span class="text-[11px] px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10 whitespace-nowrap">
+            ${c.sub}
+          </span>
+        </div>
+
+        <p class="text-xs text-slate-300 line-clamp-2 my-2 flex-1">
+          ${c.desc}
+        </p>
+
+        ${c.dishes && c.dishes.length > 0 ? `
+          <div class="flex flex-wrap gap-1.5 my-2">
+            ${c.dishes.slice(0, 3).map(d => `<span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-200 border border-amber-500/20">${d}</span>`).join('')}
+          </div>
+        ` : ''}
+
+        <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+          <button type="button" onclick="window.copyVenueText('${(c.nameZh || c.name).replace(/'/g, "\\'")}', 'Venue Name', event)" class="text-xs font-semibold text-slate-300 hover:text-amber-300 transition flex items-center gap-1.5">
+            <i class="fa-regular fa-copy"></i> Copy Name
+          </button>
+          <button type="button" onclick="${c.type === 'dining' ? `window.openRestaurantDetail('${c.id}')` : `window.openAttractionDrawer('${c.id}')`}" class="text-xs font-bold text-rose-400 hover:text-rose-300 transition flex items-center gap-1">
+            Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+};
+
+
 // === UNIVERSAL CLICK-TO-COPY HELPER ===
 window.copyVenueText = function(text, label, event) {
   if (event) event.stopPropagation();
@@ -550,6 +681,9 @@ function getHotelRoomsCount(hotelId) {
 }
 
 function switchChinaView(viewName, shouldScroll = false) {
+  if (arguments[0] === 'must-do-eat') {
+    setTimeout(() => { if (window.renderMustDoEatSection) window.renderMustDoEatSection(); }, 50);
+  }
   // Normalize alias
   const normalized = (viewName === 'food' || viewName === 'restaurant' || viewName === 'restaurants') ? 'dining' : viewName;
   activeChinaView = normalized;
@@ -2949,7 +3083,7 @@ window.toggleRouteDrawer = function() {
 function initApp() {
   const rawHash = window.location.hash ? window.location.hash.replace('#', '') : '';
   const hash = (rawHash === 'food' || rawHash === 'restaurant' || rawHash === 'restaurants') ? 'dining' : rawHash;
-  const validViews = ['flowchart', 'schedule', 'hotels', 'attractions', 'dining', 'mindmap', 'budget'];
+  const validViews = ['flowchart', 'schedule', 'hotels', 'attractions', 'dining', 'mindmap', 'budget', 'must-do-eat'];
   const initialView = validViews.includes(hash) ? hash : 'flowchart';
   
   if (typeof switchChinaView === 'function') {
@@ -3145,4 +3279,17 @@ document.addEventListener('DOMContentLoaded', () => {
       window.renderDiningRegionTabs();
     }
   }, 100);
+});
+
+
+document.addEventListener('click', (e) => {
+  const tabBtn = e.target.closest('[data-tab]');
+  if (tabBtn) {
+    const tabName = tabBtn.getAttribute('data-tab');
+    if (tabName === 'must-do-eat') {
+      if (typeof switchChinaView === 'function') {
+        switchChinaView('must-do-eat', true);
+      }
+    }
+  }
 });
