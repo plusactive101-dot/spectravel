@@ -2,26 +2,32 @@ const fs = require('fs');
 const path = require('path');
 
 const repoDir = path.resolve(__dirname, '..');
-const assetsDir = path.join(repoDir, 'assets', 'attractions');
+const attractionsDir = path.join(repoDir, 'assets', 'attractions');
+const diningDir = path.join(repoDir, 'assets', 'dining');
 const swFile = path.join(repoDir, 'sw.js');
 
-if (!fs.existsSync(assetsDir)) {
-  console.error('[-] Assets directory does not exist:', assetsDir);
-  process.exit(1);
+let imageFiles = [];
+
+if (fs.existsSync(attractionsDir)) {
+  const attrFiles = fs.readdirSync(attractionsDir)
+    .filter(f => /\.(jpe?g|png|webp|svg)$/i.test(f))
+    .map(f => `/assets/attractions/${f}`);
+  imageFiles.push(...attrFiles);
 }
 
-// Enumerate all jpg / png / webp image files in assets/attractions
-const files = fs.readdirSync(assetsDir)
-  .filter(f => /\.(jpe?g|png|webp|svg)$/i.test(f))
-  .sort();
+if (fs.existsSync(diningDir)) {
+  const diningFiles = fs.readdirSync(diningDir)
+    .filter(f => /\.(jpe?g|png|webp|svg)$/i.test(f))
+    .map(f => `/assets/dining/${f}`);
+  imageFiles.push(...diningFiles);
+}
 
-console.log(`[*] Discovered ${files.length} local attraction images to pre-cache.`);
-
-const imageWebPaths = files.map(f => `/assets/attractions/${f}`);
+imageFiles.sort();
+console.log(`[*] Pre-caching total of ${imageFiles.length} images (${imageFiles.filter(i => i.includes('dining')).length} dining, ${imageFiles.filter(i => i.includes('attractions')).length} attractions).`);
 
 const swContent = `/**
  * Service Worker for MK Travel (mktravel.pages.dev)
- * Version: 2.0.0 (Pre-cached Local Real-World Attraction Images)
+ * Version: 2.1.0 (Pre-cached Attractions & Dining Assets)
  * Generated: ${new Date().toISOString()}
  */
 
@@ -36,35 +42,29 @@ const CORE_ASSETS = [
   '/manifest.json'
 ];
 
-const ATTRACTION_IMAGES = ${JSON.stringify(imageWebPaths, null, 2)};
+const PRECACHE_IMAGES = ${JSON.stringify(imageFiles, null, 2)};
 
-// Install: Cache core assets and pre-cache attraction photographs
 self.addEventListener('install', event => {
   self.skipWaiting();
   event.waitUntil(
     (async () => {
-      // 1. Cache Core Shell
       const coreCache = await caches.open(CORE_CACHE);
       await coreCache.addAll(CORE_ASSETS);
 
-      // 2. Resiliently pre-cache all attraction photos via Promise.allSettled
       const imageCache = await caches.open(IMAGE_CACHE);
-      const cachePromises = ATTRACTION_IMAGES.map(async url => {
+      const cachePromises = PRECACHE_IMAGES.map(async url => {
         try {
           const response = await fetch(url);
           if (response && response.ok) {
             await imageCache.put(url, response);
           }
-        } catch (err) {
-          // Non-blocking: fail quietly on missing individual assets
-        }
+        } catch (err) {}
       });
       await Promise.allSettled(cachePromises);
     })()
   );
 });
 
-// Activate: Prune outdated cache versions
 self.addEventListener('activate', event => {
   const allowedCaches = [CORE_CACHE, IMAGE_CACHE];
   event.waitUntil(
@@ -80,19 +80,17 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch: Strategy dispatcher
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
 
   if (event.request.method !== 'GET') return;
 
-  // 1. Local Attraction Images: Cache-First (instant offline load)
-  if (url.pathname.startsWith('/assets/attractions/')) {
+  // Cache-first for all local assets
+  if (url.pathname.startsWith('/assets/')) {
     event.respondWith(
       caches.open(IMAGE_CACHE).then(async cache => {
         const cached = await cache.match(event.request);
         if (cached) return cached;
-
         try {
           const response = await fetch(event.request);
           if (response && response.ok) {
@@ -107,7 +105,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // 2. External CDN Dependencies (Leaflet, FontAwesome): Cache-First
+  // Cache-first for external CDN assets
   if (url.origin.includes('unpkg.com') || url.origin.includes('cdnjs.cloudflare.com') || url.origin.includes('cdn.')) {
     event.respondWith(
       caches.match(event.request).then(cached => {
@@ -124,7 +122,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // 3. Core App Code & Data: Stale-While-Revalidate
+  // Stale-while-revalidate for core app
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       const fetchPromise = fetch(event.request).then(networkResponse => {
@@ -142,4 +140,4 @@ self.addEventListener('fetch', event => {
 `;
 
 fs.writeFileSync(swFile, swContent, 'utf8');
-console.log(`[+] Successfully generated ${swFile} with ${imageWebPaths.length} pre-cached attraction photos.`);
+console.log('[+] sw.js regenerated with combined image precache.');

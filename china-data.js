@@ -261,6 +261,30 @@ if (typeof globalThis !== 'undefined') globalThis.itinerarySchedule = itineraryS
 
 const defaultRestaurants = [
   {
+    "id": "dongshan-creative-district-cafe",
+    "name": "Dongshan Creative District & Cafe",
+    "nameZh": "东山口文艺街区 & 咖啡",
+    "cuisine": "Specialty Coffee & Cantonese Desserts",
+    "district": "Yuexiu (越秀区)",
+    "area": "Dongshankou (东山口)",
+    "price": "¥35-65/人",
+    "rating": 4.8,
+    "image": "/assets/dining/dongshan-creative-district-cafe.jpg",
+    "address": "广州市越秀区东山口庙前西街 / 恤孤院路",
+    "metro": "Metro Line 1/6 Dongshankou Exit E",
+    "dishes": [
+      "Signature Cold Brew (招牌冷萃)",
+      "Water Buffalo Milk Latte (水牛奶拿铁)",
+      "Tangerine Peel Americano (新会陈皮美式)",
+      "Traditional Steamed Milk Pudding (双皮奶)"
+    ],
+    "review": "Historic 1920s red-brick Western villa district turned vibrant cafe culture hub. Perfect for an afternoon heritage walk, specialty coffee, and creative indie boutiques.",
+    "coordinates": [
+      23.1205,
+      113.2928
+    ]
+  },
+  {
     "id": "rest-1",
     "name": "Shawan Ancient Town Milk Shop (沁芳园甜品)",
     "city": "Guangzhou",
@@ -6498,21 +6522,6 @@ const expeditionAttractions = [
     "coordinates": [
       22.3005,
       114.1588
-    ]
-  },
-  {
-    "id": "dongshan-creative-district-cafe",
-    "name": "Dongshan Creative District & Cafe",
-    "nameZh": "东山口",
-    "region": "Canton Heritage",
-    "category": "Dining",
-    "time": "1-2 hrs",
-    "address": "东山口",
-    "review": "Dongshan Creative District & Cafe 东山口 越秀区 Cantonese coffee and retro heritage walk",
-    "image": "/assets/dining/dongshan-creative-district-cafe.jpg",
-    "coordinates": [
-      23.12,
-      113.29
     ]
   }
 ];
