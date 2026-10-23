@@ -1,7 +1,7 @@
 /**
  * Service Worker for MK Travel (mktravel.pages.dev)
  * Version: 2.0.0 (Pre-cached Local Real-World Attraction Images)
- * Generated: 2026-10-23T13:11:22.708Z
+ * Generated: 2026-10-23T13:23:42.472Z
  */
 
 const CORE_CACHE = 'mktravel-core-v2';

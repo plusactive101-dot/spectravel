@@ -6499,6 +6499,21 @@ const expeditionAttractions = [
       22.3005,
       114.1588
     ]
+  },
+  {
+    "id": "dongshan-creative-district-cafe",
+    "name": "Dongshan Creative District & Cafe",
+    "nameZh": "东山口",
+    "region": "Canton Heritage",
+    "category": "Dining",
+    "time": "1-2 hrs",
+    "address": "东山口",
+    "review": "Dongshan Creative District & Cafe 东山口 越秀区 Cantonese coffee and retro heritage walk",
+    "image": "/assets/dining/dongshan-creative-district-cafe.jpg",
+    "coordinates": [
+      23.12,
+      113.29
+    ]
   }
 ];
 
