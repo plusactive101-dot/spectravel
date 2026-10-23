@@ -2327,7 +2327,7 @@ const expeditionAttractions = [
     "tag": "QINGYUAN • ALPINE",
     "tagIcon": "fa-mountain",
     "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800&q=80",
-    "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, glass suspension bridge over roaring waterfalls, and alpine coaster descent.",
+    "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, towering waterfalls, gravity-driven QQ Speed Go-Karts, and a thrilling Cliff Roller Coaster.",
     "meta1": {
       "label": "RECORD",
       "value": "12 World Records"
@@ -2341,9 +2341,9 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1470072551573-04dc32c32cc1?w=800&q=80"
     ],
     "activities": [
-      "Walk 520m Glass Skywalk",
-      "Jungle Canyon Coaster",
-      "Eat Qingyuan Chicken"
+      "Walk the 520m Glass Skywalk over the waterfall",
+      "Race down the mountain on QQ Speed Go-Karts",
+      "Ride the Cliff Roller Coaster"
     ],
     "areaMap": "Private Charter recommended (1.5h drive)",
     "nearbyRecs": [
@@ -2352,7 +2352,24 @@ const expeditionAttractions = [
     "guideUrls": [
       "https://www.trip.com/"
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "I Survived China’s CRAZIEST Glass Bridge & Cliff Coaster!",
+        "url": "https://www.youtube.com/watch?v=tNAdBOZdXxs"
+      },
+      {
+        "title": "Gulong Canyon POV & Mario Kart Style Racing",
+        "url": "https://www.youtube.com/watch?v=CGj8EX-8hgc"
+      },
+      {
+        "title": "China Guangzhou Tour: Gulong Gorge",
+        "url": "https://www.youtube.com/watch?v=Hn6WIGYYTdM"
+      },
+      {
+        "title": "Day 2 in China | Gulong Gorge | Go Karting",
+        "url": "https://www.youtube.com/watch?v=abXLd03OajE"
+      }
+    ]
   },
   {
     "id": "indoorski",
@@ -3790,7 +3807,7 @@ const expeditionAttractions = [
     "tag": "QINGYUAN • ALPINE",
     "tagIcon": "fa-mountain",
     "image": "https://images.unsplash.com/photo-1517524953930-74676517865c?w=800",
-    "desc": "Massive alpine forest reserve with 520m suspended glass walkway and canyon coaster.",
+    "desc": "Massive alpine forest reserve featuring a 520m suspended glass walkway, towering waterfalls, gravity-driven QQ Speed Go-Karts, and a thrilling Cliff Roller Coaster.",
     "meta1": {
       "label": "RECORD",
       "value": "12 World Records"
@@ -3804,16 +3821,33 @@ const expeditionAttractions = [
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     ],
     "activities": [
-      "Walk Glass Skywalk",
-      "Canyon Coaster descent",
-      "Eat Qingyuan Chicken"
+      "Walk the 520m Glass Skywalk over the waterfall",
+      "Race down the mountain on QQ Speed Go-Karts",
+      "Ride the Cliff Roller Coaster"
     ],
     "areaMap": "Private Charter (1.5h drive from Canton)",
     "nearbyRecs": [
       "Yingxi Peak Forest"
     ],
     "guideUrls": [],
-    "reviews": []
+    "reviews": [
+      {
+        "title": "I Survived China’s CRAZIEST Glass Bridge & Cliff Coaster!",
+        "url": "https://www.youtube.com/watch?v=tNAdBOZdXxs"
+      },
+      {
+        "title": "Gulong Canyon POV & Mario Kart Style Racing",
+        "url": "https://www.youtube.com/watch?v=CGj8EX-8hgc"
+      },
+      {
+        "title": "China Guangzhou Tour: Gulong Gorge",
+        "url": "https://www.youtube.com/watch?v=Hn6WIGYYTdM"
+      },
+      {
+        "title": "Day 2 in China | Gulong Gorge | Go Karting",
+        "url": "https://www.youtube.com/watch?v=abXLd03OajE"
+      }
+    ]
   },
   {
     "id": "shawan-ancient-town",
