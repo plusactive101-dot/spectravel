@@ -1728,6 +1728,14 @@ window.openAttraction = function(id) {
          html += '</div></div>';
     }
 
+    if(att.reviews && att.reviews.length > 0) {
+         html += '<div><h4 class="text-sm font-bold text-rose-400 mb-2 uppercase tracking-wider">Video Reviews</h4><div class="flex flex-col gap-2">';
+         att.reviews.forEach(rev => {
+             html += '<a href="' + rev.url + '" target="_blank" class="inline-flex items-center gap-2 text-sm text-rose-300 hover:text-white hover:underline bg-rose-500/10 px-3 py-2 rounded border border-rose-500/20"><i class="fa-brands fa-youtube text-red-500"></i> ' + rev.title + '</a>';
+         });
+         html += '</div></div>';
+    }
+
     if(att.guideUrls && att.guideUrls.length > 0) {
          html += '<div><h4 class="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">Reference Links</h4><div class="flex flex-col gap-2">';
          att.guideUrls.forEach(url => {

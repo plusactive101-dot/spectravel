@@ -2016,7 +2016,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://sg.trip.com/travel-guide/attraction/guangzhou/shawan-ancient-town-10524178/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "dafushan",
@@ -2050,7 +2051,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.travelchinaguide.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "baomo",
@@ -2084,7 +2086,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.travelchinaguide.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "safari",
@@ -2119,6 +2122,16 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.chimelong.com/"
+    ],
+    "reviews": [
+      {
+        "title": "3 Parks, 3 Days Family Safari POV",
+        "url": "https://www.youtube.com/watch?v=uUvuE9sWNsM"
+      },
+      {
+        "title": "Safari Park Open-Air Train VLOG",
+        "url": "https://www.youtube.com/watch?v=Zbx1ooA7odk"
+      }
     ]
   },
   {
@@ -2154,6 +2167,16 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.chimelong.com/"
+    ],
+    "reviews": [
+      {
+        "title": "International Circus Full Experience",
+        "url": "https://www.youtube.com/watch?v=ZSYW1VKwLd8"
+      },
+      {
+        "title": "Family Circus Night VLOG",
+        "url": "https://www.youtube.com/watch?v=Zbx1ooA7odk"
+      }
     ]
   },
   {
@@ -2189,7 +2212,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.cantontower.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "chenclan",
@@ -2223,7 +2247,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.travelchinaguide.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "dongshankou",
@@ -2256,7 +2281,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.trip.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "shamian",
@@ -2290,7 +2316,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.travelchinaguide.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "gulong",
@@ -2324,7 +2351,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.trip.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "indoorski",
@@ -2358,7 +2386,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.trip.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "dji",
@@ -2391,7 +2420,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.dji.com/company/skycity"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "talentpark",
@@ -2424,7 +2454,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.trip.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "victoria",
@@ -2458,7 +2489,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.discoverhongkong.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "shamshuipo",
@@ -2491,7 +2523,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.discoverhongkong.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "lionrock",
@@ -2524,7 +2557,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.discoverhongkong.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "nanyue",
@@ -2554,7 +2588,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Baomo Garden"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "lotus",
@@ -2583,7 +2618,8 @@ const expeditionAttractions = [
     ],
     "areaMap": "Metro L4 (Shiqi) -> Bus",
     "nearbyRecs": [],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "panyu_museum",
@@ -2613,7 +2649,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Shiqiao Market"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "shiqiao",
@@ -2644,7 +2681,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Dafushan Forest"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "yuyin",
@@ -2675,7 +2713,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Wanbo CBD"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "birds_park",
@@ -2706,38 +2745,48 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Safari Park"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "paradise",
     "name": "Chimelong Paradise",
     "category": "Chimelong Safari & Circus",
-    "timeAlloc": "Full Day (6h)",
+    "timeAlloc": "Full Day (8h)",
     "tag": "CHIMELONG • THRILL",
     "tagIcon": "fa-roller-coaster",
-    "image": "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800",
-    "desc": "Massive amusement theme park featuring the 10-inversion roller coaster and dive coasters.",
+    "image": "https://images.unsplash.com/photo-1512168203104-3910cb2aaadb?w=800&q=80",
+    "desc": "Guangzhou’s premier amusement park featuring a world-class 10-loop signature roller coaster and a terrifying 90-degree drop coaster.",
     "meta1": {
-      "label": "RIDES",
-      "value": "Dive Coaster"
-    },
-    "meta2": {
-      "label": "RECORD",
+      "label": "RIDE",
       "value": "10-Loop Coaster"
     },
+    "meta2": {
+      "label": "ADRENALINE",
+      "value": "90-Degree Drop"
+    },
     "photos": [
-      "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=800",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
+      "https://images.unsplash.com/photo-1512168203104-3910cb2aaadb?w=800&q=80"
     ],
     "activities": [
-      "Roller coasters",
-      "Stunt shows"
+      "Ride the 10-Loop Coaster",
+      "Experience the 90-degree vertical drop",
+      "Watch the 4D stunt show"
     ],
-    "areaMap": "Metro L3/7 (Hanxi Changlong Exit E)",
+    "areaMap": "Metro Line 3/7 (Hanxi Changlong) -> South Gate",
     "nearbyRecs": [
+      "Safari Park",
       "Water Park"
     ],
-    "guideUrls": []
+    "guideUrls": [
+      "https://www.chimelong.com/"
+    ],
+    "reviews": [
+      {
+        "title": "China's Craziest Theme Park POV",
+        "url": "https://www.youtube.com/watch?v=AG4lbxezRvw"
+      }
+    ]
   },
   {
     "id": "water_park",
@@ -2768,7 +2817,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Paradise"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "chimelong_gondola",
@@ -2799,7 +2849,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Safari Park"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "panda_village",
@@ -2830,7 +2881,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Sky Gondola"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "wanbo_cbd",
@@ -2861,7 +2913,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Chimelong Resort"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "beijing_road",
@@ -2892,7 +2945,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "People’s Park"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "chen_clan",
@@ -2923,7 +2977,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Liwan Lake"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "yongqing_fang",
@@ -2954,7 +3009,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Shamian Island"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "canton_tower",
@@ -2985,7 +3041,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Huacheng Square"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "baiyun_mountain",
@@ -3016,7 +3073,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Yuntai Garden"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "liwan_lake",
@@ -3047,7 +3105,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Yongqing Fang"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "sacred_heart",
@@ -3078,7 +3137,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Pearl River Pier"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "gulong_glass",
@@ -3109,7 +3169,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Gulong Coaster"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "gulong_waterfall",
@@ -3140,7 +3201,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Glass Canyon"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "gulong_coaster",
@@ -3170,7 +3232,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Rafting"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "yingxi_forest",
@@ -3201,7 +3264,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Dongtian Cave"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "dongtian_cave",
@@ -3232,7 +3296,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Yingxi Forest"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "feilai_temple",
@@ -3263,7 +3328,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Gulong Gorge"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "qingyuan_hotspring",
@@ -3294,7 +3360,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Gulong Gorge"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "tencent_hq",
@@ -3325,7 +3392,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "DJI Sky City"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "oct_loft",
@@ -3356,7 +3424,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Splendid China"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "dasha_river",
@@ -3387,7 +3456,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Xili Lake"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "sea_world",
@@ -3418,7 +3488,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Dananshan"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "dananshan",
@@ -3449,7 +3520,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Shekou Sea World"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "pingan_finance",
@@ -3480,7 +3552,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Coco Park"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "shenzhen_bay",
@@ -3511,7 +3584,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Talent Park"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "mongkok_markets",
@@ -3542,7 +3616,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Langham Place"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "k11_musea",
@@ -3573,7 +3648,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Star Ferry"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "victoria_peak",
@@ -3604,7 +3680,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Central Escalator"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "central_escalator",
@@ -3635,7 +3712,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Tai Kwun"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "tai_kwun",
@@ -3666,7 +3744,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Mid-Levels Escalator"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "chimelong-safari",
@@ -3700,7 +3779,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.chimelong.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "gulong-gorge",
@@ -3732,7 +3812,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Yingxi Peak Forest"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "shawan-ancient-town",
@@ -3763,7 +3844,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Baomo Garden"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "dji-sky-city",
@@ -3796,7 +3878,8 @@ const expeditionAttractions = [
     ],
     "guideUrls": [
       "https://www.dji.com/"
-    ]
+    ],
+    "reviews": []
   },
   {
     "id": "victoria-harbour",
@@ -3828,7 +3911,8 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "K11 Musea"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
   },
   {
     "id": "chimelong-birds",
@@ -3859,7 +3943,130 @@ const expeditionAttractions = [
     "nearbyRecs": [
       "Safari Park"
     ],
-    "guideUrls": []
+    "guideUrls": [],
+    "reviews": []
+  },
+  {
+    "id": "waterpark",
+    "name": "Chimelong Water Park",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Half Day (4h)",
+    "tag": "CHIMELONG • WATER",
+    "tagIcon": "fa-water-ladder",
+    "image": "https://images.unsplash.com/photo-1582236166099-27a3c7e42d76?w=800&q=80",
+    "desc": "The most visited water park in the world, featuring massive wave pools, high-speed water slides, and the Neverending Fountain.",
+    "meta1": {
+      "label": "SEASON",
+      "value": "Summer Top Pick"
+    },
+    "meta2": {
+      "label": "ATTRACTION",
+      "value": "Wave Pool & Slides"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1582236166099-27a3c7e42d76?w=800&q=80"
+    ],
+    "activities": [
+      "Ride the high-speed slides",
+      "Relax in the Lazy River",
+      "Play at the Neverending Fountain"
+    ],
+    "areaMap": "Metro Line 3/7 (Hanxi Changlong)",
+    "nearbyRecs": [
+      "Circus"
+    ],
+    "guideUrls": [
+      "https://www.chimelong.com/"
+    ],
+    "reviews": [
+      {
+        "title": "Family Waterpark Adventure",
+        "url": "https://www.youtube.com/watch?v=ZSYW1VKwLd8"
+      }
+    ]
+  },
+  {
+    "id": "birdpark",
+    "name": "Chimelong Birds Park",
+    "category": "Chimelong Safari & Circus",
+    "timeAlloc": "Morning (3h)",
+    "tag": "CHIMELONG • NATURE",
+    "tagIcon": "fa-dove",
+    "image": "https://images.unsplash.com/photo-1498673295982-fbbdf1c60b5f?w=800&q=80",
+    "desc": "A vast ecological wetland 15 minutes from the main resort, home to over 100,000 crocodiles, hippos, and spectacular free-flight bird shows.",
+    "meta1": {
+      "label": "WILDLIFE",
+      "value": "Hippos & Crocodiles"
+    },
+    "meta2": {
+      "label": "SHOW",
+      "value": "Free-Flight Pelicans"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1498673295982-fbbdf1c60b5f?w=800&q=80",
+      "https://images.unsplash.com/photo-1549487532-a50d26850c95?w=800&q=80"
+    ],
+    "activities": [
+      "Feed the hungry hippos",
+      "Watch the massive crocodile enclosure",
+      "See the Flamingo free-flight"
+    ],
+    "areaMap": "Metro Line 2 (Huijiang) -> Exit C -> Free Shuttle",
+    "nearbyRecs": [
+      "Safari Park"
+    ],
+    "guideUrls": [
+      "https://www.chimelong.com/"
+    ],
+    "reviews": [
+      {
+        "title": "Birds Park & Hippo Feeding POV",
+        "url": "https://www.youtube.com/watch?v=uUvuE9sWNsM"
+      },
+      {
+        "title": "Zoo & Bird Park VLOG",
+        "url": "https://www.youtube.com/watch?v=Zbx1ooA7odk"
+      }
+    ]
+  },
+  {
+    "id": "beijingroad",
+    "name": "Beijing Road Pedestrian Street",
+    "category": "Canton Heritage",
+    "timeAlloc": "Evening (3h)",
+    "tag": "CANTON • SHOPPING",
+    "tagIcon": "fa-store",
+    "image": "https://images.unsplash.com/photo-1579737190176-bce7b545d909?w=800&q=80",
+    "desc": "Guangzhou’s ultimate historic shopping street, showcasing 11-layer ancient dynastic roads under glass, incredible street food, and the massive Pokémon Center.",
+    "meta1": {
+      "label": "HISTORY",
+      "value": "Glass Road Ruins"
+    },
+    "meta2": {
+      "label": "RETAIL",
+      "value": "Pokémon Center"
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1579737190176-bce7b545d909?w=800&q=80"
+    ],
+    "activities": [
+      "Shop at the Pokémon Center",
+      "View Tang/Song Dynasty ruins under glass",
+      "Eat local street food"
+    ],
+    "areaMap": "Metro Line 6 (Beijing Lu)",
+    "nearbyRecs": [
+      "Dafo Temple"
+    ],
+    "guideUrls": [
+      "https://www.travelchinaguide.com/"
+    ],
+    "reviews": [
+      {
+        "title": "Beijing Road & Pokémon Center Walkthrough",
+        "url": "https://www.youtube.com/watch?v=Zbx1ooA7odk"
+      }
+    ]
   }
 ];
 
