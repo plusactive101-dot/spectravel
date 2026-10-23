@@ -1683,8 +1683,8 @@ if (document.readyState === 'loading') {
 
 // --- ATTRACTION DRAWER RENDERER ---
 window.openAttraction = function(id) {
-    if (typeof attractions === 'undefined') return;
-    const att = attractions.find(a => a.id === id);
+    if (typeof expeditionAttractions === 'undefined') return;
+    const att = expeditionAttractions.find(a => a.id === id);
     if(!att) return;
 
     const drawerTitle = document.getElementById('drawerTitle');
