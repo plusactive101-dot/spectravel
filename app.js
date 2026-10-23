@@ -15,7 +15,7 @@ window.KEYLESS_MAP_TILES = {
     }
   },
   autonavi: {
-    name: 'High-Detail AutoNavi (高德)',
+    name: 'AutoNavi',
     url: 'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
     options: {
       subdomains: ['1', '2', '3', '4'],
