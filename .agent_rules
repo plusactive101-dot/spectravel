@@ -1,0 +1,17 @@
+# MKTRAVEL Project Execution Directives for agy
+
+1. Repository Boundary:
+   - Canonical directory: `/home/mk/mktravel`
+   - Never reference or search for `spectravel`.
+
+2. Deployment Pipeline:
+   - Git push to `origin/main` triggers GitHub Actions / Cloudflare Pages.
+   - If CI is blocked or immediate edge synchronization is required, deploy directly via:
+     `wrangler pages deploy . --project-name=mktravel`
+
+3. MANDATORY LIVE VERIFICATION GATE (Zero False Positives):
+   - Local `grep`, `git diff`, or `git status` checks ALONE DO NOT qualify as task completion.
+   - You MUST NOT report any web task as completed without executing a live cache-busting HTTP verification:
+     curl -s "https://mktravel.pages.dev/?ts=$(date +%s)" | grep -F "<target_string_or_element>"
+   - The matched line from the live HTTP response MUST be printed in the final output.
+   - If the live verification fails or returns empty, the task is NOT done—troubleshoot and fix until the live URL returns the expected content.
