@@ -1,3 +1,80 @@
+// =========================================================================
+// === PERMANENT 3-MAP TILE ENGINE (KEYLESS ZERO WATERMARK) ===
+// =========================================================================
+window.activeBaseLayerMode = 'dark';
+window.currentActiveTileLayer = null;
+
+// All 3 providers require ZERO API key and display ZERO watermarks
+window.KEYLESS_MAP_TILES = {
+  dark: {
+    name: 'Dark Canvas',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+    options: {
+      maxZoom: 18,
+      attribution: '&copy; Esri & CartoDB'
+    }
+  },
+  autonavi: {
+    name: 'High-Detail AutoNavi (高德)',
+    url: 'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+    options: {
+      subdomains: ['1', '2', '3', '4'],
+      maxZoom: 18,
+      attribution: '&copy; AutoNavi (高德地图)'
+    }
+  },
+  satellite: {
+    name: 'Satellite',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    options: {
+      maxZoom: 19,
+      attribution: '&copy; Esri World Imagery'
+    }
+  }
+};
+
+window.setMapBaseLayer = function(mode) {
+  if (mode === 'esri-dark') mode = 'dark';
+  if (mode === 'amap-detail') mode = 'autonavi';
+
+  const cfg = window.KEYLESS_MAP_TILES[mode] || window.KEYLESS_MAP_TILES.dark;
+  mode = (cfg === window.KEYLESS_MAP_TILES.autonavi ? 'autonavi' : (cfg === window.KEYLESS_MAP_TILES.satellite ? 'satellite' : 'dark'));
+
+  window.activeBaseLayerMode = mode;
+  const map = window.regionalLeafletMap || window.regionalMapInstance || window.regionalMap || window.map;
+
+  if (map && typeof L !== 'undefined') {
+    if (window.currentActiveTileLayer) {
+      try { map.removeLayer(window.currentActiveTileLayer); } catch(e){}
+    }
+    window.currentActiveTileLayer = L.tileLayer(cfg.url, cfg.options).addTo(map);
+    // Ensure tile layer sits behind markers
+    if (window.currentActiveTileLayer.bringToBack) {
+      window.currentActiveTileLayer.bringToBack();
+    }
+  }
+
+  // Update Button Visual States (Matching purple pill design)
+  ['dark', 'autonavi', 'satellite'].forEach(m => {
+    const btn = document.getElementById('btn-tile-' + m);
+    if (btn) {
+      if (m === mode) {
+        btn.className = 'px-3 py-1 rounded-md text-xs font-semibold bg-purple-600 text-white shadow-md transition-all flex items-center gap-1.5';
+      } else {
+        btn.className = 'px-3 py-1 rounded-md text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1.5';
+      }
+    }
+  });
+
+  try {
+    localStorage.setItem('mktravel_active_map_tile', mode);
+  } catch(e){}
+};
+
+// Aliases for compatibility
+window.switchMapTileSource = window.setMapBaseLayer;
+
+// === END PERMANENT 3-MAP TILE ENGINE ===
 
 // === SAFE TILE & MAP LEGEND SHIMS (KEYLESS ZERO WATERMARK) ===
 window.switchMapTileSource = function(mode) {
@@ -2190,9 +2267,11 @@ function initRegionalMap() {
     }).setView([22.95, 113.60], 9);
     window.map = regionalMapInstance;
     window.regionalMapInstance = regionalMapInstance;
+    window.regionalLeafletMap = regionalMapInstance;
+    const savedMode = (function() { try { return localStorage.getItem('mktravel_active_map_tile') || 'dark'; } catch(e){ return 'dark'; } })();
+    window.setMapBaseLayer(savedMode);
 
     // Apply default base layer
-    setMapBaseLayer(currentBaseLayerName);
 
     // Draw Transit Polyline linking major hubs
     const corridorPath = [
