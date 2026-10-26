@@ -1782,8 +1782,8 @@ const nodeDetails = {
         tips: 'Perfect recovery stay after overnight flight. Take afternoon stroll around nearby Shawan Ancient Town.'
       },
       'node-hotel-chimelong': {
-        badge: 'Stay 02 • 3 Nights',
-        date: '30 Nov – 03 Dec 2026',
+        badge: 'Stay 02 • 2 Nights',
+        date: '30 Nov – 02 Dec 2026',
         title: 'Chimelong Hotel (Guangzhou Resort)',
         hotelRoomId: 'hotel_2_chimelong',
         heroImage: 'media/hotels/hotel_2_chimelong_resort_photo.jpg',
@@ -1810,8 +1810,8 @@ const nodeDetails = {
         tips: 'Resort restaurants carry heavy markups. Take Didi 7 mins to Times E-PARK for Bingsheng Taste or order food delivery to resort security gate.'
       },
       'node-hotel-atour': {
-        badge: 'Stay 03 • 3 Nights',
-        date: '03 Dec – 06 Dec 2026',
+        badge: 'Stay 03 • 5 Nights',
+        date: '02 Dec – 07 Dec 2026',
         title: 'Atour Hotel Dongshankou (Guangzhou)',
         hotelRoomId: 'hotel_3_atour',
         heroImage: 'media/hotels/hotel_3_atour_dongshankou_photo.jpg',
@@ -1882,7 +1882,7 @@ const nodeDetails = {
       },
       'node-hotel-qiuguo': {
         badge: 'Stay 04 • 3 Nights',
-        date: '06 Dec – 09 Dec 2026',
+        date: '07 Dec – 10 Dec 2026',
         title: 'Qiuguo S Hotel Shenzhen (Nanshan)',
         hotelRoomId: 'hotel_4_qiuguo',
         heroImage: 'media/hotels/hotel_4_qiuguo_shenzhen_photo.jpg',
@@ -1927,8 +1927,8 @@ const nodeDetails = {
         tips: 'Fastest cross-border transit. From West Kowloon, take taxi or MTR directly to Royal Plaza Hotel in Mong Kok.'
       },
       'node-hotel-royal': {
-        badge: 'Stay 05 • 3 Nights',
-        date: '09 Dec – 12 Dec 2026',
+        badge: 'Stay 05 • 2 Nights',
+        date: '10 Dec – 12 Dec 2026',
         title: 'Royal Plaza Hotel Hong Kong (Mong Kok)',
         hotelRoomId: 'hotel_5_royal_plaza',
         heroImage: 'media/hotels/hotel_5_royal_plaza_hk_photo.jpg',

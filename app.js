@@ -2043,7 +2043,7 @@ const regionalLocations = [
     icon: "fa-hippo",
     nodeKey: "node-hotel-chimelong",
     description: "Stay 02: Exploration Kid's Room, 3-day multi-park pass, Safari Park, Circus & White Tiger restaurant.",
-    badge: "30 Nov – 03 Dec • 3 Nights"
+    badge: "30 Nov – 02 Dec • 2 Nights"
   },
   {
     id: "loc-canton-atour",
@@ -2056,7 +2056,7 @@ const regionalLocations = [
     icon: "fa-hotel",
     nodeKey: "node-hotel-atour",
     description: "Stay 03: Red-brick historic concession quarter, modern boutique twin setup, art cafes and bistros.",
-    badge: "03 – 06 Dec • 3 Nights"
+    badge: "02 – 07 Dec • 5 Nights"
   },
   {
     id: "loc-beijing-road",
@@ -2108,7 +2108,7 @@ const regionalLocations = [
     icon: "fa-hotel",
     nodeKey: "node-hotel-qiuguo",
     description: "Stay 04: Futuristic voice automation in the heart of China's Silicon Valley, 30-min from Futian rail.",
-    badge: "06 – 09 Dec • 3 Nights"
+    badge: "07 – 10 Dec • 3 Nights"
   },
   {
     id: "loc-dji-skycity",
@@ -2160,7 +2160,7 @@ const regionalLocations = [
     icon: "fa-hotel",
     nodeKey: "node-hotel-royal",
     description: "Stay 05: Plaza Deluxe Family Room with 2 double beds, direct covered bridge to MOKO Mall and Mong Kok East MTR.",
-    badge: "09 – 12 Dec • 3 Nights"
+    badge: "10 – 12 Dec • 2 Nights"
   },
   {
     id: "loc-victoria-harbour",
