@@ -1997,7 +1997,7 @@ const regionalLocations = [
     id: "loc-can-airport",
     region: "canton",
     title: "Guangzhou Baiyun Airport (CAN)",
-    titleZh: "广州白云国际机场 (T1/T2)",
+    titleZh: "广州白云国际机场",
     category: "Aviation & Ingress",
     coords: [23.3924, 113.2988],
     color: "#06b6d4",
@@ -2094,7 +2094,7 @@ const regionalLocations = [
     color: "#ec4899",
     icon: "fa-train",
     nodeKey: "node-hsr-gz-sz",
-    description: "China's premier mega-hub: board the G-series bullet train to Shenzhen North (~30 mins).",
+    description: "Major southern transport artery: scenic intercity expressway route connecting Guangzhou directly to Shenzhen.",
     badge: "Day 8 Transit"
   },
   {
@@ -2133,7 +2133,7 @@ const regionalLocations = [
     color: "#ec4899",
     icon: "fa-train-subway",
     nodeKey: "node-hsr-sz-hk",
-    description: "World's largest underground rail station: 14-minute bullet train straight to West Kowloon Hong Kong.",
+    description: "Key cross-border transit corridor linking Shenzhen directly to Hong Kong.",
     badge: "Day 11 Border Leap"
   },
   {

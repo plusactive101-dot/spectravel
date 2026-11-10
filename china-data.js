@@ -140,7 +140,7 @@ const itinerarySchedule = [
           "Morning Yum Cha dim sum feast at iconic lakeside Panxi Restaurant",
           "Yuexiu Park & iconic Five Rams sculpture monument",
           "Chen Clan Ancestral Hall intricate wood, brick, and pottery carvings",
-          "Evening packing and preparations for high-speed bullet rail transfer"
+          "Evening packing and preparations for Guangzhou to Shenzhen transfer"
         ]
       },
       {
@@ -151,11 +151,11 @@ const itinerarySchedule = [
         region: "Guangzhou to Shenzhen (Nanshan)",
         badgeColor: "bg-pink-500",
         hotel: "Qiuguo S Hotel Shenzhen (Nanshan)",
-        transport: "High-Speed Rail from Guangzhou South to Shenzhen North / Futian (30–45 mins)",
+        transport: "Intercity Didi / Private MPV transfer from Guangzhou to Shenzhen (Nanshan)",
         foodTip: "Nantou Ancient City craft breweries & Chaozhou beef hotpot",
         activities: [
           "Check out of Atour Hotel by 12:00 PM",
-          "High-Speed Rail bullet train from Guangzhou South to Shenzhen North / Futian",
+          "Intercity Didi / Private 7-seater MPV transfer from Atour Dongshankou to Qiuguo S Nanshan",
           "Check in to Qiuguo S Hotel Nantou (Forest Oxygen Bar Family Suite, 1 Queen + 1 Bunk Bed)",
           "Complimentary Qiuguo comforting package, minibar & vitamin station",
           "Evening stroll through 1,700-year-old Nantou Ancient City right beside hotel"
@@ -192,7 +192,7 @@ const itinerarySchedule = [
           "Breakfast for 3 included at Qiuguo S Hotel",
           "Shenzhen Bay coastal park family cycling facing Hong Kong skyline",
           "Sea World Shekou plaza dining & Minghua cruise ship illumination",
-          "Final evening packing for Hong Kong cross-border bullet train"
+          "Final evening packing for Hong Kong cross-border transfer"
         ]
       },
       {
@@ -203,11 +203,11 @@ const itinerarySchedule = [
         region: "Shenzhen to Hong Kong (Mong Kok)",
         badgeColor: "bg-amber-500",
         hotel: "Royal Plaza Hotel Hong Kong (Mong Kok)",
-        transport: "14-min High-Speed Rail: Shenzhen Futian → HK West Kowloon (Joint Customs)",
+        transport: "Cross-border private transfer / Didi from Shenzhen (Nanshan) to Hong Kong (Mong Kok)",
         foodTip: "Mong Kok street stalls (curry fishballs, egg waffles) & Kam Wah pineapple bun",
         activities: [
           "Breakfast for 3 included at Qiuguo, checkout before 12:00 PM",
-          "Futian Station: 14-min High-Speed Rail bullet train to HK West Kowloon (joint customs)",
+          "Direct cross-border transfer from Qiuguo S Hotel to Royal Plaza Hotel Hong Kong (Mong Kok)",
           "Check in to Royal Plaza Hotel Mong Kok (Plaza Deluxe Family Room, 2 Double Beds)",
           "Direct access to connected 7-storey MOKO Shopping Mall",
           "Evening exploration of Mong Kok Ladies' Market, Goldfish Street, and Sneaker Street"
@@ -1838,7 +1838,7 @@ const nodeDetails = {
       },
       'node-qingyuan': {
         badge: 'Day Tour • Adventure',
-        date: 'Fri, 05 Dec 2026',
+        date: 'Thu, 03 Dec 2026',
         title: 'Qingyuan Gulong Gorge Glass Canyon & Coaster Day Trip',
         heroImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80',
         sections: [
@@ -1863,22 +1863,22 @@ const nodeDetails = {
         tips: 'Stop by a local farmhouse at the foot of the mountain for world-famous Qingyuan free-range white cut chicken (清远白切鸡).'
       },
       'node-hsr-gz-sz': {
-        badge: 'Transit • Bullet Rail',
-        date: 'Sat, 06 Dec 2026',
-        title: 'Guangzhou South → Shenzhen North / Futian',
+        badge: 'Transit • Intercity Transfer',
+        date: 'Mon, 07 Dec 2026',
+        title: 'Guangzhou (Dongshankou) → Shenzhen (Nanshan)',
         heroImage: 'https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=1000&q=80',
         sections: [
           {
-            title: 'Bullet Train Details',
+            title: 'Intercity Transfer Details',
             items: [
-              'Departure Station: Guangzhou South (广州南站)',
-              'Arrival Station: Shenzhen North (深圳北) or Shenzhen Futian (福田)',
-              'Duration: 30 to 45 minutes',
-              'Ticketing: Book 14 days in advance via official Railway 12306 app or Trip.com'
+              'Pickup Location: Atour Hotel Dongshankou',
+              'Drop-off Location: Qiuguo S Hotel Shenzhen (Nanshan)',
+              'Transit Mode: Intercity Didi / Private Chartered 7-seater MPV',
+              'Duration: ~1h 45m door-to-door scenic highway drive'
             ]
           }
         ],
-        tips: 'Arrive at Guangzhou South station 45 minutes before departure to clear passport ID turnstiles and security inspection.'
+        tips: 'Door-to-door transfer eliminates luggage hauling through mega-stations and subway connections.'
       },
       'node-hotel-qiuguo': {
         badge: 'Stay 04 • 3 Nights',
@@ -1924,7 +1924,7 @@ const nodeDetails = {
             ]
           }
         ],
-        tips: 'Fastest cross-border transit. From West Kowloon, take taxi or MTR directly to Royal Plaza Hotel in Mong Kok.'
+        tips: 'Door-to-door direct hotel transfer straight into Royal Plaza Hotel Mong Kok.'
       },
       'node-hotel-royal': {
         badge: 'Stay 05 • 2 Nights',
